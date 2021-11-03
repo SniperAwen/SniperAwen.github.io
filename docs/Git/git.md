@@ -1,3 +1,61 @@
+# Git
+
+## Github
+
+- Github 是全球最大的开源项目托管平台。因为只支持 Git 作为唯一的版本控制工具，故名 GitHub。
+- 在 Github 中，你可以：
+  ① 关注自己喜欢的开源项目，为其点赞打 call
+  ② 为自己喜欢的开源项目做贡献（Pull Request）
+  ③ 和开源项目的作者讨论 Bug 和提需求 （Issues）
+  ④ 把喜欢的项目复制一份作为自己的项目进行修改（Fork）
+  ⑤ 创建属于自己的开源项目
+  ⑥ etc…
+  So，Github ≠ Git
+
+### 开源及许可协议
+
+![alt](./images/37.png)
+
+- 开源并不意味着完全没有限制，为了限制使用者的使用范围和保护作者的权利，每个开源项目都应该遵守开源许可协议（ Open Source License ）：
+
+  - ① BSD（Berkeley Software Distribution）
+  - ② Apache Licence 2.0
+  - ③ GPL（GNU General Public License）
+    - 具有传染性的一种开源协议，不允许修改后和衍生的代码做为闭源的商业软件发布和销售
+    - 使用 GPL 的最著名的软件项目是：Linux
+  - ④ LGPL（GNU Lesser General Public License）
+  - ⑤ MIT（Massachusetts Institute of Technology, MIT） - 是目前限制最少的协议，唯一的条件：在修改后的代码或者发行包中，必须包含原作者的许可信息 - 使用 MIT 的软件项目有：jquery、Node.js
+
+<br>
+
+- 开源的核心思想是“我为人人，人人为我”，人们越来越喜欢开源大致是出于以下 3 个原因：
+  - ① 开源给使用者更多的控制权
+  - ② 开源让学习变得容易
+  - ③ 开源才有真正的安全
+- 开源是软件开发领域的大趋势，拥抱开源就像站在了巨人的肩膀上，不用自己重复造轮子，让开发越来越容易。
+
+### 开源项目托管平台
+
+- 专门用于免费存放开源项目源代码的网站，叫做开源项目托管平台。目前世界上比较出名的开源项目托管平台
+  主要有以下 3 个：
+  - Github（全球最牛的开源项目托管平台，没有之一）
+  - Gitlab（对代码私有性支持较好，因此企业用户较多）
+  - Gitee（又叫做码云，是国产的开源项目托管平台。访问速度快、纯中文界面、使用友好）
+- 注意：以上 3 个开源项目托管平台，只能托管以 Git 管理的项目源代码，因此，它们的名字都以 Git 开头。
+
+### Github 使用教程
+
+![alt](./images/38.png)
+![alt](./images/39.png)
+![alt](./images/40.png)
+![alt](./images/41.png)
+![alt](./images/42.png)
+![alt](./images/43.png)
+![alt](./images/44.png)
+![alt](./images/45.png)
+![alt](./images/46.png)
+![alt](./images/47.png)
+
 ## 版本控制
 
 ![alt](./images/1.png)
@@ -152,3 +210,44 @@
   - git add .
 - 将暂存区的文件提交到 Git 仓库的命令
   - git commit -m "提交消息"
+
+## Git 分支
+
+![alt](images/48.png)
+![alt](images/49.png)
+![alt](images/50.png)
+![alt](images/51.png)
+
+### 本地分支操作
+
+![alt](images/52.png)
+![alt](images/53.png)
+![alt](images/54.png)
+![alt](images/55.png)
+![alt](images/56.png)
+![alt](images/57.png)
+![alt](images/58.png)
+
+### 远程分支操作
+
+![alt](images/59.png)
+![alt](images/60.png)
+![alt](images/61.png)
+![alt](images/62.png)
+![alt](images/63.png)
+
+### Git 分支总结
+
+- 能够掌握 Git 中基本命令的使用
+  - git init
+  - git add .
+  - git commit –m "提交消息"
+  - git status 和 git status -s
+- 能够使用 Github 创建和维护远程仓库
+  - 能够配置 Github 的 SSH 访问
+  - 能够将本地仓库上传到 Github
+- 能够掌握 Git 分支的基本使用
+  - git checkout -b 新分支名称
+  - git push -u origin 新分支名称
+  - git checkout 分支名称
+  - git branch

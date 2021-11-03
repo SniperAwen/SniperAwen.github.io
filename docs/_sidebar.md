@@ -10,7 +10,7 @@
   - [**HTML**](./大前端/html.md)
   - [**CSS**](./大前端/css.md)
   - [**移动端 Web**](./大前端/移动web.md)
-  - [**JavaScript 问题**](./大前端/jspro.md)
+  - [**JavaScript 问题**](./大前端/JsQuestion.md)
   - **JavaScript 基础**
     - [编程语言](./大前端/01-JavaScript基础/01/1.md)
     - [运算符（操作符）](./大前端/01-JavaScript基础/02/1.md)

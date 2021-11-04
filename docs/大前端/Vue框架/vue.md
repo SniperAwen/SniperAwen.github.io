@@ -370,3 +370,125 @@ Object.defineProperty(obj2,"x",{
 ![alt](./images/14.png)
 ![alt](./images/16.png)
 ![alt](./images/15.png)
+
+### 非单文件组件
+
+- Vue 中使用组件的三大步骤
+  - 定义组件（创建组件）
+  - 注册组件
+  - 使用组件（写组件标签）
+- 如何定义一个组件？
+  - 使用`Vue.extend(options)`创建，其中`options`和`new Vue(options)`时传入的那个 `options` 几乎一样,但也有点区别：
+  - 区别如下：
+    - `el`不要写，为什么?————最终所有的组件都要经过一个 vm 的管理，由 vm 中的 el 决定服务哪个容器.
+    - `data`必须写成函数，为什么?————避免组件被复用时,数据存在引用关系。
+  - 备注:使用 template 可以配置组件结构。
+- 如何注册组件?
+  - 局部注册:靠 `new Vue `的时候传入 `components` 选项
+  - 全局注册:靠 `Vue.component('组件名’,组件)`
+- 三、编写组件标签:
+  - `<school></school>`
+- 几个注意点:
+  - 关于组件名:
+    - 一个单词组成:
+      - 第一种写法(首字母小写):`school`
+      - 第二种写法(首字母大写):`School`
+    - 多个单词组成:
+      - 第一种写法(kebab-case 命名):`my-school`
+      - 第二种写法(CamelCase 命名):`MySchool`（需要 Vue 脚手架支持)
+    - 备注:
+      - 组件名尽可能回避 HTML 中已有的元素名称，例如: h2、H2 都不行。
+      - 可以使用 name 配置项指定组件在开发者工具中呈现的名字-
+  - 关于组件标签:
+    - 第一种写法:`<school></school>`
+    - 第二种写法: `<school/>`
+    - 备注:不用使用脚手架时，`<school/>`会导致后续组件不能渲染。
+  - 一个简写方式:
+    - `const school = Vue.extend(options)`可简写为: `const school = options`
+
+### VueComponent
+
+- school 组件本质是一个名为`VueComponent`的构造函数，且不是程序员定义的，是`Vue.extend`生成的。
+- 我们只需要写`<school/>`或`<school></school>`，Vue 解析时会帮我们创建 school 组件的实例对象，即 vue 帮我们执行的: `new VueComponent(options)`。
+- 特别注意:每次调用 `Vue.extend`，返回的都是一个全新的 `VueComponent`!!!!
+- 关于 `this` 指向:
+  - 组件配置中:
+    - data 函数、methods 中的函数、watch 中的函数、computed 中的函数它们的 this 均是【VueComponent 实例对象】.
+  - `new Vue(options)`配置中:
+    - data 函数、methods 中的函数、watch 中的函数、computed 中的函数它们的 this 均是【Vue 实例对象】。
+- `VueComponent` 的实例对象，以后简称 vc（也可称之为:组件实例对象）。
+  - Vue 的实例对象，以后简称 vm.
+
+<br>
+
+- 一个重要的内置关系:`VueComponent.prototype._proto_ == Vue.prototype`
+- 为什么要有这个关系:让组件实例对象（vc）可以访问到 Vue 原型上的属性、方法。
+  ![alt](./images/17.png)
+
+### 单文件组件
+
+- 一个`.vue`文件的组成(三个部分)
+
+  ```
+  <template>
+    页面模板
+  </template>
+
+  <script>
+  // 引入组件
+  import *** from './***.vue'
+  import *** from './***.vue'
+  export default {
+    JS 模块对象
+  }
+  </script>
+
+  <style>
+    样式定义
+  </style>
+  ```
+
+## Vue 脚手架
+
+- Vue 脚手架也叫 Vue CLI ，CLI 全名为 command line interface
+- Vue 脚手架是 Vue 官方提供的标准化开发工具（开发平台）。
+- 文档: https://cli.vuejs.org/zh/。
+
+### Vue 脚手架使用步骤
+
+- 第一步（仅第一次执行）：全局安装@vue/cli。
+  `npm install -g @vue/cli`
+- 第二步：切换到你要创建项目的目录，然后使用命令创建项目
+  `vue create xxxx`
+- 第三步：启动项目
+  `npm run serve`
+- 备注：
+  - 如出现下载缓慢请配置 npm 淘宝镜像：`npm config set registry` https://registry.npm.taobao.org
+  - Vue 脚手架隐藏了所有 webpack 相关的配置，若想查看具体的 webpack 配置，请执行：`vue inspect > output.js`
+
+### 模板项目的结构
+
+- 项目目录
+
+  - `node_modules`
+  - `public`
+    - `favicon.ico` : 页签图标
+    - `index.html` : 主页面
+  - `src`
+    - `assets` : 存放静态资源
+      - `logo.png`
+    - `component` : 存放组件
+      - `HelloWorld.vue`
+    - `App.vue` : 汇总所有组件
+    - `main.js` : 入口文件
+  - `.gitignore` : git 版本管制忽略的配置
+  - `babel.config.js` : babel 的配置文件
+  - `package.json` : 应用包配置文件
+  - `package-lock.json` ：包版本控制文件
+  - `README.md` : 应用描述文件
+
+- 关于不同版本的 Vue:
+  - `vue.js `与 `vue.runtime.xxx.js` 的区别:
+    - `vue.js `是完整版的 Vue,包含:核心功能+模板解析器。
+    - `vue.runtime.xxx.js` 是运行版的 Vue，只包含:核心功能;没有模板解析器。
+  - 因为 `vue.runtime.xxx.js` 没有模板解析器，所以不能使用 template 配置项，需要使用 render 函数接收到的 `createElement` 函数去指定具体内容。

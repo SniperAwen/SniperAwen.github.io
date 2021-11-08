@@ -263,7 +263,7 @@ Object.defineProperty(obj2,"x",{
 - 定义:对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）.
 - 语法:
   - 1.注册过滤器:`Vue.filter(name,callback)`或`new Vue{filters:{}}`
-  - 2.使用过滤器:{{ xxx │ 过滤器名 }}或` v-bind:属性="xxx │ 过滤器名"`
+  - 2.使用过滤器: `{{ xxx │ 过滤器名 }}` 或 ` v-bind:属性="xxx │ 过滤器名"`
 - 备注:
   - 1.过滤器也可以接收额外参数、多个过滤器也可以串联
   - 2.并没有改变原本的数据,是产生新的对应的数据
@@ -328,9 +328,9 @@ Object.defineProperty(obj2,"x",{
 - 配置对象中常用的 3 个回调:
   - `bind:` 指令与元素成功绑定时调用.
   - `inserted:` 指令所在元素被插入页面时调用.
-  - ` update:` 指令所在模板结构被重新解析时调用.
+  - `update:` 指令所在模板结构被重新解析时调用.
 - 备注：
-  - 指令定义时不加 `v-，但使用时要加 `v-`;
+  - 指令定义时不加 `v-`，但使用时要加 `v-`;
   - 指令名如果是多个单词，要使用`kebab-case`命名方式，不要用`camelCase`命名。
 
 ### Vue 生命周期
@@ -614,3 +614,84 @@ Object.defineProperty(obj2,"x",{
 - 解绑自定义事件: `this.$off("zidingyi")`
 - 组件上也可以绑定原生 DOM 事件，需要使用 `native` 修饰符。
 - 注意:通过 `this.$refs.x.$on('zidingyi',回调)` 绑定自定义事件时，回调要么配置在 methods 中，要么用箭头函数，否则 this 指向会出问题!
+
+### 全局事件总线 (GlobalEventBus)
+
+- 一种组件间通信的方式，适用于任意组件间通信。
+- 安装全局事件总线:
+  ```
+  new vue({
+  ......
+  beforeCreate() {
+    Vue.prototype.$bus = this //安装全局事件总线，$bus 就是当前应用的 vm
+  },
+  ......
+  })
+  ```
+- 使用事件总线:
+  - 接收数据:A 组件想接收数据，则在 A 组件中给 `$bus` 绑定自定义事件，事件的回调留在 A 组件自身。
+    ```
+    methods(){
+      demo(data){......}
+    }
+    mounted() {
+      this.$bus.$on('xxxx',this.demo)
+    }
+    ```
+  - 提供数据: `this.$bus.$emit('xxxx',数据)`
+- 最好在 `beforeDestroy `钩子中，用 `$off` 去解绑当前组件所用到的事件。
+
+### 消息订阅与发布 (pubsub)
+
+- 一种组件间通信的方式，适用于任意组件间通信。
+- 使用步骤:
+  - 安装 pubsub: `npm i pubsub-js`
+  - 引入: `import pubsub from 'pubsub-js'`
+  - 接收数据:A 组件想接收数据，则在 A 组件中订阅消息，订阅的回调留在 A 组件自身。
+    ```
+    methods(){
+    demo(data){......}
+    }
+    ......
+    mounted() {
+    this.pid = pubsub.subscribe("xxx",this.demo) //订阅消息.
+    }
+    ```
+  - 提供数据: `pubsub.publish('xxx",数据)`
+  - 最好在 beforeDestroy 钩子中，用 `PubSub .unsubscribe(pid) `去 `<span style="color : red"">取消订阅。</span>`
+
+### nextTick
+
+- 语法: `this.$nextTick(回调函数)`
+- 作用:在下一次 DOM 更新结束后执行其指定的回调。
+- 什么时候用:当改变数据后，要基于更新后的新 DOM 进行某些操作时，要在 nextTick 所指定的回调函数中执行。
+
+### Vue 封装的过度与动画
+
+1. 作用：在插入、更新或移除 DOM 元素时，在合适的时候给元素添加样式类名。
+
+2. 图示：
+   ![alt](./images/18.png)
+
+3. 写法：
+
+   1. 准备好样式：
+
+      - 元素进入的样式：
+        1. v-enter：进入的起点
+        2. v-enter-active：进入过程中
+        3. v-enter-to：进入的终点
+      - 元素离开的样式：
+        1. v-leave：离开的起点
+        2. v-leave-active：离开过程中
+        3. v-leave-to：离开的终点
+
+   2. 使用`<transition>`包裹要过度的元素，并配置 name 属性：
+
+      ```vue
+      <transition name="hello">
+      	<h1 v-show="isShow">你好啊！</h1>
+      </transition>
+      ```
+
+   3. 备注：若有多个元素需要过度，则需要使用：`<transition-group>`，且每个元素都要指定`key`值。

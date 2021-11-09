@@ -62,17 +62,19 @@
    - 为每一个添加到 vm 上的属性,都指定一个 getter/setter。
    - 在 getter/setter 内部去操作(读/写)data 中对应的属性。
 
-```
-let obj1 = {x:100}
-let obj2 = {y:100}
-Object.defineProperty(obj2,"x",{
-    get(){  // 读取时
-        return obj.x
-    },
-    set(value){  // 修改时
-        obj.x=value
-    }
-})
+```javascript
+let obj1 = { x: 100 };
+let obj2 = { y: 100 };
+Object.defineProperty(obj2, "x", {
+  get() {
+    // 读取时
+    return obj.x;
+  },
+  set(value) {
+    // 修改时
+    obj.x = value;
+  },
+});
 ```
 
 ![alt](./images/9.png)
@@ -291,12 +293,12 @@ Object.defineProperty(obj2,"x",{
   - 本质是一个特殊属性，Vue 实例创建完毕并接管容器后，会删掉 v-cloak 属性。
   - 使用:
 
-  ```
-   <style>
-       [v-cloak] {
-           display: none;
-       }
-   </style>
+  ```html
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
   ```
 
   - 配合 `v-cloak `可以解决网速慢时页面展示出{{xxx}}的问题。
@@ -320,7 +322,7 @@ Object.defineProperty(obj2,"x",{
 
 - 定义语法：
   - 局部指令：
-  ```
+  ```js
   new Vue({                               new Vue({
      direcatives:{指令名:配置对象}   或者       direcatives{指令名:回调函数}
    })                                     })
@@ -429,10 +431,8 @@ Object.defineProperty(obj2,"x",{
 
 - 一个`.vue`文件的组成(三个部分)
 
-  ```
-  <template>
-    页面模板
-  </template>
+  ```vue
+  <template>页面模板</template>
 
   <script>
   // 引入组件
@@ -444,7 +444,7 @@ Object.defineProperty(obj2,"x",{
   </script>
 
   <style>
-    样式定义
+  样式定义
   </style>
   ```
 
@@ -518,20 +518,13 @@ Object.defineProperty(obj2,"x",{
     - 第一种方式（只接收）:
       - `props: ["name"]`
     - 第二种方式(限制类型):
-      - ```
-        props:{
-          name:String
-        }
+      - ```vue
+        props:{ name:String }
         ```
     - 第三种方式(限制类型、限制必要性、指定默认值):
-      - ```
-        props:{
-          name:{
-            type:String， //类型
-            required:true， /必要性
-            default:'老王' //默认值
-          }
-        }
+      - ```vue
+        props:{ name:{ type:String， //类型 required:true， /必要性
+        default:'老王' //默认值 } }
         ```
 - 备注: props 是只读的，Vue 底层会监测你对 props 的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制 props 的内容到 data 中一份，然后去修改 data 中的数据。
 
@@ -540,12 +533,8 @@ Object.defineProperty(obj2,"x",{
 - 功能:可以把多个组件共用的配置提取成一个混入对象
 - 使用方式:
   - 第一步定义混合，例如:
-    - ```
-      {
-        data(){...}
-        methods:{....}
-        ....
-      }
+    - ```vue
+      { data(){...} methods:{....} .... }
       ```
   - 第二步使用混入，例如:
     - 全局混入: `Vue.mixin(xxx)`
@@ -557,7 +546,7 @@ Object.defineProperty(obj2,"x",{
 - 本质:包含 install 方法的一个对象，install 的第一个参数是 Vue，第二个以后的参数是插件使用者传递的数据。
 - 定义插件:
 
-  - ```
+  - ```js
     对象.install = function (Vue,options) {
       // 1．添加全局过滤器
       Vue.filter(....)
@@ -602,12 +591,9 @@ Object.defineProperty(obj2,"x",{
 - 绑定自定义事件:
   - 第一种方式，在父组件中: `<Demo@zidingyi="test"/>` 或 `<Demo v-on:zidingyi="test"/>`
   - 第二种方式，在父组件中:
-    ```
-    <Demo ref="demo" / >
-    ......
-    mounted(){
-    this.$refs.xxx.$on('zidingyi',this.test)
-    }
+    ```vue
+    <Demo ref="demo" / > ...... mounted(){
+    this.$refs.xxx.$on('zidingyi',this.test) }
     ```
   - 若想让自定义事件只能触发一次，可以使用 `once` 修饰符，或 `$once` 方法。
 - 触发自定义事件: `this.$emit('zidingyi',数据)`
@@ -619,23 +605,14 @@ Object.defineProperty(obj2,"x",{
 
 - 一种组件间通信的方式，适用于任意组件间通信。
 - 安装全局事件总线:
-  ```
-  new vue({
-  ......
-  beforeCreate() {
-    Vue.prototype.$bus = this //安装全局事件总线，$bus 就是当前应用的 vm
-  },
-  ......
-  })
+  ```vue
+  new vue({ ...... beforeCreate() { Vue.prototype.$bus = this
+  //安装全局事件总线，$bus 就是当前应用的 vm }, ...... })
   ```
 - 使用事件总线:
   - 接收数据:A 组件想接收数据，则在 A 组件中给 `$bus` 绑定自定义事件，事件的回调留在 A 组件自身。
-    ```
-    methods(){
-      demo(data){......}
-    }
-    mounted() {
-      this.$bus.$on('xxxx',this.demo)
+    ```vue
+    methods(){ demo(data){......} } mounted() { this.$bus.$on('xxxx',this.demo)
     }
     ```
   - 提供数据: `this.$bus.$emit('xxxx',数据)`
@@ -648,14 +625,9 @@ Object.defineProperty(obj2,"x",{
   - 安装 pubsub: `npm i pubsub-js`
   - 引入: `import pubsub from 'pubsub-js'`
   - 接收数据:A 组件想接收数据，则在 A 组件中订阅消息，订阅的回调留在 A 组件自身。
-    ```
-    methods(){
-    demo(data){......}
-    }
-    ......
-    mounted() {
-    this.pid = pubsub.subscribe("xxx",this.demo) //订阅消息.
-    }
+    ```vue
+    methods(){ demo(data){......} } ...... mounted() { this.pid =
+    pubsub.subscribe("xxx",this.demo) //订阅消息. }
     ```
   - 提供数据: `pubsub.publish('xxx",数据)`
   - 最好在 beforeDestroy 钩子中，用 `PubSub .unsubscribe(pid) `去 `<span style="color : red"">取消订阅。</span>`
@@ -695,3 +667,153 @@ Object.defineProperty(obj2,"x",{
       ```
 
    3. 备注：若有多个元素需要过度，则需要使用：`<transition-group>`，且每个元素都要指定`key`值。
+
+## Vue 中的 Ajax
+
+### vue 脚手架配置代理
+
+- **方法一**
+
+​ 在 vue.config.js 中添加如下配置：
+
+```js
+devServer: {
+  proxy: "http://localhost:5000";
+}
+```
+
+说明：
+
+1. 优点：配置简单，请求资源时直接发给前端（8080）即可。
+2. 缺点：不能配置多个代理，不能灵活的控制请求是否走代理。
+3. 工作方式：若按照上述配置代理，当请求了前端不存在的资源时，那么该请求会转发给服务器 （优先匹配前端资源）
+
+- **方法二**
+
+​ 编写 vue.config.js 配置具体代理规则：
+
+```js
+module.exports = {
+  devServer: {
+    proxy: {
+      "/api1": {
+        // 匹配所有以 '/api1'开头的请求路径
+        target: "http://localhost:5000", // 代理目标的基础路径
+        changeOrigin: true,
+        pathRewrite: { "^/api1": "" },
+      },
+      "/api2": {
+        // 匹配所有以 '/api2'开头的请求路径
+        target: "http://localhost:5001", // 代理目标的基础路径
+        changeOrigin: true,
+        pathRewrite: { "^/api2": "" },
+      },
+    },
+  },
+};
+/*
+   changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
+   changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:8080
+   changeOrigin默认值为true
+*/
+```
+
+说明：
+
+1. 优点：可以配置多个代理，且可以灵活的控制请求是否走代理。
+2. 缺点：配置略微繁琐，请求资源时必须加前缀。
+
+### 插槽
+
+1. 作用：让父组件可以向子组件指定位置插入 html 结构，也是一种组件间通信的方式，适用于 <strong style="color:red">父组件 ===> 子组件</strong> 。
+
+2. 分类：默认插槽、具名插槽、作用域插槽
+
+3. 使用方式：
+
+   1. 默认插槽：
+
+      ```vue
+      父组件中：
+      <Category>
+                 <div>html结构1</div>
+              </Category>
+      子组件中：
+      <template>
+        <div>
+          <!-- 定义插槽 -->
+          <slot>插槽默认内容...</slot>
+        </div>
+      </template>
+      ```
+
+   2. 具名插槽：
+
+      ```vue
+      父组件中：
+      <Category>
+                  <template slot="center">
+                    <div>html结构1</div>
+                  </template>
+      
+                  <template v-slot:footer>
+                     <div>html结构2</div>
+                  </template>
+              </Category>
+      子组件中：
+      <template>
+        <div>
+          <!-- 定义插槽 -->
+          <slot name="center">插槽默认内容...</slot>
+          <slot name="footer">插槽默认内容...</slot>
+        </div>
+      </template>
+      ```
+
+   3. 作用域插槽：
+
+      1. 理解：<span style="color:red">数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。</span>（games 数据在 Category 组件中，但使用数据所遍历出来的结构由 App 组件决定）
+
+      2. 具体编码：
+
+         ```vue
+         父组件中：
+         <Category>
+         			<template scope="scopeData">
+         				<!-- 生成的是ul列表 -->
+         				<ul>
+         					<li v-for="g in scopeData.games" :key="g">{{g}}</li>
+         				</ul>
+         			</template>
+         		</Category>
+
+         <Category>
+         			<template slot-scope="scopeData">
+         				<!-- 生成的是h4标题 -->
+         				<h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
+         			</template>
+         		</Category>
+         子组件中：
+         <template>
+           <div>
+             <slot :games="games"></slot>
+           </div>
+         </template>
+
+         <script>
+         export default {
+           name: "Category",
+           props: ["title"],
+           //数据在子组件自身
+           data() {
+             return {
+               games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
+             };
+           },
+         };
+         </script>
+         ```
+
+   ```
+
+   ```

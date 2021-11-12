@@ -662,7 +662,7 @@ Object.defineProperty(obj2, "x", {
 
       ```vue
       <transition name="hello">
-      	<h1 v-show="isShow">你好啊！</h1>
+       <h1 v-show="isShow">你好啊！</h1>
       </transition>
       ```
 
@@ -779,20 +779,20 @@ module.exports = {
          ```vue
          父组件中：
          <Category>
-         			<template scope="scopeData">
-         				<!-- 生成的是ul列表 -->
-         				<ul>
-         					<li v-for="g in scopeData.games" :key="g">{{g}}</li>
-         				</ul>
-         			</template>
-         		</Category>
+            <template scope="scopeData">
+             <!-- 生成的是ul列表 -->
+             <ul>
+              <li v-for="g in scopeData.games" :key="g">{{g}}</li>
+             </ul>
+            </template>
+           </Category>
 
          <Category>
-         			<template slot-scope="scopeData">
-         				<!-- 生成的是h4标题 -->
-         				<h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
-         			</template>
-         		</Category>
+            <template slot-scope="scopeData">
+             <!-- 生成的是h4标题 -->
+             <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
+            </template>
+           </Category>
          子组件中：
          <template>
            <div>
@@ -866,9 +866,9 @@ module.exports = {
 
    //创建vm
    new Vue({
-   	el:'#app',
-   	render: h => h(App),
-   	store
+    el:'#app',
+    render: h => h(App),
+    store
    })
    ```
 
@@ -929,15 +929,15 @@ module.exports = {
    ......
 
    const getters = {
-   	bigSum(state){
-   		return state.sum * 10
-   	}
+    bigSum(state){
+     return state.sum * 10
+    }
    }
 
    //创建并暴露store
    export default new Vuex.Store({
-   	......
-   	getters
+    ......
+    getters
    })
    ```
 
@@ -994,3 +994,336 @@ module.exports = {
    ```
 
 > 备注：mapActions 与 mapMutations 使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+
+### 模块化+命名空间
+
+1. 目的：让代码更好维护，让多种数据分类更加明确。
+
+2. 修改`store.js`
+
+   ```javascript
+   const countAbout = {
+     namespaced:true,//开启命名空间
+     state:{x:1},
+     mutations: { ... },
+     actions: { ... },
+     getters: {
+       bigSum(state){
+          return state.sum * 10
+       }
+     }
+   }
+
+   const personAbout = {
+     namespaced:true,//开启命名空间
+     state:{ ... },
+     mutations: { ... },
+     actions: { ... }
+   }
+
+   const store = new Vuex.Store({
+     modules: {
+       countAbout,
+       personAbout
+     }
+   })
+   ```
+
+3. 开启命名空间后，组件中读取 state 数据：
+
+   ```js
+   //方式一：自己直接读取
+   this.$store.state.personAbout.list
+   //方式二：借助mapState读取：
+   ...mapState('countAbout',['sum','school','subject']),
+   ```
+
+4. 开启命名空间后，组件中读取 getters 数据：
+
+   ```js
+   //方式一：自己直接读取
+   this.$store.getters['personAbout/firstPersonName']
+   //方式二：借助mapGetters读取：
+   ...mapGetters('countAbout',['bigSum'])
+   ```
+
+5. 开启命名空间后，组件中调用 dispatch
+
+   ```js
+   //方式一：自己直接dispatch
+   this.$store.dispatch('personAbout/addPersonWang',person)
+   //方式二：借助mapActions：
+   ...mapActions('countAbout',{incrementOdd:'jiaOdd',incrementWait:'jiaWait'})
+   ```
+
+6. 开启命名空间后，组件中调用 commit
+
+   ```js
+   //方式一：自己直接commit
+   this.$store.commit('personAbout/ADD_PERSON',person)
+   //方式二：借助mapMutations：
+   ...mapMutations('countAbout',{increment:'JIA',decrement:'JIAN'}),
+   ```
+
+## Vue-router 路由
+
+- vue 的一个插件库，专门用来实现 `SPA` 应用
+- 对 SPA 应用的理解
+  - 单页 Web 应用（single page web application，SPA）。
+  - 整个应用只有一个完整的页面。
+  - 点击页面中的导航链接不会刷新页面，只会做页面的局部更新。
+  - 数据需要通过 ajax 请求获取.
+
+### Vue-router 的理解
+
+- 一个路由 `route` 就是一组映射关系 `key - value` ，多个路由需要路由器 `router` 进行管理。
+- `key` 为路径, `value `可能是 `function` 或 `component`
+
+- 路由分类:
+  - 后端路由:
+    - 理解：value 是 function, 用于处理客户端提交的请求。
+    - 工作过程：服务器接收到一个请求时, 根据请求路径找到匹配的函数来处理请求, 返回响应数据。
+  - 前端路由:
+    - 理解：value 是 component，用于展示页面内容。
+    - 理解：value 是 component，用于展示页面内容。
+
+### Vue-router 基本使用
+
+1. 安装 vue-router，命令：`npm i vue-router`
+
+2. 应用插件：`Vue.use(VueRouter)`
+
+3. 编写 router 配置项:
+
+   ```js
+   //引入VueRouter
+   import VueRouter from "vue-router";
+   //引入Luyou 组件
+   import About from "../components/About";
+   import Home from "../components/Home";
+
+   //创建router实例对象，去管理一组一组的路由规则
+   const router = new VueRouter({
+     routes: [
+       {
+         path: "/about",
+         component: About,
+       },
+       {
+         path: "/home",
+         component: Home,
+       },
+     ],
+   });
+
+   //暴露router
+   export default router;
+   ```
+
+4. 实现切换（active-class 可配置高亮样式）
+
+   ```vue
+   <router-link active-class="active" to="/about">About</router-link>
+   ```
+
+5. 指定展示位置
+
+   ```vue
+   <router-view></router-view>
+   ```
+
+- **几个注意点**
+  - 路由组件通常存放在`pages`文件夹，一般组件通常存放在`components`文件夹。
+  - 通过切换，“隐藏”了的路由组件，默认是被销毁掉的，需要的时候再去挂载。
+  - 每个组件都有自己的`$route`属性，里面存储着自己的路由信息。
+  - 整个应用只有一个 router，可以通过组件的`$router`属性获取到。
+
+### 多级路由
+
+1. 配置路由规则，使用 children 配置项：
+
+   ```js
+   routes: [
+     {
+       path: "/about",
+       component: About,
+     },
+     {
+       path: "/home",
+       component: Home,
+       children: [
+         //通过children配置子级路由
+         {
+           path: "news", //此处一定不要写：/news
+           component: News,
+         },
+         {
+           path: "message", //此处一定不要写：/message
+           component: Message,
+         },
+       ],
+     },
+   ];
+   ```
+
+2. 跳转（要写完整路径）：
+
+   ```vue
+   <router-link to="/home/news">News</router-link>
+   ```
+
+### 路由的 query 参数
+
+1. 传递参数
+
+   ```vue
+   <!-- 跳转并携带query参数，to的字符串写法 -->
+   <router-link :to="/home/message/detail?id=666&title=你好">跳转</router-link>
+
+   <!-- 跳转并携带query参数，to的对象写法 -->
+   <router-link
+     :to="{
+       path: '/home/message/detail',
+       query: {
+         id: 666,
+         title: '你好',
+       },
+     }"
+   >跳转</router-link>
+   ```
+
+2. 接收参数：
+
+   ```js
+   $route.query.id;
+   $route.query.title;
+   ```
+
+### 命名路由
+
+1. 作用：可以简化路由的跳转。
+
+2. 如何使用
+
+   1. 给路由命名：
+
+      ```js
+      {
+       path:'/demo',
+       component:Demo,
+       children:[
+        {
+         path:'test',
+         component:Test,
+         children:[
+          {
+            name:'hello' //路由命名
+            path:'welcome',
+            component:Hello,
+          }
+         ]
+        }
+       ]
+      }
+      ```
+
+   2. 简化跳转：
+
+      ```vue
+      <!--简化前，需要写完整的路径 -->
+      <router-link to="/demo/test/welcome">跳转</router-link>
+
+      <!--简化后，直接通过名字跳转 -->
+      <router-link :to="{ name: 'hello' }">跳转</router-link>
+
+      <!--简化写法配合传递参数 -->
+      <router-link
+        :to="{
+          name: 'hello',
+          query: {
+            id: 666,
+            title: '你好',
+          },
+        }"
+      >跳转</router-link>
+      ```
+
+### 路由的 params 参数
+
+1. 配置路由，声明接收 params 参数
+
+   ```js
+   {
+    path:'/home',
+    component:Home,
+    children:[
+     {
+      path:'news',
+      component:News
+     },
+     {
+      component:Message,
+      children:[
+       {
+        name:'xiangqing',
+        path:'detail/:id/:title', //使用占位符声明接收params参数
+        component:Detail
+       }
+      ]
+     }
+    ]
+   }
+   ```
+
+2. 传递参数
+
+   ```vue
+   <!-- 跳转并携带params参数，to的字符串写法 -->
+   <router-link :to="/home/message/detail/666/你好">跳转</router-link>
+
+   <!-- 跳转并携带params参数，to的对象写法 -->
+   <router-link
+     :to="{
+       name: 'xiangqing',
+       params: {
+         id: 666,
+         title: '你好',
+       },
+     }"
+   >跳转</router-link>
+   ```
+
+   > 特别注意：路由携带 params 参数时，若使用 to 的对象写法，则不能使用 path 配置项，必须使用 name 配置！
+
+3. 接收参数：
+
+   ```js
+   $route.params.id;
+   $route.params.title;
+   ```
+
+### 路由的 props 配置
+
+​ 作用：让路由组件更方便的收到参数
+
+```js
+{
+	name:'xiangqing',
+	path:'detail/:id',
+	component:Detail,
+
+	//第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
+	// props:{a:900}
+
+	//第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+	// props:true
+
+	//第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
+	props(route){
+		return {
+			id:route.query.id,
+			title:route.query.title
+		}
+	}
+}
+```

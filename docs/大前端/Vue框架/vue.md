@@ -1083,9 +1083,11 @@ module.exports = {
   - 后端路由:
     - 理解：value 是 function, 用于处理客户端提交的请求。
     - 工作过程：服务器接收到一个请求时, 根据请求路径找到匹配的函数来处理请求, 返回响应数据。
-  - 前端路由:
-    - 理解：value 是 component，用于展示页面内容。
-    - 理解：value 是 component，用于展示页面内容。
+  - 前端路由: - 理解：value 是 component，用于展示页面内容。 - 理解：value 是 component，用于展示页面内容。
+
+![alt](./images/21.png)
+![alt](./images/22.png)
+![alt](./images/23.png)
 
 ### Vue-router 基本使用
 
@@ -1327,3 +1329,148 @@ module.exports = {
 	}
 }
 ```
+
+### `<router-link>`的 replace 属性
+
+1. 作用：控制路由跳转时操作浏览器历史记录的模式
+2. 浏览器的历史记录有两种写入方式：分别为`push`和`replace`，`push`是追加历史记录，`replace`是替换当前记录。路由跳转时候默认为`push`
+3. 如何开启`replace`模式：`<router-link replace .......>News</router-link>`
+
+### 编程式路由导航
+
+1. 作用：不借助`<router-link> `实现路由跳转，让路由跳转更加灵活
+
+2. 具体编码：
+
+   ```js
+   //$router的两个API
+   this.$router.push({
+     name: "xiangqing",
+     params: {
+       id: xxx,
+       title: xxx,
+     },
+   });
+
+   this.$router.replace({
+     name: "xiangqing",
+     params: {
+       id: xxx,
+       title: xxx,
+     },
+   });
+   this.$router.forward(); //前进
+   this.$router.back(); //后退
+   this.$router.go(); //可前进也可后退
+   ```
+
+### 缓存路由组件
+
+1. 作用：让不展示的路由组件保持挂载，不被销毁。
+
+2. 具体编码：
+
+   - 缓存单个组件
+
+     ```vue
+     <keep-alive include="News"> 
+         <router-view></router-view>
+     </keep-alive>
+     ```
+
+   - 缓存多个组件
+     ```vue
+     <keep-alive :include="['News', 'Message']">
+         <router-view></router-view>
+     </keep-alive>
+     ```
+
+   ```
+
+   ```
+
+### 路由组件的生命周期钩子
+
+1. 作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
+2. 具体名字：
+   1. `activated`路由组件被激活时触发。
+   2. `deactivated`路由组件失活时触发。
+
+### 路由守卫
+
+1. 作用：对路由进行权限控制
+
+2. 分类：全局守卫、独享守卫、组件内守卫
+
+3. 全局守卫:
+
+   ```js
+   //全局前置守卫：初始化时执行、每次路由切换前执行
+   router.beforeEach((to, from, next) => {
+     console.log("beforeEach", to, from);
+     if (to.meta.isAuth) {
+       //判断当前路由是否需要进行权限控制
+       if (localStorage.getItem("school") === "atguigu") {
+         //权限控制的具体规则
+         next(); //放行
+       } else {
+         alert("暂无权限查看");
+         // next({name:'guanyu'})
+       }
+     } else {
+       next(); //放行
+     }
+   });
+
+   //全局后置守卫：初始化时执行、每次路由切换后执行
+   router.afterEach((to, from) => {
+     console.log("afterEach", to, from);
+     if (to.meta.title) {
+       document.title = to.meta.title; //修改网页的title
+     } else {
+       document.title = "vue_test";
+     }
+   });
+   ```
+
+4. 独享守卫:
+
+   ```js
+   beforeEnter(to,from,next){
+   	console.log('beforeEnter',to,from)
+   	if(to.meta.isAuth){ //判断当前路由是否需要进行权限控制
+   		if(localStorage.getItem('school') === 'atguigu'){
+   			next()
+   		}else{
+   			alert('暂无权限查看')
+   			// next({name:'guanyu'})
+   		}
+   	}else{
+   		next()
+   	}
+   }
+   ```
+
+5. 组件内守卫：
+
+   ```js
+   //进入守卫：通过路由规则，进入该组件时被调用
+   beforeRouteEnter (to, from, next) {
+   },
+   //离开守卫：通过路由规则，离开该组件时被调用
+   beforeRouteLeave (to, from, next) {
+   }
+   ```
+
+### 路由器的两种工作模式
+
+1. 对于一个 url 来说，什么是 hash 值？—— #及其后面的内容就是 hash 值。
+2. hash 值不会包含在 HTTP 请求中，即：hash 值不会带给服务器。
+3. hash 模式：
+   1. 地址中永远带着#号，不美观 。
+   2. 若以后将地址通过第三方手机 app 分享，若 app 校验严格，则地址会被标记为不合法。
+   3. 兼容性较好。
+4. history 模式：
+   1. 地址干净，美观 。
+   2. 兼容性和 hash 模式相比略差。
+   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端 404 的问题。

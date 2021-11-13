@@ -33,6 +33,8 @@
 - 功能: 用于解析标签体内容
 - 语法: {{xxx}} ，xxxx 会作为 js 表达式解析
 
+![alt](./images/24.png)
+
 #### 指令语法
 
 - 功能: 解析标签属性、解析标签体内容、绑定事件
@@ -41,17 +43,17 @@
 
 ### 数据绑定
 
-#### 单向数据绑定
+- 单向数据绑定
+  - 语法：`v-bind:href ="xxx"` 或简写为 `:href`
+  - 特点：数据只能从 data 流向页面
 
-- 语法：`v-bind:href ="xxx"` 或简写为 `:href`
-- 特点：数据只能从 data 流向页面
+<br>
 
-#### 双向数据绑定
+- 双向数据绑定
+  - 语法：`v-mode:value="xxx"` 或简写为 `v-model="xxx"`
+  - 特点：数据不仅能从 data 流向页面，还能从页面流向 data
 
-- 语法：`v-mode:value="xxx"` 或简写为 `v-model="xxx"`
-- 特点：数据不仅能从 data 流向页面，还能从页面流向 data
-
-#### Vue 数据代理
+### Vue 数据代理
 
 1. Vue 中的数据代理:
    - 通过 vm 对象来代理 data 对象中属性的操作(读/写)
@@ -80,6 +82,9 @@ Object.defineProperty(obj2, "x", {
 ![alt](./images/9.png)
 
 ### MVVM 模型
+
+- 设计模式:设计模式是对代码分层, 引入一种架构的概念
+- MVVM 好处:减少 DOM 操作, 提高开发效率
 
 1. M：模型(Model) ：对应 data 中的数据
 2. V：视图(View) ：模板
@@ -154,6 +159,9 @@ Object.defineProperty(obj2, "x", {
 - 备注:
   - (1).Vue 自身可以监测对象内部值的改变，但 Vue 提供的 watch 默认不可以!
   - (2).使用 watch 时根据数据的具体结构，决定是否采用深度监视。
+
+![alt](./images/27.png)
+![alt](./images/28.png)
 
 ### computed 和 watch 的区别
 
@@ -269,6 +277,8 @@ Object.defineProperty(obj2, "x", {
 - 备注:
   - 1.过滤器也可以接收额外参数、多个过滤器也可以串联
   - 2.并没有改变原本的数据,是产生新的对应的数据
+    ![alt](./images/25.png)
+    ![alt](./images/26.png)
 
 ### 内置指令
 
@@ -470,22 +480,25 @@ Object.defineProperty(obj2, "x", {
 
 - 项目目录
 
-  - `node_modules`
-  - `public`
-    - `favicon.ico` : 页签图标
-    - `index.html` : 主页面
-  - `src`
-    - `assets` : 存放静态资源
-      - `logo.png`
-    - `component` : 存放组件
-      - `HelloWorld.vue`
-    - `App.vue` : 汇总所有组件
-    - `main.js` : 入口文件
-  - `.gitignore` : git 版本管制忽略的配置
-  - `babel.config.js` : babel 的配置文件
-  - `package.json` : 应用包配置文件
-  - `package-lock.json` ：包版本控制文件
-  - `README.md` : 应用描述文件
+```bash
+ vuecil-demo        # 项目目录
+    ├── node_modules # 项目依赖的第三方包
+    ├── public       # 静态文件目录
+      ├── favicon.ico# 浏览器小图标
+      └── index.html # 单页面的html文件(网页浏览的是它)
+    ├── src          # 业务文件夹
+      ├── assets     # 静态资源
+        └── logo.png # vue的logo图片
+      ├── components # 组件目录
+        └── HelloWorld.vue # 欢迎页面vue代码文件
+      ├── App.vue    # 整个应用的根组件
+      └── main.js    # 入口js文件
+    ├── .gitignore   # git提交忽略配置
+    ├── babel.config.js  # babel配置
+    ├── package.json  # 依赖包列表
+    ├── README.md    # 项目说明
+	└── yarn.lock    # 项目包版本锁定和缓存地址
+```
 
 <br>
 

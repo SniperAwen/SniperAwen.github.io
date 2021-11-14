@@ -215,7 +215,7 @@ Object.defineProperty(obj2, "x", {
 > 面试题:react、 vue 中的 key 有什么作用? (key 的内部原理)
 
 1. 虚拟 DOM 中 key 的作用:
-   - key 是虚拟 DON 对象的标识，当数据发生变化时，Vue 会根据【新数据】生成【新的虚拟 DOM】
+   - key 是虚拟 DOM 对象的标识，当数据发生变化时，Vue 会根据【新数据】生成【新的虚拟 DOM】
    - 随后 Vue 进行【新虚拟 DOM】与【旧虚拟 DOM】的差异比较，比较规则如下:
 2. 对比规则:
    - 旧虚拟 DOM 中找到了与新虚拟 DOM 相同的 key:
@@ -547,7 +547,15 @@ Object.defineProperty(obj2, "x", {
 - 使用方式:
   - 第一步定义混合，例如:
     - ```vue
-      { data(){...} methods:{....} .... }
+      { 
+        data(){
+          ...
+        },
+        methods:{
+          ....
+        }, 
+        .... 
+      }
       ```
   - 第二步使用混入，例如:
     - 全局混入: `Vue.mixin(xxx)`
@@ -602,7 +610,7 @@ Object.defineProperty(obj2, "x", {
 - 一种组件间通信的方式，适用于:子组件===>父组件
 - 使用场景:A 是父组件，B 是子组件，B 想给 A 传数据，那么就要在 A 中给 B 绑定自定义事件(事件的回调在 A 中)。
 - 绑定自定义事件:
-  - 第一种方式，在父组件中: `<Demo@zidingyi="test"/>` 或 `<Demo v-on:zidingyi="test"/>`
+  - 第一种方式，在父组件中: `<Demo @zidingyi="test"/>` 或 `<Demo v-on:zidingyi="test"/>`
   - 第二种方式，在父组件中:
     ```vue
     <Demo ref="demo" / > ...... mounted(){
@@ -619,13 +627,23 @@ Object.defineProperty(obj2, "x", {
 - 一种组件间通信的方式，适用于任意组件间通信。
 - 安装全局事件总线:
   ```vue
-  new vue({ ...... beforeCreate() { Vue.prototype.$bus = this
-  //安装全局事件总线，$bus 就是当前应用的 vm }, ...... })
+  new vue({ 
+    ...... 
+    beforeCreate() { 
+      Vue.prototype.$bus = this
+      //安装全局事件总线，$bus 就是当前应用的 vm 
+    }, 
+    ......
+  })
   ```
 - 使用事件总线:
   - 接收数据:A 组件想接收数据，则在 A 组件中给 `$bus` 绑定自定义事件，事件的回调留在 A 组件自身。
     ```vue
-    methods(){ demo(data){......} } mounted() { this.$bus.$on('xxxx',this.demo)
+    methods(){ 
+      demo(data){......} 
+    } 
+    mounted() { 
+      this.$bus.$on('xxxx',this.demo)
     }
     ```
   - 提供数据: `this.$bus.$emit('xxxx',数据)`
@@ -639,8 +657,13 @@ Object.defineProperty(obj2, "x", {
   - 引入: `import pubsub from 'pubsub-js'`
   - 接收数据:A 组件想接收数据，则在 A 组件中订阅消息，订阅的回调留在 A 组件自身。
     ```vue
-    methods(){ demo(data){......} } ...... mounted() { this.pid =
-    pubsub.subscribe("xxx",this.demo) //订阅消息. }
+    methods(){ 
+      demo(data){......} 
+    } 
+    ...... 
+    mounted() { 
+      this.pid =pubsub.subscribe("xxx",this.demo) //订阅消息. 
+    }
     ```
   - 提供数据: `pubsub.publish('xxx",数据)`
   - 最好在 beforeDestroy 钩子中，用 `PubSub .unsubscribe(pid) `去 `<span style="color : red"">取消订阅。</span>`
@@ -749,8 +772,8 @@ module.exports = {
       ```vue
       父组件中：
       <Category>
-                 <div>html结构1</div>
-              </Category>
+        <div>html结构1</div>
+      </Category>
       子组件中：
       <template>
         <div>
@@ -765,14 +788,13 @@ module.exports = {
       ```vue
       父组件中：
       <Category>
-                  <template slot="center">
-                    <div>html结构1</div>
-                  </template>
-      
-                  <template v-slot:footer>
-                     <div>html结构2</div>
-                  </template>
-              </Category>
+        <template slot="center">
+          <div>html结构1</div>
+        </template>
+        <template v-slot:footer>
+           <div>html结构2</div>
+        </template>
+      </Category>
       子组件中：
       <template>
         <div>
@@ -789,43 +811,43 @@ module.exports = {
 
       2. 具体编码：
 
-         ```vue
-         父组件中：
-         <Category>
-            <template scope="scopeData">
-             <!-- 生成的是ul列表 -->
-             <ul>
+        ```vue
+        父组件中：
+        <Category>
+          <template scope="scopeData">
+            <!-- 生成的是ul列表 -->
+            <ul>
               <li v-for="g in scopeData.games" :key="g">{{g}}</li>
-             </ul>
-            </template>
-           </Category>
+            </ul>
+          </template>
+        </Category>
 
-         <Category>
-            <template slot-scope="scopeData">
-             <!-- 生成的是h4标题 -->
-             <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
-            </template>
-           </Category>
-         子组件中：
-         <template>
-           <div>
-             <slot :games="games"></slot>
-           </div>
-         </template>
+        <Category>
+          <template slot-scope="scopeData">
+            <!-- 生成的是h4标题 -->
+            <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
+          </template>
+        </Category>
+        子组件中：
+        <template>
+          <div>
+            <slot :games="games"></slot>
+          </div>
+        </template>
 
-         <script>
-         export default {
-           name: "Category",
-           props: ["title"],
-           //数据在子组件自身
-           data() {
-             return {
-               games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
-             };
-           },
-         };
-         </script>
-         ```
+        <script>
+          export default {
+            name: "Category",
+            props: ["title"],
+            //数据在子组件自身
+            data() {
+              return {
+                games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
+              };
+            },
+          }
+        </script>
+        ``
 
    ```
 
@@ -1398,9 +1420,7 @@ module.exports = {
      </keep-alive>
      ```
 
-   ```
-
-   ```
+  
 
 ### 路由组件的生命周期钩子
 

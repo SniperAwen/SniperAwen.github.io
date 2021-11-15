@@ -9,7 +9,7 @@
   - [**HTML CSS**](./前端/html%20css/HtmlCss.md)
   - [**移动端 Web**](./前端/html%20css/移动web.md)
   - **JavaScript**
-    - [**JavaScript**](./前端/javascript/JavaScript.md)
+    - [**JavaScript**](./前端/JavaScript/JavaScript.md)
     - [**ES5/ES6**](./前端/JavaScript/ES5_6.md)
   - [**jQuery 库**](./前端/库和框架/jQuery/jQuery.md)
   - **框架**

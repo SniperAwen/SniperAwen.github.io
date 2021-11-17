@@ -11,8 +11,8 @@
   - **JavaScript**
     - [**面向对象**](./前端/JavaScript/JavaScript.md)
     - [**ES5/ES6**](./前端/JavaScript/ES5_6.md)
-  - [**jQuery 库**](./前端/库和框架/jQuery/jQuery.md)
-  - **框架**
+  - **库和框架**
+    - [**jQuery 库**](./前端/库和框架/jQuery/jQuery.md)
     - [**Vue**](./前端/库和框架/Vue/vue.md)
     - [**BootStrap**](./前端/库和框架/bootStrap/BootStrap.md)
   - **项目**

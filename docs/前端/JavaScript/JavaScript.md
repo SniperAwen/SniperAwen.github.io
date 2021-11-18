@@ -1981,3 +1981,4 @@ Son.prototype.exam = function () {
 var son = new Son("刘德华", 18, 100);
 console.log(son);
 ```
+

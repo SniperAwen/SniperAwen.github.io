@@ -2,7 +2,7 @@
 
 ![logo](image/Logo.png)
 
-# **Awen-学习笔记**
+# **Awen - Study Notes**
 
 [GitHub](https://github.com/YlAwen)
 [Start](./README.md)

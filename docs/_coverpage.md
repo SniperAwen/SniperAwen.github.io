@@ -4,8 +4,8 @@
 
 # **Awen-学习笔记**
 
-[个人主页](/)
-[开始阅读](./README.md)
+[GitHub](https://github.com/YlAwen)
+[Start](./README.md)
 
 <!-- 背景图片 -->
 

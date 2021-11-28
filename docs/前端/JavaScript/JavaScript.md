@@ -1,16 +1,16 @@
-# JavaScript
+# Javascript
 
-> JavaScript 一堆坑
+> Javascript 一堆坑
 
-## JavaScript 基础
+## Javascript 基础
 
 ![](./img/js1.png)
 
-- JavaScript 是世界上最流行的语言之一，是一种运行在客户端的脚本语言 （Script 是脚本的意思）
+- Javascript 是世界上最流行的语言之一，是一种运行在客户端的脚本语言 （Script 是脚本的意思）
 - 脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行
 - 现在也可以基于 Node.js 技术进行服务器端编程
 
-### JavaScript 的作用
+### Javascript 的作用
 
 - 表单动态校验（密码强度检测） （ JS 产生最初的目的 ）
 - 网页特效
@@ -20,26 +20,26 @@
 - 控制硬件-物联网(Ruff)
 - 游戏开发(cocos2d-js)
 
-### 浏览器执行 JavaScript
+### 浏览器执行 Javascript
 
 **浏览器分成两部分：渲染引擎和 JS 引擎**
 ![](./img/js2.png)
 
-> 浏览器本身并不会执行 JS 代码，而是通过内置 JavaScript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 JavaScript 语言归为脚本语言，会逐行解释执行。
+> 浏览器本身并不会执行 JS 代码，而是通过内置 Javascript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 Javascript 语言归为脚本语言，会逐行解释执行。
 
-### JavaScript 的组成
+### Javascript 的组成
 
 ![alt](./img/js3.png)
 
 **ECMAScript**
 
-    ​		ECMAScript 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 JavaScript或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。
+    ​		ECMAScript 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 Javascript或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。
 
 ![](img/js4.png)
 
     ​ ECMAScript：规定了 JS 的编程语法和基础核心知识，是所有浏览器厂商共同遵守的一套 JS 语法工业标准。
 
-    更多参看 MDN: [MDN 手册](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/JavaScript_technologies_overview)
+    更多参看 MDN: [MDN 手册](https://developer.mozilla.org/zh-CN/docs/Web/Javascript/Javascript_technologies_overview)
 
 **DOM——文档对象模型**
 
@@ -49,7 +49,7 @@
 
     ​ **浏览器对象模型**(Browser Object Model，简称 BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。通过 BOM 可以操作浏览器窗口，比如弹出框、控制浏览器跳转、获取分辨率等。
 
-### JavaScript 输入输出语句
+### Javascript 输入输出语句
 
 为了方便信息的输入输出，JS 中提供了一些输入输出语句，其常用的语句如下：
 
@@ -82,7 +82,7 @@
 
 ## 数据类型
 
-> JavaScript 提供七种不同的数据类型，它们是 undefined（未定义）、null（空）、boolean（布尔型）、string（字符串）、symbol、number（数字）、bigint（可以表示任意大的整数）和 object（对象）。
+> Javascript 提供七种不同的数据类型，它们是 undefined（未定义）、null（空）、boolean（布尔型）、string（字符串）、symbol、number（数字）、bigint（可以表示任意大的整数）和 object（对象）。
 
 ![alt](./img/js5.png)
 
@@ -183,7 +183,7 @@ console.log(x)； // 10
 
 - 函数的形参也可以看做是一个变量，当我们把引用类型变量传给形参时，其实是把变量在栈空间里保存的堆地址复制给了形参，形参和实参其实保存的是同一个堆地址，所以操作的是同一个对象。
 
-```JavaScript
+```Javascript
 function Person(name) {
     this.name = name;
 }
@@ -202,7 +202,7 @@ console.log(p.name);    // 张学友
 
 **运算符**（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号。
 
-    JavaScript中常用的运算符有：
+    Javascript中常用的运算符有：
 
 - 算数运算符
 - 递增和递减运算符
@@ -389,18 +389,18 @@ do {
 
 > 数组是指**一组数据的集合**，其中的每个数据被称作**元素**，在数组中可以**存放任意类型的元素**。数组是一种将一组数据存储在单个变量名下的优雅方式。
 
-> 数组是一种类列表**对象**，它的原型中提供了遍历和修改元素的相关操作。JavaScript 数组的长度和元素类型都是非固定的。
+> 数组是一种类列表**对象**，它的原型中提供了遍历和修改元素的相关操作。Javascript 数组的长度和元素类型都是非固定的。
 
 - **注意：**
   - 数组分为**数值型**和**关联数组**,本质都是**关联性数组**
     - 数值型：
-      ```JavaScript
+      ```Javascript
       var arr=["name","张三"]
       // 相当于 ["0":"name","1":"张三"]
       // 键是随机的，并且会省略
       ```
     - 关联数组:
-      ```JavaScript
+      ```Javascript
       var arr=[]
       arr["name"]="name"
       arr["张三"]="张三"
@@ -548,7 +548,7 @@ function 函数名（）{
 ### arguments 的使用
 
 - 当不确定有多少个参数传递的时候，可以用 arguments 来获取。
-- JavaScript 中，arguments 实际上它是当前函数的一个内置对象。
+- Javascript 中，arguments 实际上它是当前函数的一个内置对象。
 - 所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。arguments 展示形式是一个伪数组，因此可以进行遍历。
 - 伪数组具有以下特点：
   - 具有 length 属性
@@ -577,7 +577,7 @@ function 函数名（）{
 
 ## 预解析
 
-    JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步：预解析和代码执行。
+    Javascript 代码是由浏览器中的 Javascript 解析器来执行的。Javascript 解析器在运行 Javascript 代码的时候分为两步：预解析和代码执行。
 
 - 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
 
@@ -1029,7 +1029,7 @@ touchstart、touchmove、touchend 三个事件都会各自有事件对象。
 
 代码如下:
 
-```javascript
+```Javascript
 //封装tap，解决click 300ms 延时
 function tap (obj, callback) {
         var isMove = false;
@@ -1058,7 +1058,7 @@ function tap (obj, callback) {
 
 ## 操作元素
 
-- JavaScript 的 DOM 操作可以改变网页内容、结构和样式，我们可以利用 DOM 操作元素来改变元素里面的内容、属性等。（注意：这些操作都是通过元素对象的属性实现的）
+- Javascript 的 DOM 操作可以改变网页内容、结构和样式，我们可以利用 DOM 操作元素来改变元素里面的内容、属性等。（注意：这些操作都是通过元素对象的属性实现的）
 
 ### 改变元素内容
 
@@ -1126,7 +1126,7 @@ classList 属性是 HTML5 新增的一个属性，返回元素的类名。但是
 
 element.classList.add（’类名’）；
 
-```javascript
+```Javascript
 focus.classList.add("current");
 ```
 
@@ -1134,7 +1134,7 @@ focus.classList.add("current");
 
 element.classList.remove（’类名’）;
 
-```javascript
+```Javascript
 focus.classList.remove("current");
 ```
 
@@ -1142,7 +1142,7 @@ focus.classList.remove("current");
 
 element.classList.toggle（’类名’）;
 
-```javascript
+```Javascript
 focus.classList.toggle("current");
 ```
 
@@ -1181,7 +1181,7 @@ focus.classList.toggle("current");
 
 ​ 网页中的所有内容都是节点（标签、属性、文本、注释等），在 DOM 中，节点使用 node 来表示。
 
-​ HTML DOM 树中的所有节点均可通过 JavaScript 进行访问，所有 HTML 元素（节点）均可被修改，也可以创建或删除。
+​ HTML DOM 树中的所有节点均可通过 Javascript 进行访问，所有 HTML 元素（节点）均可被修改，也可以创建或删除。
 
 ![alt](./img/js49.png)
 
@@ -1318,7 +1318,7 @@ focus.classList.toggle("current");
 
 ​ BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。
 
-​ BOM 缺乏标准，JavaScript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
+​ BOM 缺乏标准，Javascript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
 
 ![alt](./img/js88.png)
 
@@ -1534,25 +1534,25 @@ If(flag){flag = false; do something}       关闭水龙头
 
 存储数据：
 
-```javascript
+```Javascript
 sessionStorage.setItem(key, value);
 ```
 
 获取数据：
 
-```javascript
+```Javascript
 sessionStorage.getItem(key);
 ```
 
 删除数据：
 
-```javascript
+```Javascript
 sessionStorage.removeItem(key);
 ```
 
 清空数据：(所有都清除掉)
 
-```javascript
+```Javascript
 sessionStorage.clear();
 ```
 
@@ -1566,25 +1566,25 @@ sessionStorage.clear();
 
 存储数据：
 
-```javascript
+```Javascript
 localStorage.setItem(key, value);
 ```
 
 获取数据：
 
-```javascript
+```Javascript
 localStorage.getItem(key);
 ```
 
 删除数据：
 
-```javascript
+```Javascript
 localStorage.removeItem(key);
 ```
 
 清空数据：(所有都清除掉)
 
-```javascript
+```Javascript
 localStorage.clear();
 ```
 
@@ -1796,7 +1796,7 @@ damao.say(); //结果为 你的姓是刘
 
 构造函数通过原型分配的函数是所有对象所共享的。
 
-JavaScript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。注意这个 prototype 就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。
+Javascript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。注意这个 prototype 就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。
 
 我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
 

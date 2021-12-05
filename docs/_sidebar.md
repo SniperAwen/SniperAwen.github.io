@@ -1,23 +1,23 @@
-- [👓 **简介**](./README.md)
-- 📝 **速查表**
-  - [**MarkDown**](./速查表/MarkDown/MarkDown.md)
-  - [**正则表达式**](./速查表/RegExp/RegExp.md)
-- 🚔 **信息安全与保密**
-  - [信息安全概论](./信息安全与保密/信息安全概论.md)
-  - [底层数据恢复](./信息安全与保密/底层数据恢复.md)
+- [👓 **Introduction**](./README.md)
+- 📝 **Cheat Sheet**
+  - [**MarkDown**](./CheatSheet/MarkDown/MarkDown.md)
+  - [**RegExp**](./CheatSheet/RegExp/RegExp.md)
+- 🚔 **INFOSEC**
+  - [Overview](./信息安全与保密/信息安全概论.md)
+  - [Data Recovery](./信息安全与保密/底层数据恢复.md)
 - [🤖 **Git**](./Git/git.md)
-- 🚀 **前端**
+- 🚀 **Front-end**
   - [**HTML CSS**](./前端/html%20css/HtmlCss.md)
-  - [**移动端 Web**](./前端/html%20css/移动web.md)
+  - [**Mobile Web**](./前端/html%20css/移动web.md)
   - **JavaScript**
-    - [**面向对象**](./前端/JavaScript/JavaScript.md)
+    - [**Js Basis**](./前端/JavaScript/JavaScript.md)
     - [**ES5/ES6**](./前端/JavaScript/ES5_6.md)
-  - **库和框架**
-    - [**jQuery**](./前端/库和框架/jQuery/jQuery.md)
+  - **Frame**
     - [**Vue**](./前端/库和框架/Vue/vue.md)
+    - [**jQuery**](./前端/库和框架/jQuery/jQuery.md)
     - [**BootStrap**](./前端/库和框架/bootStrap/BootStrap.md)
-  - **项目**
-    - [**金职调查**](./前端/Project/金职调查/笔记/金职调查.md)
-    - [**IT 头条**](./前端/Project/IT头条/笔记/IT头条.md)
+  - **Project**
+    - [**金职调查\_Vue_Mobile**](./前端/Project/金职调查/笔记/金职调查.md)
+    - [**IT 头条\_Vue_Mobile**](./前端/Project/IT头条/笔记/IT头条.md)
     - [**大事件后台管理系统\_jQuery_PC**](./前端/Project/大事件后台管理系统/笔记/大事件后台管理系统.md)
-    - [**数据可视化*PC* Echarts**](./前端/Project/数据可视化/笔记/数据可视化.md)
+    - [**数据可视化\_Echarts_PC**](./前端/Project/数据可视化/笔记/数据可视化.md)

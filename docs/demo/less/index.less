@@ -1,0 +1,119 @@
+.container {
+  width: 1210px;
+  min-width: 1210px;
+  margin: 0 auto;
+}
+
+header {
+  height: 30px;
+  background-color: #e3e4e5;
+  font-size: 12px;
+  a {
+    color: #999;
+  }
+  .left {
+    float: left;
+    line-height: 30px;
+    i {
+      margin-right: 7px;
+      font-size: 14px;
+    }
+    span {
+      margin-right: 10px;
+    }
+  }
+  .right {
+    line-height: 30px;
+    float: right;
+    ul {
+      display: flex;
+      font-size: 12px;
+      li {
+        margin-left: 10px;
+        span {
+          margin-left: 10px;
+          color: #999;
+        }
+        i {
+          color: #999;
+          font-size: 8px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.nav {
+  margin: 20px 0 10px 0;
+  height: 50px;
+  img {
+    width: 195px;
+    height: 50px;
+    float: left;
+    margin-right: 15px;
+  }
+  ul {
+    li {
+      float: left;
+      height: 50px;
+      line-height: 50px;
+      padding-left: 15px;
+      padding-right: 12px;
+      font-size: 18px;
+      color: #433e33;
+      box-sizing: border-box;
+      &:first-child {
+        a {
+          color: #c71622;
+        }
+        border-left: 1px solid #ccc;
+      }
+      &:last-child {
+        position: relative;
+        img {
+          position: absolute;
+          top: -7px;
+          right: -23px;
+          width: 36px;
+          height: 23px;
+        }
+      }
+    }
+  }
+  .search {
+    // float: right;
+    // line-height: 50px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    display: flex;
+    padding-left: 20px;
+
+    input {
+      background-color: #f4f4f4;
+      color: #a5a5a5;
+      width: 175px;
+      height: 30px;
+      padding: 4px 25px;
+      box-sizing: content-box;
+      border-radius: 19px 0 0 19px;
+      font-size: 12px;
+    }
+    .btn {
+      background-color: #c71622;
+      width: 46px;
+      height: 36px;
+      padding: 1px 6px;
+      box-sizing: content-box;
+      border-radius: 0 19px 19px 0;
+      color: #fff;
+      position: relative;
+      i {
+        position: absolute;
+        left: 30%;
+        top: 20%;
+      }
+    }
+  }
+}

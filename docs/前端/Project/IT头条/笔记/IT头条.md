@@ -7,7 +7,7 @@
 ## [安卓 APP](https://ylawen.github.io/前端/Project/IT头条/IT头条.apk)
 
 **可能会因为接口失效、跨域问题导致无法正常展示**
-**Android App 字体图标不兼容导致显示异常**
+**Android App 因为字体类型不兼容导致显示异常**
 
 > 2021 年 12 月
 

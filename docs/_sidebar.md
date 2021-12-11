@@ -17,7 +17,7 @@
     - [**jQuery**](./前端/库和框架/jQuery/jQuery.md)
     - [**BootStrap**](./前端/库和框架/bootStrap/BootStrap.md)
   - **Project**
-    - [**金职调查\_Vue_Mobile**](./前端/Project/金职调查/笔记/金职调查.md)
     - [**IT 头条\_Vue_Mobile**](./前端/Project/IT头条/笔记/IT头条.md)
+    - [**金职调查\_Vue_Mobile**](./前端/Project/金职调查/笔记/金职调查.md)
     - [**大事件后台管理系统\_jQuery_PC**](./前端/Project/大事件后台管理系统/笔记/大事件后台管理系统.md)
     - [**数据可视化\_Echarts_PC**](./前端/Project/数据可视化/笔记/数据可视化.md)

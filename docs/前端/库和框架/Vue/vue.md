@@ -547,15 +547,7 @@ Object.defineProperty(obj2, "x", {
 - 使用方式:
   - 第一步定义混合，例如:
     - ```vue
-      { 
-        data(){
-          ...
-        },
-        methods:{
-          ....
-        }, 
-        .... 
-      }
+      { data(){ ... }, methods:{ .... }, .... }
       ```
   - 第二步使用混入，例如:
     - 全局混入: `Vue.mixin(xxx)`
@@ -627,23 +619,13 @@ Object.defineProperty(obj2, "x", {
 - 一种组件间通信的方式，适用于任意组件间通信。
 - 安装全局事件总线:
   ```vue
-  new vue({ 
-    ...... 
-    beforeCreate() { 
-      Vue.prototype.$bus = this
-      //安装全局事件总线，$bus 就是当前应用的 vm 
-    }, 
-    ......
-  })
+  new vue({ ...... beforeCreate() { Vue.prototype.$bus = this
+  //安装全局事件总线，$bus 就是当前应用的 vm }, ...... })
   ```
 - 使用事件总线:
   - 接收数据:A 组件想接收数据，则在 A 组件中给 `$bus` 绑定自定义事件，事件的回调留在 A 组件自身。
     ```vue
-    methods(){ 
-      demo(data){......} 
-    } 
-    mounted() { 
-      this.$bus.$on('xxxx',this.demo)
+    methods(){ demo(data){......} } mounted() { this.$bus.$on('xxxx',this.demo)
     }
     ```
   - 提供数据: `this.$bus.$emit('xxxx',数据)`
@@ -657,13 +639,8 @@ Object.defineProperty(obj2, "x", {
   - 引入: `import pubsub from 'pubsub-js'`
   - 接收数据:A 组件想接收数据，则在 A 组件中订阅消息，订阅的回调留在 A 组件自身。
     ```vue
-    methods(){ 
-      demo(data){......} 
-    } 
-    ...... 
-    mounted() { 
-      this.pid =pubsub.subscribe("xxx",this.demo) //订阅消息. 
-    }
+    methods(){ demo(data){......} } ...... mounted() { this.pid
+    =pubsub.subscribe("xxx",this.demo) //订阅消息. }
     ```
   - 提供数据: `pubsub.publish('xxx",数据)`
   - 最好在 beforeDestroy 钩子中，用 `PubSub .unsubscribe(pid) `去 `<span style="color : red"">取消订阅。</span>`
@@ -811,43 +788,44 @@ module.exports = {
 
       2. 具体编码：
 
-        ```vue
-        父组件中：
-        <Category>
-          <template scope="scopeData">
-            <!-- 生成的是ul列表 -->
-            <ul>
-              <li v-for="g in scopeData.games" :key="g">{{g}}</li>
-            </ul>
-          </template>
-        </Category>
-
-        <Category>
-          <template slot-scope="scopeData">
-            <!-- 生成的是h4标题 -->
-            <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
-          </template>
-        </Category>
-        子组件中：
-        <template>
-          <div>
-            <slot :games="games"></slot>
-          </div>
+      ```vue
+      父组件中：
+      <Category>
+        <template scope="scopeData">
+          <!-- 生成的是ul列表 -->
+          <ul>
+            <li v-for="g in scopeData.games" :key="g">{{g}}</li>
+          </ul>
         </template>
+      </Category>
 
-        <script>
-          export default {
-            name: "Category",
-            props: ["title"],
-            //数据在子组件自身
-            data() {
-              return {
-                games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
-              };
-            },
-          }
-        </script>
-        ``
+      <Category>
+        <template slot-scope="scopeData">
+          <!-- 生成的是h4标题 -->
+          <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
+        </template>
+      </Category>
+      子组件中：
+      <template>
+        <div>
+          <slot :games="games"></slot>
+        </div>
+      </template>
+
+      <script>
+      export default {
+        name: "Category",
+        props: ["title"],
+        //数据在子组件自身
+        data() {
+          return {
+            games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
+          };
+        },
+      };
+      </script>
+      ``
+      ```
 
    ```
 
@@ -1420,8 +1398,6 @@ module.exports = {
      </keep-alive>
      ```
 
-  
-
 ### 路由组件的生命周期钩子
 
 1. 作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
@@ -1507,3 +1483,46 @@ module.exports = {
    1. 地址干净，美观 。
    2. 兼容性和 hash 模式相比略差。
    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端 404 的问题。
+
+## vue.config.js 配置项
+
+```javascript
+// const path = require("path");
+module.exports = {
+  lintOnSave: false, //关闭语法检查
+  // 开启代理服务器（方式一）
+  /* devServer: {
+        proxy: 'http://localhost:5000'
+     }, */
+  // 开启代理服务器（方式二）
+  devServer: {
+    proxy: {
+      "/wocao": {
+        target: "http://localhost:5000",
+        pathRewrite: { "^/wocao": "" },
+        ws: true, // 用于支持websocket
+        // changeOrigin: true // 用于控制请求头中的host值
+      },
+      "/diao": {
+        target: "http://localhost:5001",
+        pathRewrite: { "^/diao": "" },
+        ws: true, // 用于支持websocket
+        // changeOrigin: true // 用于控制请求头中的host值
+      },
+      // '/foo': {
+      //     target: '<other_url>'
+      // }
+    },
+  },
+  // build: {
+  //   index: path.resolve(__dirname, "../dist/index.html"),
+  //   assetsRoot: path.resolve(__dirname, "./dist"),
+  //   assetssubDirectory: "static",
+  //   assetsPublicPath: "./",
+  // },
+  // build: {
+  //   assetsPublicPath: "./",
+  // },
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+};
+```

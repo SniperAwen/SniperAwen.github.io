@@ -4,7 +4,7 @@
 
 ## [预览地址](https://ylawen.github.io/前端/Project/IT头条/index.html)
 
-## [安卓 APP](https://ylawen.github.io/前端/Project/IT头条/IT头条.apk)
+## [安卓 APP](https://ylawen.github.io/前端/Project/IT头条/IT头条.rar)
 
 **可能会因为接口失效、跨域问题导致无法正常展示**
 

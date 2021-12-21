@@ -19,7 +19,7 @@
     - [**Vue2**](./Front-end/Frame/Vue/vue2.md)
     - [**Vue3**](./Front-end/Frame/Vue/vue3.md)
     - [**jQuery**](./Front-end/Frame/jQuery/jQuery.md)
-    - [**BootStrap**](./Front-end/Frame/bootStrap/BootStrap.md)
+    - [**BootStrap**](./Front-end/Frame/bootStrap/bootStrap.md)
   - **Project**
     - [**IT 头条\_Vue_Mobile**](./Front-end/Project/IT头条/笔记/IT头条.md)
     - [**金职调查\_Vue_Mobile**](./Front-end/Project/金职调查/笔记/金职调查.md)

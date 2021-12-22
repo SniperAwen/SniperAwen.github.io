@@ -1,7 +1,7 @@
-# 简介
+# Bootstrap
 
-- Bootstrap 是由 Twitter 公司开发维护的前端 UI 框架，它提供了大量编写好的 CSS 样式，允许开发者结合一定
-  HTML 结构及 JavaScript，快速编写功能完善的网页及常见交互效果
+- Bootstrap 是由 Twitter 公司开发维护的前端 UI 框架，它提供了大量编写好的 CSS 样式，允许开发者结合一定 HTML 结构及 JavaScript，快速编写功能完善的网页及常见交互效果。
+- Bootstrap 会根据屏幕大小来动态调整 HTML 元素的大小————因此称为 Responsive Design（响应式设计）。
 - 中文官网: https://www.bootcss.com/
 
 ---

@@ -36,8 +36,10 @@
 
 ---
 
-- QQ：`2889984509` 或者点击 → [这个链接](https://qm.qq.com/cgi-bin/qm/qr?k=NpnmviXH085e-k9BO1VTR4dSBY0fl32A&noverify=0)<br>
+- QQ：`2889984509` 或者点击 → [这个链接](https://qm.qq.com/cgi-bin/qm/qr?k=NpnmviXH085e-k9BO1VTR4dSBY0fl32A&noverify=0)
 
-- 感谢所有一路上陪伴帮助我的人 💖 ！
+<br>
+
+[DownLoad](./AI.rar)
 
 <br>

@@ -4,7 +4,7 @@
 
 ![alt](./images/1.png)
 
-## 项目结构
+# 项目结构
 
 - 项目的基本组成结构
 
@@ -98,58 +98,58 @@
     - 普通的 .js 文件
       - 是普通的功能模块文件，用来封装公共的函数或属性供页面使用
 
-## 宿主环境
+# 宿主环境
 
 ![alt](./images/10.png)
 ![alt](./images/11.png)
 ![alt](./images/12.png)
 
-### 通信模型
+## 通信模型
 
 - 通信主体
   ![alt](./images/13.png)
 - 通信模型
   ![alt](./images/14.png)
 
-### 运行机制
+## 运行机制
 
 - 启动过程
   ![alt](./images/15.png)
 - 页面渲染过程
   ![alt](./images/16.png)
 
-### 组件
+## 组件
 
 ![alt](./images/17.png)
 ![alt](./images/18.png)
 ![alt](./images/23.png)
 ![alt](./images/26.png)
 
-#### view 和 scroll-view 组件
+### view 和 scroll-view 组件
 
 ![alt](./images/19.png)
 ![alt](./images/20.png)
 
-#### swiper 和 swiper-item 组件
+### swiper 和 swiper-item 组件
 
 ![alt](./images/21.png)
 ![alt](./images/22.png)
 
-#### text 和 rich-text 组件
+### text 和 rich-text 组件
 
 ![alt](./images/24.png)
 ![alt](./images/25.png)
 
-#### button 组件
+### button 组件
 
 ![alt](./images/27.png)
 
-#### image 组件
+### image 组件
 
 ![alt](./images/28.png)
 ![alt](./images/29.png)
 
-### API
+## API
 
 ![alt](./images/30.png)
 ![alt](./images/31.png)

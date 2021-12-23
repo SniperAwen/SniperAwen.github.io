@@ -4,7 +4,7 @@
 
 ![alt](./images/1.png)
 
-# 项目结构
+## 项目结构
 
 - 项目的基本组成结构
 
@@ -24,29 +24,35 @@
   - ③ 项目根目录中的 sitemap.json 配置文件
   - ④ 每个页面文件夹中的 .json 配置文件
 
-### app.json
+<br>
 
-![alt](./images/4.png)
+- **`app.json`**
+  ![alt](./images/4.png)
 
-### project.config.json
+<br>
 
-![alt](./images/5.png)
+- **`project.config.json`**
+  ![alt](./images/5.png)
 
-### sitemap.json
+<br>
 
-![alt](./images/6.png)
+- **`sitemap.json`**
+  ![alt](./images/6.png)
 
-### 页面的 .json
+<br>
 
-![alt](./images/7.png)
+- **`页面的 .json`**
+  ![alt](./images/7.png)
 
-### 新建小程序页面
+<br>
 
-![alt](./images/8.png)
+- **新建小程序页面**
+  ![alt](./images/8.png)
 
-### 修改项目首
+<br>
 
-![alt](./images/9.png)
+- **修改项目首页**
+  ![alt](./images/9.png)
 
 ## 小程序代码的构成
 
@@ -186,3 +192,162 @@
 ### 运营数据
 
 ![alt](./images/47.png)
+
+# WXML 模板语法
+
+## 数据绑定
+
+- **数据绑定的基本原则**
+  ![alt](./images/48.png)
+
+<br>
+
+- **在 data 中定义页面的数据**
+  ![alt](./images/49.png)
+
+<br>
+
+- **Mustache 语法的格式**
+  ![alt](./images/50.png)
+
+<br>
+
+- **Mustache 语法的应用场景**
+  ![alt](./images/51.png)
+
+<br>
+
+- **动态绑定内容**
+  ![alt](./images/52.png)
+
+<br>
+
+- **动态绑定属性**
+  ![alt](./images/53.png)
+
+<br>
+
+- **三元运算**
+  ![alt](./images/54.png)
+
+<br>
+
+- **算术运算**
+  ![alt](./images/55.png)
+
+## 事件绑定
+
+- **什么是事件**
+  ![alt](./images/56.png)
+
+<br>
+
+- **常用事件**
+  ![alt](./images/57.png)
+
+<br>
+
+- **事件对象属性**
+  ![alt](./images/58.png)
+
+<br>
+
+- **target 和 currentTarget 区别**
+  ![alt](./images/59.png)
+
+<br>
+
+- **bindtap 语法格式**
+  ![alt](./images/60.png)
+
+<br>
+
+- **在事件处理函数中为 data 中的数据赋值**
+  ![alt](./images/61.png)
+
+<br>
+
+- **事件传参**
+  ![alt](./images/62.png)
+
+<br>
+
+- **bindinput 语法格式**
+  ![alt](./images/63.png)
+
+<br>
+
+- **获取文本框的值**
+  ![alt](./images/64.png)
+
+## 条件渲染
+
+- **`wx:if`**
+  ![alt](./images/65.png)
+
+<br>
+
+- **`<block>`**
+  ![alt](./images/66.png)
+
+<br>
+
+- **`hidden`**
+  ![alt](./images/67.png)
+
+<br>
+
+- **`wx:if` 对比 `hidden`**
+  ![alt](./images/68.png)
+
+## 列表渲染
+
+- **`wx:for`**
+  ![alt](./images/69.png)
+
+<br>
+
+- **设置索引与项的变量名**
+  ![alt](./images/70.png)
+
+<br>
+
+- **`wx:key`**
+  ![alt](./images/71.png)
+
+# WXSS 模板语法
+
+> WXss (Weixin Style Sheets)是一套样式语言，用于美化 wXML 的组件样式，类似于网页开发中的 CSS。
+
+- **WXSS 和 CSS 的关系**
+  ![alt](./images/72.png)
+
+## rpx 尺寸单位
+
+> rpx ( responsive pixel）是微信小程序独有的，用来解决屏适配的尺寸单位:
+
+- **实现原理**
+  ![alt](./images/73.png)
+
+<br>
+
+- **rpx 与 px 换算**
+  ![alt](./images/74.png)
+
+## 样式导入
+
+> 使用 wxSS 提供的@import 语法，可以导入外联的样式表。
+
+- **@import 语法格式**
+
+![alt](./images/75.png)
+
+## 全局样式和局部样式
+
+- **全局样式**
+  > 定义在 app.wxss 中的样式为全局样式，作用于每一个页面。
+
+<br>
+
+- **局部样式**
+  ![alt](./images/76.png)

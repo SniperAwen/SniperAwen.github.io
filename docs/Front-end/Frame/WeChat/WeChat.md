@@ -97,3 +97,92 @@
       - 是页面的入口文件，通过调用 Page() 函数来创建并运行页面
     - 普通的 .js 文件
       - 是普通的功能模块文件，用来封装公共的函数或属性供页面使用
+
+## 宿主环境
+
+![alt](./images/10.png)
+![alt](./images/11.png)
+![alt](./images/12.png)
+
+### 通信模型
+
+- 通信主体
+  ![alt](./images/13.png)
+- 通信模型
+  ![alt](./images/14.png)
+
+### 运行机制
+
+- 启动过程
+  ![alt](./images/15.png)
+- 页面渲染过程
+  ![alt](./images/16.png)
+
+### 组件
+
+![alt](./images/17.png)
+![alt](./images/18.png)
+![alt](./images/23.png)
+![alt](./images/26.png)
+
+#### view 和 scroll-view 组件
+
+![alt](./images/19.png)
+![alt](./images/20.png)
+
+#### swiper 和 swiper-item 组件
+
+![alt](./images/21.png)
+![alt](./images/22.png)
+
+#### text 和 rich-text 组件
+
+![alt](./images/24.png)
+![alt](./images/25.png)
+
+#### button 组件
+
+![alt](./images/27.png)
+
+#### image 组件
+
+![alt](./images/28.png)
+![alt](./images/29.png)
+
+### API
+
+![alt](./images/30.png)
+![alt](./images/31.png)
+
+## 协同工作和发布
+
+### 协同工作
+
+![alt](./images/32.png)
+![alt](./images/33.png)
+![alt](./images/34.png)
+
+### 成员管理
+
+![alt](./images/35.png)
+![alt](./images/36.png)
+![alt](./images/37.png)
+![alt](./images/38.png)
+
+### 小程序版本
+
+![alt](./images/39.png)
+![alt](./images/40.png)
+
+### 发布上线
+
+![alt](./images/41.png)
+![alt](./images/42.png)
+![alt](./images/43.png)
+![alt](./images/44.png)
+![alt](./images/45.png)
+![alt](./images/46.png)
+
+### 运营数据
+
+![alt](./images/47.png)

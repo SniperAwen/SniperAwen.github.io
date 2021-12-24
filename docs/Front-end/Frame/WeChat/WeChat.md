@@ -56,7 +56,7 @@
 
 ## 小程序代码的构成
 
-### WXML
+- **WXML**
 
 > WXML（WeiXin Markup Language）是小程序框架设计的一套标签语言，用来构建小程序页面的结构，其作用类似于网页开发中的 HTML。
 
@@ -72,7 +72,9 @@
     - 列表渲染
     - 条件渲染
 
-### WXSS
+<br>
+
+- **WXSS**
 
 > WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式，类似于网页开发中的 CSS。
 
@@ -89,7 +91,9 @@
     - 并集选择器、后代选择器
     - `::after` 和 `::before` 等伪类选择器
 
-### JS 逻辑交互
+<br>
+
+- **JS 逻辑交互**
 
 - 小程序中的 .js 文件
 
@@ -162,25 +166,31 @@
 
 ## 协同工作和发布
 
-### 协同工作
+- **协同工作**
 
 ![alt](./images/32.png)
 ![alt](./images/33.png)
 ![alt](./images/34.png)
 
-### 成员管理
+<br>
+
+- **成员管理**
 
 ![alt](./images/35.png)
 ![alt](./images/36.png)
 ![alt](./images/37.png)
 ![alt](./images/38.png)
 
-### 小程序版本
+<br>
+
+- **小程序版本**
 
 ![alt](./images/39.png)
 ![alt](./images/40.png)
 
-### 发布上线
+<br>
+
+- **发布上线**
 
 ![alt](./images/41.png)
 ![alt](./images/42.png)
@@ -189,7 +199,9 @@
 ![alt](./images/45.png)
 ![alt](./images/46.png)
 
-### 运营数据
+<br>
+
+- **运营数据**
 
 ![alt](./images/47.png)
 
@@ -351,3 +363,200 @@
 
 - **局部样式**
   ![alt](./images/76.png)
+
+# 全局配置
+
+> 全局配置文件及常用的配置项
+
+![alt](./images/77.png)
+
+## window
+
+- **小程序窗口的组成部分**
+  ![alt](./images/78.png)
+
+<br>
+
+- **window 节点常用配置项**
+  ![alt](./images/79.png)
+
+<br>
+
+- **设置导航栏标题**
+  ![alt](./images/80.png)
+
+<br>
+
+- **设置导航栏背景色**
+  ![alt](./images/81.png)
+
+<br>
+
+- **设置导航栏标题颜色**
+  ![alt](./images/82.png)
+
+<br>
+
+- **全局下拉刷新功能**
+  ![alt](./images/83.png)
+
+<br>
+
+- **下拉刷新时窗口背景色**
+  ![alt](./images/84.png)
+
+<br>
+
+- **下拉刷新 loading 样式**
+  ![alt](./images/85.png)
+
+<br>
+
+- **上拉触底距离**
+  ![alt](./images/86.png)
+
+## tabBar
+
+- **tabBar 简介**
+  ![alt](./images/87.png)
+
+<br>
+
+- **tabBar 的 6 个组成部分**
+  ![alt](./images/88.png)
+
+<br>
+
+- **tabBar 节点配置项**
+  ![alt](./images/89.png)
+
+<br>
+
+- **每个 tab 配置项**
+  ![alt](./images/90.png)
+
+# 页面配置
+
+> 小程序中，每个页面都有自己的.json 配置文件，用来对当前页面的窗口外观、页面效果等进行配置。
+
+## 页面配置和全局配置的关系
+
+![alt](./images/91.png)
+
+## 常用配置项
+
+![alt](./images/92.png)
+
+# 网络数据请求
+
+## 请求限制
+
+![alt](./images/93.png)
+
+## 配置 request 合法域名
+
+![alt](./images/94.png)
+
+## 发起请求
+
+- **GET 请求**
+  ![alt](./images/95.png)
+
+<br>
+
+- **POST 请求**
+  ![alt](./images/96.png)
+
+<br>
+
+- **页面加载时请求**
+  ![alt](./images/97.png)
+
+## 跳过 request 合法域名校验
+
+![alt](./images/98.png)
+
+## 跨域及 Ajax
+
+![alt](./images/99.png)
+
+# 页面导航
+
+![alt](./images/100.png)
+![alt](./images/101.png)
+
+## 声明式导航
+
+- **导航到 tabBar 页面**
+  ![alt](./images/102.png)
+
+<br>
+
+- **导航到非 tabBar 页面**
+  ![alt](./images/103.png)
+
+<br>
+
+- **后退导航**
+  ![alt](./images/104.png)
+
+## 编程式导航
+
+- **导航到 tabBar 页面**
+  ![alt](./images/105.png)
+
+<br>
+
+- **导航到非 tabBar 页面**
+  ![alt](./images/106.png)
+
+<br>
+
+- **后退导航**
+  ![alt](./images/107.png)
+
+## 导航传参
+
+- **声明式导航传参**
+  ![alt](./images/108.png)
+
+<br>
+
+- **编程式导航传参**
+  ![alt](./images/109.png)
+
+# 页面事件
+
+## 下拉刷新
+
+> 下拉刷新是移动端的专有名词，指的是通过手指在屏幕上的下拉滑动操作，从而重新加载页面数据的行为。
+
+- **启用下拉刷新**
+  ![alt](./images/110.png)
+
+<br>
+
+- **下拉刷新窗口样式**
+  ![alt](./images/111.png)
+
+<br>
+
+- **监听下拉刷新事件**
+  在页面的.js 文件中，通过 onPullDownRefresh()函数即可监听当前页面的下拉刷新事件。
+
+<br>
+
+- **停止下拉刷新**
+  ![alt](./images/112.png)
+
+## 上拉触底
+
+> 上拉触底是移动端的专有名词，通过手指在屏幕上的上拉滑动操作，从而加载更多数据的行为。
+
+- **监听上拉触底事件**
+  ![alt](./images/113.png)
+
+<br>
+
+- **配置上拉触底距离**
+  ![alt](./images/114.png)

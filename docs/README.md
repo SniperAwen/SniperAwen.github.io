@@ -1,4 +1,4 @@
-## 关于我
+<h1>关于我</h1>
 
 ---
 
@@ -14,7 +14,7 @@
 
 <br>
 
-## 兴趣爱好
+<h1>兴趣爱好</h1>
 
 ---
 
@@ -22,21 +22,12 @@
 2. 最喜欢做的事：DIY，唱歌，睡觉，等等……
 3. 喜欢逛的资源技术论坛：[吾爱破解](https://www.52pojie.cn/)，[果核剥壳](https://www.ghxi.com/)，[Greasy Fork](https://greasyfork.org/)等等……
 4. 喜欢逛的视频网站：[Youtube](https://www.youtube.com/)，[哔哩哔哩](https://space.bilibili.com/69895189)，等等……
-5. 喜欢玩的游戏：[Hollow Knight](https://www.hollowknight.com/)，[Undertale](https://undertale.com/)，[in verbis virtus](https://store.steampowered.com/app/242840/In_Verbis_Virtus/)，[DARK SOULS™ 系列](https://store.steampowered.com/app/374320/DARK_SOULS_III/)，[Sekiro™](https://www.sekirothegame.com/)，[The Legend of Zelda: Breath of the Wild](https://www.nintendo.com.hk/switch/zelda_botw/)等等……
-6. 唯一玩的手游：[影之诗/Shadowverse](https://shadowverse.com/)<br>
+5. 喜欢玩的游戏：[Hollow Knight](https://www.hollowknight.com/)，[Undertale](https://undertale.com/)，[in verbis virtus](https://store.steampowered.com/app/242840/In_Verbis_Virtus/)，[DARK SOULS™ 系列](https://store.steampowered.com/app/374320/DARK_SOULS_III/)，[Sekiro™](https://www.sekirothegame.com/)，[The Legend of Zelda: Breath of the Wild](https://www.nintendo.com.hk/switch/zelda_botw/)，[Shadowverse](https://shadowverse.com/)等等……
    ![加个好友一起玩吧](./image/szb.png)
 
 <br>
 
-## 理想目标
-
----
-
-- **\*\*\*\*\*\*\*\*\***
-
-<br>
-
-## 联系方式
+<h1>联系方式</h1>
 
 ---
 

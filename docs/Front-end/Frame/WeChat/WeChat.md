@@ -560,3 +560,72 @@
 
 - **配置上拉触底距离**
   ![alt](./images/114.png)
+
+# 生命周期
+
+- **什么是生命周期**
+  ![alt](./images/115.png)
+
+<br>
+
+- **生命周期的分类**
+  ![alt](./images/116.png)
+
+<br>
+
+## 生命周期函数
+
+![alt](./images/117.png)
+
+<br>
+
+- **生命周期函数的分类**
+  ![alt](./images/118.png)
+
+## 应用的生命周期函数
+
+![alt](./images/119.png)
+
+## 页面的生命周期函数
+
+![alt](./images/120.png)
+
+# WXS 脚本
+
+> WXS ( Weixin Script)是小程序独有的一套脚本语言，结合 WXML，可以构建出页面的结构。
+
+- **WXS 应用场景**
+  wxml 中无法调用在页面的.js 中定义的函数，但是，wxml 中可以调用 wxs 中定义的函数。因此，小程序中 wxs 的典型应用场景就是“过滤器”。
+
+## wxs 和 JavaScript 的关系
+
+![alt](./images/121.png)
+
+## 内嵌 wxs 脚本
+
+![alt](./images/122.png)
+
+## 外联 wxs 脚本
+
+![alt](./images/123.png)
+![alt](./images/124.png)
+
+## WXS 的特点
+
+- **与 Javascript 不同**
+  为了降低 wxs (WeiXin Script)的学习成本，wxs 语言在设计时借大量鉴了 JavaScript 的语法。但是本质上，wts 和 javaScript 是完全不同的两种语言
+
+<br>
+
+- **不能作为组件的事件回调**
+  ![alt](./images/125.png)
+
+<br>
+
+- **隔离性**
+  ![alt](./images/126.png)
+
+<br>
+
+- **性能好**
+  ![alt](./images/127.png)

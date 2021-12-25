@@ -16,7 +16,7 @@
     - [**WebPack**](./Front-end/Tools/webpack/webpack.md)
     - [**Git**](./Front-end/Tools/Git/git.md)
   - **Frame**
-    - [**WeChat Mini Program**](./Front-end/Frame/WeChat/WeChat.md)
+    - [**WeChat**](./Front-end/Frame/WeChat/WeChat.md)
     - [**Vue2**](./Front-end/Frame/Vue/vue2.md)
     - [**Vue3**](./Front-end/Frame/Vue/vue3.md)
     - [**jQuery**](./Front-end/Frame/jQuery/jQuery.md)

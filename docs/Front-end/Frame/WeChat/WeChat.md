@@ -515,6 +515,8 @@
 - **后退导航**
   ![alt](./images/107.png)
 
+<br>
+
 ## 导航传参
 
 - **声明式导航传参**
@@ -571,8 +573,6 @@
 - **生命周期的分类**
   ![alt](./images/116.png)
 
-<br>
-
 ## 生命周期函数
 
 ![alt](./images/117.png)
@@ -589,6 +589,25 @@
 ## 页面的生命周期函数
 
 ![alt](./images/120.png)
+
+## 组件的生命周期函数
+
+![alt](./images/148.png)
+![alt](./images/149.png)
+
+<br>
+
+- **lifetimes 节点**
+  ![alt](./images/150.png)
+
+## 组件所在页面的生命周期函数
+
+![alt](./images/151.png)
+
+<br>
+
+- **pageLifetimes 节点**
+  ![alt](./images/152.png)
 
 # WXS 脚本
 
@@ -629,3 +648,154 @@
 
 - **性能好**
   ![alt](./images/127.png)
+
+# 自定义组件
+
+## 创建组件
+
+![alt](./images/128.png)
+
+## 引用组件
+
+![alt](./images/129.png)
+
+<br>
+
+- **局部引用**
+  ![alt](./images/130.png)
+
+<br>
+
+- **全局引用**
+  ![alt](./images/131.png)
+
+<br>
+
+- **引用方式区别**
+  ![alt](./images/132.png)
+
+<br>
+
+- **组件和页面的区别**
+  ![alt](./images/133.png)
+
+## 样式
+
+- **组件样式隔离**
+  ![alt](./images/134.png)
+  ![alt](./images/135.png)
+
+<br>
+
+- **修改样式隔离选项**
+  ![alt](./images/136.png)
+
+<br>
+
+- **stylelsolation 可选值**
+  ![alt](./images/137.png)
+
+## 数据、方法和属性
+
+- **data 数据**
+  ![alt](./images/138.png)
+
+<br>
+
+- **methods 方法**
+  ![alt](./images/139.png)
+
+<br>
+
+- **properties 属性**
+  ![alt](./images/140.png)
+
+<br>
+
+- **data 和 properties 区别**
+  ![alt](./images/141.png)
+
+<br>
+
+- **setData 修改 properties 的值**
+  ![alt](./images/142.png)
+
+## 数据监听器
+
+![alt](./images/143.png)
+![alt](./images/144.png)
+![alt](./images/145.png)
+
+## 纯数据字段
+
+![alt](./images/146.png)
+![alt](./images/147.png)
+
+## 插槽
+
+![alt](./images/153.png)
+
+<br>
+
+- **单个插槽**
+  ![alt](./images/154.png)
+
+<br>
+
+- **多个插槽**
+  ![alt](./images/155.png)
+  ![alt](./images/156.png)
+  ![alt](./images/157.png)
+
+## 父子组件通信
+
+![alt](./images/158.png)
+
+<br>
+
+- **属性绑定**
+  ![alt](./images/159.png)
+  ![alt](./images/160.png)
+
+<br>
+
+- **事件绑定**
+  ![alt](./images/161.png)
+  ![alt](./images/162.png)
+  ![alt](./images/163.png)
+  ![alt](./images/164.png)
+  ![alt](./images/165.png)
+
+<br>
+
+- **获取组件实例**
+  ![alt](./images/166.png)
+
+## behaviors
+
+![alt](./images/167.png)
+
+<br>
+
+- **behaviors 工作方式**
+  ![alt](./images/168.png)
+
+<br>
+
+- **behaviors 创建**
+  ![alt](./images/169.png)
+
+<br>
+
+- **behaviors 导入使用**
+  ![alt](./images/170.png)
+
+<br>
+
+- **behaviors 节点**
+  ![alt](./images/171.png)
+
+<br>
+
+- **同名覆盖和组合规则**
+  ![alt](./images/172.png)

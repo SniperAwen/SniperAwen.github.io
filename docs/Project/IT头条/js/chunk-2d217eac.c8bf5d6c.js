@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d217eac"],{c988:function(n,e,t){"use strict";t.r(e);var c=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[n._v("没有设计图，没有接口")])},o=[],a={name:"QaIndex",components:{},props:{},data:function(){return{}},computed:{},watch:{},methods:{},created:function(){},mounted:function(){}},u=a,r=t("2877"),d=Object(r["a"])(u,c,o,!1,null,"200f50ca",null);e["default"]=d.exports}}]);
-//# sourceMappingURL=chunk-2d217eac.c8bf5d6c.js.map

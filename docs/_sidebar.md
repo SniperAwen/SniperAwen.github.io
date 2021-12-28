@@ -22,6 +22,5 @@
   - [**BootStrap**](./Front-end/Frame/Bootstrap3/BootStrap.md)
 - **Project**
   - [**IT 头条\_Vue_Mobile**](./Front-end/Project/IT头条/笔记/IT头条.md)
-  - [**金职调查\_Vue_Mobile**](./Front-end/Project/金职调查/笔记/金职调查.md)
   - [**大事件后台管理系统\_jQuery_PC**](./Front-end/Project/大事件后台管理系统/笔记/大事件后台管理系统.md)
   - [**数据可视化\_Echarts_PC**](./Front-end/Project/数据可视化/笔记/数据可视化.md)

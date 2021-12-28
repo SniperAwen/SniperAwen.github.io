@@ -3,7 +3,6 @@
   - [**MarkDown**](./CheatSheet/MarkDown/MarkDown.md)
   - [**RegExp**](./CheatSheet/RegExp/RegExp.md)
 - **INFOSEC**
-  - [**Overview**](./INFOSEC/信息安全概论.md)
   - [**Data Recovery**](./INFOSEC/底层数据恢复.md)
 - **HTML CSS**
   - [**Basis**](./html%20css/HtmlCss.md)

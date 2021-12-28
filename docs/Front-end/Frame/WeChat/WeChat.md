@@ -799,3 +799,185 @@
 
 - **同名覆盖和组合规则**
   ![alt](./images/172.png)
+
+# 自定义 TabBar
+
+> https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html
+
+- **配置信息**
+  - 在 app.json 中的 tabBar 项指定 custom 字段，同时其余 tabBar 相关配置也补充完整。
+  - 所有 tab 页的 json 里需声明 usingComponents 项，也可以在 app.json 全局开启。
+
+```javascript
+{
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [{
+      "pagePath": "page/component/index",
+      "text": "组件"
+    }, {
+      "pagePath": "page/API/index",
+      "text": "接口"
+    }]
+  },
+  "usingComponents": {}
+}
+```
+
+- **添加 tabBar 代码文件**
+
+```javascript
+custom - tab - bar / index.js;
+custom - tab - bar / index.json;
+custom - tab - bar / index.wxml;
+custom - tab - bar / index.wxss;
+```
+
+# 分包
+
+> 分包指的是把一个完整的小程序项目，按照需求划分为不同的子包，在构建时打包成不同的分包，用户在使用时按需进行加载。
+
+![alt](./images/176.png)
+![alt](./images/177.png)
+![alt](./images/178.png)
+![alt](./images/179.png)
+
+## 使用分包
+
+![alt](./images/180.png)
+![alt](./images/181.png)
+![alt](./images/182.png)
+
+## 独立分包
+
+![alt](./images/183.png)
+![alt](./images/184.png)
+![alt](./images/185.png)
+![alt](./images/186.png)
+![alt](./images/187.png)
+
+## 分包预下载
+
+![alt](./images/188.png)
+![alt](./images/189.png)
+![alt](./images/190.png)
+
+# 扩展插件
+
+## Mobx
+
+![alt](./images/173.png)
+![alt](./images/174.png)
+
+```javascript
+安装 mobx-miniprogram 和 mobx-miniprogram-bindings ：
+npm install --save mobx-miniprogram mobx-miniprogram-bindings
+
+---------------------------------
+
+创建 MobX Store。
+// store.js
+import { observable, action } from "mobx-miniprogram";
+
+export const store = observable({
+// 数据字段
+numA: 1,
+numB: 2,
+
+// 计算属性
+get sum() {
+return this.numA + this.numB;
+},
+
+// actions
+update: action(function () {
+const sum = this.sum;
+this.numA = this.numB;
+this.numB = sum;
+}),
+});
+
+---------------------------------
+
+在 Component 构造器中使用：
+import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
+import { store } from "./store";
+
+Component({
+behaviors: [storeBindingsBehavior],
+data: {
+someData: "...",
+},
+storeBindings: {
+store,
+fields: {
+numA: () => store.numA,
+numB: (store) => store.numB,
+sum: "sum",
+},
+actions: {
+buttonTap: "update",
+},
+},
+methods: {
+myMethod() {
+this.data.sum; // 来自于 MobX store 的字段
+},
+},
+});
+
+---------------------------------
+
+在 Page 构造器中使用：
+如果小程序基础库版本在 2.9.2 以上，可以直接像上面 Component 构造器那样引入 behaviors 。
+
+如果需要比较好的兼容性，可以使用下面这种方式（或者直接改用 Component 构造器来创建页面）。
+
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import { store } from "./store";
+
+Page({
+data: {
+someData: "...",
+},
+onLoad() {
+this.storeBindings = createStoreBindings(this, {
+store,
+fields: ["numA", "numB", "sum"],
+actions: ["update"],
+});
+},
+onUnload() {
+this.storeBindings.destroyStoreBindings();
+},
+myMethod() {
+this.data.sum; // 来自于 MobX store 的字段
+},
+});
+```
+
+## Api Promise
+
+```javascript
+npm install --save miniprogram-api-promise
+
+---------------------------------
+
+import { promisifyAll, promisify } from 'miniprogram-api-promise';
+
+const wxp = {}
+// promisify all wx's api
+promisifyAll(wx, wxp)
+console.log(wxp.getSystemInfoSync())
+wxp.getSystemInfo().then(console.log)
+wxp.showModal().then(wxp.openSetting())
+
+// compatible usage
+wxp.getSystemInfo({success(res) {console.log(res)}})
+
+// promisify single api
+promisify(wx.getSystemInfo)().then(console.log)
+```

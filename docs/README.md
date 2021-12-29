@@ -6,12 +6,12 @@
 
 **此站用于记录学习过程中的所思所想，并力图构建一个完善的知识体系，便于复习巩固、冲击互联网最前沿！**
 
-| 方向         | 已掌握                                                                         | 待学习              |
-| ------------ | ------------------------------------------------------------------------------ | ------------------- |
-| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                               | `Dreamweaver`       |
-| 前端技术栈   | `HTML CSS`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue`<br>`微信小程序` | `uniapp`<br>`react` |
-| 后端技术栈   | 暂无                                                                           | `python`            |
-| 底层数据恢复 | `WinHex`                                                                       | 暂无                |
+| 方向         | 已掌握                                                                            | 待学习                              |
+| ------------ | --------------------------------------------------------------------------------- | ----------------------------------- |
+| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                  | `Dreamweaver`                       |
+| 前端技术栈   | `HTML CSS`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` | `uniapp`<br>`react`<br>`TypeScript` |
+| 后端技术栈   | 暂无                                                                              | `python`<br>`Node.js`<br>`MySql`    |
+| 底层数据恢复 | `WinHex`                                                                          | 暂无                                |
 
 <br>
 

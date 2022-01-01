@@ -4,8 +4,7 @@
 
 # **Awen - Study Notes**
 
-[GitHub](https://github.com/YlAwen)
-[Start](./README.md)
+[开始阅读](./README.md)
 
 <!-- 背景图片 -->
 

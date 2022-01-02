@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/Logo.png" type="image/x-icon">
   <style>
     * {
-      cursor: url(./image/arrow.ico), auto;
+      cursor: url(./assets/arrow.ico), auto;
     }
 
 
@@ -427,29 +427,28 @@
   <script>
     L2Dwidget.init({
       "model": {
-        //jsonpath控制显示那个小萝莉模型，
-        //(切换模型需要改动)
-        jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+        jsonPath: "./assets/Tia/index.json",
         "scale": 1
       },
       "display": {
-        "position": "right", //看板娘的表现位置
-        "width": 70,  //小萝莉的宽度
-        "height": 140, //小萝莉的高度
+        "position": "right",
         "hOffset": 0,
-        "vOffset": -40
+        "vOffset": -133
 
       },
       "mobile": {
-        "show": true,
-        "scale": 0.5
+        "show": false,
       },
       "react": {
-        "opacityDefault": 0.7,
-        "opacityOnHover": 0.2
-      }
+        "opacityDefault": 1,
+        "opacityOnHover": 1,
+      },
+
     });
   </script>
+
+
+
   <!-- mouse click -->
   <script>
     ! function (e, t, a) {

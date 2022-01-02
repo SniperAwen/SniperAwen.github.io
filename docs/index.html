@@ -15,6 +15,7 @@
       cursor: url(./image/arrow.ico), auto;
     }
 
+
     section.cover.has-mask .mask {
       opacity: .5 !important;
     }
@@ -262,6 +263,42 @@
     li::before {
       content: '' !important;
     }
+
+    .sidebar ul,
+    .sidebar ul li {
+      margin-left: 14px;
+    }
+
+    .sidebar-nav ul:not(.app-sub-sidebar)>li:not(.file)::before {
+      top: 10px !important;
+      left: -15px !important;
+      height: 7px !important;
+      width: 7px !important;
+    }
+
+    aside.sidebar ul li.active>a:before {
+      content: '' !important;
+      position: absolute !important;
+      margin: 0 !important;
+      width: 10px !important;
+      height: 10px !important;
+      top: 8px !important;
+      left: -22px !important;
+      border-radius: 50% !important;
+      background-color: #fed24a !important;
+      box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4) !important;
+    }
+
+
+
+    aside.sidebar ul li.active>a {
+      font-size: 16px !important;
+      color: #007be8 !important;
+    }
+
+    .sidebar ul li a {
+      font-size: 15px !important;
+    }
   </style>
 </head>
 
@@ -285,7 +322,10 @@
         color: 'rgb(90,90,90)',
         language: 'chinese'
       },
-      // onlyCover: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      sidebarDisplayLevel: 1, // set sidebar display level
       plugins: [
         function (hook) {
           var footer = [
@@ -343,7 +383,7 @@
   <!-- 复制代码到剪切板 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- 字数统计 -->
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
   <!-- Markdown 引用样式美化 -->
   <script
     src="//cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
@@ -363,9 +403,52 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- 标题折叠 -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script> -->
 
+  <!-- plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <!-- 复制提醒 -->
+  <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <script>
+    document.body.oncopy = function () {
+      swal("复制成功 🎉",
+        "若要转载或引用请务必保留原文链接，并申明来源。",
+        "success");
+    };
+  </script>
+  <!-- PWA 离线化 -->
+  <!-- <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script> -->
+  <!-- 看板娘 -->
+  <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+  <script>
+    L2Dwidget.init({
+      "model": {
+        //jsonpath控制显示那个小萝莉模型，
+        //(切换模型需要改动)
+        jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+        "scale": 1
+      },
+      "display": {
+        "position": "right", //看板娘的表现位置
+        "width": 100,  //小萝莉的宽度
+        "height": 200, //小萝莉的高度
+        "hOffset": 0,
+        "vOffset": -66
+      },
+      "mobile": {
+        "show": true,
+        "scale": 0.5
+      },
+      "react": {
+        "opacityDefault": 0.7,
+        "opacityOnHover": 0.2
+      }
+    });
+  </script>
 
 </body>
 

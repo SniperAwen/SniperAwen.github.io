@@ -21,6 +21,7 @@
   - [**jQuery**](./Frame/jQuery/jQuery.md)
   - [**BootStrap**](./Frame/Bootstrap3/BootStrap.md)
 - **Project**
-  - [**IT 头条\_Vue_Mobile**](./Project/IT头条/IT头条.md)
-  - [**大事件后台管理系统\_jQuery_PC**](./Project/大事件后台管理系统/大事件后台管理系统.md)
-  - [**数据可视化\_Echarts_PC**](./Project/数据可视化/数据可视化.md)
+  - [**购物商城\_uni-app**](./Project/购物商城.md)
+  - [**IT 头条\_Vue_Mobile**](./Project/IT头条.md)
+  - [**大事件后台管理系统\_jQuery_PC**](./Project/大事件后台管理系统.md)
+  - [**数据可视化\_Echarts_PC**](./Project/数据可视化.md)

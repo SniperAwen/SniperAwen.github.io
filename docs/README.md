@@ -6,20 +6,23 @@
 
 **此站用于记录学习过程中的所思所想，并力图构建一个完善的知识体系，便于复习巩固、冲击互联网最前沿！**
 
-| 方向         | 已掌握                                                                            | 待学习                              |
-| ------------ | --------------------------------------------------------------------------------- | ----------------------------------- |
-| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                  | `Dreamweaver`                       |
-| 前端技术栈   | `HTML CSS`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` | `uniapp`<br>`react`<br>`TypeScript` |
-| 后端技术栈   | 暂无                                                                              | `python`<br>`Node.js`<br>`MySql`    |
-| 底层数据恢复 | `WinHex`                                                                          | 暂无                                |
+| 知识点       | 已掌握                                                                                             | 待学习                                                                            |
+| ------------ | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                   | 暂无                                                                              |
+| 前端技术栈   | `HTML CSS`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信开发者工具` <br>`uniapp` | `react`<br>`TypeScript`<br>`Flutter`<br>`React Native`                            |
+| 后端技术栈   | 暂无                                                                                               | `Nginx`<br>`python`<br>`Node.js`<br>`MySql`<br>`C++`                              |
+| 游戏引擎     | 暂无                                                                                               | `Unreal Engine`<br>`Cocos`<br>`Egret`                                             |
+| 底层数据恢复 | `WinHex`<br>`R-Studio`                                                                             | 暂无                                                                              |
+| 考研 408     | 暂无                                                                                               | `C语言程序设计`<br>`数据结构`<br>`计算机组成原理` <br>`计算机网络` <br>`操作系统` |
+| 英语口语     | `新概念一`                                                                                         | `新概念二` <br> `新概念三` <br> `新概念四`                                        |
 
 <br>
 
-<h2>兴趣爱好</h2> 
+<h2>兴趣爱好</h2>
 
 ---
 
-1. ‍喜欢的运动：跑步，骑自行车，等等……
+1. ‍ 喜欢的运动：跑步，骑自行车，等等……
 2. 最喜欢做的事：DIY，唱歌，睡觉，等等……
 3. 喜欢逛的资源技术论坛：[吾爱破解](https://www.52pojie.cn/)，[果核剥壳](https://www.ghxi.com/)，[Greasy Fork](https://greasyfork.org/)等等……
 4. 喜欢逛的视频网站：[Youtube](https://www.youtube.com/)，[哔哩哔哩](https://space.bilibili.com/69895189)，等等……

@@ -1,8 +1,4 @@
-# Javascript
-
-> Javascript 一堆坑
-
-## Javascript 基础
+## Javascript 简介
 
 ![](./img/js1.png)
 
@@ -86,38 +82,13 @@
 
 ![alt](./img/js5.png)
 
-### isNaN 判断是否为数字
+### 简单数据类型
 
-![alt](./img/js6.png)
+​ **简单类型**（**基本数据类型**、**值类型**）：在存储时变量中存储的是值本身，包括 string ，number，boolean，undefined，null
 
-```js
-var usrAge = 21;
-var isOk = isNaN(userAge);
-console.log(isOk); // false ，21 不是一个非数字
+### 复杂数据类型
 
-var usrName = "andy";
-console.log(isNaN(userName)); // true ，"andy"是一个非数字
-```
-
-### 字符串转义符
-
-转义符都是 \ 开头的，常用的转义符及其说明如下：
-
-| 转义符 | 解释说明                    |
-| ------ | --------------------------- |
-| \n     | 换行符，n 是 newline 的意思 |
-| \ \    | 斜杠 \                      |
-| \'     | ' 单引号                    |
-| \"     | ”双引号                     |
-| \t     | tab 缩进                    |
-| \b     | 空格 ，b 是 blank 的意思    |
-
-### length 字符串长度
-
-```js
-var strMsg = "我是帅气多金的程序猿！";
-alert(strMsg.length); // 显示 11
-```
+​ **复杂数据类型（引用类型）**：在存储时变量中存储的仅仅是地址（引用），通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date 等；
 
 ### typeof 获取变量数据类型
 
@@ -135,15 +106,7 @@ alert(strMsg.length); // 显示 11
 
 ![	](./img/js10.png)
 
-### 简单数据类型
-
-​ **简单类型**（**基本数据类型**、**值类型**）：在存储时变量中存储的是值本身，包括 string ，number，boolean，undefined，null
-
-### 复杂数据类型
-
-​ **复杂数据类型（引用类型）**：在存储时变量中存储的仅仅是地址（引用），通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date 等；
-
-### 堆栈
+## 堆栈
 
 - 堆栈空间分配区别：
 
@@ -198,17 +161,29 @@ f1(p);
 console.log(p.name);    // 张学友
 ```
 
+## 字符串转义符
+
+转义符都是 \ 开头的，常用的转义符及其说明如下：
+
+| 转义符 | 解释说明                    |
+| ------ | --------------------------- |
+| \n     | 换行符，n 是 newline 的意思 |
+| \ \    | 斜杠 \                      |
+| \'     | ' 单引号                    |
+| \"     | ”双引号                     |
+| \t     | tab 缩进                    |
+| \b     | 空格 ，b 是 blank 的意思    |
+
 ## 运算符
 
 **运算符**（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号。
 
-    Javascript中常用的运算符有：
-
-- 算数运算符
-- 递增和递减运算符
-- 比较运算符
-- 逻辑运算符
-- 赋值运算符
+- Javascript 中常用的运算符有：
+  - 算数运算符
+  - 递增和递减运算符
+  - 比较运算符
+  - 逻辑运算符
+  - 赋值运算符
 
 ### 算数运算符
 
@@ -280,7 +255,7 @@ console.log(p.name);    // 张学友
 
 ![alt](./img/js16.png)
 
-## 流程控制
+## 判断/循环语句
 
 ![alt](./img/js17.png)
 
@@ -347,8 +322,6 @@ switch (表达式) {
   // 表达式 不等于任何一个 value 时要执行的代码
 }
 ```
-
-## 循环
 
 ### for 循环
 
@@ -441,34 +414,6 @@ alert(arrStus[1]);
   ```js
   var arrStus = [1, 2, 3];
   alert(arrStus.length); // 3
-  ```
-
-### 数组中新增元素
-
-​
-数组中可以通过以下方式在数组的末尾插入新元素：
-
-```js
-数组[数组.length] = 新数据;
-```
-
-### instanceof 检测是否为数组
-
-- instanceof 可以判断一个对象是否是某个构造函数的实例
-
-  ```js
-  var arr = [1, 23];
-  var obj = {};
-  console.log(arr instanceof Array); // true
-  console.log(obj instanceof Array); // false
-  ```
-
-- Array.isArray()用于判断一个对象是否为数组，isArray() 是 HTML5 中提供的方法
-  ```js
-  var arr = [1, 23];
-  var obj = {};
-  console.log(Array.isArray(arr)); // true
-  console.log(Array.isArray(obj)); // false
   ```
 
 ## 函数
@@ -574,37 +519,6 @@ function 函数名（）{
   // 调用的方式，函数调用必须写到函数体下面
   fn();
   ```
-
-## 预解析
-
-    Javascript 代码是由浏览器中的 Javascript 解析器来执行的。Javascript 解析器在运行 Javascript 代码的时候分为两步：预解析和代码执行。
-
-- 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
-
-- 代码执行： 从上到下执行 JS 语句。
-
-  **预解析会把变量和函数的声明在代码执行之前执行完成。**
-
-```js
-// 预解析前
-console.log(num); // undefined
-var num = 10;
-// ------------
-fn(); // 打印
-function fn() {
-  console.log("打印");
-}
-
-// 预解析后
-var num;
-console.log(num); // undefined？
-num = 10;
-// ------------
-function fn() {
-  console.log("打印");
-}
-fn(); // 打印
-```
 
 ## 对象
 
@@ -773,7 +687,7 @@ for (var k in obj) {
 
 > ​ Web API 是浏览器提供的一套操作浏览器功能和页面元素的 API ( BOM 和 DOM )。
 
-## DOM
+### DOM
 
 ​ 文档对象模型（Document Object Model，简称 DOM），是 [W3C](https://baike.baidu.com/item/W3C) 组织推荐的处理[可扩展标记语言](https://baike.baidu.com/item/%E5%8F%AF%E6%89%A9%E5%B1%95%E7%BD%AE%E6%A0%87%E8%AF%AD%E8%A8%80)（html 或者 xhtml）的标准[编程接口](https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3)。
 
@@ -781,7 +695,7 @@ for (var k in obj) {
 
 > DOM 是 W3C 组织制定的一套处理 html 和 xml 文档的规范，所有的浏览器都遵循了这套标准。
 
-### DOM 树
+#### DOM 树
 
 DOM 树 又称为文档树模型，把文档映射成树形结构，通过节点对象对其处理，处理的结果可以加入到当前的页面。
 
@@ -791,7 +705,7 @@ DOM 树 又称为文档树模型，把文档映射成树形结构，通过节点
 
 ![alt](./img/js33.png)
 
-### 获取元素
+#### 获取元素
 
 - 根据 ID 获取
 
@@ -819,7 +733,7 @@ DOM 树 又称为文档树模型，把文档映射成树形结构，通过节点
 - **获取特殊元素(body，html)**
   ![alt](./img/js35.png)
 
-### DOM 事件流
+#### DOM 事件流
 
 DOM 事件流会经历 3 个阶段：
 
@@ -834,7 +748,106 @@ DOM 事件流会经历 3 个阶段：
 ![alt](./img/js75.png)
 ![alt](./img/js76.png)
 
-## 事件操作
+### BOM
+
+​ BOM（Browser Object Model）即浏览器对象模型，它提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是 window。
+
+​ BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。
+
+​ BOM 缺乏标准，Javascript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
+
+![alt](./img/js88.png)
+
+#### BOM 的构成
+
+BOM 比 DOM 更大，它包含 DOM。
+![alt](./img/js89.png)
+
+#### 顶级对象 window
+
+![alt](./img/js90.png)
+
+#### window 对象的常见事件
+
+- **页面（窗口）加载事件（2 种）**
+
+  - 第一种
+    ![alt](./img/js91.png)
+    window.onload 是窗口 (页面）加载事件，当文档内容完全加载完成会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。
+    ![alt](./img/js92.png)
+  - 第 2 种
+    ![alt](./img/js93.png)
+    DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片，flash 等等。
+    如果页面的图片很多的话, 从用户访问到 onload 触发可能需要较长的时间, 交互效果就不能实现，必然影响用户的体验，此时用 DOMContentLoaded 事件比较合适。
+
+- **调整窗口大小事件**
+  ![alt](./img/js94.png)
+
+  ​`window.onresize` 是调整窗口大小加载事件, 当触发时就调用的处理函数。
+
+  - 只要窗口大小发生像素变化，就会触发这个事件。
+  - 我们经常利用这个事件完成响应式布局。 window.innerWidth 当前屏幕的宽度
+
+#### 定时器（两种）
+
+- **setTimeout()**
+  ![alt](./img/js95.png)
+  ![alt](./img/js96.png)
+  ![alt](./img/js97.png)
+  ![alt](./img/js98.png)
+  ![alt](./img/js99.png)
+
+- **setInterval()**
+  ![alt](./img/js100.png)
+  ![alt](./img/js101.png)
+  ![alt](./img/js102.png)
+
+#### this 指向问题
+
+1. 全局作用域或者普通函数中 this 指向全局对象 window（注意定时器里面的 this 指向 window）
+2. 方法调用中谁调用 this 指向谁
+3. 构造函数中 this 指向构造函数的实例
+
+#### URL 对象
+
+![alt](./img/js103.png)
+![alt](./img/js104.png)
+![alt](./img/js105.png)
+
+#### location 对象
+
+![alt](./img/js106.png)
+![alt](./img/js107.png)
+
+#### navigator 对象
+
+​ navigator 对象包含有关浏览器的信息，它有很多属性，我们最常用的是 userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。
+
+下面前端代码可以判断用户那个终端打开页面，实现跳转
+
+```js
+if (
+  navigator.userAgent.match(
+    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+  )
+) {
+  window.location.href = ""; //手机
+} else {
+  window.location.href = ""; //电脑
+}
+```
+
+#### history 对象
+
+window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的 URL。
+
+![alt](./img/js108.png)
+
+history 对象一般在实际开发中比较少用，但是会在一些 OA 办公系统中见到。
+
+## 事件
+
+### 事件操作
 
 - 事件源（谁）：触发事件的元素
 - 事件类型（什么事件）： 例如 click 点击事件
@@ -858,7 +871,7 @@ DOM 事件流会经历 3 个阶段：
 - 执行事件的步骤
   ![alt](./img/js36.png)
 
-### 常见的鼠标事件
+#### 常见的鼠标事件
 
 ![alt](./img/js37.png)
 
@@ -869,25 +882,25 @@ DOM 事件流会经历 3 个阶段：
   - 之所以这样，就是因为 mouseenter 不会冒泡
   - 跟 mouseenter 搭配鼠标离开 mouseleave  同样不会冒泡
 
-### 注册事件（2 种方式）
+#### 注册事件（2 种方式）
 
 ![alt](./img/js68.png)
 
-### addEventListener()事件监听
+#### addEventListener()事件监听
 
 - eventTarget.addEventListener()方法将指定的监听器注册到 eventTarget（目标对象）上，当该对象触发指定的事件时，就会执行事件处理函数。
 
 ![alt](./img/js69.png)
 ![alt](./img/js70.png)
 
-### 解绑事件
+#### 解绑事件
 
 ![alt](./img/js71.png)
 
 - **删除事件兼容性解决方案 **
   ![alt](./img/js72.png)
 
-## 事件对象
+### 事件对象
 
 事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。
 
@@ -899,7 +912,7 @@ DOM 事件流会经历 3 个阶段：
 
 键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。
 
-### 事件对象的使用
+#### 事件对象的使用
 
 事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。
 
@@ -907,11 +920,11 @@ DOM 事件流会经历 3 个阶段：
 
 ![alt](./img/js83.png)
 
-### 事件对象的属性和方法
+#### 事件对象的属性和方法
 
 ![alt](./img/js82.png)
 
-### e.target 和 this 的区别
+#### e.target 和 this 的区别
 
 - this 是事件绑定的元素（绑定这个事件处理函数的元素） 。
 
@@ -922,7 +935,7 @@ DOM 事件流会经历 3 个阶段：
 > 这时候 this 指向的是父元素，因为它是绑定事件的元素对象，
 > 而 target 指向的是子元素，因为他是触发事件的那个具体元素对象。
 
-### 阻止默认行为
+#### 阻止默认行为
 
 > html 中一些标签有默认行为，例如 a 标签被单击后，默认会进行页面跳转。
 
@@ -946,51 +959,51 @@ DOM 事件流会经历 3 个阶段：
     </script>
 ```
 
-### 阻止事件冒泡
+#### 阻止事件冒泡
 
 ![alt](./img/js80.png)
 
 - 阻止事件冒泡的兼容性处理
   ![alt](./img/js81.png)
 
-### 事件委托
+#### 事件委托
 
 - 不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。
 - 给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。
 
 ![alt](./img/js79.png)
 
-### 常用鼠标事件
+#### 常用鼠标事件
 
 ![alt](./img/js78.png)
 
-### 鼠标事件对象
+#### 鼠标事件对象
 
 ![alt](./img/js77.png)
 
-### 键盘事件
+#### 键盘事件
 
 ![alt](./img/js84.png)
 ![alt](./img/js85.png)
 
-### 键盘事件对象
+#### 键盘事件对象
 
 ![alt](./img/js86.png)
 ![alt](./img/js87.png)
 
-### 触屏事件
+#### 触屏事件
 
 触屏事件 touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指（或触控笔）对屏幕或者触控板操作。
 ![alt](./img/js119.png)
 
-### 触摸事件对象（TouchEvent）
+#### 触摸事件对象（TouchEvent）
 
 TouchEvent 是一类描述手指在触摸平面（触摸屏、触摸板等）的状态变化的事件。这类事件用于描述一个或多个触点，使开发者可以检测触点的移动，触点的增加和减少，等等
 touchstart、touchmove、touchend 三个事件都会各自有事件对象。
 触摸事件对象重点我们看三个常见对象列表：
 ![alt](./img/js120.png)
 
-### 移动端拖动元素
+#### 移动端拖动元素
 
 1.  touchstart、touchmove、touchend 可以实现拖动元素
 2.  但是拖动元素需要当前手指的坐标值 我们可以使用   targetTouches[0] 里面的 pageX 和 pageY
@@ -1007,7 +1020,7 @@ touchstart、touchmove、touchend 三个事件都会各自有事件对象。
 
 > **注意： 手指移动也会触发滚动屏幕所以这里要阻止默认的屏幕滚动 e.preventDefault();**
 
-### click 延时解决方案
+#### click 延时解决方案
 
 移动端 click 事件会有 300ms 的延时，原因是移动端屏幕双击会缩放(double tap to zoom) 页面。
 
@@ -1148,7 +1161,7 @@ focus.classList.toggle("current");
 
 `注意:以上方法里面，所有类名都不带点`
 
-## 排他思想
+### 排他思想
 
 如果有同一组元素，我们想要某一个元素实现某种样式， 需要用到循环的排他思想算法：
 
@@ -1312,103 +1325,6 @@ focus.classList.toggle("current");
 </script>
 ```
 
-## BOM
-
-​ BOM（Browser Object Model）即浏览器对象模型，它提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是 window。
-
-​ BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。
-
-​ BOM 缺乏标准，Javascript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
-
-![alt](./img/js88.png)
-
-### BOM 的构成
-
-BOM 比 DOM 更大，它包含 DOM。
-![alt](./img/js89.png)
-
-### 顶级对象 window
-
-![alt](./img/js90.png)
-
-### window 对象的常见事件
-
-- **页面（窗口）加载事件（2 种）**
-
-  - 第一种
-    ![alt](./img/js91.png)
-    window.onload 是窗口 (页面）加载事件，当文档内容完全加载完成会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。
-    ![alt](./img/js92.png)
-  - 第 2 种
-    ![alt](./img/js93.png)
-    DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片，flash 等等。
-    如果页面的图片很多的话, 从用户访问到 onload 触发可能需要较长的时间, 交互效果就不能实现，必然影响用户的体验，此时用 DOMContentLoaded 事件比较合适。
-
-- **调整窗口大小事件**
-  ![alt](./img/js94.png)
-
-  ​`window.onresize` 是调整窗口大小加载事件, 当触发时就调用的处理函数。
-
-  - 只要窗口大小发生像素变化，就会触发这个事件。
-  - 我们经常利用这个事件完成响应式布局。 window.innerWidth 当前屏幕的宽度
-
-### 定时器（两种）
-
-- **setTimeout()**
-  ![alt](./img/js95.png)
-  ![alt](./img/js96.png)
-  ![alt](./img/js97.png)
-  ![alt](./img/js98.png)
-  ![alt](./img/js99.png)
-
-- **setInterval()**
-  ![alt](./img/js100.png)
-  ![alt](./img/js101.png)
-  ![alt](./img/js102.png)
-
-### this 指向问题
-
-1. 全局作用域或者普通函数中 this 指向全局对象 window（注意定时器里面的 this 指向 window）
-2. 方法调用中谁调用 this 指向谁
-3. 构造函数中 this 指向构造函数的实例
-
-### URL 对象
-
-![alt](./img/js103.png)
-![alt](./img/js104.png)
-![alt](./img/js105.png)
-
-### location 对象
-
-![alt](./img/js106.png)
-![alt](./img/js107.png)
-
-### navigator 对象
-
-​ navigator 对象包含有关浏览器的信息，它有很多属性，我们最常用的是 userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。
-
-下面前端代码可以判断用户那个终端打开页面，实现跳转
-
-```js
-if (
-  navigator.userAgent.match(
-    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-  )
-) {
-  window.location.href = ""; //手机
-} else {
-  window.location.href = ""; //电脑
-}
-```
-
-### history 对象
-
-window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的 URL。
-
-![alt](./img/js108.png)
-
-history 对象一般在实际开发中比较少用，但是会在一些 OA 办公系统中见到。
-
 ## JS 执行机制
 
 ### JS 是单线程
@@ -1556,7 +1472,7 @@ sessionStorage.removeItem(key);
 sessionStorage.clear();
 ```
 
-### 1.7.3.window.localStorage
+### window.localStorage
 
 1、声明周期永久生效，除非手动删除 否则关闭页面也会存在
 
@@ -1588,6 +1504,37 @@ localStorage.removeItem(key);
 localStorage.clear();
 ```
 
+## 预解析
+
+    Javascript 代码是由浏览器中的 Javascript 解析器来执行的。Javascript 解析器在运行 Javascript 代码的时候分为两步：预解析和代码执行。
+
+- 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
+
+- 代码执行： 从上到下执行 JS 语句。
+
+  **预解析会把变量和函数的声明在代码执行之前执行完成。**
+
+```js
+// 预解析前
+console.log(num); // undefined
+var num = 10;
+// ------------
+fn(); // 打印
+function fn() {
+  console.log("打印");
+}
+
+// 预解析后
+var num;
+console.log(num); // undefined？
+num = 10;
+// ------------
+function fn() {
+  console.log("打印");
+}
+fn(); // 打印
+```
+
 ## 面向过程与面向对象
 
 - 面向过程:
@@ -1600,7 +1547,7 @@ localStorage.clear();
   | 优点 | 性能比面向对象高，适合跟硬件联系很紧密的东西，例如单片机就采用的面向过程编程。 | 易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护 |
   | 缺点 | 不易维护、不易复用、不易扩展 | 性能比面向过程低 |
 
-## 对象与类
+### 对象与类
 
 ### 对象
 

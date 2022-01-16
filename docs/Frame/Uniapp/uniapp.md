@@ -6,6 +6,10 @@
 
 ![alt](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-a90b5f95-90ba-4d30-a6a7-cd4d057327db/423744c0-5673-4a14-adca-14bd986c3f05.jpg)
 
+## 目录树
+
+![alt](./images/1.png)
+
 ## 新建项目
 
 - 全局安装 vue-cli
@@ -28,28 +32,32 @@
      "usingComponents": true
   },
   ```
-- 运行、发布 uni-app
 
-  ```
-  npm run dev:%PLATFORM%
-  npm run build:%PLATFORM%
-  ```
+## 运行发布
 
-  | %PLATFORM%              | 平台                 |
-  | ----------------------- | -------------------- |
-  | app-plus                | app 平台生成打包资源 |
-  | h5                      | H5                   |
-  | mp-alipay               | 支付宝小程序         |
-  | mp-baidu                | 百度小程序           |
-  | mp-weixin               | 微信小程序           |
-  | mp-toutiao              | 字节跳动小程序       |
-  | mp-lark                 | 飞书小程序           |
-  | mp-qq                   | qq 小程序            |
-  | mp-360                  | 360 小程序           |
-  | mp-kuaishou             | 快手小程序           |
-  | quickapp-webview        | 快应用(webview)      |
-  | quickapp-webview-union  | 快应用联盟           |
-  | quickapp-webview-huawei | 快应用华为           |
+```
+npm run dev:%PLATFORM%
+npm run build:%PLATFORM%
+```
 
-- **目录树**
-  ![alt](./images/1.png)
+| %PLATFORM%              | 平台                 |
+| ----------------------- | -------------------- |
+| app-plus                | app 平台生成打包资源 |
+| h5                      | H5                   |
+| mp-alipay               | 支付宝小程序         |
+| mp-baidu                | 百度小程序           |
+| mp-weixin               | 微信小程序           |
+| mp-toutiao              | 字节跳动小程序       |
+| mp-lark                 | 飞书小程序           |
+| mp-qq                   | qq 小程序            |
+| mp-360                  | 360 小程序           |
+| mp-kuaishou             | 快手小程序           |
+| quickapp-webview        | 快应用(webview)      |
+| quickapp-webview-union  | 快应用联盟           |
+| quickapp-webview-huawei | 快应用华为           |
+
+## Vant Weapp
+
+- 下载 https://github.com/youzan/vant-weapp
+- 放入 `src/wxcomponents/vant/dist`
+- 在 `pages.json` 的 `globalStyle/usingComponents` 引用

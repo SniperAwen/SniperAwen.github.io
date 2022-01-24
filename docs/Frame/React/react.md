@@ -1,4 +1,4 @@
-## React 介绍
+# React
 
 ![React Logo](./images/react_logo.jpeg)
 

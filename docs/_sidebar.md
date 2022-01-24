@@ -3,8 +3,7 @@
   - [**MarkDown**](./CheatSheet/MarkDown/MarkDown.md)
   - [**RegExp**](./CheatSheet/RegExp/RegExp.md)
   - [**Git**](./CheatSheet/Git/git.md)
-- **INFOSEC**
-  - [**Data Recovery**](./INFOSEC/底层数据恢复.md)
+  - [**Data Recovery**](./CheatSheet/INFOSEC/底层数据恢复.md)
 - [**HTML**](./html%20css/html.md)
 - [**CSS**](./html%20css/css.md)
 - **JavaScript**

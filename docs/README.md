@@ -42,6 +42,8 @@
 
 ## Extra
 
+~~Karaoke 备忘录速查~~
+
 ### Stay
 
 <img src="./assets/song/img/stay1.jpg" style="width:600px"/>

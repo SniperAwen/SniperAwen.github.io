@@ -628,59 +628,6 @@ class App extends React.Component {
 
 **注意：这个语法是试验性的语法，但是有 babel 的转义，所以没有任何问题**
 
-## setState 修改状态
-
-- 组件中的状态是可变的
-- 语法`this.setState({要修改的数据})`
-- 注意：不要直接修改 state 中的值，必须通过`this.setState()`方法进行修改
-- `setState`的作用
-
-  - 修改 state
-  - 更新 UI
-
-- 思想：数据驱动视图
-
-```js
-class App extends React.Component {
-  state = {
-    count: 1,
-  };
-  handleClick() {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  }
-  render() {
-    return (
-      <div>
-        <p>次数: {this.state.count}</p>
-        <button onClick={this.handleClick.bind(this)}>点我+1</button>
-      </div>
-    );
-  }
-}
-```
-
-- react 中核心理念：**状态不可变**
-  - 不要直接修改 react 中 state 的值，而是提供新的值
-  - 直接修改 react 中 state 的值，组件并不会更新
-
-```jsx
-state = {
-  count: 0,
-  list: [],
-};
-// 直接修改值的操作
-this.state.count++;
-this.state.list.push("a");
-
-// 创建新的值的操作
-this.setState({
-  count: this.state.count + 1,
-  list: [...this.state.list, "b"],
-});
-```
-
 ## 表单处理
 
 > 我们在开发过程中，经常需要操作表单元素，比如获取表单的值或者是设置表单的值。
@@ -1062,3 +1009,570 @@ class Child extends React.Component {
 状态提升之后
 
 ![](images/状态提升02.png)
+
+### context
+
+- 调用 React. createContext() 创建 Provider（提供数据） 和 Consumer（消费数据） 两个组件。
+
+```js
+const { Provider, Consumer } = React.createContext();
+```
+
+- 使用 Provider 组件作为父节点。
+
+```js
+<Provider>
+  <div className="App">
+    <Child1 />
+  </div>
+</Provider>
+```
+
+- 设置 value 属性，表示要传递的数据。
+
+```js
+<Provider value="pink">
+```
+
+- 调用 Consumer 组件接收数据。
+
+```js
+<Consumer>{(data) => <span>data参数表示接收到的数据 -- {data}</span>}</Consumer>
+```
+
+总结：
+
+1. 如果两个组件是远方亲戚（比如，嵌套多层）可以使用 Context 实现组件通讯
+2. Context 提供了两个组件：Provider 和 Consumer
+3. Provider 组件：用来提供数据
+4. Consumer 组件：用来消费数据
+
+## Props 高级
+
+### children 属性
+
+children 属性：表示该组件的子节点，只要组件有子节点，props 就有该属性
+
+children 属性与普通的 props 一样，值可以是任意值（文本、React 元素、组件，甚至是函数）
+
+```js
+function Hello(props) {
+  return <div>该组件的子节点：{props.children}</div>;
+}
+
+<Hello>我是子节点</Hello>;
+```
+
+### Props 校验
+
+2. 导入 prop-types 包
+3. 使用组件名.propTypes = {} 来给组件的 props 添加校验规则
+4. 校验规则通过 PropTypes 对象来指定
+
+```js
+import PropTypes from "prop-types";
+function App(props) {
+  return <h1>Hi, {props.colors}</h1>;
+}
+App.propTypes = {
+  // 约定colors属性为array类型
+  // 如果类型不对，则报出明确错误，便于分析错误原因
+  colors: PropTypes.array,
+};
+```
+
+### 约束规则
+
+1. 常见类型：array、bool、func、number、object、string
+2. React 元素类型：element
+3. 必填项：isRequired
+4. 特定结构的对象：shape({})
+
+```js
+// 常见类型
+optionalFunc: PropTypes.func,
+// 必选
+requiredFunc: PropTypes.func.isRequired,
+// 特定结构的对象
+optionalObjectWithShape: PropTypes.shape({
+	color: PropTypes.string,
+	fontSize: PropTypes.number
+})
+```
+
+### Props 默认值
+
+场景：分页组件 每页显示条数
+作用：给 props 设置默认值，在未传入 props 时生效
+
+```js
+function App(props) {
+  return <div>此处展示props的默认值：{props.pageSize}</div>;
+}
+// 设置默认值
+App.defaultProps = {
+  pageSize: 10,
+};
+// 不传入pageSize属性
+<App />;
+```
+
+### 类的静态属性 static
+
+- 实例成员: 通过实例调用的属性或者方法，，，叫做实例成员（属性或者方法）
+
+- 静态成员：通过类或者构造函数本身才能访问的属性或者方法
+
+```jsx
+class Person {
+   name = 'zs',
+   static age = 18
+   sayHi() {
+       console.log('哈哈')
+   }
+   static goodBye() {
+       console.log('byebye')
+   }
+}
+
+const p = new Person()
+
+console.log(p.name)
+p.sayHi()
+
+console.log(Person.age)
+Person.goodBye()
+```
+
+## 组件生命周期
+
+- 意义：组件的生命周期有助于理解组件的运行方式、完成更复杂的组件功能、分析组件错误原因等
+- 组件的生命周期：组件从被创建到挂载到页面中运行，再到组件不用时卸载的过程
+- 钩子函数的作用：为开发人员在不同阶段操作组件提供了时机。
+- **只有 类组件 才有生命周期。**
+  <http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/>
+
+![](images/组件生命周期.png)
+
+### 挂载阶段
+
+执行时机：组件创建时（页面加载时）
+
+执行顺序：
+
+![](images/组件的执行顺序.png)
+
+| 钩子 函数         | 触发时机                    | 作用                                       |
+| ----------------- | --------------------------- | ------------------------------------------ |
+| constructor       | 创建组件时，最先执行        | 1. 初始化 state 2. 创建 Ref 等             |
+| render            | 每次组件渲染都会触发        | 渲染 UI（**注意： 不能调用 setState()** ） |
+| componentDidMount | 组件挂载（完成 DOM 渲染）后 | 1. 发送网络请求 2.DOM 操作                 |
+
+### 更新阶段
+
+- 执行时机：1. setState() 2. forceUpdate() 3. 组件接收到新的 props
+- 说明：以上三者任意一种变化，组件就会重新渲染
+- 执行顺序
+
+![](images/更新阶段.png)
+
+| 钩子函数           | 触发时机                    | 作用                                                     |
+| ------------------ | --------------------------- | -------------------------------------------------------- |
+| render             | 每次组件渲染都会触发        | 渲染 UI（与 挂载阶段 是同一个 render）                   |
+| componentDidUpdate | 组件更新（完成 DOM 渲染）后 | DOM 操作，可以获取到更新后的 DOM 内容，不要调用 setState |
+
+### 卸载阶段
+
+- 执行时机：组件从页面中消失
+
+| 钩子函数             | 触发时机                 | 作用                               |
+| -------------------- | ------------------------ | ---------------------------------- |
+| componentWillUnmount | 组件卸载（从页面中消失） | 执行清理工作（比如：清理定时器等） |
+
+## setState
+
+### 修改状态
+
+- 组件中的状态是可变的
+- 语法`this.setState({要修改的数据})`
+- 注意：不要直接修改 state 中的值，必须通过`this.setState()`方法进行修改
+- `setState`的作用
+
+  - 修改 state
+  - 更新 UI
+
+- 思想：数据驱动视图
+
+```js
+class App extends React.Component {
+  state = {
+    count: 1,
+  };
+  handleClick() {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <p>次数: {this.state.count}</p>
+        <button onClick={this.handleClick.bind(this)}>点我+1</button>
+      </div>
+    );
+  }
+}
+```
+
+- react 中核心理念：**状态不可变**
+  - 不要直接修改 react 中 state 的值，而是提供新的值
+  - 直接修改 react 中 state 的值，组件并不会更新
+
+```jsx
+state = {
+  count: 0,
+  list: [],
+};
+// 直接修改值的操作
+this.state.count++;
+this.state.list.push("a");
+
+// 创建新的值的操作
+this.setState({
+  count: this.state.count + 1,
+  list: [...this.state.list, "b"],
+});
+```
+
+### 更新数据
+
+- setState() 是异步更新数据的
+- 注意：使用该语法时，后面的 setState() 不要依赖于前面的 setState()
+
+```js
+1. 当你调用 setState 的时候，React.js 并不会马上修改 state （为什么）
+2. 而是把这个对象放到一个更新队列里面
+3. 稍后才会从队列当中把新的状态提取出来合并到 state 当中，然后再触发组件更新。
+```
+
+- 可以多次调用 setState() ，只会触发一次重新渲染
+
+```js
+this.state = { count: 1 };
+this.setState({
+  count: this.state.count + 1,
+});
+console.log(this.state.count); // 1
+```
+
+在使用 React.js 的时候，并不需要担心多次进行 `setState` 会带来性能问题。
+
+- 推荐：使用 `setState((preState) => {})` 语法
+
+- 参数 preState: React.js 会把上一个 `setState` 的结果传入这个函数
+
+```js
+this.setState((preState) => {
+  return {
+    count: preState.count + 1,
+  };
+});
+console.log(this.state.count); // 1
+```
+
+**这种语法依旧是异步的，但是 state 可以获取到最新的状态，适用于需要调用多次 setState**
+
+### 第二个参数
+
+- 场景：在状态更新（页面完成重新渲染）后立即执行某个操作
+- 语法：`setState(updater[, callback])`
+
+```js
+this.setState(
+  (state) => ({}),
+  () => {
+    console.log("这个回调函数会在状态更新后立即执行");
+  }
+);
+```
+
+```js
+this.setState(
+  (state, props) => {},
+  () => {
+    document.title = "更新state后的标题：" + this.state.count;
+  }
+);
+```
+
+### 组件更新
+
+- setState() 的两个作用： 1. 修改 state 2. 更新组件（UI）
+- 过程：父组件重新渲染时，也会重新渲染子组件。但只会渲染当前组件子树（当前组件及其所有子组件）
+
+![](images/组件更新.png)
+
+## 组件性能优化
+
+### 减轻 state
+
+- 减轻 state：只存储跟组件渲染相关的数据（比如：count / 列表数据 / loading 等）
+- 注意：不用做渲染的数据不要放在 state 中，比如定时器 id 等
+- 对于这种需要在多个方法中用到的数据，应该直接放在 this 中
+  - this.xxx = 'bbb'
+  - this.xxx
+
+```js
+class Hello extends Component {
+    componentDidMount() {
+        // timerId存储到this中，而不是state中
+        this.timerId = setInterval(() => {}, 2000)
+    }
+    componentWillUnmount() {
+    	clearInterval(this.timerId)
+    }
+    render() { … }
+}
+```
+
+vue 中不要把和渲染无关的数据放到 data 中
+
+### 避免不必要的重新渲染
+
+- 组件更新机制：父组件更新会引起子组件也被更新，这种思路很清晰
+- 问题：子组件没有任何变化时也会重新渲染 （接收到的 props 没有发生任何的改变）
+- 如何避免不必要的重新渲染呢？
+- 解决方式：使用钩子函数 `shouldComponentUpdate(nextProps, nextState)`
+
+- 作用：通过返回值决定该组件是否重新渲染，返回 true 表示重新渲染，false 表示不重新渲染
+- 触发时机：更新阶段的钩子函数，组件重新渲染前执行 （shouldComponentUpdate => render）
+
+```js
+class Hello extends Component {
+    shouldComponentUpdate() {
+        // 根据条件，决定是否重新渲染组件
+        return false
+    }
+    render() {…}
+}
+```
+
+### 纯组件
+
+- 纯组件：`React.PureComponent` 与 `React.Component `功能相似
+- 区别：PureComponent 内部自动实现了 shouldComponentUpdate 钩子，不需要手动比较
+- 原理：纯组件内部通过分别 对比 前后两次 props 和 state 的值，来决定是否重新渲染组件
+
+```js
+class Hello extends React.PureComponent {
+  render() {
+    return <div>纯组件</div>;
+  }
+}
+```
+
+**只有在性能优化的时候可能会用到纯组件，不要所有的组件都使用纯组件，因为纯组件需要消耗性能进行对比**
+
+### 纯组件比较-值类型
+
+- 说明：纯组件内部的对比是 shallow compare（浅层对比）
+
+- 对于值类型来说：比较两个值是否相同（直接赋值即可，没有坑）
+
+```js
+let number = 0;
+let newNumber = number;
+newNumber = 2;
+console.log(number === newNumber); // false
+```
+
+```js
+state = { number: 0 };
+setState({
+  number: Math.floor(Math.random() * 3),
+});
+// PureComponent内部对比：
+最新的state.number === 上一次的state.number; // false，重新渲染组件
+```
+
+### 纯组件比较-引用类型
+
+- 说明：纯组件内部的对比是 shallow compare（浅层对比）
+- 对于引用类型来说：只比较对象的引用（地址）是否相同
+
+```js
+const obj = { number: 0 };
+const newObj = obj;
+newObj.number = 2;
+console.log(newObj === obj); // true
+```
+
+```js
+state = { obj: { number: 0 } };
+// 错误做法
+state.obj.number = 2;
+setState({ obj: state.obj });
+// PureComponent内部比较：
+最新的state.obj === 上一次的state.obj; // true，不重新渲染组件
+```
+
+纯组件的最佳实践：
+
+注意：state 或 props 中属性值为引用类型时，应该创建新数据，不要直接修改原数据！
+
+```js
+// 正确！创建新数据
+const newObj = { ...state.obj, number: 2 };
+setState({ obj: newObj });
+// 正确！创建新数据
+// 不要用数组的push / unshift 等直接修改当前数组的的方法
+// 而应该用 concat 或 slice 等这些返回新数组的方法
+this.setState({
+  list: [...this.state.list, { 新数据 }],
+});
+```
+
+## Router
+
+### 使用步骤
+
+```js
+npm i react-router-dom
+```
+
+- `react-router-dom`这个包提供了三个核心的组件
+
+```js
+import { HashRouter, Route, Link } from "react-router-dom";
+```
+
+- 使用`HashRouter`包裹整个应用，一个项目中只会有一个 Router
+
+```js
+<Router>
+  <div className="App">// … 省略页面内容</div>
+</Router>
+```
+
+- 使用 Link 指定导航链接
+
+```js
+<Link to="/first">页面一</Link>
+<Link to="/two">页面二</Link>
+```
+
+- 使用`Route`指定路由规则
+
+```js
+// 在哪里写的Route,最终匹配到的组件就会渲染到这
+<Route path="/first" component={First}></Route>
+```
+
+- Router 组件：包裹整个应用，一个 React 应用只需要使用一次
+- 两种常用 Router：`HashRouter` 和 `BrowserRouter`
+- HashRouter：使用 URL 的哈希值实现（`localhost:3000/#/first`）
+
+- BrowserRouter：使用 H5 的 history API 实现（`localhost:3000/first`）
+
+```js
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+```
+
+### Link 与 NavLink
+
+`Link`组件最终会渲染成 a 标签，用于指定路由导航
+
+- to 属性，将来会渲染成 a 标签的 href 属性
+- `Link`组件无法实现导航的高亮效果
+
+`NavLink`组件，一个更特殊的`Link`组件，可以用用于指定当前导航高亮
+
+- to 属性，用于指定地址，会渲染成 a 标签的 href 属性
+- activeClass: 用于指定高亮的类名，默认`active`
+- exact: 精确匹配，表示必须精确匹配类名才生效
+
+### Route
+
+- v6 开始必须被嵌套在`<Routes>`标签内
+- 写法：
+- ```js
+  <Routes>
+    <Route></Route>
+    <Route></Route>
+  </Routes>
+  ```
+
+- path 的说明
+  - 默认情况下，/能够匹配任意/开始的路径
+  - 如果 path 的路径匹配上了，那么就可以对应的组件就会被 render
+  - 如果 path 没有匹配上，那么会 render null
+  - 如果没有指定 path，那么一定会被渲染
+- exact 的说明， exact 表示精确匹配某个路径
+  - 一般来说，如果路径配置了 /， 都需要配置 exact 属性
+
+### Switch 与 404
+
+> v6 已经把 Switch 移除，改为 Routes
+> v6 已经把 component 移除，改为 element，内容为组件标签
+
+- 通常，我们会把`Route`包裹在一个`Switch`组件中
+
+- 在`Switch`组件中，不管有多少个路由规则匹配到了，都只会渲染第一个匹配的组件
+- 通过`Switch`组件非常容易的就能实现 404 错误页面的提示
+- ```js
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route path="/about" component={About} />
+    <Route path="/user" component={User} />
+    <Route component={NoMatch} />
+  </Switch>
+  ```
+
+- v6 写法:
+- ```js
+  <Routes>
+    <Route exact path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/user" element={<User />} />
+    <Route element={<NoMatch />} />
+  </Routes>
+  ```
+
+### 编程式导航
+
+> v6 类组件使用 hooks 代替
+
+- 场景：点击登录按钮，登录成功后，通过代码跳转到后台首页，如何实现？
+- 编程式导航：通过 JS 代码来实现页面跳转
+- history 是 React 路由提供的，用于获取浏览器历史记录的相关信息
+- push(path)：跳转到某个页面，参数 path 表示要跳转的路径
+- go(n)： 前进或后退到某个页面，参数 n 表示前进或后退页面数量（比如：-1 表示后退到上一页）
+
+```js
+class Login extends Component {
+    handleLogin = () => {
+        // ...
+        this.props.history.push('/home')
+    }
+    render() {...省略其他代码}
+}
+```
+
+### 动态路由与路由参数获取
+
+> v6 类组件使用 hooks 代替
+
+- 可以使用`:id`的方式来配置动态的路由参数
+
+```js
+// 可以匹配 /users/1  /users/2  /users/xxx
+<Route path="/users/:id" component={Users} />
+```
+
+- 在组件中，通过`props`可以接收到路由的参数
+
+```js
+render(){
+    console.log(this.props.match.params)
+}
+```

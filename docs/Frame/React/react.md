@@ -89,6 +89,31 @@ const title = React.createElement("h1", null, "hello react");
 ReactDOM.render(title, document.getElementById("root"));
 ```
 
+- 使用 sass
+
+```js
+// 内置node-sass
+npm install sass
+```
+
+- CSS IN JS
+
+```js
+// 内置CSS Modules
+xxx.css改成xxx.module.scss;
+import styles from "./index.module.scss";
+<div className={styles.fatherBox}></div>;
+
+// 不会被改类名
+.fatherBox{
+  :global{
+    .iconfont{
+      color:red;
+    }
+  }
+}
+```
+
 ## JSX
 
 ### JSX 简介

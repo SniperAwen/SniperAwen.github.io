@@ -39,16 +39,3 @@
 
   <img src="./assets/QQ.jpg" style="height:500px"/>
   <br>
-
-## Extra
-
-~~Karaoke 备忘录速查~~
-
-### Stay
-
-<img src="./assets/song/img/stay1.jpg" style="width:600px"/>
-<img src="./assets/song/img/stay2.jpg" style="width:600px"/>
-<img src="./assets/song/img/stay3.jpg" style="width:600px"/>
-<img src="./assets/song/img/stay4.jpg" style="width:600px"/>
-<img src="./assets/song/img/stay5.jpg" style="width:600px"/>
-<img src="./assets/song/img/stay6.jpg" style="width:600px"/>

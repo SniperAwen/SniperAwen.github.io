@@ -27,9 +27,6 @@ And Batman with his fists，
 和蝙蝠侠的铁拳，
 And clearly I don't see myself upon[əˈpɑn] that list，
 显而易见我未能名列其中，**
-
-<br>
-
 **But she said, where'd you wanna go?
 她说，你想去何方？
 How much you wanna risk?

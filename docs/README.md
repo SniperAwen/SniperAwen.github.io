@@ -27,7 +27,7 @@
 3. 喜欢逛的资源技术论坛：[吾爱破解](https://www.52pojie.cn/)，[果核剥壳](https://www.ghxi.com/)，[Greasy Fork](https://greasyfork.org/)等等……
 4. 喜欢逛的视频网站：[Youtube](https://www.youtube.com/)，[哔哩哔哩](https://space.bilibili.com/69895189)，等等……
 5. 喜欢玩的游戏：[Hollow Knight](https://www.hollowknight.com/)，[Undertale](https://undertale.com/)，[DARK SOULS™ 系列](https://store.steampowered.com/app/374320/DARK_SOULS_III/)，[The Legend of Zelda 系列](https://www.nintendo.com.hk/switch/zelda_botw/)，[Shadowverse](https://shadowverse.com/)等等……
-   <img src="./assets/szb.png" style="width:800px"/>
+   <img src="./assets/img/szb.png" style="width:800px"/>
 
    <br>
 
@@ -37,5 +37,5 @@
 
 - QQ：`2889984509` 或者点击 → [这个链接](https://qm.qq.com/cgi-bin/qm/qr?k=NpnmviXH085e-k9BO1VTR4dSBY0fl32A&noverify=0)
 
-  <img src="./assets/QQ.jpg" style="height:500px"/>
+  <img src="./assets/img/QQ.jpg" style="height:500px"/>
   <br>

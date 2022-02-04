@@ -1,519 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Awen - Study Notes</title>
-  <meta name="description" content="Awen - Study Notes" />
-  <meta name="keyword" content="Awen,awen,YlAwen,ylawen,2889984509,学习笔记,Awen学习笔记,awen学习笔记" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <link rel="shortcut icon" href="./assets/Logo.png" type="image/x-icon">
-  <style>
-    .sidebar ul li a {
-      color: #364149 !important;
-    }
-
-    #waifu {
-      left: auto !important;
-      right: 10px !important;
-    }
-
-    #waifu-tool {
-      right: 15px !important;
-    }
-
-    * {
-      cursor: url(./assets/arrow.ico), auto;
-    }
-
-
-    section.cover.has-mask .mask {
-      opacity: .5 !important;
-    }
-
-    p code {
-      background-color: rgb(255, 255, 255) !important;
-    }
-
-    .markdown-section p.tip,
-    .markdown-section tr:nth-child(1n) {
-      font-size: 16px !important;
-    }
-
-    .markdown-section h1 {
-      margin: 3rem 0 2rem 0;
-    }
-
-    .markdown-section h2 {
-      margin: 2rem 0 1rem;
-    }
-
-    img,
-    pre {
-      border-radius: 5px;
-    }
-
-    /*添加代码块复制按钮样式*/
-    .docsify-copy-code-button {
-      background: #00a1d6 !important;
-      color: #FFFFFF !important;
-      font-size: 13px !important;
-    }
-
-    ::after {
-      color: #9da2fd !important;
-      font-size: 13px !important;
-    }
-
-    .markdown-section>p {
-      font-size: 16px !important;
-    }
-
-
-    /*代码块头部图标 start*/
-    .markdown-section pre:before {
-      content: '';
-      display: block;
-      background: url(https://gitee.com/wugenqiang/PictureBed/raw/master/images01/20200716201955.png);
-      height: 30px;
-      background-size: 40px;
-      background-repeat: no-repeat;
-      background-color: #1C1C1C;
-      background-position: 10px 10px;
-    }
-
-    /*代码块头部图标 end*/
-
-    .markdown-section pre>code {
-      color: #c0c3c1 !important;
-      font-family: 'Inconsolata', consolas, "PingFang SC", "Microsoft YaHei", monospace !important;
-      background-color: #212121 !important;
-      font-size: 15px !important;
-      white-space: pre !important;
-      line-height: 1.5 !important;
-      -moz-tab-size: 4 !important;
-      -o-tab-size: 4 !important;
-      tab-size: 4 !important;
-      /*border-radius: .3em;*/
-    }
-
-    ol,
-    ul,
-    li {
-      line-height: 27px !important;
-      font-size: 16px !important;
-    }
-
-    @media (min-width:600px) {
-      .markdown-section pre>code {
-        font-size: 15px !important;
-        letter-spacing: 1.1px !important;
-      }
-
-    }
-
-    @media (max-width:600px) {
-      .markdown-section pre>code {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 16px !important;
-      }
-
-      pre:after {
-        content: "" !important;
-      }
-    }
-
-    section.cover h1 {
-      margin: 0;
-    }
-
-    pre {
-      background-color: #212121 !important;
-    }
-
-    @media (min-width:600px) {
-      pre code {
-        /*box-shadow: 2px 1px 20px 2px #aaa;*/
-        /*border-radius: 10px !important;*/
-        padding-left: 20px !important;
-      }
-
-    }
-
-    @media (max-width:600px) {
-      pre {
-        padding-left: 3px !important;
-        padding-right: 3px !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        box-shadow: 0px 0px 20px 0px #f7f7f7 !important;
-      }
-
-      /*代码块复制按钮默认隐藏*/
-      .docsify-copy-code-button {
-        display: none;
-      }
-
-      .advertisement {
-        display: none;
-      }
-
-    }
-
-    .markdown-section pre {
-      padding-left: 0 !important;
-      padding-right: 0px !important;
-    }
-
-    .markdown-section {
-      margin: 0 3.2% !important;
-    }
-
-    /*修改代码块代码颜色显示*/
-    .token.directive.keyword {
-      color: #4faee2 !important;
-    }
-
-    .token.keyword {
-      color: #c678dd !important;
-    }
-
-    .token.comment {
-      color: #737c8b !important;
-    }
-
-    .token.tag {
-      color: #a589ad !important;
-    }
-
-    .token.attr-name {
-      color: #de916c !important;
-    }
-
-    .token.attr-value {
-      color: #4faee2 !important;
-    }
-
-    .token.macro.property {
-      color: #4faee2 !important;
-    }
-
-    .token.function {
-      color: #e6b456 !important;
-    }
-
-    .token.string {
-      color: #98b755 !important;
-    }
-
-    .token.punctuation {
-      color: #c0c3c1 !important;
-    }
-
-    .token.number {
-      color: #c0c3c1 !important;
-    }
-
-    a.section-link {
-      font-size: .9rem !important;
-    }
-
-    .advertisement {
-      position: fixed;
-      right: 20px;
-      top: 100px;
-      width: 110px;
-      box-shadow: -1px 0 2px 0px #c5ebda;
-      padding: 10px;
-      z-index: 99;
-      background-color: #fff;
-      text-align: center;
-    }
-
-    .advertisement p,
-    h4 {
-      margin: 0;
-      padding: 0;
-    }
-
-    .advertisement .Tencent_code h4 {
-      font-size: 15px;
-      color: #25a46a;
-      margin-bottom: 10px;
-    }
-
-    /*滚动条样式 start*/
-    /* 滚动条宽度 */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    /* 滚动条颜色 */
-    ::-webkit-scrollbar-thumb {
-      background: #33a9dc;
-      background-image: linear-gradient(#6ecd56, #33a9dc, #cb6196, #c16290);
-      border-radius: 1em;
-    }
-
-    /*加重描述strong*/
-    .markdown-section strong {
-      color: rgb(239, 112, 96);
-    }
-
-    .markdown-section>div>img,
-    .markdown-section pre {
-      box-shadow: 2px 2px 20px 6px rgb(255, 255, 255) !important;
-    }
-
-    .markdown-section a:not(:hover) {
-      text-decoration: none;
-    }
-
-
-    li::before {
-      content: '' !important;
-    }
-
-    /* .sidebar ul,
-    .sidebar ul li {
-      margin-left: 14px;
-    }
-
-    .sidebar-nav ul:not(.app-sub-sidebar)>li:not(.file)::before {
-      top: 10px !important;
-      left: -15px !important;
-      height: 7px !important;
-      width: 7px !important;
-    } */
-
-    aside.sidebar ul li.active>a:before {
-      content: '' !important;
-      position: absolute !important;
-      margin: 0 !important;
-      width: 10px !important;
-      height: 10px !important;
-      top: 8px !important;
-      left: -22px !important;
-      border-radius: 50% !important;
-      background-color: #fed24a !important;
-      box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4) !important;
-    }
-
-
-
-    aside.sidebar ul li.active>a {
-      font-size: 16px !important;
-      color: #007be8 !important;
-    }
-
-    .sidebar ul li a {
-      font-size: 15px !important;
-    }
-  </style>
-</head>
-
-<body>
-  <div style="font-weight: 700;font-size: 70px;" id="app">⏳Loading...</div>
-  <script>
-    window.$docsify = {
-      el: '#app',
-      repo: 'https://github.com/YlAwen',
-      loadSidebar: true, //开启导航栏
-      subMaxLevel: 4,    //目录最大级数
-      auto2top: true,    //切换页面自动回到顶部
-      loadNavbar: true,  //开启侧边栏
-      coverpage: true,   //开启封面
-      maxLevel: 4,       //可配置最大支持渲染的标题层级
-      homepage: 'README.md', //README.md作为首页
-      onlyCover: true, // 只在访问主页时加载封面
-      count: {
-        countable: true,
-        fontsize: '0.9em',
-        color: 'rgb(90,90,90)',
-        language: 'chinese'
-      },
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
-      sidebarDisplayLevel: 1, // set sidebar display level
-      plugins: [
-        function (hook) {
-          var footer = [
-            '<hr/>',
-            '<footer>',
-            '<span> Copyright &copy; 2022  </span>',
-            '<span> 💖 Awen</span>',
-            '</footer>'
-          ].join('');
-
-          hook.afterEach(function (html) {
-            return html + footer;
-          });
-        }
-      ],
-
-      // 完整配置参数
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: 'auto', // or 'auto'
-        // 支持本地化
-        placeholder: {
-          '/': 'Search',
-          '/zh-cn/': 'Search',
-        },
-        // 支持本地化
-        noData: {
-          '/': 'No result found',
-          '/zh-cn/': 'No result found'
-        },
-
-        // 搜索标题的最大层级, 1 - 6
-        depth: 4,
-        namespace: 'website-1',
-
-
-        copyCode: {
-          buttonText: 'Copy',
-          errorText: 'Error',
-          successText: 'OK!'
-        },
-
-        'flexible-alerts': {
-          style: 'flat'
-        }
-      }
-    }
-  </script>
-  <!-- docsify表情包 -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script> -->
-  <!-- 搜索功能 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 图片缩放 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 复制代码到剪切板 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 字数统计 -->
-  <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
-  <!-- Markdown 引用样式美化 -->
-  <script
-    src="//cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
-  <!-- C++、Java、python、bash等等语法高亮 -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-cpp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-c.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-powershell.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-properties.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/matlab.min.js"></script> -->
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-
-  <!-- plugins -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
-  <!-- 复制提醒 -->
-  <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
-  <script>
-    document.body.oncopy = function () {
-      swal("复制成功 🎉",
-        "若要转载或引用请务必保留原文链接，并申明来源。",
-        "success");
-    };
-  </script>
-  <!-- PWA 离线化 -->
-  <!-- <script>
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('sw.js')
-    }
-  </script> -->
-  <!-- 看板娘 -->
-  <!-- <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
-  <script>
-    L2Dwidget.init({
-      "model": {
-        jsonPath: "./assets/Tia/index.json",
-        "scale": 1
-      },
-      "display": {
-        "position": "right",
-        "hOffset": 0,
-        "vOffset": -133
-
-      },
-      "mobile": {
-        "show": false,
-      },
-      "react": {
-        "opacityDefault": 1,
-        "opacityOnHover": 1,
-      },
-
-    });
-  </script> -->
-
-
-
-  <!-- mouse click -->
-  <script>
-    ! function (e, t, a) {
-      function r(e) {
-        var a = t.createElement("div");
-        a.className = "heart", n.push({
-          el: a,
-          x: e.clientX - 5,
-          y: e.clientY - 5,
-          scale: 1,
-          alpha: 1,
-          color: "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) +
-            ")"
-        }), t.body.appendChild(a)
-      }
-      var n = [];
-      e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame ||
-        e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        },
-        function (e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }(
-          ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
-        ),
-        function () {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), r(e)
-          }
-        }(),
-        function e() {
-          for (var a = 0; a < n.length; a++) n[a].alpha <= 0 ? (t.body.removeChild(n[a].el), n.splice(a, 1)) : (n[a].y--,
-            n[a].scale += .004, n[a].alpha -= .013, n[a].el.style.cssText = "left:" + n[a].x + "px;top:" + n[a]
-              .y + "px;opacity:" + n[a].alpha + ";transform:scale(" + n[a].scale + "," + n[a].scale +
-            ") rotate(45deg);background:" + n[a].color + ";z-index:99999");
-          requestAnimationFrame(e)
-        }()
-    }(window, document);
-  </script>
-
-</body>
-
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Awen - Study Notes</title>
+    <meta name="description" content="Awen - Study Notes" />
+    <meta
+      name="keyword"
+      content="Awen,awen,YlAwen,ylawen,2889984509,学习笔记,Awen学习笔记,awen学习笔记"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <link rel="shortcut icon" href="./assets/Logo.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
+    <!-- docsify设置 -->
+    <script src="./assets//js/setting.js"></script>
+    <!-- docsify表情包 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script> -->
+    <!-- 搜索功能 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 图片缩放 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 复制代码到剪切板 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 字数统计 -->
+    <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
+    <!-- Markdown 引用样式美化 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+    <!-- plugins -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
+    <!-- 复制提醒 -->
+    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script>
+      document.body.oncopy = function () {
+        swal(
+          "复制成功 🎉",
+          "若要转载或引用请务必保留原文链接，并申明来源。",
+          "success"
+        );
+      };
+    </script>
+
+    <!-- mouse click -->
+    <script src="./assets/js/mouseClick.js"></script>
+  </body>
 </html>

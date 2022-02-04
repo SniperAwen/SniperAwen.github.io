@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![logo](assets/Logo.png)
+![logo](assets/img/Logo.png)
 
 # **Awen - Study Notes**
 
@@ -8,4 +8,4 @@
 
 <!-- 背景图片 -->
 
-![](assets/bg.jpg)
+![](assets/img/bg.jpg)

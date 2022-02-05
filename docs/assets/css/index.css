@@ -12,7 +12,7 @@
 }
 
 * {
-  cursor: url(./assets/arrow.ico), auto;
+  cursor: url(../img/arrow.ico), auto;
 }
 
 section.cover.has-mask .mask {
@@ -61,7 +61,7 @@ pre {
 .markdown-section pre:before {
   content: "";
   display: block;
-  background: url(https://gitee.com/wugenqiang/PictureBed/raw/master/images01/20200716201955.png);
+  background: url(../img/top.png);
   height: 30px;
   background-size: 40px;
   background-repeat: no-repeat;

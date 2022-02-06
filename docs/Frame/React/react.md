@@ -1601,3 +1601,812 @@ render(){
     console.log(this.props.match.params)
 }
 ```
+
+## 组件复用
+
+- 思考：如果两个组件中的部分功能相似或相同，该如何处理？
+- 处理方式：复用相似的功能（联想函数封装）
+- 复用什么？1. state 2. 操作 state 的方法 **复用组件的状态和组件的逻辑，组件的 UI 不一样**
+- 两种解决方案
+
+  - render-props
+  - HOC（高阶组件）
+
+- 注意：这两种方式不是新的 API，而是利用 React 自身特点的编码技巧，演化而成的固定模式（写法）
+
+### mixins（已废弃）
+
+> https://react.docschina.org/blog/2016/07/13/mixins-considered-harmful.html
+
+- mixin 引入了隐式依赖关系
+  - 对于组件中的方法和数据的来源不明确，不容易维护
+- Mixins 导致名称冲突
+- Mixins 导致滚雪球般的复杂性
+
+### render-props
+
+#### 基本使用
+
+- **在使用组件时，添加一个值为函数的 prop，通常把这个 prop 命名为 render，在组件内部调用这个函数。传进来的函数负责渲染 UI**
+- 问题 2：如果获取组件内部的状态
+- **在组件内部调用方法的时候，把状态当成参数进行传递**
+
+```js
+class Mouse extends React.Component {
+  // … 省略state和操作state的方法
+  render() {
+    return this.props.render(this.state);
+  }
+}
+```
+
+```js
+<Mouse
+  render={(mouse) => (
+    <p>
+      鼠标当前位置 {mouse.x}，{mouse.y}
+    </p>
+  )}
+/>
+```
+
+#### children 代替 render 属性
+
+- 注意：并不是该模式叫 render props 就必须使用名为 render 的 prop，实际上可以使用任意名称的 prop
+- 把 prop 是一个函数并且告诉组件要渲染什么内容的技术叫做：render props 模式
+- 推荐：使用 children 代替 render 属性
+
+```js
+<Mouse>
+  {({ x, y }) => (
+    <p>
+      鼠标的位置是 {x}，{y}
+    </p>
+  )}
+</Mouse>;
+// 组件内部：
+this.props.children(this.state);
+```
+
+```js
+// Context 中的用法：
+<Consumer>{(data) => <span>data参数表示接收到的数据 -- {data}</span>}</Consumer>
+```
+
+#### render-props 优化
+
+- 推荐：给 render props 模式添加 props 校验
+- 应该在组件卸载时解除 mousemove 事件绑定
+
+```js
+Mouse.propTypes = {
+  chidlren: PropTypes.func.isRequired,
+};
+```
+
+```js
+componentWillUnmount() {
+ window.removeEventListener('mousemove', this.handleMouseMove)
+}
+```
+
+封装一个组件，用于提取公共的状态和逻辑，比如鼠标的位置以及鼠标位置的更新，渲染的内容是不确定的，让组件接受一个叫 children 的 prop，而且 children 必须是一个函数
+
+### 高阶组件 HOC higher order component
+
+- 高阶组件（HOC，Higher-Order Component）是一个函数，接收要包装的组件，返回增强后的组件
+- 高阶组件的命名： `withMouse` `withRouter` `withXXX`
+- 高阶组件内部创建一个类组件，在这个类组件中提供复用的状态逻辑代码，通过 prop 将复用的状态传递给
+  被包装组件
+
+```js
+const CatWithMouse = withMouse(Cat);
+const PositionWithMOuse = withMouse(Position);
+```
+
+```js
+// 高阶组件内部创建的类组件：
+const WithMouse = (Base) => {
+  class Mouse extends React.Component {
+    // 处理鼠标的位置等操作
+    render() {
+      return <Base {...this.state} />;
+    }
+  }
+  return Mouse;
+};
+```
+
+#### 使用步骤
+
+- 创建一个函数，名称约定以 with 开头
+- 指定函数参数（作为要增强的组件） 传入的组件只能渲染基本的 UI
+- 在函数内部创建一个类组件，**提供复用的状态逻辑代码**，并返回
+- 在内部创建的组件的 render 中，需要渲染传入的基本组件，增强功能，通过 props 的方式给基本组件传值
+- 调用该高阶组件，传入要增强的组件，通过返回值拿到增强后的组件，并将其渲染到页面中
+
+```js
+// 创建组件
+const MousePosition = withMouse(Position)
+
+// 渲染组件
+<MousePosition />
+```
+
+#### 传递 props
+
+- 问题：props 丢失
+- 原因：高阶组件没有往下传递 props
+- 解决方式：渲染 WrappedComponent 时，将 state 和 this.props 一起传递给组件
+- 传递方式：
+
+```js
+<WrappedComponent {...this.state} {...this.props} />
+```
+
+## Hooks
+
+### 简介
+
+#### Hooks 是什么
+
+- `Hooks`：钩子、钓钩、钩住
+- `Hooks` 是 **React v16.8** 中的新增功能
+- 作用：为**函数组件**提供状态、生命周期等原本 class 组件中提供的 React 功能
+  - 可以理解为通过 Hooks 为函数组件钩入 class 组件的特性
+- 注意：**Hooks 只能在函数组件中使用**，自此，函数组件成为 React 的新宠儿
+
+React v16.8 版本前后，组件开发模式的对比：
+
+- React v16.8 以前： class 组件(提供状态) + 函数组件(展示内容)
+- React v16.8 及其以后：
+  1. class 组件(提供状态) + 函数组件(展示内容)
+  2. Hooks(提供状态) + 函数组件(展示内容)
+  3. 混用以上两种方式：部分功能用 class 组件，部分功能用 Hooks+函数组件
+
+注意 1：虽然有了 Hooks，但 React 官方并没有计划从 React 库中移除 class。
+注意 2：有了 Hooks 以后，不能再把**函数组件**称为无状态组件了，因为 Hooks 为函数组件提供了状态。
+
+#### 为什么要有 Hooks
+
+两个角度：1 组件的状态逻辑复用 2 class 组件自身的问题
+
+1. 组件的状态逻辑复用：
+
+   - 在 Hooks 之前，组件的状态逻辑复用经历了：mixins（混入）、HOCs（高阶组件）、render-props 等模式。
+   - （早已废弃）mixins 的问题：1 数据来源不清晰 2 命名冲突。
+   - HOCs、render-props 的问题：重构组件结构，导致组件形成 JSX 嵌套地狱问题。
+
+2. class 组件自身的问题：
+   - 选择：函数组件和 class 组件之间的区别以及使用哪种组件更合适
+   - 需要理解 class 中的 this 是如何工作的
+   - 相互关联且需要对照修改的代码被拆分到不同生命周期函数中
+     - componentDidMount -> window.addEventListener('resize', this.fn)
+     - componentWillUnmount -> window.addEventListener('resize', this.fn)
+
+- 相比于函数组件来说，不利于代码压缩和优化，也不利于 TS 的类型推导
+
+正是由于 React 原来存在的这些问题，才有了 Hooks 来解决这些问题
+![h](./images/class组件vs.hooks.jpeg)
+
+#### hooks 的优势
+
+由于原来 React 中存在的问题，促使 React 需要一个更好的自带机制来实现组件状态逻辑复用。
+
+1. Hooks 只能在函数组件中使用，避免了 class 组件的问题
+2. 复用组件状态逻辑，而无需更改组件层次结构
+3. 根据功能而不是基于生命周期方法强制进行代码分割
+4. 抛开 React 赋予的概念来说，Hooks 就是一些普通的函数
+5. 具有更好的 TS 类型推导
+6. tree- - shaking 友 好，打包时去掉未引用的代码
+7. 更好的压 缩
+
+项目开发中，Hooks 的采用策略：
+
+- 不推荐直接使用 Hooks 大规模重构现有组件
+- 推荐：新功能用 Hooks，复杂功能实现不了的，也可以继续用 class
+- 找一个功能简单、非核心功能的组件开始使用 hooks
+
+#### hooks 的使用规则
+
+注意：**React Hooks 只能直接出现在 函数组件 中，不能嵌套在 if/for/其他函数中**！
+
+否则就会报错：React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render
+
+React 的 useState 这个 Hook 被条件性（放在一个条件判断中）的调用了。
+
+React Hooks 必须要每次组件渲染时，按照**相同的顺序**来调用所有的 Hooks。
+
+- 为什么会有这样的规则？ 因为 React 是按照 Hooks 的调用顺序来识别每一个 Hook，如果每次调用的顺序不同，导致 React 无法知道是哪一个 Hook
+
+### useState Hook
+
+#### 概述
+
+问题：Hook 是什么? 一个 Hook 就是一个特殊的函数，让你在函数组件中获取状态等 React 特性
+使用模式：函数组件 + Hooks
+特点：从名称上看，Hook 都以 use 开头
+
+#### 的基本使用
+
+- 使用场景：当你想要在**函数组件中，使用组件状态时**，就要使用 **useState** Hook 了
+- 作用：为函数组件提供状态（state）
+- 使用步骤：
+  1. 导入 `useState` 函数
+  2. 调用 `useState` 函数，并传入状态的初始值
+  3. 从 `useState` 函数的返回值中，拿到状态和修改状态的函数
+  4. 在 JSX 中展示状态
+  5. 在按钮的点击事件中调用修改状态的函数，来更新状态
+
+```js
+import { useState } from "react";
+
+const Count = () => {
+  // 返回值是一个数组
+  const stateArray = useState(0);
+
+  // 状态值 -> 0
+  const state = stateArray[0];
+  // 修改状态的函数
+  const setState = stateArray[1];
+
+  return (
+    <div>
+      {/* 展示状态值 */}
+      <h1>useState Hook -> {state}</h1>
+      {/* 点击按钮，让状态值 +1 */}
+      <button onClick={() => setState(state + 1)}>+1</button>
+    </div>
+  );
+};
+```
+
+- 参数：**状态初始值**。比如，传入 0 表示该状态的初始值为 0
+  - 注意：此处的状态可以是任意值（比如，数值、字符串等），而 class 组件中的 state 必须是对象
+- 返回值：数组，包含两个值：1 状态值（state） 2 修改该状态的函数（setState）
+
+#### 使用数组解构简化
+
+比如，要获取数组中的元素：
+
+1. 原始方式：索引访问
+
+```js
+const arr = ["aaa", "bbb"];
+
+const a = arr[0]; // 获取索引为 0 的元素
+const b = arr[1]; // 获取索引为 1 的元素
+```
+
+2. 简化方式：数组解构
+   - 相当于创建了两个变量（可以是任意的变量名称）分别获取到对应索引的数组元素
+
+```js
+const arr = ["aaa", "bbb"];
+
+const [a, b] = arr;
+// a => arr[0]
+// b => arr[1]
+
+const [state, setState] = arr;
+```
+
+- 使用数组解构简化 `useState` 的使用
+  - 约定：**修改状态的函数名称以 set 开头，后面跟上状态的名称**
+
+```js
+// 解构出来的名称可以是任意名称
+
+const [state, setState] = useState(0);
+const [age, setAge] = useState(0);
+const [count, setCount] = useState(0);
+```
+
+#### 状态的读取和修改
+
+状态的使用：1 读取状态 2 修改状态
+
+1. 读取状态：该方式提供的状态，是函数内部的局部变量，可以在函数内的任意位置使用
+
+2. 修改状态：
+
+- `setCount(newValue)` 是一个函数，参数表示：**新的状态值**
+- 调用该函数后，将**使用新的状态值`替换`旧值**
+- 修改状态后，因为状态发生了改变，所以，该组件会重新渲染
+
+#### 组件的更新过程
+
+函数组件使用 **useState** hook 后的执行过程，以及状态值的变化：
+
+- 组件第一次渲染：
+
+  1. 从头开始执行该组件中的代码逻辑
+  2. 调用 `useState(0)` 将传入的参数作为状态初始值，即：0
+  3. 渲染组件，此时，获取到的状态 count 值为： 0
+
+- 组件第二次渲染：
+  1. 点击按钮，调用 `setCount(count + 1)` 修改状态，因为状态发生改变，所以，该组件会重新渲染
+  2. 组件重新渲染时，会再次执行该组件中的代码逻辑
+  3. 再次调用 `useState(0)`，此时 **React 内部会拿到最新的状态值而非初始值**，比如，该案例中最新的状态值为 1
+  4. 再次渲染组件，此时，获取到的状态 count 值为：1
+
+注意：**useState 的初始值(参数)只会在组件第一次渲染时生效**。
+
+也就是说，以后的每次渲染，useState 获取到都是最新的状态值。React 组件会记住每次最新的状态值!
+
+#### 为函数组件添加多个状态
+
+问题：如果一个函数组件需要多个状态，该如何处理?
+回答：调用 `useState` Hook 多次即可，每调用一次 useState Hook 可以提供一个状态。
+注意：useState Hook 多次调用返回的 [state, setState] 相互之间，互不影响。
+
+### useEffect Hook
+
+1. side effect - 副作用
+2. useEffect 的基本使用
+3. useEffect 的依赖
+4. useEffect 发送请求
+
+#### side effect - 副作用
+
+使用场景：当你想要在函数组件中，**处理副作用（side effect）时**，就要使用 **useEffect** Hook 了
+作用：**处理函数组件中的副作用（side effect）**
+
+问题：副作用（side effect）是什么?
+回答：在计算机科学中，如果一个函数或其他操作修改了其局部环境之外的状态变量值，那么它就被称为有副作用
+类比，对于 999 感冒灵感冒药来说：
+
+- （**主**）作用：用于感冒引起的头痛，发热，鼻塞，流涕，咽痛等
+- 副作用：可见困倦、嗜睡、口渴、虚弱感
+
+理解：副作用是相对于主作用来说的，一个功能（比如，函数）除了主作用，其他的作用就是副作用
+对于 React 组件来说，**主作用就是根据数据（state/props）渲染 UI**，除此之外都是副作用（比如，手动修改 DOM）
+
+React 组件的公式：**UI = f(state)**
+
+常见的副作用（side effect）
+
+- 数据（Ajax）请求、手动修改 DOM、localStorage 操作等
+
+```js
+// 不带副作用的情况：
+// 该函数的（主）作用：计算两个数的和
+function fn(a, b) {
+  return a + b;
+}
+
+// 带副作用的情况：
+let c = 1;
+function fn(a, b) {
+  // 因为此处修改函数外部的变量值，而这一点不是该函数的主作用，因此，就是：side effect（副作用）
+  c = 2;
+  return a + b;
+}
+
+// 带副作用的情况：
+function fn(a, b) {
+  // 因为 console.log 会导致控制台打印内容，所以，也是对外部产生影响，所以，也是：副作用
+  console.log(a);
+  return a + b;
+}
+
+// 没有副作用：
+function fn(obj) {
+  return obj.name;
+}
+
+// 有副作用：
+function fn(obj) {
+  // 此处直接修改了参数的值，也是一个副作用
+  obj.name = "大飞哥";
+  return obj.name;
+}
+const o = { name: "小马哥" };
+fn(o);
+```
+
+#### useEffect 的基本使用
+
+使用场景：当你想要在函数组件中，处理副作用（side effect）时，就要使用 useEffect Hook 了
+作用：处理函数组件中的副作用（side effect）
+注意：在实际开发中，副作用是不可避免的。因此，react 专门提供了 **useEffect** Hook **来处理函数组件中的副作用**
+
+```js
+import { useEffect } from "react";
+
+useEffect(function effect() {
+  document.title = `当前已点击 ${count} 次`;
+});
+
+useEffect(() => {
+  document.title = `当前已点击 ${count} 次`;
+});
+```
+
+解释：
+
+- 参数：回调函数（称为 **effect**），就是**在该函数中写副作用代码**
+- 执行时机：该 effect 会在每次组件更新（DOM 更新）后执行
+
+#### useEffect 的依赖
+
+- 问题：如果组件中有另外一个状态，另一个状态更新时，刚刚的 effect 回调，也会执行
+- 性能优化：**跳过不必要的执行，只在 count 变化时，才执行相应的 effect**
+
+```js
+useEffect(() => {
+  document.title = `当前已点击 ${count} 次`;
+}, [count]);
+```
+
+解释：
+
+- 第二个参数：可选的，可省略；也可以传一个数组，数组中的元素可以成为依赖项（deps）
+- 该示例中表示：只有当 count 改变时，才会重新执行该 effect
+
+#### useEffect 的依赖是一个空数组
+
+useEffect 的第二个参数，还可以是一个**空数组（[]）**，表示只在组件第一次渲染后执行 effect
+使用场景：1 事件绑定 2 发送请求获取数据 等
+
+```js
+useEffect(() => {
+  const handleResize = () => {};
+  window.addEventListener("resize", handleResize);
+}, []);
+```
+
+解释：
+
+- 该 effect 只会在组件第一次渲染后执行，因此，可以执行像事件绑定等只需要执行一次的操作
+  - 此时，相当于 class 组件的 componentDidMount 钩子函数的作用
+- 跟 useState Hook 一样，一个组件中也可以调用 useEffect Hook 多次
+- 推荐：一个 useEffect 只处理一个功能，有多个功能时，使用多次 useEffect
+
+#### 总结 useEffect 的使用
+
+```js
+// 触发时机：1 第一次渲染会执行 2 每次组件重新渲染都会再次执行
+useEffect(() => {});
+
+// 触发时机：只在组件第一次渲染时执行
+useEffect(() => {}, []);
+
+// 触发时机：1 第一次渲染会执行 2 当 count 变化时会再次执行
+useEffect(() => {}, [count]);
+```
+
+---
+
+#### useEffect 组件卸载时
+
+问题：如何在组件卸载时，解绑事件？此时，就用到 effect 的返回值了
+
+```js
+useEffect(() => {
+  const handleResize = () => {};
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+```
+
+解释：
+
+- effect 的返回值也是可选的，可省略。也可以返回一个清理函数，用来执行事件解绑等清理操作
+- 清理函数的执行时机：1【空数组没有依赖】组件卸载时 2 【有依赖项】effect 重新执行前（暂时知道即可）
+  - 此时，相当于 class 组件的 componentWillUnmount 钩子函数的作用
+- 推荐：一个 useEffect 只处理一个功能，有多个功能时，使用多次 useEffect
+- 优势：根据业务逻辑来拆分，相同功能的业务逻辑放在一起，而不是根据生命周期方法名称来拆分代码
+- 编写代码时，关注点集中；而不是上下翻滚来查看代码
+
+#### useEffect 发送请求
+
+在组件中，使用 useEffect Hook 发送请求获取数据（side effect）：
+
+```js
+useEffect(() => {
+  const loadData = async () => {};
+  loadData();
+}, []);
+```
+
+解释：
+
+- 注意：**effect 只能是一个同步函数，不能使用 async**
+- 因为 effect 的返回值应该是一个清理函数，React 会在组件卸载或者 effect 的依赖项变化时重新执行
+- 但如果 effect 是 async 的，此时返回值是 Promise 对象。这样的话，就无法保证清理函数被立即调用
+- 如果延迟调用清理函数，也就没有机会忽略过时的请求结果或取消请求
+- **为了使用 async/await 语法，可以在 effect 内部创建 async 函数，并调用**
+
+```js
+// 错误演示：
+
+// 不要给 effect 添加 async
+useEffect(async () => {}, []);
+```
+
+### 自定义 hooks
+
+除了使用内置的 Hooks 之外，还可以创建自己的 Hooks（自定义 Hooks）。
+
+使用场景：**将组件状态逻辑提取到可重用的函数（自定义 Hooks）中，实现状态逻辑复用。**
+
+内置 Hooks 为函数组件赋予了 class 组件的功能；在此之上，自定义 Hooks 针对不同组件实现不同状态逻辑复用。
+
+- 自定义 Hooks 是一个函数，**约定函数名称必须以 use 开头，React 就是通过函数名称是否以 use 开头来判断是不是 Hooks**
+
+- Hooks 只能在函数组件中或其他自定义 Hooks 中使用，否则，会报错！
+- 自定义 Hooks 用来提取组件的状态逻辑，根据不同功能可以有不同的参数和返回值（就像使用普通函数一样）
+
+### useRef hook
+
+使用场景：在 React 中进行 DOM 操作时，用来获取 DOM
+
+作用：**返回一个带有 current 属性的可变对象，通过该对象就可以进行 DOM 操作了。**
+
+```jsx
+const inputRef = useRef(null);
+```
+
+解释：
+
+- 参数：在获取 DOM 时，一般都设置为 null
+- 返回值：包含 current 属性的对象。
+
+![image-20210901215355316](images/image-20210901215355316.png)
+
+- 注意：只要在 React 中进行 DOM 操作，都可以通过 useRef Hook 来获取 DOM（比如，获取 DOM 的宽高等）。
+
+- 注意：useRef 不仅仅可以用于操作 DOM，还可以操作组件
+
+### useContext hooks
+
+#### context 基础
+
+使用场景：跨组件共享数据。
+
+Context 作用：实现跨组件传递数据，而不必在每个级别手动传递 props，简化组件之间的数据传递过程
+
+![image-20210901215518365](images/image-20210901215518365.png)
+
+Context 对象包含了两个组件
+
+- <Context.Provider value>：通过 value 属性提供数据。
+
+- <Context.Consumer>：通过 render-props 模式，在 JSX 中获取 Context 中提供的数据。
+
+![image-20210901215545019](images/image-20210901215545019.png)
+
+注意：
+
+1. 如果提供了 Provider 组件，Consumer 获取到的是 Provider 中 value 属性的值。
+2. 如果没有提供 Provider 组件，Consumer 获取到的是 createContext(defaultValue) 的 defaultValue 值。
+
+#### useContext 使用
+
+作用：在函数组件中，获取 Context 中的值。要配合 Context 一起使用。
+
+useContext Hook 与 <Context.Consumer> 的区别：获取数据的位置不同，
+
+- <Context.Consumer>：在 JSX 中获取 Context 共享的数据。
+- useContext：在 JS 代码中获取 Context 的数据。
+
+![image-20210901215634469](images/image-20210901215634469.png)
+
+解释：
+
+- useContext 的参数：Context 对象，即：通过 createContext 函数创建的对象。
+- useContext 的返回值：Context 中提供的 value 数据。
+
+### React.memo 高阶组件
+
+#### 介绍
+
+React.memo 高阶组件的使用场景说明：
+
+React 组件更新机制：只要父组件状态更新，子组件就会无条件的一起更新。
+
+- 子组件 props 变化时更新过程：组件代码执行 -> JSX Diff（配合虚拟 DOM）-> 渲染（变化后的内容）【 DOM 操作】。
+- 子组件 props 无变化更新过程：组件代码执行 -> JSX Diff（配合虚拟 DOM）【无 DOM 操作】。
+
+注意：此处更新指的是组件代码执行、JSX 进行 Diff 操作（纯 JS 的操作，速度非常快，不会对性能产生太多影响）。
+
+- 如果组件 props 改变了，那么，该组件就必须要更新，才能接收到最新的 props。
+- 但是，如果组件 props 没有改变时，组件也要进行一次更新。实际上，这一次更新是没有必要的。
+
+如果要避免组件 props 没有变化而进行的不必要更新（Diff），这种情况下，就要使用 React.memo 高阶组件。
+
+注：`对于 class 组件来说，可以使用 PureComponent 或 shouldComponentUpdate 钩子函数来实现`。
+
+```jsx
+import { useState } from "react";
+import ReactDOM from "react-dom";
+
+const Child2 = ({ count }) => {
+  console.log("Child2 子组件代码执行了");
+  return <div style={{ backgroundColor: "#abc" }}>子组件2：{count}</div>;
+};
+
+const Child1 = () => {
+  console.log("Child1 子组件代码执行了");
+  return <div style={{ backgroundColor: "#def" }}>子组件1</div>;
+};
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div style={{ backgroundColor: "pink", padding: 10 }}>
+      <h1>计数器：{count}</h1>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <hr />
+
+      {/* 子组件 */}
+      <Child1 />
+      <br />
+      <Child2 count={count} />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+#### 语法
+
+使用场景：当你想要避免函数组件 props 没有变化而产生的不必要更新时，就要用到 React.memo 了。
+
+作用：**记忆组件上一次的渲染结果，在 props 没有变化时复用该结果，避免函数组件不必要的更新**。
+
+![image-20210830205522685](images/image-20210830205522685.png)
+
+解释：
+
+- React.memo 是一个高阶组件，用来记忆（memorize）组件。
+- 参数（Child）：需要被记忆的组件，或者说是需要避免不必要更新的组件。
+- 返回值（MemoChild）：React 记住的 Child 组件。
+
+原理：通过对比检查更新前后 props 是否相同，来决定是否复用上一次的渲染结果，
+
+- 如果相同，复用上一次的渲染结果；
+- 如果不同，重新渲染组件。
+
+**并不是所有的组件都适合使用 memo，比如 child2 组件，每次都需要重新渲染，使用 memo 反而会使性能变得更低，逻辑也变得更复杂**
+
+#### 浅层对比
+
+默认情况下，React.memo 只会对更新前后的 props 进行浅对比（shallow compare）与 PureComponent 相同。
+
+也就是说，对于对象类型的 prop 来说，只会比较引用
+
+- 如果更新前后的引用相同，复用上一次的渲染结果（不会重新渲染该组件）。
+- 如果更新前后的引用不同，重新渲染该组件。
+
+如果你要手动控制比较过程，可以使用 React.memo 的第二个参数：
+
+![image-20210830220716165](images/image-20210830220716165.png)
+
+解释：
+
+- 第二个参数：用来比较更新前后 props 的函数。
+- 返回值：如果返回 true，表示记住（不重新渲染）该组件；如果返回 false，表示重新渲染该组件。
+
+### useCallback hook
+
+#### 使用场景
+
+在使用 React.memo 时，对于对象类型的 props，只会比较引用（浅对比）。
+
+但是，因为**组件每次更新都会创建新的 props 值**，比如，新的对象、事件处理程序等（函数组件的特性）。
+
+这就导致：React.memo 在处理对象类型的 props 时，会失效（每次的 props 都是新对象）。
+
+但是，我们还是想让 React.memo 在处理对象类型的 props 时，也有效。
+
+为了让 React.memo 处理对象类型的 props 有效，只要在*组件更新期间保持对象类型引用相*等，就可以了。
+
+这时候，就要用到以下两个 Hooks：
+
+- `useCallback` Hook：记住函数的引用，在组件每次更新时返回相同引用的函数。
+- `useMemo` Hook：记住任意数据（数值、对象、函数等），在组件每次更新时返回相同引用的数据【功能之一】
+
+#### 基本使用
+
+使用场景：在使用 React.memo 时，为了组件每次更新时都能获取到相同引用的函数，就要用到 useCallback Hook
+
+注意：**需要配合 React.memo 高阶函数一起使用**。
+
+作用：记忆传入的回调函数，这个被记住的回调函数会一直生效，直到依赖项发生改变
+
+![image-20210830230820580](images/image-20210830230820580.png)
+
+解释：
+
+- 第一个参数：必选，需要被记忆的回调函数。
+- 第二个参数：必选，依赖项数组，用于指定回调函数中依赖（用到）的数据（类似于 useEffect 的第二个参数）。
+- 即使没有依赖，也得传入空数组（[]），此时，useCallback 记住的回调函数就会一直生效。
+- 返回值：useCallback 记住的回调函数。
+- useCallback 记住的回调函数会一直生效（或者说会一直返回同一个回调函数），直到依赖项发生改变。
+
+```jsx
+import { useState, memo, useCallback } from "react";
+import ReactDOM from "react-dom";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [money, setMoney] = useState(1000);
+
+  const help = useCallback(() => {
+    setCount(count - 1);
+  }, [count]);
+  return (
+    <div>
+      <h1>计数器</h1>
+      <div>豆豆被打了{count}次</div>
+      <div>金钱：{money}</div>
+      <button onClick={() => setCount(count + 1)}>打豆豆</button>
+      <button onClick={() => setMoney(money + 100)}>加钱</button>
+      <hr />
+      {count < 5 ? <DouDou count={count} help={help}></DouDou> : "豆豆被打死了"}
+    </div>
+  );
+};
+
+const DouDou = memo(({ count, help }) => {
+  console.log("豆豆组件渲染");
+  return (
+    <div>
+      <h3>我是豆豆组件{count}</h3>
+      <button onClick={help}>续命</button>
+    </div>
+  );
+});
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+**useCallback 需要配置 React.memo 使用才有意义，不然反而性能更低，因为 useCallback 来包裹函数也是需要开销的**
+
+### useMemo hook
+
+使用场景：类似于 useCallback，可以在组件更新期间保持任意数据引用相等，一般用来处理对象类型的数据
+
+对比：useCallback 只能记忆函数，而 useMemo 可以记忆任意数据。
+
+作用：**记忆任意数据，这个被记住的数据会一直生效，直到依赖项发生改变 1**。
+
+![image-20210901200419531](images/image-20210901200419531.png)
+
+语法
+
+- 第一个参数：必选，回调函数。注意：**该回调函数会被调用，并通过返回值指定需要被记住的数据**。
+- 第二个参数：必选，依赖项数组，用于指定回调函数中依赖（用到）的数据。同样，没有依赖项时，传入空数组（[]）。
+- 返回值：useMemo 记住的数据
+- useMemo 记住的数据会一直生效（或者说会一直返回同一个数据），直到依赖项发生改变。
+
+如何选择使用哪一个？
+
+- 如果处理的是函数，推荐使用 useCallback Hook。
+- 如果处理的是其他数据（比如，对象），推荐使用 useMemo Hook。
+
+#### 模拟 useCallback 的用法
+
+> `useCallback(fn, deps)` 相当于 `useMemo(() => fn, deps)`。
+
+```jsx
+const help = useCallback(() => {
+  setCount(count - 1);
+}, [count]);
+
+const help = useMemo(() => {
+  return () => {
+    setCount(count - 1);
+  };
+}, [count]);
+```
+
+#### 避免昂贵的计算（计算属性）
+
+```js
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```

@@ -1487,7 +1487,9 @@ export default function App() {
 
 ## Router
 
-### 使用步骤
+### V5
+
+#### 使用步骤
 
 ```js
 npm i react-router-dom
@@ -1531,7 +1533,7 @@ import { HashRouter, Route, Link } from "react-router-dom";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 ```
 
-### Link 与 NavLink
+#### Link 与 NavLink
 
 `Link`组件最终会渲染成 a 标签，用于指定路由导航
 
@@ -1544,7 +1546,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 - activeClass: 用于指定高亮的类名，默认`active`
 - exact: 精确匹配，表示必须精确匹配类名才生效
 
-### Route
+#### Route
 
 - v6 开始必须被嵌套在`<Routes>`标签内
 - 写法：
@@ -1563,7 +1565,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 - exact 的说明， exact 表示精确匹配某个路径
   - 一般来说，如果路径配置了 /， 都需要配置 exact 属性
 
-### Switch V5 Routes V6 与 404
+#### Switch 与 404
 
 > v6 已经把 Switch 移除，改为 Routes
 > v6 已经把 component 移除，改为 element，内容为组件标签
@@ -1591,13 +1593,15 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
   </Routes>
   ```
 
-  ### Redirect V5 Navigate V6
+#### Redirect
+
+> Navigate V6
 
 ```jsx
 <Route path="*" element={<Navigate to="/login" />} />
 ```
 
-### 编程式导航
+#### 编程式导航
 
 > v6 类组件使用 hooks 代替
 
@@ -1617,7 +1621,7 @@ class Login extends Component {
 }
 ```
 
-### 动态路由与路由参数获取
+#### 动态路由与路由参数获取
 
 > v6 类组件使用 hooks 代替
 
@@ -1635,6 +1639,187 @@ render(){
     console.log(this.props.match.params)
 }
 ```
+
+### V6
+
+#### 使用步骤
+
+安装
+
+```js
+npm i react-router-dom
+```
+
+使用
+
+```js
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <div className="app">
+        <Suspense fallback={<div>loading...</div>}>
+          <Routes>
+            <Route path="/*" element={<Navigate to="/home" />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
+  );
+}
+```
+
+#### Link 与 NavLink
+
+`Link`组件最终会渲染成 a 标签，用于指定路由导航
+
+- to 属性，将来会渲染成 a 标签的 href 属性
+- `Link`组件无法实现导航的高亮效果
+
+`NavLink`组件，一个更特殊的`Link`组件，可以用用于指定当前导航高亮
+
+- to 属性，用于指定地址，会渲染成 a 标签的 href 属性
+- activeClass: 用于指定高亮的类名，默认`active`
+- exact: 精确匹配，表示必须精确匹配类名才生效
+
+#### Route 和 Routes
+
+- 必须被嵌套在`<Routes>`标签内
+- 写法：
+- ```js
+  <Routes>
+    <Route path="/*" element={<Navigate to="/home" />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/home" element={<Home />} />
+  </Routes>
+  ```
+
+#### 重定向 Navigate
+
+```jsx
+<Route path="*" element={<Navigate to="/login" />} />
+```
+
+#### Outlet
+
+```jsx
+{
+  /_ 渲染任何匹配的子级路由页面 _/;
+}
+<Outlet></Outlet>;
+```
+
+#### 获取 params 参数
+
+- 在 Route 组件中的 path 属性中定义路径参数
+- 在组件内通过 useParams hook 访问路径参数
+
+```jsx
+<BrowserRouter>
+    <Routes>
+        <Route path='/foo/:id' element={Foo} />
+    </Routes>
+</BrowserRouter>
+​
+import { useParams } from 'react-router-dom';
+export default function Foo(){
+    const params = useParams();
+    return (
+        <div>
+            <h1>{params.id}</h1>
+        </div>
+    )
+}
+```
+
+#### 编程式路由导航
+
+- 使用`useNavigate`钩子函数生成`navigate`对象，可以通过 JS 代码完成路由跳转
+- 现在，`history.push()`将替换为 `navigation()`：
+
+```jsx
+// v5
+import { useHistory } from "react-router-dom";
+function MyButton() {
+  let history = useHistory();
+  function handleClick() {
+    history.push("/home");
+  }
+  return <button onClick={handleClick}>Submit</button>;
+}
+
+// v6
+import { useNavigate } from "react-router-dom";
+function MyButton() {
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate("/home");
+  }
+  return <button onClick={handleClick}>Submit</button>;
+}
+```
+
+- `history` 的用法也将被替换成：
+
+```jsx
+// v5
+history.push("/home");
+history.replace("/home");
+
+// v6
+navigate("/home");
+navigate("/home", { replace: true });
+```
+
+#### search 参数
+
+- 查询参数不需要在路由中定义
+- 使用 useSearchParams hook 来访问查询参数。其用法和 useState 类似，会返回当前对象和更改它的方法
+- 更改 searchParams 时，必须传入所有的查询参数，否则会覆盖已有参数
+
+```jsx
+import { useSearchParams } from 'react-router-dom';
+​
+// 当前路径为 /foo?id=12
+function Foo(){
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get('id')) // 12
+    setSearchParams({
+        name: 'foo'
+    }) // /foo?name=foo
+    return (
+        <div>foo</div>
+    )
+}
+```
+
+#### 默认路由
+
+- 在嵌套路由中，如果 URL 仅匹配了父级 URL，则 Outlet 中会显示带有 index 属性的路由
+- 当 url 为/foo 时：Foo 中的 Outlet 会显示 Default 组件
+- 当 url 为/foo/bar 时：Foo 中的 Outlet 会显示为 Bar 组件
+
+```jsx
+<Routes>
+  <Route path="/foo" element={Foo}>
+    <Route index element={Default}></Route>
+    <Route path="bar" element={Bar}></Route>
+  </Route>
+</Routes>
+```
+
+#### 404 页面
+
+- path 属性取值为\*时，可以匹配任何（非空）路径，同时该匹配拥有最低的优先级。可以用于设置 404 页面
+  `<Route path='*' element={NotFound}></Route>`
 
 ## 组件复用
 

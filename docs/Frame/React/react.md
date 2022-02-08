@@ -1459,6 +1459,32 @@ this.setState({
 });
 ```
 
+### React.lazy
+
+```jsx
+import React from "react";
+const Home = React.lazy(() => import("./pages/Home"));
+
+export default function App() {
+  return (
+    <Router>
+      <div className="app">
+        <NavLink to={"/login"}>登录</NavLink>
+        <NavLink to={"/home"}>首页</NavLink>
+        <Suspense fallback={<div>loading...</div>}>
+          {/* fallback为加载中默认显示 */}
+          <Routes>
+            <Route exact path="/" element={<Navigate to="/home" />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
+  );
+}
+```
+
 ## Router
 
 ### 使用步骤
@@ -1537,7 +1563,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 - exact 的说明， exact 表示精确匹配某个路径
   - 一般来说，如果路径配置了 /， 都需要配置 exact 属性
 
-### Switch 与 404
+### Switch V5 Routes V6 与 404
 
 > v6 已经把 Switch 移除，改为 Routes
 > v6 已经把 component 移除，改为 element，内容为组件标签
@@ -1564,6 +1590,12 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
     <Route element={<NoMatch />} />
   </Routes>
   ```
+
+  ### Redirect V5 Navigate V6
+
+```jsx
+<Route path="*" element={<Navigate to="/login" />} />
+```
 
 ### 编程式导航
 

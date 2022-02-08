@@ -2486,20 +2486,38 @@ React 只是 DOM 的一个抽象层（UI 库），并不是 Web 应用的完整�
 2. redux 安装（在 react 项目中）
 
 ```shell
-npx create-react-app reduxstudy
-cd reduxstudy
-yarn start
-yarn add redux
-新建src/test.html 导入redux包
-<script src="../node_modules/redux/dist/redux.js"></script>
-// 测试redux是否安装成功
-console.log(window.Redux)
+npm i redux react-redux redux-thunk redux-devtools-extension
 ```
 
-`注意`：
+```js
+// store
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reducer from "./reducers";
 
-1. redux 和 react 没有任何关系，是一个为 JS 应用程序提供的状态管理工具
-2. 关于在 react 中使用 redux，后续会讲解
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+
+export default store;
+```
+
+```jsx
+// index
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./assets/styles/index.scss";
+import { Provider } from "react-redux";
+import store from "./store";
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App></App>
+  </Provider>,
+  document.getElementById("root")
+);
+```
+
+redux 和 react 没有任何关系，是一个为 JS 应用程序提供的状态管理工具
 
 ## redux 管理流程
 

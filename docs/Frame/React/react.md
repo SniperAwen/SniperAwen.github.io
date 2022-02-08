@@ -2883,7 +2883,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 3. 需要知道 Provider 和 connect 的作用
 4. connect 是高阶组件 => 把 redux 里面数据和修改数据的方法映射到组件中为了使用方便
 
-## react-redux 结合 hooks 用法-useSelector
+## react-redux useSelector
 
 `目标`：结合 hooks 使用 react-redux
 
@@ -2930,7 +2930,7 @@ export default App;
 
 - Provider 组件依然需要使用
 
-## react-redux 结合 hooks 用法-useDispatch
+## react-redux useDispatch
 
 `目标`：结合 hooks 使用 react-redux，修改数据
 
@@ -2975,7 +2975,7 @@ export default App;
 
 `要点`：无
 
-## redux-异步 action 中间件 redux-thunk 的使用
+## redux 异步 action 中间件 redux-thunk
 
 `目标`：如何处理异步的 action 呢？比如点击按钮，1s 后+1
 

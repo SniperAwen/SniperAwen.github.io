@@ -1765,6 +1765,10 @@ function MyButton() {
   }
   return <button onClick={handleClick}>Submit</button>;
 }
+
+navigate("/test"); // 跳转到/test
+navigate(-1); // 返回上一级
+navigate(0, { replace: true }); // 强制刷新当前页面并不加入路由历史
 ```
 
 - `history` 的用法也将被替换成：

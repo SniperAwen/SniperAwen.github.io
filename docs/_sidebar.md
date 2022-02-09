@@ -1,5 +1,5 @@
-- [**Introduction**](./README.md)
-- **Cheat Sheet**
+- [**简介**](./README.md)
+- **速查表**
   <!-- - [**Karaoke**](./CheatSheet/Karaoke/song.md) -->
   <!-- - [**Language**](./CheatSheet/Language/language.md) -->
   - [**Data Recovery**](./CheatSheet/INFOSEC/底层数据恢复.md)
@@ -12,11 +12,11 @@
 - **JavaScript**
   - [**Js Basis**](./JavaScript/JavaScript.md)
   - [**ES5/ES6**](./JavaScript/ES5_6.md)
-- **Frame**
+- **框架**
   - [**React**](./Frame/React/react.md)
   - [**UniApp**](./Frame/Uniapp/uniapp.md)
   - [**WeChat**](./Frame/WeChat/WeChat.md)
   - [**Vue**](./Frame/Vue/Vue.md)
   - [**jQuery**](./Frame/jQuery/jQuery.md)
   - [**BootStrap**](./Frame/Bootstrap3/BootStrap.md)
-  <!-- - [**Project**](./Project/project.md) -->
+- [**项目**](./Project/project.md)

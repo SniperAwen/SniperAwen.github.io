@@ -41,8 +41,8 @@ window.$docsify = {
     paths: "auto", // or 'auto'
     // 支持本地化
     placeholder: {
-      "/": "Search",
-      "/zh-cn/": "Search",
+      "/": "搜索",
+      "/zh-cn/": "搜索",
     },
     // 支持本地化
     noData: {

@@ -1660,6 +1660,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
+// 一级路由
 export default function App() {
   return (
     <Router>
@@ -1668,13 +1669,22 @@ export default function App() {
           <Routes>
             <Route path="/*" element={<Navigate to="/home" />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home/*" element={<Layout />} />
           </Routes>
         </Suspense>
       </div>
     </Router>
   );
 }
+// 二级路由
+<div className="tab-content">
+  <Routes>
+    <Route index element={<Home />} />
+    <Route path="/question" element={<Question />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="/video" element={<Video />} />
+  </Routes>
+</div>;
 ```
 
 #### Link 与 NavLink

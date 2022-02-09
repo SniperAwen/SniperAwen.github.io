@@ -1708,6 +1708,11 @@ export default function App() {
 <Route path="*" element={<Navigate to="/login" />} />
 ```
 
+#### useLocation
+
+获取当前浏览器路径
+`const location = useLocation();`
+
 #### Outlet
 
 ```jsx

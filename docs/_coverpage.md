@@ -8,4 +8,4 @@
 
 <!-- 背景图片 -->
 
-![](assets/img/bg.jpg)
+![](assets/img/bg01.png)

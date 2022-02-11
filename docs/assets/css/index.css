@@ -292,3 +292,7 @@ aside.sidebar ul li.active > a {
 .sidebar ul li a {
   font-size: 15px !important;
 }
+
+.anchor span strong {
+  color: #333;
+}

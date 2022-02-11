@@ -18,7 +18,6 @@
 section.cover.has-mask .mask {
   opacity: 0.5 !important;
 }
-
 p code {
   background-color: rgb(255, 255, 255) !important;
 }
@@ -295,4 +294,8 @@ aside.sidebar ul li.active > a {
 
 .anchor span strong {
   color: #333;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255);
+}
+.app-nav a.active {
+  color: #007be8 !important;
 }

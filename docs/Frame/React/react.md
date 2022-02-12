@@ -1840,6 +1840,51 @@ function Foo(){
 - path 属性取值为\*时，可以匹配任何（非空）路径，同时该匹配拥有最低的优先级。可以用于设置 404 页面
   `<Route path='*' element={NotFound}></Route>`
 
+#### 路由鉴权
+
+```jsx
+export function RootRouter() {
+  return (
+    <Router>
+      <Suspense fallback={rootShow}>
+        <Routes>
+          <Route path="/*" element={<Navigate to="/home" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home/*" element={<Layout />}></Route>
+          {/* 登录才能访问 */}
+          <Route
+            path="/home/profile/edit"
+            element={
+              <AuthRoute>
+                <ProfileEdit />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/home/profile/chat"
+            element={
+              <AuthRoute>
+                <Chat />
+              </AuthRoute>
+            }
+          />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
+}
+```
+
+```jsx
+import React from "react";
+import { hasToken } from "utils/storage";
+import { Navigate } from "react-router-dom";
+
+export default function AuthRoute({ children }) {
+  return hasToken() ? children : <Navigate to="/login" replace />;
+}
+```
+
 ## 组件复用
 
 - 思考：如果两个组件中的部分功能相似或相同，该如何处理？

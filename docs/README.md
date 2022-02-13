@@ -6,11 +6,13 @@
 
 **此站用于记录学习过程中的所思所想，并构建一个完善的知识体系，便于复习巩固！**
 
+**不定期整理、总结、更新！**
+
 | 知识点       | 已掌握                                                                                                                    | 待学习                                                         |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                                          | 暂无                                                           |
 | 前端技术栈   | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` <br>`uni-app`<br>`React` | `TypeScript`<br>`React Native`<br>`Flutter`                    |
-| 后端技术栈   | 暂无                                                                                                                      | `Node.js`<br>`python`<br>`Nginx`<br>`MySql`<br>`C++`           |
+| 后端技术栈   | 暂无                                                                                                                      | `Node.js`<br>`Python`<br>`Nginx`<br>`MySql`<br>`C++`           |
 | 游戏引擎     | `Cheat Engine`                                                                                                            | `Unreal Engine`<br>`Cocos`<br>`Egret`                          |
 | 底层数据恢复 | `WinHex`<br>`R-Studio`                                                                                                    | 暂无                                                           |
 | 考研 408     | 暂无                                                                                                                      | `数据结构`<br>`计算机组成原理` <br>`计算机网络` <br>`操作系统` |
@@ -38,4 +40,3 @@
 - QQ：`2889984509` 或者点击 → [这个链接](https://qm.qq.com/cgi-bin/qm/qr?k=NpnmviXH085e-k9BO1VTR4dSBY0fl32A&noverify=0)
 
   <img src="./assets/img/QQ.jpg" style="height:500px"/>
-  <br>

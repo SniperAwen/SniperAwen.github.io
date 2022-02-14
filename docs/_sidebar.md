@@ -1,6 +1,6 @@
 - [**简介**](./README.md)
 - **CheatSheet**
-  - [**Karaoke**](./CheatSheet/Karaoke/song.md)
+  <!-- - [**Karaoke**](./CheatSheet/Karaoke/song.md) -->
   <!-- - [**Language**](./CheatSheet/Language/language.md) -->
   - [**Data Recovery**](./CheatSheet/INFOSEC/底层数据恢复.md)
   - [**MarkDown**](./CheatSheet/MarkDown/MarkDown.md)

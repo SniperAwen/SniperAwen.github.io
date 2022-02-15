@@ -8,15 +8,15 @@
 
 **每半年全部翻新整理，不定期更新总结!**
 
-| 知识点       | 已掌握                                                                                                                    | 待学习                                                         |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                                          | 暂无                                                           |
-| 前端技术栈   | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` <br>`uni-app`<br>`React` | `TypeScript`<br>`React Native`<br>`Flutter`                    |
-| 后端技术栈   | 暂无                                                                                                                      | `Node.js`<br>`Python`<br>`Nginx`<br>`MySql`<br>`C++`           |
-| 游戏引擎     | `Cheat Engine`                                                                                                            | `Unreal Engine`<br>`Cocos`<br>`Egret`                          |
-| 底层数据恢复 | `WinHex`<br>`R-Studio`                                                                                                    | 暂无                                                           |
-| 考研 408     | 暂无                                                                                                                      | `数据结构`<br>`计算机组成原理` <br>`计算机网络` <br>`操作系统` |
-| 英语口语     | `新概念一`                                                                                                                | `新概念二` <br> `新概念三` <br> `新概念四`                     |
+| 知识点       | 已掌握                                                                                                                                    | 待学习                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                                                          | 暂无                                                           |
+| 前端技术栈   | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` <br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`<br>`Flutter`                                    |
+| 后端技术栈   | 暂无                                                                                                                                      | `Node.js`<br>`Python`<br>`Nginx`<br>`MySql`<br>`C++`           |
+| 游戏引擎     | `Cheat Engine`                                                                                                                            | `Unreal Engine`<br>`Cocos`<br>`Egret`                          |
+| 底层数据恢复 | `WinHex`<br>`R-Studio`                                                                                                                    | 暂无                                                           |
+| 考研 408     | 暂无                                                                                                                                      | `数据结构`<br>`计算机组成原理` <br>`计算机网络` <br>`操作系统` |
+| 英语口语     | `新概念一`                                                                                                                                | `新概念二` <br> `新概念三` <br> `新概念四`                     |
 
 <br>
 

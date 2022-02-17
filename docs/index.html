@@ -35,15 +35,22 @@
       href="./assets/img/Logo.png"
       type="image/x-icon"
     />
-    <audio
-      src="assets/Foxtail-Grass Studio - The des Alizes.mp3"
-      autoplay
-      loop
-    ></audio>
   </head>
 
   <body>
     <div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
+    <!-- music  -->
+    <div class="music">
+      <iframe
+        frameborder="no"
+        border="0"
+        marginwidth="0"
+        marginheight="0"
+        width="330"
+        height="86"
+        src="//music.163.com/outchain/player?type=2&id=41416746&auto=1&height=66"
+      ></iframe>
+    </div>
     <!-- docsify设置 -->
     <script src="./assets//js/setting.js"></script>
     <!-- docsify表情包 -->
@@ -75,12 +82,7 @@
         );
       };
     </script>
-    <script>
-      const mp3 = document.querySelector("audio");
-      document.addEventListener("click", () => {
-        mp3.play();
-      });
-    </script>
+
     <!-- mouse click -->
     <script src="./assets/js/mouseClick.js"></script>
   </body>

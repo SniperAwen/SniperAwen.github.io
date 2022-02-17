@@ -299,11 +299,3 @@ aside.sidebar ul li.active > a {
 .app-nav a.active {
   color: #007be8 !important;
 }
-
-.music {
-  display: none;
-  position: absolute;
-  right: 190px;
-  top: 65px;
-  width: 10px;
-}

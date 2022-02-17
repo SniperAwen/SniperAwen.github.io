@@ -35,6 +35,11 @@
       href="./assets/img/Logo.png"
       type="image/x-icon"
     />
+    <audio
+      src="assets/Foxtail-Grass Studio - The des Alizes.mp3"
+      autoplay
+      loop
+    ></audio>
   </head>
 
   <body>
@@ -70,7 +75,12 @@
         );
       };
     </script>
-
+    <script>
+      const mp3 = document.querySelector("audio");
+      document.addEventListener("click", () => {
+        mp3.play();
+      });
+    </script>
     <!-- mouse click -->
     <script src="./assets/js/mouseClick.js"></script>
   </body>

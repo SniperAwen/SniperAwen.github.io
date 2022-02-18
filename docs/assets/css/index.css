@@ -11,9 +11,9 @@
   right: 15px !important;
 }
 
-* {
+/* * {
   cursor: url(../img/arrow.ico), auto;
-}
+} */
 
 section.cover.has-mask .mask {
   opacity: 0.5 !important;

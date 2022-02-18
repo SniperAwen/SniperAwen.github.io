@@ -35,17 +35,17 @@
       href="./assets/img/Logo.png"
       type="image/x-icon"
     />
+    <audio src="assets/✤.mp3"></audio>
   </head>
 
   <body>
     <div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
     <!-- music  -->
-    <div style="display: none">
-      <iframe
-        src="https://music.163.com/outchain/player?type=2&id=863238031&auto=1&height=66"
-      ></iframe>
-    </div>
-
+    <script>
+      document.addEventListener("click", () => {
+        document.querySelector("audio").play();
+      });
+    </script>
     <!-- docsify设置 -->
     <script src="./assets//js/setting.js"></script>
     <!-- docsify表情包 -->

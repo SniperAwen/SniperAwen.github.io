@@ -301,5 +301,8 @@ aside.sidebar ul li.active > a {
 }
 
 .fa-info-circle {
-  display: none;
+  display: none !important;
+}
+#waifu-tool {
+  top: 100px !important;
 }

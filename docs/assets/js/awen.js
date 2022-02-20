@@ -11,6 +11,6 @@
 `
 ); */
 console.log(
-  "%cAwen",
-  "color:white;font-size:200px;text-shadow: 0px 0px 5px green;"
+  "%c Awen",
+  "color:white;font-size:150px;text-shadow: 0px 0px 5px green;"
 );

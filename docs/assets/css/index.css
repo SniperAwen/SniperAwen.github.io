@@ -299,3 +299,7 @@ aside.sidebar ul li.active > a {
 .app-nav a.active {
   color: #007be8 !important;
 }
+
+.fa-info-circle {
+  display: none;
+}

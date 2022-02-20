@@ -286,6 +286,7 @@ aside.sidebar ul li.active > a:before {
 aside.sidebar ul li.active > a {
   font-size: 16px !important;
   color: #007be8 !important;
+  /* border-right: 10px !important; */
 }
 
 .sidebar ul li a {
@@ -299,7 +300,10 @@ aside.sidebar ul li.active > a {
 .app-nav a.active {
   color: #007be8 !important;
 }
-
+.sidebar li {
+  margin: 5px 0 !important;
+}
+/* live 2d */
 .fa-info-circle {
   display: none !important;
 }

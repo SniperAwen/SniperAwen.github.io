@@ -1,7 +1,5 @@
 # Karaoke
 
-~~备忘录速查~~
-
 ## Stay
 
 <div style="width:600px">

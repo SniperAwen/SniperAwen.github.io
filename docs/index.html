@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./assets/css/index.css" />
   <link rel="shortcut icon" href="./assets/img/Logo.png" type="image/x-icon" />
-  <audio src="assets/✤.mp3"></audio>
+  <audio class="music" autoplay loop controls src="assets/✤.mp3"></audio>
 </head>
 
 <body>
@@ -40,8 +40,12 @@ AAAAAAA                   AAAAAAA                www             www            
   <div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
   <!-- music  -->
   <script>
+    window.onload = () => {
+      document.querySelector(".anchor span strong").className = "tiktok"
+    }
     document.addEventListener("click", () => {
-      document.querySelector("audio").play();
+      document.querySelector(".music").play();
+      document.querySelector(".music").style.display = "block"
     });
   </script>
   <script src="./assets/js/awen.js"></script>
@@ -81,6 +85,8 @@ AAAAAAA                   AAAAAAA                www             www            
   <script src="./assets/js/mouseClick.js"></script>
   <!-- live2d -->
   <script src="./assets/js/live2d.js"></script>
+  <!-- 樱花 -->
+  <!-- <script src="./assets/js/yinghua.js"></script> -->
 </body>
 
 </html>

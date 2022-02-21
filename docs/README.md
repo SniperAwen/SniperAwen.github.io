@@ -2,11 +2,11 @@
 
 ---
 
-**访客你好！！笔者是一名大三学生，这里是本人的笔记网站！**
-
-**此站用于记录学习过程中的所思所想，并构建一个完善的知识体系，便于复习巩固！**
+**访客你好！本人是一名大三学生，这里是本人的笔记网站！**
 
 **每半年全部翻新整理，不定期更新总结!**
+
+**生活不停，学习不止！欢迎收藏本页！**
 
 | 知识点       | 已掌握                                                                                                                                    | 待学习                                                         |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -26,9 +26,9 @@
 
 1. ‍ 喜欢的运动：跑步，骑自行车，等等……
 2. 最喜欢做的事：DIY，唱歌，睡觉，等等……
-3. 喜欢逛的资源技术论坛：[吾爱破解](https://www.52pojie.cn/)，[果核剥壳](https://www.ghxi.com/)，[Greasy Fork](https://greasyfork.org/)等等……
+3. 喜欢逛的论坛：[Reddit](https://www.reddit.com/)，[巴哈姆特](https://forum.gamer.com.tw/)，等等……
 4. 喜欢逛的视频网站：[Youtube](https://www.youtube.com/)，[哔哩哔哩](https://space.bilibili.com/69895189)，等等……
-5. 喜欢玩的游戏：[Hollow Knight](https://www.hollowknight.com/)，[Undertale](https://undertale.com/)，[DARK SOULS™ 系列](https://store.steampowered.com/app/374320/DARK_SOULS_III/)，[The Legend of Zelda 系列](https://www.nintendo.com.hk/switch/zelda_botw/)，[Shadowverse](https://shadowverse.com/)等等……
+5. 喜欢玩的游戏：[Pokémon 系列](https://www.pokemon.com/)，[DARK SOULS™ 系列](https://store.steampowered.com/app/374320/DARK_SOULS_III/)，[The Legend of Zelda 系列](https://www.nintendo.com.hk/switch/zelda_botw/)，[Shadowverse](https://shadowverse.com/)，等等……
    <img src="./assets/img/szb.png" style="width:800px"/>
 
    <br>

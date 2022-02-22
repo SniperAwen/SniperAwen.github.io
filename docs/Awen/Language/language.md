@@ -6,6 +6,8 @@
 
 ## En
 
+IPA88 美音待补
+
 ## Jp
 
 ![alt](./img/jp.png)

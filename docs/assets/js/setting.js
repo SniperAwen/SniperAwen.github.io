@@ -1,7 +1,7 @@
 window.$docsify = {
   el: "#app",
   repo: "https://github.com/YlAwen",
-  loadSidebar: "../../_sidebar.md", //开启导航栏
+  loadSidebar: true, //开启导航栏
   subMaxLevel: 4, //目录最大级数
   auto2top: true, //切换页面自动回到顶部
   loadNavbar: true, //开启侧边栏
@@ -25,7 +25,6 @@ window.$docsify = {
         "<span> 💖 Awen</span>",
         "</footer>",
       ].join("");
-
       hook.afterEach(function (html) {
         return html + footer;
       });

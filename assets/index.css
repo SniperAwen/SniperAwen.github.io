@@ -6,7 +6,7 @@ body {
   background-color: #000;
   margin: 0;
   overflow: hidden;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 @media only screen and (max-width: 800px) {
   .main {
@@ -15,6 +15,9 @@ body {
   }
   .item {
     margin-top: 50px;
+  }
+  .box {
+    width: 300px !important;
   }
 }
 
@@ -56,8 +59,7 @@ body {
   height: 400px;
   left: 50%;
   top: 50%;
-  margin-top: -200px;
-  margin-left: -300px;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,7 +1,7 @@
 window.$docsify = {
   el: "#app",
   repo: "https://github.com/YlAwen",
-  loadSidebar: true, //开启导航栏
+  loadSidebar: "../../_sidebar.md", //开启导航栏
   subMaxLevel: 4, //目录最大级数
   auto2top: true, //切换页面自动回到顶部
   loadNavbar: true, //开启侧边栏
@@ -14,9 +14,6 @@ window.$docsify = {
     fontsize: "0.9em",
     color: "rgb(90,90,90)",
     language: "chinese",
-  },
-  alias: {
-    "/.*/_sidebar.md": "/_sidebar.md",
   },
   sidebarDisplayLevel: 1, // set sidebar display level
   plugins: [

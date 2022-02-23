@@ -1,4 +1,4 @@
-!(function (e, t, a) {
+/* !(function (e, t, a) {
   function r(e) {
     var a = t.createElement("div");
     (a.className = "heart"),
@@ -71,3 +71,71 @@
       requestAnimationFrame(e);
     })();
 })(window, document);
+ */
+jQuery(function () {
+  $("html").click(function (e) {
+    var a_idx = Math.floor(Math.random() * 26);
+    var a = new Array(
+      "(❤ ω ❤)",
+      "(●ˇ∀ˇ●)",
+      "(￣_,￣ )",
+      "(°ー°〃)",
+      "≡(▔﹏▔)≡",
+      "(●'◡'●)",
+      "(*^▽^*)",
+      "(°ー°〃)",
+      "(✿◡‿◡)",
+      "( •̀ ω •́ )y",
+      "(★ ω ★)",
+      "(＠＾０＾)",
+      "U•ェ•*U",
+      "(☆▽☆)",
+      "<。)#)))≦",
+      "（。＾▽＾）",
+      "O(∩_∩)O",
+      "(╯‵□′)╯︵┻━┻",
+      "(´ｰ∀ｰ`)",
+      "щ(ʘ╻ʘ)щ",
+      "◑﹏◐",
+      "( $ _ $ )",
+      "┗|｀O′|┛",
+      "╮(╯-╰)╭",
+      "(✿◡‿◡)",
+      "(ノへ￣、)",
+      "╥﹏╥..."
+    );
+    var color1 = Math.floor(Math.random() * 255);
+    var color2 = Math.floor(Math.random() * 255);
+    var color3 = Math.floor(Math.random() * 255);
+
+    var $i = $("<span />").text(a[a_idx]);
+    a_idx = (a_idx + 1) % a.length;
+    var x = e.pageX,
+      y = e.pageY;
+    $i.css({
+      "z-index": 9999999999999,
+      top: y - 20,
+      left: x,
+      position: "absolute",
+      "font-family": "mmm",
+      fontSize: Math.floor(Math.random() * 22 + 15),
+      "font-weight": "bold",
+      color: "rgb(" + color1 + "," + color2 + "," + color3 + ")",
+      "-webkit-user-select": "none",
+      "-moz-user-select": "none",
+      "-ms-user-select": "none",
+      "user-select": "none",
+    });
+    $("body").append($i);
+    $i.animate(
+      {
+        top: y - 200,
+        opacity: 0,
+      },
+      1000,
+      function () {
+        $i.remove();
+      }
+    );
+  });
+});

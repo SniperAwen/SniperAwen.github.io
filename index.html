@@ -13,7 +13,8 @@
 </head>
 
 <body>
-
+  <iframe style="display: none;" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86
+    src="https://music.163.com/outchain/player?type=2&id=28191819&auto=1&height=66"></iframe>
   <div class="box">
     <div class="main">
       <div class="item" onclick="window.location.href='https:\/\/www.ylawen.com/docs/'">
@@ -30,9 +31,11 @@
   <script src="./assets/three.min.js"></script>
   <script src="./assets/TweenMax.min.js"></script>
   <script src="./assets/script.js"></script>
-  <iframe style="opacity: 0;" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86
-    src="https://music.163.com/outchain/player?type=2&id=28191819&auto=1&height=66"></iframe>
 
+  <script>
+    document.oncontextmenu = new Function("event.returnValue=false");
+    document.onselectstart = new Function("event.returnValue=false");
+  </script>
 
 </body>
 

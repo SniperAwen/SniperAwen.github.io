@@ -1,65 +1,10 @@
-## Javascript 简介
+# JavaScript
 
-![](./img/js1.png)
+- 作者：布尔登·艾奇（Brendan Eich）,最初命名 LiveScript
 
-- Javascript 是世界上最流行的语言之一，是一种运行在客户端的脚本语言 （Script 是脚本的意思）
-- 脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行
-- 现在也可以基于 Node.js 技术进行服务器端编程
+# 变量
 
-### Javascript 的作用
-
-- 表单动态校验（密码强度检测） （ JS 产生最初的目的 ）
-- 网页特效
-- 服务端开发(Node.js)
-- 桌面程序(Electron)
-- App(Cordova)
-- 控制硬件-物联网(Ruff)
-- 游戏开发(cocos2d-js)
-
-### 浏览器执行 Javascript
-
-**浏览器分成两部分：渲染引擎和 JS 引擎**
-![](./img/js2.png)
-
-> 浏览器本身并不会执行 JS 代码，而是通过内置 Javascript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 Javascript 语言归为脚本语言，会逐行解释执行。
-
-### Javascript 的组成
-
-![alt](./img/js3.png)
-
-**ECMAScript**
-
-    ​		ECMAScript 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 Javascript或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。
-
-![](img/js4.png)
-
-    ​ ECMAScript：规定了 JS 的编程语法和基础核心知识，是所有浏览器厂商共同遵守的一套 JS 语法工业标准。
-
-    更多参看 MDN: [MDN 手册](https://developer.mozilla.org/zh-CN/docs/Web/Javascript/Javascript_technologies_overview)
-
-**DOM——文档对象模型**
-
-    ​ **文档对象模型**（DocumentObject Model，简称 DOM），是 W3C 组织推荐的处理可扩展标记语言的标准编程接口。通过 DOM 提供的接口可以对页面上的各种元素进行操作（大小、位置、颜色等）
-
-**BOM——浏览器对象模型**
-
-    ​ **浏览器对象模型**(Browser Object Model，简称 BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。通过 BOM 可以操作浏览器窗口，比如弹出框、控制浏览器跳转、获取分辨率等。
-
-### Javascript 输入输出语句
-
-为了方便信息的输入输出，JS 中提供了一些输入输出语句，其常用的语句如下：
-
-| 方法             | 说明                           | 归属   |
-| ---------------- | ------------------------------ | ------ |
-| alert(msg)       | 浏览器弹出警示框               | 浏览器 |
-| console.log(msg) | 浏览器控制台打印输出信息       | 浏览器 |
-| prompt(info)     | 浏览器弹出输入框，用户可以输入 | 浏览器 |
-
-- 注意：alert() 主要用来显示消息给用户，console.log() 用来给程序员自己看运行时的消息。
-
-## 变量的概念
-
-    本质：变量是程序在内存中申请的一块用来存放数据的空间。
+> 本质：变量是程序在内存中申请的一块用来存放数据的空间。
 
 | 情况                         | 说明                   | 结果      |
 | ---------------------------- | ---------------------- | --------- |
@@ -67,283 +12,548 @@
 | console.log(age)             | 不声明 不赋值 直接使用 | 报错      |
 | age = 10; console.log (age); | 不声明 只赋值          | 10        |
 
-### 变量命名规范
+## 变量命名规范
 
-- 由字母(A-Za-z)、数字(0-9)、下划线(\_)、美元符号( $ )组成，如：usrAge, num01, \_name
+- 由字母(A-Za-z)、数字(0-9)、下划线(\_)、美元符号( $ )组成 num01, \_name
 - 严格区分大小写。var app; 和 var App; 是两个变量
 - 不能 以数字开头。 18age 是错误的
 - 不能 是关键字、保留字。例如：var、for、while
 - 变量名必须有意义。 MMD BBD nl → age
 - 遵守驼峰命名法。首字母小写，后面单词的首字母需要大写。
 
-## 数据类型
+# 数据类型
 
 > Javascript 提供七种不同的数据类型，它们是 undefined（未定义）、null（空）、boolean（布尔型）、string（字符串）、symbol、number（数字）、bigint（可以表示任意大的整数）和 object（对象）。
 
-![alt](./img/js5.png)
+## 简单数据类型
 
-### 简单数据类型
+- 在存储时变量中存储的是值本身.
 
-​ **简单类型**（**基本数据类型**、**值类型**）：在存储时变量中存储的是值本身，包括 string ，number，boolean，undefined，null
+### Number
 
-### 复杂数据类型
-
-​ **复杂数据类型（引用类型）**：在存储时变量中存储的仅仅是地址（引用），通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date 等；
-
-### typeof 获取变量数据类型
-
-![	](./img/js7.png)
-
-### 转换为字符串
-
-![	](./img/js8.png)
-
-### 转换为数字型
-
-![	](./img/js9.png)
-
-### 转换为布尔型
-
-![	](./img/js10.png)
-
-## 堆栈
-
-- 堆栈空间分配区别：
-
-1、栈（操作系统）：由操作系统自动分配释放存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈；
-
-简单数据类型存放到栈里面
-
-2、堆（操作系统）：存储复杂类型(对象)，一般由程序员分配释放，若程序员不释放，由垃圾回收机制回收。
-
-![](./img/js30.png)
-
-- 简单数据类型的存储方式
-
-  ​ 值类型变量的数据直接存放在变量（栈空间）中
-  ![](./img/js31.png)
-
-- 复杂数据类型的存储方式
-
-  ​ 引用类型变量（栈空间）里存放的是地址，真正的对象实例存放在堆空间中
-  ![](./img/js32.png)
-
-### 简单类型传参
-
-- 函数的形参也可以看做是一个变量，当我们把一个值类型变量作为参数传给函数的形参时，其实是把变量在栈空间里的值复制了一份给形参，那么在方法内部对形参做任何修改，都不会影响到的外部变量。
-
-```js
-function fn(a) {
-    a++;
-    console.log(a); // 11
-}
-var x = 10;
-fn(x);
-console.log(x)； // 10
+```javascript
+let score = 100; // 正整数
+let price = 12.345; // 小数
+let temperature = -40; // 负数
 ```
 
-### 复杂数据类型传参
+### String
 
-- 函数的形参也可以看做是一个变量，当我们把引用类型变量传给形参时，其实是把变量在栈空间里保存的堆地址复制给了形参，形参和实参其实保存的是同一个堆地址，所以操作的是同一个对象。
-
-```Javascript
-function Person(name) {
-    this.name = name;
-}
-function f1(x) { // x = p
-    console.log(x.name); // 刘德华
-    x.name = "张学友";
-    console.log(x.name); // 张学友
-}
-var p = new Person("刘德华");
-console.log(p.name);    // 刘德华
-f1(p);
-console.log(p.name);    // 张学友
+```javascript
+let user_name = "小明"; // 使用单引号
+let gender = "男"; // 使用双引号
+let str = "123"; // 看上去是数字，但是用引号包裹了就成了字符串了
+let str1 = ""; // 这种情况叫空字符串
 ```
 
-## 字符串转义符
+### Boolean
 
-转义符都是 \ 开头的，常用的转义符及其说明如下：
+```javascript
+let isCool = true; // 是的，摔死了！
+isCool = false; // 不，套马杆的汉子！
+```
 
-| 转义符 | 解释说明                    |
-| ------ | --------------------------- |
-| \n     | 换行符，n 是 newline 的意思 |
-| \ \    | 斜杠 \                      |
-| \'     | ' 单引号                    |
-| \"     | ”双引号                     |
-| \t     | tab 缩进                    |
-| \b     | 空格 ，b 是 blank 的意思    |
+### undefined
 
-## 运算符
+```javascript
+// 只声明了变量，并末赋值
+let tmp;
+document.write(typeof tmp); // 结果为 undefined
+```
 
-**运算符**（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号。
+### null
 
-- Javascript 中常用的运算符有：
-  - 算数运算符
-  - 递增和递减运算符
-  - 比较运算符
-  - 逻辑运算符
-  - 赋值运算符
+> 一般认为指向地址 0x00，为空
 
-### 算数运算符
+## 复杂数据类型
 
-![alt](./img/js11.png)
+在存储时变量中存储的仅仅是地址（引用），通过 new 关键字创建的对象（系统对象、自定义对象）.
 
-- 浮点数值的最高精度是 17 位小数，但在进行算术计算时其精确度远远不如整数。
-  ```js
-  var result = 0.1 + 0.2; // 结果不是 0.3，而是：0.30000000000000004
-  console.log(0.07 * 100); // 结果不是 7，  而是：7.000000000000001
-  ```
+### Array
 
-### 递增和递减运算符
+```javascript
+var arr = ["aaa", "bbb", "ccc", "ddd"];
+arr[0]; // aaa
+arr[1]; // bbb
+arr.length; // 4
+```
 
-- 递增运算符
+#### 增删改查
 
-  - 前置递增运算符:
-    - 先自加，后返回值
+![alt](./images/9.png)
 
-  ```js
-  var num = 10;
-  alert(++num + 10); // 21
-  ```
+### Function
 
-  - 后置递增运算符
-    - 先返回原值，后自加
+```javascript
+function a(a, b, ...extra) {
+  console.log(a); // 10
+  console.log(b); // 是undefined
+  // ...extra 剩下的
+  return;
+}
+a(10); // 调用函数
+```
 
-  ```js
-  var num = 10;
-  alert(10 + num++); // 20
-  ```
+#### 命名规范
 
-### 比较运算符
+![alt](./images/10.png)
 
-![alt](./img/js12.png)
-![alt](./img/js13.png)
+#### 匿名函数
 
-### 逻辑运算符
+![alt](./images/14.png)
+![alt](./images/15.png)
 
-![alt](./img/js14.png)
+#### 默认值
 
-- 逻辑与&&
-  - 两边都是 true 才返回 true，否则返回 false
-- 逻辑或 ||
-  - 两边都是 true 才返回 true，否则返回 false
-- 逻辑非 ！
-  - 逻辑非（!）也叫作取反符，用来取一个布尔值相反的值
-- 短路运算（逻辑中断）
-  - 短路运算的原理：当有多个表达式（值）时,左边的表达式值可以确定结果时,就不再继续运算右边的表达式的值
-  - 逻辑与
-    - 语法： 表达式 1 && 表达式 2
-      ```js
-      console.log(123 && 456); // 456
-      console.log(0 && 456); // 0
-      console.log(123 && 456 && 789); // 789
-      ```
-  - 逻辑或
-    - 语法： 表达式 1 || 表达式 2
-      ```js
-      console.log(123 || 456); //  123
-      console.log(0 || 456); //  456
-      console.log(123 || 456 || 789); //  123
-      ```
+```javascript
+// 设置参数默认值
+function sayHi(name = "小明", age = 18) {
+  document.write(`<p>大家好，我叫${name}，我今年${age}岁了。</p>`);
+}
+// 调用函数
+sayHi();
+sayHi("小红");
+sayHi("小刚", 21);
+```
 
-### 赋值运算符
+#### 动态参数
 
-![alt](./img/js15.png)
+> arguments 是函数内部内置的伪数组变量，它包含了调用函数时传入的所有实参。
 
-### 运算符优先级
+```javascript
+// 求生函数，计算所有参数的和
+function sum() {
+  // console.log(arguments);
+  let s = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    s += arguments[i];
+  }
+  console.log(s);
+}
 
-![alt](./img/js16.png)
+// 调用求和函数
+sum(5, 10); // 两个参数
+sum(1, 2, 4); // 两个参数
+```
 
-## 判断/循环语句
+#### 箭头函数
 
-![alt](./img/js17.png)
+- 箭头函数属于表达式函数，因此不存在函数提升
+- 箭头函数只有一个参数时可以省略圆括号 ()
+- 箭头函数函数体只有一行代码时可以省略花括号 {}，并自动做为返回值被返回
+- 箭头函数中没有 arguments，只能使用 ... 动态获取实参
 
-### if 语句
+```javascript
+// 箭头函数
+let foo = () => {
+  console.log("^_^ 长相奇怪的函数...");
+};
+// 调用函数
+foo();
 
-```js
-// 条件成立执行代码，否则什么也不做
-if (条件表达式) {
-  // 条件成立执行的代码语句
+// 更简洁的语法
+let form = document.querySelector("form");
+form.addEventListener("click", (ev) => ev.preventDefault());
+```
+
+### Object
+
+```javascript
+var person = {
+  name: "aaa",
+  age: 18,
+};
+person.name; // aaa
+person["age"]; // 18
+
+// 遍历对象
+for (let k in obj) {
+  console.log(k); // 属性名
+  console.log(obj[k]); // 属性值
 }
 ```
 
-### if else 语句(双分支语句)
+#### 增删改查
 
-    ```js
-    // 条件成立  执行 if 里面代码，否则执行else 里面的代码
-    if (条件表达式) {
-        // [如果] 条件成立执行的代码
+![alt](./images/16.png)
+
+#### 内置对象 Meth
+
+> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+- random：生成 0-1 之间的随机数（包含 0 不包括 1）
+- ceil：向上取整
+- floor：向下取整
+- max：找最大数
+- min：找最小数
+- pow：幂运算
+- abs：绝对值
+
+#### 内置对象 Date
+
+> 时间戳 :指 1970 年 01 月 01 日 00 时 00 分 00 秒起至现在的毫秒数
+
+```javascript
+// 获得当前时间
+let date = new Date();
+// 获得指定时间
+let date = new Date("1949-10-01");
+// 获取时间戳
+date.getTime();
++new Date();
+Date.now();
+```
+
+| 方法          | 作用               | 说明                 |
+| ------------- | ------------------ | -------------------- |
+| getFullYear() | 获得年份           | 获取四位年份         |
+| getMonth()    | 获得月份           | 取值为 0 ~ 11        |
+| getDate()     | 获取月份中的每一天 | 不同月份取值也不相同 |
+| getDay()      | 获取星期           | 取值为 0 ~ 6         |
+| getHours()    | 获取小时           | 取值为 0 ~ 23        |
+| getMinutes()  | 获取分钟           | 取值为 0 ~ 59        |
+| getSeconds()  | 获取秒             | 取值为 0 ~ 5         |
+
+## 类型转换
+
+### 隐式转换
+
+> 系统内部自动将数据类型进行转换
+
+```javascript
+let num = 13; // 数值
+let num2 = "2"; // 字符串
+
+// 结果为 132
+// 原因是将数值 num 转换成了字符串，相当于 '13'
+// 然后 + 将两个字符串拼接到了一起
+console.log(num + num2);
+
+// 结果为 11
+// 原因是将字符串 num2 转换成了数值，相当于 2
+// 然后数值 13 减去 数值 2
+console.log(num - num2);
+```
+
+### 显式转换
+
+```javascript
+let t = "12";
+let f = 8;
+
+// 显式将字符串 12 转换成数值 12
+t = Number(t);
+
+// 检测转换后的类型
+// console.log(typeof t);
+console.log(t + f); // 结果为 20
+
+// 并不是所有的值都可以被转成数值类型
+let str = "hello";
+// 将 hello 转成数值是不现实的，当无法转换成
+// 数值时，得到的结果为 NaN （Not a Number）
+console.log(Number(str));
+```
+
+# 对象类型
+
+## 引用类型
+
+### Object
+
+```javascript
+// 通过构造函数创建普通对象
+let user = new Object({ name: "小明", age: 15 });
+
+// 这种方式声明的变量称为【字面量】
+let student = { name: "杜子腾", age: 21 };
+
+// 对象语法简写
+let name = "小红";
+let people = {
+  // 相当于 name: name
+  name,
+  // 相当于 walk: function () {}
+  walk() {
+    console.log("人都要走路...");
+  },
+};
+
+console.log(student.constructor);
+console.log(user.constructor);
+console.log(student instanceof Object);
+```
+
+- 普通对象数据保存在堆内存之中，栈内存中保存了普通对象在堆内存的地址。
+  ![alt](./images/17.png)
+- 普通对象数据保存在堆内存之中，栈内存中保存了普通对象在堆内存的地址。
+  ![alt](./images/18.png)
+
+<br>
+
+- `Object.assign`静态方法创建新的对象
+- `Object.keys `静态方法获取对象中所有属性
+- `Object.values `表态方法获取对象中所有属性值
+
+### Array
+
+```javascript
+// 构造函数创建数组
+let arr = new Array(5, 7, 8);
+
+// 字面量方式创建数组
+let list = ["html", "css", "javascript"];
+
+console.log(list.constructor);
+console.log(list instanceof Array);
+```
+
+- 数组在内存中的存储方式与普通对象一样
+  ![alt](./images/19.png)
+- 数组在赋值时只是复制了栈内中的地址，而非堆内存中的数据
+  ![alt](./images/20.png)
+
+<br>
+
+- 实例方法` forEach` 用于遍历数组，替代 for 循环
+- 实例方法` filter` 过滤数组单元值，生成新数组
+- 实例方法`map`迭代原数组，生成新数组
+- 实例方法`join`数组单元素拼接成了符串
+- 实例方法`concat`合并两个数组，生成新数组
+- 实例方法`sort`对原数组单元值排序
+- 实例方法`splice`删除或替换原数组单元
+- 实例方法` indexOf` 检索数组单元值
+- 实例方法`reverse`反转数组
+- 静态方法` from` 伪数组转成数组
+
+### RegExp
+
+```javascript
+// 构造函数创建正则
+let reg = new RegExp("d", "i");
+
+// 字面量方式创建正则
+// let reg = /(\d)/i;
+
+reg.exec("123");
+```
+
+- `test()` 方法 用来查看正则表达式与指定的字符串是否匹配
+- `exec() `方法 在一个指定字符串中执行一个搜索匹配
+
+## 包装类型
+
+> 字符串、数值、布尔类型数据是 JavaScript 底层使用 Object 构造函数“包装”来的，被称为包装类型。
+
+### String
+
+```javascript
+// 字符串类型
+let str = "hello world!";
+// 统计字符的长度（字符数量）
+console.log(str.length);
+
+// 数值类型
+let price = 12.345;
+// 保留两位小数
+price.toFixed(2);
+// 检测是否属于同一个构造函数
+console.log(str.constructor === str2.constructor); // true
+console.log(str instanceof String); // false
+```
+
+- 实例属性 `length` 用来获取字符串的度长
+- 实例方法 `split` 用来将字符串拆分成数组
+- 实例方法 `toUpperCase `用于将字母转换成大写
+- 实例方法 `toLowerCase `用于将字母转换成小写
+- 实例方法 `slice `用于字符串截取
+- 实例方法 `indexOf `检测是否包含某字符
+- 实例方法 `startsWith `检测是否以某字符开头
+- 实例方法 `endsWith `检测是否以某字符结尾
+- 实例方法 `replace `用于替换字符串，支持正则匹配
+- 实例方法 `padStart `固定长度字符开始位置打补丁
+- 实例方法 `padEnd `固定长度字符结束位置打补丁
+- 实例方法 `match` 用于查找字符串，支持正则匹配
+
+### Number
+
+```javascript
+// 使用构造函数创建数值
+let x = new Number("10");
+let y = new Number(5);
+
+// 字面量创建数值
+let z = 20;
+
+// 检测是否属于同一个构造函数
+console.log(x.constructor === z.constructor);
+```
+
+- 实例方法 `toFixed` 用于设置保留小数位的长度
+
+### Boolean
+
+```javascript
+// 使用构造函数创建布尔类型
+let locked = new Boolean("10");
+
+// 字面量创建布尔类型
+let flag = true;
+
+// 检测是否属于同一个构造函数
+console.log(locked.constructor === flag.constructor);
+```
+
+## 公共方法
+
+```javascript
+// 对象类型数据
+let user = { name: "小明", age: 18 };
+// 数值类型
+let num = 12.345;
+// 字符串类型
+let str = "hello world!";
+
+str.valueOf(); // 原始值
+user.toString(); // 表示该对象的字符串
+```
+
+- `valueOf` 方法获取原始值，数据内部运算的基础，很少主动调用该方法
+- `toString `方法以字符串形式表示对象
+
+## 深拷贝
+
+```javascript
+// 含义：所有层都拷贝的方式
+let obj = {
+  uname: "张三丰",
+  age: 22,
+  sex: "男",
+  color: ["red", "blue", "yellow", "pink"],
+  message: {
+    index: 1,
+    score: 99,
+  },
+};
+
+let newObj = {};
+
+function kaobei(newObj, obj) {
+  for (let key in obj) {
+    if (obj[key] instanceof Array) {
+      // obj[key] 是数组
+      // obj[key]是数组，遍历
+      newObj[key] = [];
+      kaobei(newObj[key], obj[key]);
+    } else if (obj[key] instanceof Object) {
+      // obj[key]是对象
+      // obj[key]是对象，遍历
+      newObj[key] = {};
+      kaobei(newObj[key], obj[key]);
     } else {
-        // [否则] 执行的代码
+      newObj[key] = obj[key];
     }
+  }
+}
 
-    ```
+kaobei(newObj, obj);
 
-### if else if 语句(多分支语句)
+obj.message.score = 123;
 
-    ```js
-    // 适合于检查多重条件。
-    if (条件表达式1) {
-        语句1；
-    } else if (条件表达式2)  {
-        语句2；
-    } else if (条件表达式3)  {
-       语句3；
-     ....
-    } else {
-        // 上述条件都不成立执行此处代码
-    }
+console.log(obj, newObj);
+```
 
-    ```
+# 运算符
 
-### 三元表达式
+## 算术运算符
 
-- 语法结构
+- 数学运算符也叫算术运算符。
+  - +：求和
+  - -：求差
+  - \*：求积
+  - /：求商
+  - %：取模（取余数）
 
-  ```js
-  表达式1 ? 表达式2 : 表达式3;
-  ```
+## 赋值运算符
 
-- 执行思路
-  - 如果表达式 1 为 true ，则返回表达式 2 的值，如果表达式 1 为 false，则返回表达式 3 的值
+- 将等号右边的值赋予给左边, 要求左边必须是一个容器
+  - +=
+  - -=
+  - \*=
+  - /=
+  - %=
+
+## 一元运算符
+
+> 前置自增：先自加再使用
+> 后置自增：先使用再自加
+
+- 自增：
+  - 符号：++
+  - 作用：让变量的值 +1
+- 自减：
+  - 符号：--
+  - 作用：让变量的值 -1
+
+```javascript
+let i = 1;
+let j = 1;
+console.log(i++); // 1
+console.log(++j); // 2
+```
+
+## 比较运算符
+
+- 比较运算符：
+  - \>： 左边是否大于右边
+  - <： 左边是否小于右边
+  - \>=： 左边是否大于或等于右边
+  - <=： 左边是否小于或等于右边
+  - ==： 左右两边是否相等
+  - ===： 左右两边是否类型和值都相等
+  - !==： 左右两边是否不全等
+- 比较结果为 boolean 类型，即只会得到 true 或 false
+- 字符串比较，是比较的字符对应的 ASCII 码(从左往右依次比较)
+- NaN 不等于任何值，包括它本身
+- 不同类型之间比较会发生隐式转换
+
+## 逻辑运算符
+
+![alt](./images/1.png)
+
+## 短路运算符
+
+![alt](./images/2.png)
+
+## 运算符优先级
+
+![alt](./images/3.png)
+
+# 语句
+
+## 分支语句
+
+### If 分支语句
+
+![alt](./images/4.png)
+
+### 三元运算符
+
+![alt](./images/5.png)
 
 ### switch 语句
 
-```js
-switch (表达式) {
-  case value1:
-    // 表达式 等于 value1 时要执行的代码
-    break;
-  case value2:
-    // 表达式 等于 value2 时要执行的代码
-    break;
-  default:
-  // 表达式 不等于任何一个 value 时要执行的代码
-}
-```
+![alt](./images/6.png)
+
+## 循环语句
 
 ### for 循环
 
-```js
-for (初始化变量; 条件表达式; 操作表达式) {
-  //循环体
-}
-```
-
-| 名称       | 作用                                                                                            |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| 初始化变量 | 通常被用于初始化一个计数器，该表达式可以使用 var 关键字声明新的变量，这个变量帮我们来记录次数。 |
-| 条件表达式 | 用于确定每一次循环是否能被执行。如果结果是 true 就继续循环，否则退出循环。                      |
-| 操作表达式 | 用于确定每一次循环是否能被执行。如果结果是 true 就继续循环，否则退出循环。                      |
+![alt](./images/8.png)
 
 ### while 循环
 
-```js
-while (条件表达式) {
-  // 循环体代码
-}
-```
+![alt](./images/7.png)
 
 ### do-while 循环
 
@@ -353,662 +563,671 @@ do {
 } while (条件表达式);
 ```
 
-### continue、break 跳出循环
+### 退出循环
 
-- `continue ` 关键字用于立即跳出本次循环，继续下一次循环（本次循环体中 continue 之后的代码就会少执行一次）。
-- `break` 关键字用于立即跳出整个循环（循环结束）。
+- continue：结束本次循环，继续下次循环
+- break：跳出所在的循环
 
-## 数组
+# 作用域
 
-> 数组是指**一组数据的集合**，其中的每个数据被称作**元素**，在数组中可以**存放任意类型的元素**。数组是一种将一组数据存储在单个变量名下的优雅方式。
+![alt](./images/12.png)
 
-> 数组是一种类列表**对象**，它的原型中提供了遍历和修改元素的相关操作。Javascript 数组的长度和元素类型都是非固定的。
+## 变量的作用域
 
-- **注意：**
-  - 数组分为**数值型**和**关联数组**,本质都是**关联性数组**
-    - 数值型：
-      ```Javascript
-      var arr=["name","张三"]
-      // 相当于 ["0":"name","1":"张三"]
-      // 键是随机的，并且会省略
-      ```
-    - 关联数组:
-      ```Javascript
-      var arr=[]
-      arr["name"]="name"
-      arr["张三"]="张三"
-      console.log(arr); // [name:"name",张三:"张三"]
-      // 直接写成 arr=["name":"name","张三":"张三"] 会报错
-      // 关联性数组也可以用.获取值和对象一样 但是点后面的不能数字 数字会出现歧义
-      ```
+> js 不使用严格模式的坑
+> 如果函数内部或者块级作用域内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐
+> 但是有一种情况，函数内部的形参可以看做是局部变量。
 
-### 创建数组
+![alt](./images/13.png)
 
-```js
-var arr = []； // 利用 new 创建数组
-var arr = new Array();   // 利用数组字面量创建数组
-var arr = [ '小白' , 12 , true , 28.9 ];
-```
+## 作用域链
 
-### 获取数组中的元素
+- 嵌套关系的作用域串联起来形成了作用域链
+- 相同作用域链中按着从小到大的规则查找变量
+- 子作用域能够访问父作用域，父级作用域无法访问子级作用域（就近原则）
 
-![alt](./img/js18.png)
+```javascript
+// 全局作用域
+let a = 1;
+let b = 2;
 
-```js
-// 定义数组
-var arrStus = [1, 2, 3];
-// 获取数组中的第2个元素
-alert(arrStus[1]);
-```
-
-### 遍历数组
-
-- 数组遍历
-  ```js
-  var arr = ["red", "green", "blue"];
-  for (var i = 0; i < arr.length; i++) {
-    console.log(arrStus[i]);
+// 局部作用域
+function f() {
+  let c;
+  // 局部作用域
+  function g() {
+    let d = "yo";
   }
-  ```
-- 数组的长度
-  ```js
-  var arrStus = [1, 2, 3];
-  alert(arrStus.length); // 3
-  ```
-
-## 函数
-
-### 函数的使用
-
-- 声明函数
-
-  ```js
-  // 声明函数
-  function 函数名() {
-    //函数体代码
-  }
-  ```
-
-- 调用函数
-
-  ```js
-  // 调用函数
-  函数名(); // 通过调用函数名来执行函数体代码
-  ```
-
-- 函数的封装
-  ```js
-  // 计算1-100之间值的函数
-  // 声明函数
-  function getSum() {
-    var sumNum = 0; // 准备一个变量，保存数字和
-    for (var i = 1; i <= 100; i++) {
-      sumNum += i; // 把每个数值都累加到变量中
-    }
-    return sumNum;
-  }
-  // 调用函数
-  getSum();
-  ```
-
-### 函数的参数
-
-- 形参：函数定义时设置接收调用时传入
-- 实参：函数调用时传入小括号内的真实数据
-
-```js
-// 带参数的函数声明
-function 函数名(形参1, 形参2 , 形参3...) { // 可以定义任意多的参数，用逗号分隔
-  // 函数体
 }
-// 带参数的函数调用
-函数名(实参1, 实参2, 实参3...);
 ```
 
-<br>
+## 闭包
 
-- 函数形参和实参数量不匹配时
-  ![alt](./img/js19.png)
+> 一个作用域有权访问另外一个作用域的局部变量
 
-### 函数的返回值
+```javascript
+function foo() {
+  let i = 0;
 
-- 在使用 return 语句时，函数会停止执行，并返回指定的值
-- 如果函数没有 return ，返回的值是 undefined
+  // 函数内部分函数
+  function bar() {
+    console.log(++i);
+  }
 
-```js
+  // 将函数做为返回值
+  return bar;
+}
+
+// fn 即为闭包函数
+let fn = foo();
+
+fn(); // 1
+```
+
+## 变量提升
+
+- 变量在未声明即被访问时会报语法错误
+- 变量在声明之前即被访问，变量的值为 undefined
+- let 声明的变量不存在变量提升，推荐使用 let【也有人认为具有提升但是不赋值不能使用】
+- 变量提升出现在相同作用域当中
+
+```javascript
+  // 访问变量 str
+  console.log(str + 'world!');
+
+  // 声明变量 str
+  var str = 'hello ';
+
+let和var都有提升，但是let定义的变量没有赋值之前是不可以使用、var可以使用是undefined
+```
+
+## 函数提升
+
+- 函数提升能够使函数的声明调用更灵活
+- 函数表达式不存在提升的现象
+- 函数提升出现在相同作用域当中
+
+```javascript
+// 调用函数
+foo();
+
 // 声明函数
-function 函数名（）{
-    ...
-    return  需要返回的值；
+function foo() {
+  console.log("声明之前即被调用...");
+}
+
+// 不存在提升现象
+bar();
+var bar = function () {
+  console.log("函数表达式不存在提升现象...");
+};
+```
+
+# 面向对象
+
+> 一切皆对象
+
+## 构造函数
+
+- 构造函数是专门用于创建对象的函数，如果一个函数使用 new 关键字调用，那么这个函数就是构造函数。
+- 使用 new 关键字调用函数的行为被称为实例化
+- 实例化构造函数时没有参数时可以省略 ()
+- 构造函数的返回值即为新创建的对象
+- 构造函数内部的 return 返回的值无效！
+
+```javascript
+// 定义函数
+function foo() {
+  console.log("通过 new 也能调用函数...");
 }
 // 调用函数
-函数名();    // 此时调用函数就可以得到函数体内return 后面的值
+new foo();
 ```
 
-- break ,continue ,return 的区别
-  - break ：结束当前的循环体（如 for、while）
-  - continue ：跳出本次循环，继续执行下次循环（如 for、while）
-  - return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码
+## 实例成员
 
-### arguments 的使用
+- 通过构造函数创建的对象称为实例对象，实例对象中的属性和方法称为实例成员。
+- 构造函数内部 this 实际上就是实例对象，为其动态添加的属性和方法即为实例成员
+- 为构造函数传入参数，动态创建结构相同但值不同的对象
+- 实例对象的 constructor 属性指向了构造函数
+- instanceof 用于检测实例对象对应的构造函数
 
-- 当不确定有多少个参数传递的时候，可以用 arguments 来获取。
-- Javascript 中，arguments 实际上它是当前函数的一个内置对象。
-- 所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。arguments 展示形式是一个伪数组，因此可以进行遍历。
-- 伪数组具有以下特点：
-  - 具有 length 属性
-  - 按索引方式储存数据
-  - 不具有数组的 push , pop 等方法
-- 注意：在函数内部使用该对象，用此对象获取函数调用时传的实参。
+```javascript
+// 构造函数
+function Person() {
+  // 构造函数内部的 this 就是实例对象
 
-### 函数的声明方式
-
-- 自定义函数方式(命名函数)
-
-  ```js
-  // 声明定义方式
-  function fn() {...}
-  // 调用
-  fn();
-  ```
-
-- 函数表达式方式(匿名函数）
-  ```js
-  // 这是函数表达式写法，匿名函数后面跟分号结束
-  var fn = function(){...}；
-  // 调用的方式，函数调用必须写到函数体下面
-  fn();
-  ```
-
-## 对象
-
-- 对象是一组无序的相关属性和方法的集合，所有的事物都是对象，例如字符串、数值、数组、函数等。
-- 对象是由属性和方法组成的。
-  - 属性：事物的特征，在对象中用属性来表示（常用名词）
-  - 方法：事物的行为，在对象中用方法来表示（常用动词）
-
-### 创建对象的三种方式
-
-- 利用字面量创建对象
-  ```js
-  var obj = {
-    name: "pink",
-    age: 18,
-    sex: "男",
-    sayHi: function () {
-      alert("大家好啊~");
-    },
+  // 实例对象中动态添加属性
+  this.name = "小明";
+  // 实例对象动态添加方法
+  this.sayHi = function () {
+    console.log("大家好~");
   };
-  ```
-- 利用 new Object 创建对象
-  ```js
-  var obj = new Obect();
-  ```
-- 利用构造函数创建对象
-  ```js
-  function 构造函数名(形参1, 形参2, 形参3) {
-    this.属性名1 = 参数1;
-    this.属性名2 = 参数2;
-    this.属性名3 = 参数3;
-    this.方法名 = 函数体;
-  }
-  ```
-- new 关键字的作用
-  - 在构造函数代码开始执行之前，创建一个空对象
-  - 修改 this 的指向，把 this 指向创建出来的空对象
-  - 执行函数的代码
-  - 在函数完成之后，返回 this---即创建出来的对象
-
-### 遍历对象
-
-```js
-for (var k in obj) {
-  console.log(k); // 这里的 k 是属性名
-  console.log(obj[k]); // 这里的 obj[k] 是属性值
 }
+
+// 实例化，p1 是实例对象
+// p1 实际就是 构造函数内部的 this
+let p1 = new Person();
+
+console.log(p1);
+console.log(p1.name); // 访问实例属性
+p1.sayHi(); // 调用实例方法
 ```
 
-### Math 对象
-
-- Math 对象不是构造函数，它具有数学常数和函数的属性和方法。跟数学相关的运算（求绝对值，取整、最大值等）可以使用 Math 中的成员。
-
-| 属性、方法名          | 功能                                    |
-| --------------------- | --------------------------------------- |
-| Math.PI               | 圆周率                                  |
-| Math.floor()          | 向下取整                                |
-| Math.ceil()           | 向上取整                                |
-| Math.round()          | 四舍五入版 就近取整 注意 -3.5 结果是 -3 |
-| Math.abs()            | 绝对值                                  |
-| Math.max()/Math.min() | 求最大和最小值                          |
-| Math.random()         | 获取范围在[0,1)内的随机值               |
-
-- 获取指定范围内的随机整数：
-  ```js
-  function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  ```
-
-### Date 对象
-
-- Date 对象和 Math 对象不一样，Date 是一个构造函数，所以使用时需要实例化后才能使用其中具体方法和属性。Date 实例用来处理日期和时间
-
-<br>
-
-- 使用 Date 实例化日期对象
-
-  - 获取当前时间必须实例化：
-    ```js
-    var now = new Date();
-    ```
-
-- 通过 Date 实例获取总毫米数
-
-  - 总毫秒数的含义
-    - 基于 1970 年 1 月 1 日（世界标准时间）起的毫秒数
-  - 获取总毫秒数
-    ```js
-    // 实例化Date对象
-    var now = new Date();
-    // 1. 用于获取对象的原始值
-    console.log(date.valueOf());
-    console.log(date.getTime());
-    // 2. 简单写可以这么做
-    var now = +new Date();
-    // 3. HTML5中提供的方法，有兼容性问题
-    var now = Date.now();
-    ```
-
-  ![alt](./img/js20.png)
-
-### 数组对象
-
-- 添加删除数组元素的方法
-
-![alt](./img/js21.png)
-
-- 数组排序
-
-![alt](./img/js22.png)
-
-注意：sort 方法需要传入参数来设置升序、降序排序
-
-- 如果传入“function(a,b){ return a-b;}”，则为升序
-- 如果传入“function(a,b){ return b-a;}”，则为降序
-
-<br>
-
-- 数组索引方法
-
-![alt](./img/js23.png)
-
-- 数组转换为字符串
-
-![alt](./img/js24.png)
-
-- 其他方法
-
-![alt](./img/js25.png)
-
-### 字符串对象
-
-- 字符串的不可变
-  - ​ 指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中新开辟了一个内存空间。
-  - 当重新给字符串变量赋值的时候，变量之前保存的字符串不会被修改，依然在内存中重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变。
-  - 由于字符串的不可变，在大量拼接字符串的时候会有效率问题.
-
-<br>
-
-- 根据字符返回位置
-  ![alt](./img/js26.png)
-
-- 根据位置返回字符
-  ![alt](./img/js27.png)
-
-- charCodeAt 方法返回的是指定位置上字符对应的 ASCII 码，ASCII 码对照表如下：
-  ![alt](./img/js28.png)
-
-- 字符串操作方法
-  ![alt](./img/js29.png)
-- replace()方法
-
-  ```
-  字符串.replace(被替换的字符串， 要替换为的字符  串)；
-  ```
-
-- split()方法
-  ```
-  字符串.split("分割字符")
-  ```
-
-## Web API
-
-> API（Application Programming Interface，应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，无需理解其内部工作机制细节，只需直接调用使用即可。
-
-> ​ Web API 是浏览器提供的一套操作浏览器功能和页面元素的 API ( BOM 和 DOM )。
-
-### DOM
-
-​ 文档对象模型（Document Object Model，简称 DOM），是 [W3C](https://baike.baidu.com/item/W3C) 组织推荐的处理[可扩展标记语言](https://baike.baidu.com/item/%E5%8F%AF%E6%89%A9%E5%B1%95%E7%BD%AE%E6%A0%87%E8%AF%AD%E8%A8%80)（html 或者 xhtml）的标准[编程接口](https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3)。
-
-​ W3C 已经定义了一系列的 DOM 接口，通过这些 DOM 接口可以改变网页的内容、结构和样式。
-
-> DOM 是 W3C 组织制定的一套处理 html 和 xml 文档的规范，所有的浏览器都遵循了这套标准。
-
-#### DOM 树
-
-DOM 树 又称为文档树模型，把文档映射成树形结构，通过节点对象对其处理，处理的结果可以加入到当前的页面。
-
-- 文档：一个页面就是一个文档，DOM 中使用 document 表示
-- 节点：网页中的所有内容，在文档树中都是节点（标签、属性、文本、注释等），使用 node 表示
-- 标签节点：网页中的所有标签，通常称为元素节点，又简称为“元素”，使用 element 表示
-
-![alt](./img/js33.png)
-
-#### 获取元素
-
-- 根据 ID 获取
-
-  ```js
-  语法：document.getElementById(id)
-  作用：根据ID获取元素对象
-  参数：id值，区分大小写的字符串
-  返回值：元素对象 或 null
-  ```
-
-- 根据标签名获取元素
-
-  ```
-  语法：document.getElementsByTagName('标签名') 或者 element.getElementsByTagName('标签名')
-  作用：根据标签名获取元素对象
-  参数：标签名
-  返回值：元素对象集合（伪数组，数组元素是元素对象）
-  ```
-
-- **H5 新增获取元素方式**
-  ![alt](./img/js34.png)
-
-<br>
-
-- **获取特殊元素(body，html)**
-  ![alt](./img/js35.png)
-
-#### DOM 事件流
-
-DOM 事件流会经历 3 个阶段：
-
-1. 捕获阶段
-
-2. 当前目标阶段
-
-3. 冒泡阶段
-
-![alt](./img/js73.png)
-![alt](./img/js74.png)
-![alt](./img/js75.png)
-![alt](./img/js76.png)
-
-### BOM
-
-​ BOM（Browser Object Model）即浏览器对象模型，它提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是 window。
-
-​ BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。
-
-​ BOM 缺乏标准，Javascript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C，BOM 最初是 Netscape 浏览器标准的一部分。
-
-![alt](./img/js88.png)
-
-#### BOM 的构成
-
-BOM 比 DOM 更大，它包含 DOM。
-![alt](./img/js89.png)
-
-#### 顶级对象 window
-
-![alt](./img/js90.png)
-
-#### window 对象的常见事件
-
-- **页面（窗口）加载事件（2 种）**
-
-  - 第一种
-    ![alt](./img/js91.png)
-    window.onload 是窗口 (页面）加载事件，当文档内容完全加载完成会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。
-    ![alt](./img/js92.png)
-  - 第 2 种
-    ![alt](./img/js93.png)
-    DOMContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片，flash 等等。
-    如果页面的图片很多的话, 从用户访问到 onload 触发可能需要较长的时间, 交互效果就不能实现，必然影响用户的体验，此时用 DOMContentLoaded 事件比较合适。
-
-- **调整窗口大小事件**
-  ![alt](./img/js94.png)
-
-  ​`window.onresize` 是调整窗口大小加载事件, 当触发时就调用的处理函数。
-
-  - 只要窗口大小发生像素变化，就会触发这个事件。
-  - 我们经常利用这个事件完成响应式布局。 window.innerWidth 当前屏幕的宽度
-
-#### 定时器（两种）
-
-- **setTimeout()**
-  ![alt](./img/js95.png)
-  ![alt](./img/js96.png)
-  ![alt](./img/js97.png)
-  ![alt](./img/js98.png)
-  ![alt](./img/js99.png)
-
-- **setInterval()**
-  ![alt](./img/js100.png)
-  ![alt](./img/js101.png)
-  ![alt](./img/js102.png)
-
-#### this 指向问题
-
-1. 全局作用域或者普通函数中 this 指向全局对象 window（注意定时器里面的 this 指向 window）
-2. 方法调用中谁调用 this 指向谁
-3. 构造函数中 this 指向构造函数的实例
-
-#### URL 对象
-
-![alt](./img/js103.png)
-![alt](./img/js104.png)
-![alt](./img/js105.png)
-
-#### location 对象
-
-![alt](./img/js106.png)
-![alt](./img/js107.png)
-
-#### navigator 对象
-
-​ navigator 对象包含有关浏览器的信息，它有很多属性，我们最常用的是 userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。
-
-下面前端代码可以判断用户那个终端打开页面，实现跳转
-
-```js
-if (
-  navigator.userAgent.match(
-    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-  )
-) {
-  window.location.href = ""; //手机
-} else {
-  window.location.href = ""; //电脑
+## 静态成员
+
+- 在 JavaScript 中底层函数本质上也是对象类型，因此允许直接为函数动态添加属性或方法，构造函数的属性和方法被称为静态成员。
+- 静态成员指的是添加到构造函数本身的属性和方法
+- 一般公共特征的属性或方法静态成员设置为静态成员
+- 静态成员方法中的 this 指向构造函数本身
+
+```javascript
+// 构造函数
+function Person(name, age) {
+  // 省略实例成员
 }
+
+// 静态属性
+Person.eyes = 2;
+Person.arms = 2;
+// 静态方法
+Person.walk = function () {
+  console.log("^_^人都会走路...");
+  // this 指向 Person
+  console.log(this.eyes);
+};
 ```
 
-#### history 对象
+## 封装
 
-window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的 URL。
+### 构造函数
 
-![alt](./img/js108.png)
+```javascript
+function Person() {
+this.name = '佚名';
+// 设置名字
+this.setName = function (name) {
+this.name = name;
+}
+// 读取名字
+this.getName = () => {
+console.log(this.name);
+}
+}
 
-history 对象一般在实际开发中比较少用，但是会在一些 OA 办公系统中见到。
+// 实例对像，获得了构造函数中封装的所有逻辑
+let p1 = new Person();
+p1.setName('小明');
+console.log(p1.--name);// 小明
 
-## 事件
+// 实例对象
+let p2 = new Person();
+console.log(p2.name); // 佚名
+```
 
-### 事件操作
+- 构造函数体现了面向对象的封装特性
+- 构造函数实例创建的对象彼此独立、互不影响
 
-- 事件源（谁）：触发事件的元素
-- 事件类型（什么事件）： 例如 click 点击事件
-- 事件处理程序（做啥）：事件触发后要执行的代码(函数形式)，事件处理函数
-  ```js
-  <body>
-    <button id="btn">唐伯虎</button>
-    <script>
-        // 点击一个按钮，弹出对话框
-        // 1. 事件是有三部分组成  事件源  事件类型  事件处理程序   我们也称为事件三要素
-        //(1) 事件源 事件被触发的对象   谁  按钮
-        var btn = document.getElementById('btn');
-        //(2) 事件类型  如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过 还是键盘按下
-        //(3) 事件处理程序  通过一个函数赋值的方式 完成
-        btn.onclick = function() {
-            alert('点秋香');
-        }
-    </script>
-  </body>
+### 原型对象
+
+> 每一个构造函数都有一个名为 prototype 的属性，译成中文是原型的意思，prototype 的是对象类据类型，称为构造函数的原型对象，每个原型对象都具有 constructor 属性代表了该原型对象对应的构造函数。
+
+```javascript
+function Person() {
+  // 此处定义同名方法 sayHi
+  this.sayHi = function () {
+    console.log("嗨!" + this.name);
+  };
+}
+
+// 为构造函数的原型对象添加方法
+Person.prototype.sayHi = function () {
+  console.log("Hi~" + this.name);
+};
+// 在构造函数的原型对象上添加属性
+Person.prototype.name = "小明";
+
+let p1 = new Person();
+p1.sayHi(); // 输出结果为 嗨!
+
+let p2 = new Person();
+p2.sayHi();
+```
+
+![alt](./images/22.png)
+
+## 继承
+
+### 原型继承
+
+```javascript
+// 所有人
+function Person() {
+  // 人的特征
+  this.arms = 2;
+  this.legs = 2;
+  this.eyes = 2;
+
+  // 人的行为
+  this.walk = function () {};
+  this.sing = function () {};
+  this.sleep = function () {};
+}
+
+// 封装中国人的行为特征
+function Chinese() {
+  // 中国人的特征
+  this.skin = "yellow";
+  this.language = "中文";
+}
+
+// 封装日本人的行为特征
+function Japanese() {
+  // 日本人的特征
+  this.skin = "yellow";
+  this.language = "日文";
+}
+
+// human 是构造函数 Person 的实例
+let human = new Person();
+
+// 中国人
+Chinese.prototype = new Person();
+Chinese.prototype.constructor = Chinese;
+// 日本人
+Japanese.prototype = human;
+Japanese.prototype.constructor = Japanese;
+```
+
+![alt](./images/23.png)
+
+### 原型链
+
+> 在 JavaScript 对象中包括了一个非标准备的属性 `_proto_` 它指向了构造函数的原型对象
+
+![alt](./images/24.png)
+
+# This 指向
+
+## 普通函数
+
+> 谁调用 this 的值指向谁
+
+```javascript
+// 普通函数
+function sayHi() {
+  console.log(this);
+}
+// 函数表达式
+let sayHello = function () {
+  console.log(this);
+};
+
+// 函数的调用方式决定了 this 的值
+sayHi(); // window
+window.sayHi();
+
+// 普通对象
+
+let user = {
+  name: "小明",
+  walk: function () {
+    console.log(this);
+  },
+};
+// 动态为 user 添加方法
+user.sayHi = sayHi;
+uesr.sayHello = sayHello;
+
+// 函数调用方式，决定了 this 的值
+user.sayHi();
+user.sayHello();
+```
+
+- 普通函数没有明确调用者时 this 值为 window，严格模式下没有调用者时 this 的值为 undefined。
+
+## 箭头函数
+
+> 箭头函数中访问的 this 一般是箭头函数所在作用域的 this 变量。
+
+```javascript
+console.log(this); // 此处为 window
+// 箭头函数
+let sayHi = function () {
+  console.log(this); // 该箭头函数中的 this 为函数声明环境中 this 一致
+};
+
+// 普通对象
+let user = {
+  name: "小明",
+  // 该箭头函数中的 this 为函数声明环境中 this 一致
+  walk: () => {
+    console.log(this);
+  },
+
+  sleep: function () {
+    let str = "hello";
+    console.log(this);
+    let fn = () => {
+      console.log(str);
+      console.log(this); // 该箭头函数中的 this 与 sleep 中的 this 一致
+    };
+    // 调用箭头函数
+    fn();
+  },
+};
+
+// 动态添加方法
+user.sayHi = sayHi;
+
+// 函数调用
+user.sayHi();
+user.sleep();
+user.walk();
+
+// DOM 节点
+let btn = document.querySelector(".btn");
+
+// 箭头函数 此时 this 指向了 window
+btn.addEventListener("click", () => {
+  console.log(this);
+});
+
+// 普通函数 此时 this 指向了 DOM 对象
+btn.addEventListener("click", function () {
+  console.log(this);
+});
+
+function Person() {}
+
+// 原型对像上添加了箭头函数
+Person.prototype.walk = () => {
+  console.log("人都要走路...");
+  console.log(this); // widow
+};
+
+let p1 = new Person();
+p1.walk();
+```
+
+## 更改 This 指向
+
+```javascript
+call：fun.call(this，arg1, arg2,......)
+apply：fun.apply(this, [arg1, arg2,......])
+bind：fun.bind(this, arg1, arg2,......)
+
+相同点：
+都可以用来改变 this 指向，第一个参数都是 this 指向的对象
+区别：
+call 和 apply：都会使函数执行，但是参数不同
+bind：不会使函数执行，参数同 call
+```
+
+### call
+
+> 使用 call 方法调用函数，同时指定函数中 this 的值
+
+```javascript
+// 普通函数
+function sayHi() {
+console.log(this);
+}
+
+let user = {
+name: '小明',
+age: 18
+}
+
+let student = {
+name: '小红',
+age: 16，
+}
+
+// 调用函数并指定 this 的值
+sayHi.call(user); // this 值为 user
+sayHi.call(student); // this 值为 student
+
+// 求和函数
+function counter(x, y) {
+return x + y;
+}
+
+// 调用 counter 函数，并传入参数
+let result = counter.call(null, 5, 10);
+console.log(result);
+```
+
+- `call` 方法能够在调用函数的同时指定 `this` 的值
+- 使用 `call` 方法调用函数时，第 1 个参数为 `this` 指定的值
+- `call` 方法的其余参数会依次自动传入函数做为函数的参数
+
+### apply
+
+```javascript
+// 普通函数
+function sayHi() {
+  console.log(this);
+}
+
+let user = {
+  name: "小明",
+  age: 18,
+};
+
+let student = {
+  name: "小红",
+  age: 16,
+};
+
+// 调用函数并指定 this 的值
+sayHi.apply(user); // this 值为 user
+sayHi.apply(student); // this 值为 student
+
+// 求和函数
+function counter(x, y) {
+  return x + y;
+}
+
+// 调用 counter 函数，并传入参数
+let result = counter.apply(null, [5, 10]);
+console.log(result);
+```
+
+- `apply` 方法能够在调用函数的同时指定 `this` 的值
+- 使用 `apply` 方法调用函数时，第 1 个参数为 `this` 指定的值
+- `apply` 方法第 2 个参数为数组，数组的单元值依次自动传入函数做为函数的参数
+
+### bind
+
+> 使用 call 方法调用函数，同时指定函数中 this 的值
+
+```javascript
+// 普通函数
+function sayHi() {
+  console.log(this);
+}
+
+let user = {
+  name: "小明",
+  age: 18,
+};
+
+// 调用 bind 指定 this 的值
+let sayHello = sayHi.bind(user);
+
+// 调用使用 bind 创建的新函数
+sayHello();
+```
+
+# Web API
+
+![alt](./images/25.png)
+
+## DOM
+
+> DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML 文档交互的 API
+
+- DOM 树
+
+![alt](./images/26.png)
+
+### DOM 对象
+
+- document 对象
+  - 是 DOM 里提供的一个对象
+  - 所以它提供的属性和方法都是用来访问和操作网页内容的
+  - 例：document.write()
+  - 网页所有内容都在 document 里面
+
+#### 获取 DOM 对象
+
+```javascript
+// CSS选择器匹配的第一个元素,一个 HTMLElement对象。
+// 如果没有匹配到，则返回null。
+document.querySelector("选择器");
+
+// CSS选择器匹配的NodeList 对象集合
+document.querySelectorAll("选择器");
+
+// 根据id获取一个元素
+document.getElementById("nav");
+
+// 根据标签获取一类元素获取页面所有
+divdocument.getElementsByTagName("div");
+
+// 根据类名获取元素获取页面所有类名为w的元素
+document.getElementsByClassName("w");
+```
+
+#### 设置/修改 DOM 元素
+
+- 修改内容
+
+  ```javascript
+  // 永远都只是追加操作，且只能位置</body>前,标签会被解析
+  document.write("hello");
+
+  // 将文本内容添加/更新到任意标签位置,标签不会被解析
+  let info = document.getElementById("info");
+  // intro.innerText ="嗨～我叫李雷!"
+  info.innerText = "嗨～我叫李雷!";
+
+  // 将文本内容添加/更新到任意标签位置,标签会被解析
+  box.innerHTML = "<h3>前端程序员<br>的头发都很多</h3>";
   ```
-- 执行事件的步骤
-  ![alt](./img/js36.png)
 
-#### 常见的鼠标事件
+- 修改属性
+  ![alt](./images/27.png)
 
-![alt](./img/js37.png)
+- 修改样式
+  ![alt](./images/28.png)
+  ![alt](./images/29.png)
+  ![alt](./images/30.png)
 
-- mouseenter 和 mouseover 的区别：
-  - 当鼠标移动到元素上时就会触发 mouseenter 事件
-  - 类似 mouseover，它们两者之间的差别是
-  - mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。mouseenter  只会经过自身盒子触发
-  - 之所以这样，就是因为 mouseenter 不会冒泡
-  - 跟 mouseenter 搭配鼠标离开 mouseleave  同样不会冒泡
+- data-自定义属性
+  ```javascript
+  getAttribute("属性名"); // 获取自定义属性
+  setAttribute("属性名", "属性值"); // 设置自定义属性
+  removeAttribute("属性名"); // 删除自定义属性
+  ```
 
-#### 注册事件（2 种方式）
+#### DOM 查找节点
 
-![alt](./img/js68.png)
+- `parentNode`
+- 最近一级的父节点 找不到返回为 null
 
-#### addEventListener()事件监听
+  ```javascript
+  子元素.parentNode;
+  ```
 
-- eventTarget.addEventListener()方法将指定的监听器注册到 eventTarget（目标对象）上，当该对象触发指定的事件时，就会执行事件处理函数。
+- `childNodes`
+- 获得所有子节点、包括文本节点（空格、换行）、注释节点等
 
-![alt](./img/js69.png)
-![alt](./img/js70.png)
+  ```javascript
+  父元素.childNodes;
+  ```
 
-#### 解绑事件
+- `children`
+- 仅获得所有元素节点,返回的还是一个伪数组
 
-![alt](./img/js71.png)
+  ```javascript
+  父元素.children;
+  ```
 
-- **删除事件兼容性解决方案 **
-  ![alt](./img/js72.png)
+- `nextElementSibling`
+- 下一个兄弟节点
 
-### 事件对象
+  ```javascript
+  element.nextElementSibling;
+  ```
 
-事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象。
+- `previousElementSibling`
+- 上一个兄弟节点
 
-比如：
+  ```javascript
+  element.previousElementSibling;
+  ```
 
-谁绑定了这个事件。
+#### DOM 增加节点
 
-鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。
+- `createElement`
+- 创建节点
 
-键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。
+  ```javascript
+  document.createElement("标签名");
+  ```
 
-#### 事件对象的使用
+- `appendChild`
+- 插入到父元素的最后一个子元素
 
-事件触发发生时就会产生事件对象，并且系统会以实参的形式传给事件处理函数。
+  ```javascript
+  element.appendChild(要插入的元素);
+  ```
 
-所以，在事件处理函数中声明 1 个形参用来接收事件对象。
+- `insertBefore`
+- 插入到父元素中某个子元素的前面
+  ```javascript
+  element.insertBefore(要插入的元素，在哪个元素前面)
+  ```
+- `cloneNode`
+- 克隆出一个跟原标签一样的元素，括号内传入布尔值
+- 若为 true，则代表克隆时会包含后代节点一起克隆
+- 若为 false(默认)，则代表克隆时不包含后代节点
+  ```javascript
+  element.cloneNode(布尔值);
+  ```
 
-![alt](./img/js83.png)
+#### DOM 删除节点
 
-#### 事件对象的属性和方法
+- removeChild
+- 要删除元素必须通过父元素删除
+  ```javascript
+  父元素.removeChild(要删除的元素);
+  ```
 
-![alt](./img/js82.png)
+### 事件
 
-#### e.target 和 this 的区别
+- `scroll`滚动事件
+- `load`加载事件
+- `DOMContentLoaded`文档被完全加载
 
-- this 是事件绑定的元素（绑定这个事件处理函数的元素） 。
+![alt](./images/33.png)
 
-- e.target 是事件触发的元素。
+#### 鼠标事件
 
-> 常情况下 terget 和 this 是一致的，
-> 但有一种情况不同，那就是在事件冒泡时（父子元素有相同事件，单击子元素，父元素的事件处理函数也会被触发执行），
-> 这时候 this 指向的是父元素，因为它是绑定事件的元素对象，
-> 而 target 指向的是子元素，因为他是触发事件的那个具体元素对象。
-
-#### 阻止默认行为
-
-> html 中一些标签有默认行为，例如 a 标签被单击后，默认会进行页面跳转。
-
-```js
-    <a href="http://www.baidu.com">百度</a>
-    <script>
-        // 2. 阻止默认行为 让链接不跳转
-        var a = document.querySelector('a');
-        a.addEventListener('click', function(e) {
-             e.preventDefault(); //  dom 标准写法
-        });
-        // 3. 传统的注册方式
-        a.onclick = function(e) {
-            // 普通浏览器 e.preventDefault();  方法
-            e.preventDefault();
-            // 低版本浏览器 ie678  returnValue  属性
-            e.returnValue = false;
-            // 我们可以利用return false 也能阻止默认行为 没有兼容性问题
-            return false;
-        }
-    </script>
-```
-
-#### 阻止事件冒泡
-
-![alt](./img/js80.png)
-
-- 阻止事件冒泡的兼容性处理
-  ![alt](./img/js81.png)
-
-#### 事件委托
-
-- 不给子元素注册事件，给父元素注册事件，把处理代码在父元素的事件中执行。
-- 给父元素注册事件，利用事件冒泡，当子元素的事件触发，会冒泡到父元素，然后去控制相应的子元素。
-
-![alt](./img/js79.png)
-
-#### 常用鼠标事件
-
-![alt](./img/js78.png)
-
-#### 鼠标事件对象
-
-![alt](./img/js77.png)
+![alt](./images/001.png)
+![alt](./images/002.png)
 
 #### 键盘事件
 
-![alt](./img/js84.png)
-![alt](./img/js85.png)
-
-#### 键盘事件对象
-
-![alt](./img/js86.png)
-![alt](./img/js87.png)
+![alt](./images/003.png)
+![alt](./images/004.png)
+![alt](./images/005.png)
 
 #### 触屏事件
 
-触屏事件 touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指（或触控笔）对屏幕或者触控板操作。
-![alt](./img/js119.png)
-
-#### 触摸事件对象（TouchEvent）
-
-TouchEvent 是一类描述手指在触摸平面（触摸屏、触摸板等）的状态变化的事件。这类事件用于描述一个或多个触点，使开发者可以检测触点的移动，触点的增加和减少，等等
-touchstart、touchmove、touchend 三个事件都会各自有事件对象。
-触摸事件对象重点我们看三个常见对象列表：
-![alt](./img/js120.png)
-
-#### 移动端拖动元素
-
-1.  touchstart、touchmove、touchend 可以实现拖动元素
-2.  但是拖动元素需要当前手指的坐标值 我们可以使用   targetTouches[0] 里面的 pageX 和 pageY
-3.  移动端拖动的原理：    手指移动中，计算出手指移动的距离。然后用盒子原来的位置 + 手指移动的距离
-4.  手指移动的距离：   手指滑动中的位置 减去   手指刚开始触摸的位置
+![alt](./images/006.png)
 
 拖动元素三步曲：
 
@@ -1069,886 +1288,1184 @@ function tap (obj, callback) {
 3. 使用插件。fastclick 插件解决 300ms 延迟。
    ![alt](./img/js121.png)
 
-## 操作元素
+#### 事件对象
 
-- Javascript 的 DOM 操作可以改变网页内容、结构和样式，我们可以利用 DOM 操作元素来改变元素里面的内容、属性等。（注意：这些操作都是通过元素对象的属性实现的）
+![alt](./images/37.png)
+![alt](./images/38.png)
 
-### 改变元素内容
+#### 事件流
 
-![alt](./img/js38.png)
+![alt](./images/39.png)
+![alt](./images/40.png)
 
-- innerText 和 innerHTML 的区别
-  - 获取内容时的区别：
-    - ​ innerText 会去除空格和换行，而 innerHTML 会保留空格和换行
-  - 设置内容时的区别：
-    - ​ innerText 不会识别 html，而 innerHTML 会识别
+- 阻止事件流动
 
-### 常用元素的属性操作
-
-![alt](./img/js39.png)
-
-**获取属性的值**
-
-> 元素对象.属性名
-
-**设置属性的值**
-
-> 元素对象.属性名 = 值
-
-### 表单元素的属性操作
-
-![alt](./img/js40.png)
-
-**获取属性的值**
-
-> 元素对象.属性名
-
-**设置属性的值**
-
-> 元素对象.属性名 = 值
->
-> 表单元素中有一些属性如：disabled、checked、selected，元素对象的这些属性的值是布尔型。
-
-### 样式属性操作
-
-![alt](./img/js41.png)
-
-**通过操作 style 属性**
-
-> 元素对象的 style 属性也是一个对象！
->
-> 元素对象.style.样式属性 = 值;
-
-![alt](./img/js42.png)
-
-**通过操作 className 属性**
-
-> 元素对象.className = 值;
->
-> 因为 class 是关键字，所有使用 className。
-
-![alt](./img/js43.png)
-
-### classList 属性
-
-classList 属性是 HTML5 新增的一个属性，返回元素的类名。但是 ie10 以上版本支持。
-
-该属性用于在元素中添加，移除及切换 CSS 类。有以下方法
-
-**添加类：**
-
-element.classList.add（’类名’）；
-
-```Javascript
-focus.classList.add("current");
+```javascript
+事件对象.stopPropagation();
 ```
 
-**移除类：**
+- 阻止默认行为，比如链接点击不跳转，表单域的不提交
 
-element.classList.remove（’类名’）;
-
-```Javascript
-focus.classList.remove("current");
+```javascript
+e.preventDefault();
 ```
 
-**切换类：**
+- `mouseover` 和 `mouseout` 会有冒泡效果
+- `mouseenter` 和 `mouseleave` 没有冒泡效果(推荐)
 
-element.classList.toggle（’类名’）;
+#### 事件委托
 
-```Javascript
-focus.classList.toggle("current");
+- 优点：给父级元素加事件（可以提高性能）
+- 原理：事件委托其实是利用事件冒泡的特点， 给父元素添加事件，子元素可以触发
+- 实现：事件对象.target 可以获得真正触发事件的元素
+
+### 高阶函数
+
+![alt](./images/35.png)
+![alt](./images/36.png)
+
+### 元素大小和位置
+
+#### scroll 家族
+
+- `scroll` 事件
+  ![alt](./images/41.png)
+
+#### offset 家族
+
+![alt](./images/42.png)
+
+#### client 家族
+
+- `resize`事件
+  ![alt](./images/43.png)
+
+## BOM
+
+> BOM(Browser Object Model ) 是浏览器对象模型
+
+- window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 的知识内容都是基于 window 对象实现的
+- window 对象下包含了 navigator、location、document、history、screen 5 个属性，即所谓的 BOM （浏览器对象模
+  型）
+- document 是实现 DOM 的基础，它其实是依附于 window 的属性。
+
+### 定时器
+
+```javascript
+// 循环执行
+setInterval(() => {
+  0;
+}, interval);
+
+// 计时结束执行
+setTimeout(() => {
+  0;
+}, timeout);
 ```
 
-`注意:以上方法里面，所有类名都不带点`
+![alt](./images/31.png)
+![alt](./images/32.png)
 
-### 排他思想
+### JS 执行机制
 
-如果有同一组元素，我们想要某一个元素实现某种样式， 需要用到循环的排他思想算法：
+> JavaScript 语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。这是因为 Javascript 这门脚本语言诞生的使命所致——JavaScript 是为处理页面中用户的交互，以及操作 DOM 而诞生的。比如我们对某个 DOM 元素进行添加和删除操作，不能同时进行。 应该先进行添加，之后再删除。
+> JS 是单线程,单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。这样所导致的问题是： 如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
 
-1. 所有元素全部清除样式（干掉其他人）
+#### 同步和异步
 
-2. 给当前元素设置样式 （留下我自己）
+![alt](./images/44.png)
+![alt](./images/45.png)
 
-3. 注意顺序不能颠倒，首先干掉其他人，再设置自己
+### location 对象
 
-## 自定义属性操作
+- `location` 的数据类型是对象，它拆分并保存了 URL 地址的各个组成部分
+- 常用属性和方法：
+  - `href` 属性获取完整的 URL 地址，对其赋值时用于地址的跳转
+  - `search` 属性获取地址中携带的参数，符号 ？后面部分
+  - `hash` 属性获取地址中的啥希值，符号 # 后面部分
+  - `reload` 方法用来刷新当前页面，传入参数 true 时表示强制刷新
 
-![alt](./img/js44.png)
+### navigator 对象
 
-### 设置属性值
-
-![alt](./img/js45.png)
-
-### 移除属性
-
-![alt](./img/js46.png)
-
-### H5 自定义属性
-
-- 自定义属性目的：是为了保存并使用数据。有些数据可以保存到页面中而不用保存到数据库中。
-
-![alt](./img/js47.png)
-![alt](./img/js48.png)
-
-## 节点操作
-
-​ 网页中的所有内容都是节点（标签、属性、文本、注释等），在 DOM 中，节点使用 node 来表示。
-
-​ HTML DOM 树中的所有节点均可通过 Javascript 进行访问，所有 HTML 元素（节点）均可被修改，也可以创建或删除。
-
-![alt](./img/js49.png)
-
-​ 一般地，节点至少拥有 nodeType（节点类型）、nodeName（节点名称）和 nodeValue（节点值）这三个基本属性。
-
-![alt](./img/js50.png)
-
-### 父级节点
-
-![alt](./img/js51.png)
-
-### 子级节点
-
-- 所有子节点
-
-![alt](./img/js52.png)
-
-- 子元素节点
-  ![alt](./img/js58.png)
-
-- 第 1 个子节点
-  ![alt](./img/js53.png)
-
-- 最后 1 个子节点
-  ![alt](./img/js54.png)
-
-- 第 1 个子元素节点
-  ![alt](./img/js55.png)
-
-- 最后 1 个子元素节点
-  ![alt](./img/js56.png)
-
-实际开发中，firstChild 和 lastChild 包含其他节点，操作不方便，而 firstElementChild 和 lastElementChild 又有兼容性问题，那么我们如何获取第一个子元素节点或最后一个子元素节点呢？
-
-![alt](./img/js57.png)
-
-### 兄弟节点
-
-- 下一个兄弟节点
-  ![alt](./img/js59.png)
-
-- 上一个兄弟节点
-
-![alt](./img/js60.png)
-
-- 下一个兄弟元素节点（有兼容性问题）
-  ![alt](./img/js61.png)
-
-- 上一个兄弟元素节点（有兼容性问题）
-
-![alt](./img/js62.png)
-
-### 创建节点
-
-![alt](./img/js63.png)
-
-### 添加节点
-
-![alt](./img/js64.png)
-
-### 删除节点
-
-![alt](./img/js65.png)
-
-### 复制（克隆）节点
-
-![alt](./img/js66.png)
-
-### 创建元素的三种方式
-
-![alt](./img/js67.png)
-
-### innerTHML 和 createElement 效率对比
-
-**innerHTML 字符串拼接方式（效率低）**
-
-```js
-<script>
-    function fn() {
-        var d1 = +new Date();
-        var str = '';
-        for (var i = 0; i < 1000; i++) {
-            document.body.innerHTML += '<div style="width:100px; height:2px; border:1px solid blue;"></div>';
-        }
-        var d2 = +new Date();
-        console.log(d2 - d1);
+- `navigator` 的数据类型是对象，该对象下记录了浏览器自身的相关信息
+- 常用属性和方法：
+  - 通过 userAgent 检测浏览器的版本及平台
+  ```javascript
+  // 检测 userAgent（浏览器信息）
+  !(function () {
+    const userAgent = navigator.userAgent;
+    // 验证是否为Android或iPhone
+    const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/);
+    const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/);
+    // 如果是Android或iPhone，则跳转至移动站点
+    if (android || iphone) {
+      location.href = "http://m.itcast.cn";
     }
-    fn();
-</script>
+  })();
+  ```
+
+### histroy 对象
+
+![alt](./images/46.png)
+
+### 本地存储
+
+- JSON 转换
+
+```javascript
+// 将复杂数据转换成JSON字符串
+JSON.stringify(复杂数据类型);
+// 将JSON字符串转换成对象
+JSON.parse(JSON字符串);
 ```
 
-**createElement 方式（效率一般）**
+- `localStorage`
 
-```js
-<script>
-    function fn() {
-        var d1 = +new Date();
+  - 生命周期永久生效，除非手动删除 否则关闭页面也会存在
+  - 可以多窗口（页面）共享（同一浏览器可以共享）
+  - 以键值对的形式存储使用
+    ```javascript
+    // 存储数据
+    localStorage.setItem(key, value);
+    // 获取数据
+    localStorage.getItem(key);
+    // 删除数据
+    localStorage.removeItem(key);
+    ```
 
-        for (var i = 0; i < 1000; i++) {
-            var div = document.createElement('div');
-            div.style.width = '100px';
-            div.style.height = '2px';
-            div.style.border = '1px solid red';
-            document.body.appendChild(div);
-        }
-        var d2 = +new Date();
-        console.log(d2 - d1);
+- `sessionStorage`
+  - 生命周期为关闭浏览器窗口
+  - 在同一个窗口(页面)下数据可以共享
+  - 以键值对的形式存储使用
+    ```javascript
+    // 存储数据
+    sessionStorage.setItem(key, value);
+    // 获取数据
+    sessionStorage.getItem(key);
+    // 删除数据
+    sessionStorage.removeItem(key);
+    ```
+
+# XMLHttpRequest
+
+> XMLHttpRequest（简称 xhr）是浏览器提供的 Javascript 对象，通过它，可以请求服务器上的数据资源。
+
+## Get 请求
+
+```javascript
+// 1. 创建 XHR 对象
+var xhr = new XMLHttpRequest();
+// 2. 调用 open 函数，指定 请求方式 与 URL地址
+xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks");
+// 3. 调用 send 函数，发起 Ajax 请求
+xhr.send();
+// 4. 监听 onreadystatechange 事件
+xhr.onreadystatechange = function () {
+  // 4.1 监听 xhr 对象的请求状态 readyState ；与服务器响应的状态 status
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    // 4.2 打印服务器响应回来的数据
+    console.log(xhr.responseText);
+  }
+};
+```
+
+![alt](./images/47.png)
+
+## POST 请求
+
+```javascript
+// 1. 创建 xhr 对象
+var xhr = new XMLHttpRequest();
+// 2. 调用 open()
+xhr.open("POST", "http://www.liulongbin.top:3006/api/addbook");
+// 3. 设置 Content-Type 属性（固定写法）
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+// 4. 调用 send()，同时将数据以查询字符串的形式，提交给服务器
+xhr.send("bookname=水浒传&author=施耐庵&publisher=天津图书出版社");
+// 5. 监听 onreadystatechange 事件
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    console.log(xhr.responseText);
+  }
+};
+```
+
+## HTTP 请求时限
+
+```javascript
+xhr.timeout = 3000;
+xhr.ontimeout = function (event) {
+  alert("请求超时！");
+};
+```
+
+## 上传文件
+
+```javascript
+// 1. 创建 xhr 对象
+var xhr = new XMLHttpRequest();
+// 2. 调用 open 函数，指定请求类型与URL地址。其中，请求类型必须为 POST
+xhr.open("POST", "http://www.liulongbin.top:3006/api/upload/avatar");
+// 3. 发起请求
+xhr.send(fd);
+
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var data = JSON.parse(xhr.responseText);
+    if (data.status === 200) {
+      // 上传文件成功
+      // 将服务器返回的图片地址，设置为 <img> 标签的 src 属性
+      document.querySelector("#img").src =
+        "http://www.liulongbin.top:3006" + data.url;
+    } else {
+      // 上传文件失败
+      console.log(data.message);
     }
-    fn();
-</script>
+  }
+};
 ```
 
-**innerHTML 数组方式（效率高）**
+## 显示文件上传进度
 
-```js
-<script>
-    function fn() {
-        var d1 = +new Date();
-        var array = [];
-        for (var i = 0; i < 1000; i++) {
-            array.push('<div style="width:100px; height:2px; border:1px solid blue;"></div>');
-        }
-        document.body.innerHTML = array.join('');
-        var d2 = +new Date();
-        console.log(d2 - d1);
-    }
-    fn();
-</script>
+```javascript
+// 创建 XHR 对象
+var xhr = new XMLHttpRequest();
+// 监听 xhr.upload 的 onprogress 事件
+xhr.upload.onprogress = function (e) {
+  // e.lengthComputable 是一个布尔值，表示当前上传的资源是否具有可计算的长度
+  if (e.lengthComputable) {
+    // e.loaded 已传输的字节
+    // e.total  需传输的总字节
+    var percentComplete = Math.ceil((e.loaded / e.total) * 100);
+  }
+};
 ```
 
-## JS 执行机制
+## 同源策略和跨域
 
-### JS 是单线程
+![alt](./images/48.png)
+![alt](./images/49.png)
+![alt](./images/50.png)
+![alt](./images/51.png)
+![alt](./images/52.png)
 
-    单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。
-    这样所导致的问题是： 如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
+## JSONP
 
-![alt](./img/js109.png)
+> JSONP (JSON with Padding) 是 JSON 的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。
+> ![alt](./images/53.png) > ![alt](./images/54.png) > ![alt](./images/55.png)
 
-### 同步任务和异步任务
+# HTTP
 
-- **同步任务**
-  ​ 前一个任务结束后再执行后一个任务，程序的执行顺序与任务的排列顺序是一致的、同步的。比如做饭的同步做法：我们要烧水煮饭，等水开了（10 分钟之后），再去切菜，炒菜。3
+## HTTP 协议简介
 
-<br>
+> 通信协议（Communication Protocol）是指通信的双方完成通信所必须遵守的规则和约定。
+> 网页内容又叫做超文本，因此网页内容的传输协议又叫做超文本传输协议（HyperText Transfer Protocol） ，简称 HTTP 协议。
 
-- **异步任务**
-  你在做一件事情时，因为这件事情会花费很长时间，在做这件事的同时，你还可以去处理其他事情。比如做饭的异步做法，我们在烧水的同时，利用这 10 分钟，去切菜，炒菜。
+## HTTP 请求消息
 
-> ```js
-> JS中所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。
+![alt](./images/56.png)
+![alt](./images/57.png)
+![alt](./images/58.png)
+![alt](./images/59.png)
+![alt](./images/60.png)
+![alt](./images/61.png)
+![alt](./images/62.png)
+
+## HTTP 响应消息
+
+![alt](./images/64.png)
+![alt](./images/65.png)
+![alt](./images/66.png)
+![alt](./images/67.png)
+![alt](./images/68.png)
+![alt](./images/69.png)
+
+## HTTP 请求方法
+
+![alt](./images/70.png)
+
+## HTTP 响应状态码
+
+> HTTP 响应状态码（HTTP Status Code），也属于 HTTP 协议的一部分，用来标识响应的状态。
+> ![alt](./images/71.png) > ![alt](./images/72.png) > ![alt](./images/74.png) > ![alt](./images/75.png) > ![alt](./images/76.png)
+
+# 性能优化
+
+## 防抖和节流
+
+> 防抖：如果事件被频繁触发，防抖能保证只有最有一次触发生效！前面 N 多次的触发都会被忽略！
+> 节流：如果事件被频繁触发，节流能够减少事件触发的频率，因此，节流是有选择性地执行一部分事件！
+
+## 图片优化
+
+> 小图使用 base64 格式
+> 将多个图标文件整合到一张图片中(精灵图)
+
+## 预渲染
+
+> 可以通过预渲染将下载的文件预先在后台渲染，可以使用以下代码开启预渲染
 >
-> 同步任务指的是：
-> 	在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；
-> 异步任务指的是：
-> 	不进入主线程、而进入”任务队列”的任务，当主线程中的任务运行完了，才会从”任务队列”取出异步任务放入主线程执行。
-> ```
+> ` <link rel="prerender" href="http://example.com">`
+> 预渲染虽然可以提高页面的加载速度，但是要确保该页面大概率会被用户在之后打开，否则就是白白浪费资源去渲染。
 
-![alt](./img/js110.png)
+## 懒加载
 
-### JS 执行机制（事件循环）
+> 懒加载就是将不关键的资源延后加载。
+> 对于图片来说，先设置图片标签的 src 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 src 属性，这样图片就会去下载资源，实现了图片懒加载。
 
-![alt](./img/js111.png)
-![alt](./img/js112.png)
-![alt](./img/js113.png)
+# ECMAScript
 
-## 元素偏移量 offset 系列
+> ECMAScript 是一种由 Ecma 国际（前身为欧洲计算机制造商协会，European Computer Manufacturers Association）通过 ECMA-262 标准化的脚本程序设计语言。
 
-offset 翻译过来就是偏移量， 我们使用 offset 系列相关属性可以动态的得到该元素的位置（偏移）、大小等。
+## ES5
 
-1. 获得元素距离带有定位父元素的位置
+### 严格模式
 
-2. 获得元素自身的大小（宽度高度）
-
-3. 注意：返回的数值都不带单位
-
-![alt](./img/js114.png)
-
-### offset 与 style 区别
-
-- **offset**
-
-  - offset 可以得到任意样式表中的样式值
-
-  - offset 系列获得的数值是没有单位的
-
-  - offsetWidth 包含 padding+border+width
-
-  - offsetWidth 等属性是只读属性，只能获取不能赋值
-
-- **style**
-
-  - style 只能得到行内样式表中的样式值
-
-  - style.width 获得的是带有单位的字符串
-
-  - style.width 获得不包含 padding 和 border 的值
-
-  - style.width 是可读写属性，可以获取也可以赋值
-
-  - > 所以，我们想要给元素更改值，则需要用 style 改变
-
-> **因为平时我们都是给元素注册触摸事件，所以重点记住 targetTocuhes**
-
-## 元素可视区 client 系列
-
-client 翻译过来就是客户端，我们使用 client 系列的相关属性来获取元素可视区的相关信息。通过 client
-系列的相关属性可以动态的得到该元素的边框大小、元素大小等。
-
-![alt](./img/js115.png)
-![alt](./img/js116.png)
-
-## 元素滚动 scroll 系列
-
-scroll 翻译过来就是滚动的，我们使用 scroll 系列的相关属性可以动态的得到该元素的大小、滚动距离等。
-
-![alt](./img/js117.png)
-![alt](./img/js118.png)
-
-如果浏览器的高（或宽）度不足以显示整个页面时，会自动出现滚动条。当滚动条向下滚动时，页面上面被隐藏掉的高度，我们就称为页面被卷去的头部。滚动条在滚动时会触发 onscroll 事件。
-
-## 节流阀
-
-防止轮播图按钮连续点击造成播放过快。
-
-节流阀目的：当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发。
-
-核心实现思路：利用回调函数，添加一个变量来控制，锁住函数和解锁函数。
-
-开始设置一个变量 var flag= true;
-
-If(flag){flag = false; do something}       关闭水龙头
-
-利用回调函数动画执行完毕， flag = true     打开水龙头
-
-## 本地存储
-
-1、数据存储在用户浏览器中
-
-2、设置、读取方便、甚至页面刷新不丢失数据
-
-3、容量较大，sessionStorage 约 5M、localStorage 约 20M
-
-4、只能存储字符串，可以将对象 JSON.stringify() 编码后存储
-
-### window.sessionStorage
-
-1、生命周期为关闭浏览器窗口
-
-2、在同一个窗口(页面)下数据可以共享
-
-3、以键值对的形式存储使用
-
-存储数据：
-
-```Javascript
-sessionStorage.setItem(key, value);
+```javascript
+“use strict”;
 ```
 
-获取数据：
+### Array.forEach()
 
-```Javascript
-sessionStorage.getItem(key);
+> 语法：有三个参数，参数一是数组元素，参数二是数组元素的索引，参数三是当前遍历的数组
+
+```javascript
+// forEach 迭代(遍历) 数组
+var arr = [1, 2, 3];
+var sum = 0;
+arr.forEach(function (value, index, array) {
+  console.log("每个数组元素" + value);
+  console.log("每个数组元素的索引号" + index);
+  console.log("数组本身" + array);
+  sum += value;
+});
+console.log(sum);
 ```
 
-删除数据：
+### Array.filter()
 
-```Javascript
-sessionStorage.removeItem(key);
+> 语法：有三个参数，参数一是数组元素，参数二是数组元素的索引，参数三是当前遍历的数组
+
+```javascript
+// filter 筛选数组
+var arr = [12, 66, 4, 88, 3, 7];
+var newArr = arr.filter(function (value, index) {
+  // return value >= 20;
+  return value % 2 === 0;
+});
+console.log(newArr);
 ```
 
-清空数据：(所有都清除掉)
+> some（） 查找满足条件的元素是否存在，返回的是一个布尔值，如果查找到第一个满足条件的元素就终止循环
+> 语法：有三个参数，参数一是数组元素，参数二是数组元素的索引，参数三是当前遍历的数组
 
-```Javascript
-sessionStorage.clear();
+```javascript
+// some 查找数组中是否有满足条件的元素
+var arr1 = ["red", "pink", "blue"];
+var flag1 = arr1.some(function (value) {
+  return value == "pink";
+});
+console.log(flag1);
 ```
 
-### window.localStorage
+### String.trim()
 
-1、声明周期永久生效，除非手动删除 否则关闭页面也会存在
+> trim() 方法并不影响原字符串本身，它返回的是一个新的字符串
 
-2、可以多窗口（页面）共享（同一浏览器可以共享）
-
-3.   以键值对的形式存储使用
-
-存储数据：
-
-```Javascript
-localStorage.setItem(key, value);
+```javascript
+// trim 方法去除字符串两侧空格
+var str = "   an  dy   ";
+console.log(str);
+var str1 = str.trim();
+console.log(str1); // an  dy
 ```
 
-获取数据：
+### Object.keys()
 
-```Javascript
-localStorage.getItem(key);
+> 方法返回一个对象的所有的属性名并保存到一个数组中
+
+```javascript
+// 用于获取对象自身所有的属性
+var obj = {
+  id: 1,
+  pname: "小米",
+  price: 1999,
+  num: 2000,
+};
+var arr = Object.keys(obj);
+console.log(arr);
+arr.forEach(function (value) {
+  console.log(value);
+});
 ```
 
-删除数据：
+### Object.defineProperty()
 
-```Javascript
-localStorage.removeItem(key);
+> 定义对象中新属性或修改原属性
+> 参数设置：
+>
+> - 参数一是当前设置的对象
+> - 参数二是需定义或修改的属性的名字
+> - 参数三是一个对象,对象中有多个属性
+>   - 属性一是 value:: 设置属性的值
+>   - 属性二是 writable: false/true;如果值为 false 不允许修改这个属性值 默认值也是 false
+>   - 属性三是 enumerable: false/true;如果值为 false 则不允许遍历, 默认的值是 false
+>   - 属性四是 configurable: false/true;如果为 false 则不允许删除这个属性 不允许在修改第三个参数里面的特性 默认为 false
+
+```javascript
+// Object.defineProperty() 定义新属性或修改原有的属性
+var obj = {
+  id: 1,
+  pname: "小米",
+  price: 1999,
+};
+Object.defineProperty(obj, "num", {
+  value: 1000,
+  enumerable: true,
+});
+console.log(obj);
+Object.defineProperty(obj, "price", {
+  value: 9.9,
+});
+console.log(obj);
+Object.defineProperty(obj, "id", {
+  // 如果值为false 不允许修改这个属性值 默认值也是false
+  writable: false,
+});
+obj.id = 2;
+console.log(obj);
+Object.defineProperty(obj, "address", {
+  value: "中国山东蓝翔技校xx单元",
+  // 如果值为false 不允许修改这个属性值 默认值也是false
+  writable: false,
+  // enumerable 如果值为false 则不允许遍历, 默认的值是 false
+  enumerable: false,
+  // configurable 如果为false 则不允许删除这个属性 不允许在修改第三个参数里面的特性 默认为false
+  configurable: false,
+});
+console.log(obj);
+console.log(Object.keys(obj));
+delete obj.address;
+console.log(obj);
+delete obj.pname;
+console.log(obj);
 ```
 
-清空数据：(所有都清除掉)
+### throw
 
-```Javascript
-localStorage.clear();
-```
+```javascript
+function counter(x, y) {
+  if (!x || !y) {
+    // throw '参数不能为空!';
+    throw new Error("参数不能为空!");
+  }
 
-## 预解析
-
-    Javascript 代码是由浏览器中的 Javascript 解析器来执行的。Javascript 解析器在运行 Javascript 代码的时候分为两步：预解析和代码执行。
-
-- 预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。
-
-- 代码执行： 从上到下执行 JS 语句。
-
-  **预解析会把变量和函数的声明在代码执行之前执行完成。**
-
-```js
-// 预解析前
-console.log(num); // undefined
-var num = 10;
-// ------------
-fn(); // 打印
-function fn() {
-  console.log("打印");
+  return x + y;
 }
 
-// 预解析后
-var num;
-console.log(num); // undefined？
-num = 10;
-// ------------
-function fn() {
-  console.log("打印");
-}
-fn(); // 打印
+counter();
 ```
 
-## 面向过程与面向对象
+- `throw` 抛出异常信息，程序也会终止执行
+- `throw` 后面跟的是错误提示信息
+- `Error` 对象配合 throw 使用，能够设置更详细的错误信息
 
-- 面向过程:
-  - 面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。
-- 面向对象:
-  - 面向对象是把事务分解成为一个个对象，然后由对象之间分工与合作。
-- 面向过程与面向对象对比
-  | | 面向过程 | 面向对象 |
-  | ---- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-  | 优点 | 性能比面向对象高，适合跟硬件联系很紧密的东西，例如单片机就采用的面向过程编程。 | 易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护 |
-  | 缺点 | 不易维护、不易复用、不易扩展 | 性能比面向过程低 |
+### try ... catch
 
-### 对象与类
+```javascript
+function foo() {
+  try {
+    // 查找 DOM 节点
+    var p = docunent.querySelector("p");
+  } catch (error) {
+    // try 代码段中执行有错误时，会执行 catch 代码段
 
-### 对象
+    // 查看错误信息
+    console.log(error.message);
 
-对象是由属性和方法组成的：是一个无序键值对的集合,指的是一个具体的事物
+    // 终止代码继续执行
+    return;
+  }
 
-- 属性：事物的特征，在对象中用属性来表示（常用名词）
-- 方法：事物的行为，在对象中用方法来表示（常用动词）
+  // 改变文本样式
+  p.style.color = "red";
+}
 
-```js
-//以下代码是对对象的复习
-//字面量创建对象
-var ldh = {
-  name: "刘德华",
+foo();
+```
+
+- `try...catch` 用于捕获错误信息
+- 将预估可能发生错误的代码写在 `try` 代码段中
+- 如果 `try` 代码段中出现错误后，会执行 `catch` 代码段，并截获到错误信息
+
+## ES6
+
+### let
+
+> let 定义变量，变量不可以再次定义，但可以改变其值
+> 具有块级作用域。（即大括号）
+> 没有变量提升，必须先定义再使用
+> let 声明的变量不会压到 window 对象中，是独立的
+
+```javascript
+let name = "zhangsan";
+name = "lisi";
+console.log(name); // lisi
+let name = "wangwu"; // 再次定义，报错：Identifier 'name' has already been declared
+```
+
+### const
+
+> 使用 const 关键字定义常量
+> 常量是不可变的，一旦定义，则不能修改其值
+> 初始化常量时，必须给初始值
+> 具有块级作用域
+> 没有变量提升，必须先定义再使用
+> 常量也是独立的，定义后不会压入到 window 对象中
+
+```javascript
+// 1. 使用const关键字定义常量，常量名一般大写
+// 2. 常量是不可变的，一旦定义，则不能修改其值
+const PI = 3.1415926；
+PI = 3.14; // 报错，常用一旦被初始化，则不能被修改
+```
+
+### 解构赋值
+
+#### 数组解构
+
+- 赋值运算符 = 左侧的 [] 用于批量声明变量，右侧数组的单元值将被赋值给左侧的变量
+- 变量的顺序对应数组单元值的位置依次进行赋值操作
+- 变量的数量大于单元值数量时，多余的变量将被赋值为 undefined
+- 变量的数量小于单元值数量时，可以通过 ... 获取剩余单元值，但只能置于最末位
+- 允许初始化变量的默认值，且只有单元值为 undefined 时默认值才会生效
+
+```javascript
+// 普通的数组
+let arr = [1, 2, 3];
+// 批量声明变量 a b c
+// 同时将数组单元值 1 2 3 依次赋值给变量 a b c
+let [a, b, c] = arr;
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 3
+```
+
+#### 对象解构
+
+- 赋值运算符 = 左侧的 {} 用于批量声明变量，右侧对象的属性值将被赋值给左侧的变量
+- 对象属性的值将被赋值给与属性名相同的变量
+- 对象中找不到与变量名一致的属性时变量值为 undefined
+- 允许初始化变量的默认值，属性不存在或单元值为 undefined 时默认值才会生效
+
+```javascript
+// 普通对象
+let user = {
+  name: "小明",
   age: 18,
 };
-console.log(ldh); // {name:"刘德华",age:18}
 
-//构造函数创建对象
-function Star(name, age) {
-  this.name = name;
-  this.age = age;
-}
-var ldh = new Star("刘德华", 18); //实例化对象
-console.log(ldh); // Star{name:"刘德华",age:18}
+// 批量声明变量 name age
+// 同时将数组单元值 1 2 3 依次赋值给变量 a b c
+let { name, age } = user;
+
+console.log(name); // 小明
+console.log(age); // 18
 ```
 
-### 类
+### 箭头函数
 
-- 在 ES6 中新增加了类的概念，可以使用 class 关键字声明一个类，之后以这个类来实例化对象。类抽象了对象的公共部分，它泛指某一大类（class）对象特指某一个，通过类实例化一个具体的对象
+> 使用箭头定义函数 => goes to，目的是简化函数的定义并且里面的 this 也比较特殊。
+> 形参只有一个可以省略小括号
+> 函数体只有一句话，可以省略大括号，并且表示返回函数体的内容
+> 箭头函数内部没有 arguments
+> 箭头函数内部的 this 指向外部作用域中的 this ，或者可以认为箭头函数没有自己的 this
+> 箭头函数不能作为构造函数
 
-```js
-// 1. 创建类 class  创建一个 明星类
-class Star {
-  // 类的共有属性放到 constructor 里面
+```javascript
+let fn = (x) => {
+  return x * 2;
+};
+let fn = (x, y) => {
+  return x + y;
+};
+let fn = (x, y) => x + y;
+let fn = () => {
+  console.log(arguments); // 报错，arguments is not defined
+};
+let Person = () => {};
+let obj = new Person(); // 报错，Person is not a constructor
+```
+
+### 函数参数
+
+> 参数的默认值
+
+```javascript
+function fn(x, y = "world") {
+  console.log(x, y);
+}
+fn(2);
+fn(2, 3);
+//打印结果
+//2 “world”
+//2 3
+```
+
+> 剩余参数，以 …修饰最后一个参数，把多余的参数都放到一个数组中。可以替代 arguments 的使用。
+> rest 参数只能是最后一个参数。
+
+```javascript
+function fn(a, b, ...values) {
+  console.log(a); // 6
+  console.log(b); // 1
+  console.log(values); // [100, 9, 10]
+}
+// 调用
+console.log(fn(6, 1, 100, 9, 10)); //undefined
+```
+
+### 扩展运算符
+
+> ...可以把数组中的每一项展开
+
+```javascript
+// 合并两个数组
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [...arr1, ...arr2];
+console.log(arr3); // [1, 2, 3, 4]
+// 把数组展开作为参数，可以替代 apply
+// 求数组的最大值
+let arr = [6, 99, 10, 1];
+let max = Math.max(...arr); // 等同于 Math.max(6, 99, 10, 1);
+```
+
+### 模板字符串
+
+> 使用反引号``代替双引号创建字符串
+
+```javascript
+let str = `dawdawdawdwa
+dawdwadaw${1 + 1}
+dwadaw
+`;
+```
+
+### Array.from()
+
+> 把伪数组转成数组
+> 伪数组必须有 length 属性，如果没有将返回一个空数组
+> 转换后的数组长度，是根据伪数组的 length 决定的
+
+```javascript
+let fakeArr = {
+  0: "a",
+  1: "b",
+  2: "c",
+  length: 3,
+};
+let arr = Array.from(fakeArr);
+console.log(arr); // ['a', 'b', 'c']
+// 转数组的对象必须有length值，因为得到的数组的成员个数是length指定的个数
+// 上例中，如果length为2，则得到的数组为 ['a', 'b']
+```
+
+### Array.find()/Array.findIndex()
+
+> 用于查找数组中的值
+> 用于查找数组的下标，用法与 find 一样
+
+```javascript
+let value = [3, 5, -1, -4, 6].find((item, index, arr) => {
+  console.log(item); //表示数组的每个值
+  console.log(index); //表示数组的每个下标
+  console.log(arr); //表示整个数组
+  //如果需要查找，要用到return 条件；
+  return item < 0; //find方法会返回第一个满足条件的值，-1
+  //如果是findIndex方法，会返回第一个满足条件的值的下标，2
+});
+console.log(value);
+```
+
+### Array.reduce()
+
+### Array.includes()/Array.startsWith()/Array.endsWith()
+
+> includes(str, [position]) 返回布尔值，表示是否找到了参数字符串
+> startsWidth(str, [position]) 返回布尔值，表示参数字符串是否在原字符串的头部或指定位置
+> endsWith(str, [position]) 返回布尔值，表示参数字符串是否在原字符串的尾部或指定位置。
+
+```javascript
+console.log("hello world".includes("e", 2)); // false 从位置2开始查找e，没有找到
+console.log("hello world".includes("e")); // true
+console.log("hello world".startsWith("h")); // 未指定位置，看开头是否是h，返回true
+console.log("hello world".startsWith("l", 2)); // 指定位置的字符是l，返回true
+console.log("hello world".endsWith("d")); // 未指定位置，结尾是d，返回true
+console.log("hello world".endsWith("r", 9)); // 指定位置的字符是r，返回true
+```
+
+### String.repeat()
+
+> repeat 方法返回一个新字符串，表示将原字符串重复 n 次。
+
+```javascript
+let html = "<li>itheima</li>";
+html = html.repeat(10);
+```
+
+### Set 对象
+
+> 数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+> Set 本身是一个构造函数，用来生成 Set 数据结构。
+> Set 的特点就是该对象里面的成员不会有重复。
+> size：属性，获取 set 中成员的个数，相当于数组中的 length
+> add(value)：添加某个值，返回 Set 结构本身。
+> delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+> has(value)：返回一个布尔值，表示该值是否为 Set 的成员。
+> clear()：清除所有成员，没有返回值。
+
+```javascript
+let set = new Set();
+//调用set对象内置的add方法，想set中添加数据。
+set.add(3);
+set.add(8);
+set.add(9);
+set.add(3); //添加失败但不报错，set中的成员不能重复
+console.log(set); // {3,8,9}
+console.log(set.size); //3
+```
+
+> 初始化 Set 的时候，也可以为其传入数组或字符串，得到的 Set 对象中的成员不会有重复。根据这个特点可以完成数组或字符串去重。
+
+```javascript
+let set = new Set([4, 8, 9, 5, 4, 8, 4, 2]);
+console.log(set); //Set(5) {4,8,9,5,2}
+let arr = [...set]; //将set中的每个值展开，然后放到数组中
+console.log(arr); //(5) [4, 8, 9, 5, 2]
+let str = new Set("abcdacbdcbac");
+console.log(str); //Set(4) {"a", "b", "c", "d"}
+console.log([...str].join("")); //abcd
+```
+
+### Map 对象
+
+> map，本质是与 Object 类似的结构。不同在于，Object 强制规定 key 只能是字符串。而 Map 结构的 key 可以是任意对象。即：
+> object 是 <string,object>集合
+> map 是<object,object>集合
+
+```javascript
+// map接收一个数组，数组中的元素是键值对数组
+const map = new Map([
+  ["key1", "value1"],
+  ["key2", "value2"],
+]);
+// 或者接收一个set
+const set = new Set([
+  ["key1", "value1"],
+  ["key2", "value2"],
+]);
+const map2 = new Map(set);
+// 或者其它map
+const map3 = new Map(map);
+```
+
+### class 类
+
+#### 封装
+
+##### 实例成员
+
+```javascript
+// 创建类
+class Person {
+  // 实例属性
+  name = "小明";
+
+  // 实例方法
+  sleep() {
+    console.log("sleeping...");
+  }
+}
+
+// 实例化
+let p1 = new Person();
+p1.sayHi();
+```
+
+- 关键字 `class` 封装了所有的实例属性和方法
+- 类中封装的并不是变量和函数，因此不能使用关键字 `let、const` 或 `var`
+
+##### 静态成员
+
+```javascript
+// 创建类
+class Person {
+  // 静态属性
+  static version = "1.0.0";
+
+  // 静态方法
+  static getVersion = function () {
+    console.log(this.version);
+  };
+}
+
+// 静态方法直接访问
+console.log(Person.version);
+Person.getVersion();
+```
+
+- `static` 关键字用于声明静态属性和方法
+- 静态属性和方法直接通过类名进行访问
+
+##### 构造函数
+
+```javascript
+class Person {
+  // 实例化时 立即执行
+  // 构造函数、构造方法、构造器
   constructor(name, age) {
     this.name = name;
     this.age = age;
   }
+  // 实例方法
+  walk() {
+    console.log(this.name + "正在走路...");
+  }
 }
-// 2. 利用类创建对象 new
-var ldh = new Star("刘德华", 18);
-console.log(ldh); // Star{name:"刘德华",age:18}
+
+// 实例化
+let p1 = new Person("小明", 18);
+p1.walk();
 ```
 
-### 类创建添加属性和方法
+- `constructor` 是类中固定的方法名
+- `constructor` 方法在实例化时立即执行
+- `constructor` 方法接收实例化时传入的参数
+- `constructor` 并非是类中必须要存在的方法
 
-```js
-// 1. 创建类 class  创建一个类
-class Star {
-  // 类的共有属性放到 constructor 里面 constructor是 构造器或者构造函数
-  constructor(uname, age) {
-    this.uname = uname;
+#### 继承
+
+##### extends
+
+```javascript
+class Person {
+  // 父类的属性
+  legs = 2;
+  arms = 2;
+  eyes = 2;
+  // 父类的方法
+  walk() {
+    console.log("人类都会走路...");
+  }
+  // 父类的方法
+  sleep() {
+    console.log("人都得要睡觉...");
+  }
+}
+
+// Chinese 继承了 Person 的所有特征
+class Chinese extends Person {}
+
+// 实例化
+let c1 = new Chinese();
+c1.walk();
+```
+
+- `extends` 是专门用于实现继承的语法关键字，`Person` 称为父类、`Chinese` 称为子类。
+
+##### super
+
+```javascript
+class Person {
+  // 构造函数
+  constructor(name, age) {
+    this.name = name;
     this.age = age;
-  } //------------------------------------------->注意,方法与方法之间不需要添加逗号
-  sing(song) {
-    console.log(this.uname + "唱" + song);
+  }
+
+  // 父类的属性
+  legs = 2;
+  arms = 2;
+
+  walk() {
+    console.log("人类都会走路...");
   }
 }
-// 2. 利用类创建对象 new
-var ldh = new Star("刘德华", 18);
-console.log(ldh); // Star {uname: "刘德华", age: 18}
-ldh.sing("冰雨"); // 刘德华唱冰雨
+
+// 子类 English 继承了父类 Person
+class English extends Person {
+  // 子类的构造函数
+  constructor(name, age) {
+    super(name, age);
+  }
+
+  // 子类的属性
+  skin = "white";
+  language = "英文";
+}
+
+// 实例化
+let e1 = new English("jack", 18);
+console.log(e1.name);
 ```
 
-**注意点:**
+- 子类构造函数中的 `super` 函数的作用是可以将子类实例化时获得的参数传入父类的构造函数之中。
 
-1. 通过 class 关键字创建类, 类名我们还是习惯性定义首字母大写
-2. 类里面有个 constructor 函数,可以接受传递过来的参数,同时返回实例对象
-3. constructor 函数 只要 new 生成实例时,就会自动调用这个函数, 如果我们不写这个函数,类也会自动生成这个函数
-4. 多个函数方法之间不需要添加逗号分隔
-5. 生成实例 new 不能省略
-6. 语法规范, 创建类 类名后面不要加小括号,生成实例 类名后面加小括号, 构造函数不需要加 function
+### 模块化
 
-### 类的继承
+- 在 ES6 模块化规范诞生之前，Javascript 社区已经尝试并提出了 AMD、CMD、CommonJS 等模块化规范。
+- 但是，这些由社区提出的模块化标准，还是存在一定的差异性与局限性、并不是浏览器与服务器通用的模块化标准，例如：
+  - AMD 和 CMD 适用于浏览器端的 Javascript 模块化
+  - CommonJS 适用于服务器端的 Javascript 模块化
+- 太多的模块化规范给开发者增加了学习的难度与开发的成本。因此，大一统的 ES6 模块化规范诞生了！
 
-```js
-class Father {
-  constructor(surname) {
-    this.surname = surname;
-  }
-  say() {
-    console.log("你的姓是" + this.surname);
-  }
-}
+#### 模块化规范
 
-class Son extends Father {
-  // 这样子类就继承了父类的属性和方法
-}
-var damao = new Son("刘");
-damao.say(); //结果为 你的姓是刘
-```
+- ES6 模块化规范是浏览器端与服务器端通用的模块化开发规范。
 
-- 子类使用 super 关键字访问父类的方法
+- ES6 模块化规范中定义：
+  - 每个 js 文件都是一个独立的模块
+  - 导入其它模块成员使用 import 关键字
+  - 向外共享模块成员使用 export 关键字
+
+#### 默认导入/默认导出
+
+- 默认导入的语法： import 接收名称 from '模块标识符'
+  ![alt](./images/js129.png)
+- 默认导入时的接收名称可以任意名称，只要是合法的成员名称即可：
+  ![alt](./images/js130.png)
+
+  <br>
+
+- 默认导出的语法： export default 默认导出的成员
+  ![alt](./images/js131.png)
+- 每个模块中，只允许使用唯一的一次 export default，否则会报错！
+  ![alt](./images/js132.png)
+
+#### 按需导入/按需导出
+
+- 按需导入的语法： import { s1 } from '模块标识符'
+  ![alt](./images/js133.png)
+
+- 按需导出的语法： export 按需导出的成员
+  ![alt](./images/js134.png)
+
+#### 导入所有
+
+- 导入所有的语法：
   ```js
-  //定义了父类
-  class Father {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-    }
-    sum() {
-      console.log(this.x + this.y);
-    }
-  }
-  //子元素继承父类
-  class Son extends Father {
-    constructor(x, y) {
-      super(x, y); //使用super调用了父类中的构造函数
-    }
-  }
-  var son = new Son(1, 2);
-  son.sum(); //结果为3
+  import * as myMathModule from "./math_functions.js";
+  ```
+- 使用的语法:
+  ```Javascript
+  myMathModule.add(2,3);
+  myMathModule.subtract(5,3);
   ```
 
-**注意:**
+<br>
 
-1. 继承中,如果实例化子类输出一个方法,先看子类有没有这个方法,如果有就先执行子类的
+- 注意事项
+  - 每个模块中可以使用多次按需导出
+  - 按需导入的成员名称必须和按需导出的名称保持一致
+  - 按需导入时，可以使用 as 关键字进行重命名
+  - 按需导入可以和默认导入一起使用
 
-2. 继承中,如果子类里面没有,就去查找父类有没有这个方法,如果有,就执行父类的这个方法(就近原则)
+#### 直接导入
 
-3. 如果子类想要继承父类的方法,同时在自己内部扩展自己的方法,利用 super 调用父类的构造函数,super 必须在子类 this 之前调用
+- 如果只想单纯地执行某个模块中的代码，并不需要得到模块中向外共享的成员。此时，可以直接导入并执行模块代码，示例代码如下：
+  ![alt](./images/js135.png)
 
-   ```js
-   // 父类有加法方法
-   class Father {
-     constructor(x, y) {
-       this.x = x;
-       this.y = y;
-     }
-     sum() {
-       console.log(this.x + this.y);
-     }
-   }
-   // 子类继承父类加法方法 同时 扩展减法方法
-   class Son extends Father {
-     constructor(x, y) {
-       // 利用super 调用父类的构造函数 super 必须在子类this之前调用,放到this之后会报错
-       super(x, y);
-       this.x = x;
-       this.y = y;
-     }
-     subtract() {
-       console.log(this.x - this.y);
-     }
-   }
-   var son = new Son(5, 3);
-   son.subtract(); //2
-   son.sum(); //8
-   ```
+### Promise
 
-**在 ES6 中类没有变量提升，所以必须先定义类，才能通过类实例化对象**
+- `Promise` 是一个构造函数
+  - 我们可以创建 `Promise` 的实例 `const p = new Promise()`
+  - new 出来的 `Promise `实例对象，代表一个异步操作
+- `Promise.prototype` 上包含一个 `.then()` 方法
+  - 每一次 `new Promise() `构造函数得到的实例对象，
+  - 都可以通过原型链的方式访问到 `.then()` 方法，例如 `p.then()`
+- `.then()` 方法用来预先指定成功和失败的回调函数
+  - `p.then(成功的回调函数，失败的回调函数)`
+  - `p.then(result => { }, error => { })`
+  - 调用 `.then()` 方法时，成功的回调函数是必选的、失败的回调函数是可选的
+- `Promise` 有三个状态：`pending`、`fulfilled` 和 `rejected`。
 
-## 构造函数和原型
+![alt](./images/js136.png)
+![alt](./images/js142.png)
+![alt](./images/js143.png)
 
-### 静态成员和实例成员
+#### .then()
 
-- **实例成员**
-  实例成员就是构造函数内部通过 this 添加的成员 如下列代码中 uname age sing 就是实例成员,实例成员只能通过实例化的对象来访问
+如果上一个 `.then() `方法中返回了一个新的 Promise 实例对象，则可以通过下一个 `.then()` 继续进行处理。
+通过 `.then()` 方法的链式调用，就解决了回调地狱的问题。
+![alt](./images/js137.png)
 
-  ```js
-  function Star(uname, age) {
-    this.uname = uname;
-    this.age = age;
-    this.sing = function () {
-      console.log("我会唱歌");
-    };
-  }
-  var ldh = new Star("刘德华", 18);
-  console.log(ldh.uname); //实例成员只能通过实例化的对象来访问
-  ```
+#### .catch()
 
-- **静态成员**
-  静态成员 在构造函数本身上添加的成员 如下列代码中 sex 就是静态成员,静态成员只能通过构造函数来访问
-  ```js
-  function Star(uname, age) {
-    this.uname = uname;
-    this.age = age;
-    this.sing = function () {
-      console.log("我会唱歌");
-    };
-  }
-  Star.sex = "男";
-  var ldh = new Star("刘德华", 18);
-  console.log(Star.sex); //静态成员只能通过构造函数来访问
-  ```
+![alt](./images/js138.png)
+![alt](./images/js139.png)
 
-### 构造函数的问题
+#### .all()
 
-构造函数方法很好用，但是存在浪费内存的问题。
-![alt](./img/js122.png)
+![alt](./img/js140.png)
 
-### 构造函数原型 prototype
+#### .race()
 
-构造函数通过原型分配的函数是所有对象所共享的。
+![alt](./images/js141.png)
 
-Javascript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。注意这个 prototype 就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。
+### proxy
 
-我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
+> 通过构造函数生成 proxy，target 参数是要拦截的目标对象，handler 参数也是一个对象，用来定制拦截行为。
+> get(target, propKey, receiver)
+> get 方法，拦截属性的读取操作。
+> 对于不可配置（configurable），不可写（writable）的属性，不能被代理，通过 Proxy 访问会报错
+> set(target, propKey, value, receiver)
+> 拦截属性的赋值操作，返回布尔值。如果某个属性，不可写，不可配置，那么 set 不得改变这个属性的值，只能返回同样的值，否则报错。
 
-```js
-function Star(uname, age) {
-  this.uname = uname;
-  this.age = age;
-}
-Star.prototype.sing = function () {
-  console.log("我会唱歌");
-};
-var ldh = new Star("刘德华", 18);
-var zxy = new Star("张学友", 19);
-ldh.sing(); //我会唱歌
-zxy.sing(); //我会唱歌
-```
-
-### 对象原型
-
-```html
-对象都会有一个属性 __proto__ 指向构造函数的 prototype
-原型对象，之所以我们对象可以使用构造函数 prototype
-原型对象的属性和方法，就是因为对象有 __proto__ 原型的存在。
-__proto__对象原型和原型对象 prototype 是等价的
-__proto__对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象
-prototype
-```
-
-![alt](./img/js123.png)
-
-### constructor 构造函数
-
-```html
-对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性
-constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。
-constructor
-主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。
-一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象
-constructor
-就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个
-constructor 指向原来的构造函数。
-```
-
-如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用 constructor 指回原来的构造函数如:
-
-```js
-function Star(uname, age) {
-  this.uname = uname;
-  this.age = age;
-}
-// 很多情况下,我们需要手动的利用constructor 这个属性指回 原来的构造函数
-Star.prototype = {
-  // 如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用constructor指回原来的构造函数
-  constructor: Star, // 手动设置指回原来的构造函数
-  sing: function () {
-    console.log("我会唱歌");
+```javascript
+new Proxy(data, {
+  // 拦截读取属性值
+  get(target, prop) {
+    return Reflect.get(target, prop);
   },
-  movie: function () {
-    console.log("我会演电影");
+  // 拦截设置属性值或添加新属性
+  set(target, prop, value) {
+    return Reflect.set(target, prop, value);
+  },
+  // 拦截删除属性
+  deleteProperty(target, prop) {
+    return Reflect.deleteProperty(target, prop);
+  },
+});
+
+proxy.name = "tom";
+```
+
+### EventLoop
+
+#### Javascript 是单线程的语言
+
+![alt](./images/js146.png)
+
+#### 同步任务和异步任务
+
+![alt](./images/js147.png)
+
+#### 同步任务和异步任务的执行过程
+
+![alt](./images/js148.png)
+
+#### EventLoop 的基本概念
+
+![alt](./images/js149.png)
+![alt](./images/js150.png)
+
+### 宏任务和微任务
+
+![alt](./images/js151.png)
+
+#### 宏任务和微任务的执行顺序
+
+![alt](./images/js152.png)
+![alt](./images/js153.png)
+![alt](./images/js154.png)
+
+## ES7
+
+### 求幂运算符
+
+```javascript
+console.log(3 ** 2);
+//9
+console.log(2 ** 3);
+//8
+
+// 效果同
+Math.pow(3, 2);
+```
+
+### async await
+
+> 前面使用 await 就会先返回，等到触发的异步操作完成，再接着执行函数体后面是语句
+
+```javascript
+const a=async() => {
+  const res=await axios.....
+}
+```
+
+## ES8
+
+### Object.values()
+
+> 返回一个给定对象自身的所有可枚举属性值的数组：
+
+```javascript
+const obj = {
+  name: "zs",
+  age: 18,
+};
+console.log(Object.values(obj)); // [ 'zs', 18 ]
+```
+
+### Object.entries()
+
+> 返回一个给定对象自身可枚举属性的键值对数组
+
+```javascript
+const obj = {
+  name: "zs",
+  age: 18,
+};
+console.log(Object.entries(obj));
+for ([key, value] of Object.entries(obj)) {
+  console.log(key, value);
+}
+const s = new Map(Object.entries(obj));
+console.log(s);
+```
+
+### Object.getOwnPropertyDescriptors()
+
+> 获取一个对象的所有自身属性的描述符
+
+```javascript
+const student = {
+  firstName: "Mi",
+  lastName: "Sun",
+  get fullName() {
+    return this.lastName + " " + this.firstName;
   },
 };
-var zxy = new Star("张学友", 19);
-console.log(zxy);
+console.log(student.fullName); // Sun Mi
+// Object.assign() 方法只能拷贝源对象的可枚举的自身属性，同时拷贝时无法拷贝属性的特性们，而且访问器属性会被转换成数据属性，也无法拷贝源对象的原型，该方法配合 Object.create() 方法可以实现上面说的这些。
+const s1 = Object.assign({}, student);
+console.log(s1); // { firstName: 'Mi', lastName: 'Sun', fullName: 'Sun Mi' }
+
+// Object.getOwnPropertyDescriptors()配合Object.defineProperties()实现对象的拷贝
+const descriptor = Object.getOwnPropertyDescriptors(student);
+console.log(descriptor);
+const s2 = Object.defineProperties({}, descriptor);
+console.log(s2); // { firstName: 'Mi', lastName: 'Sun', fullName: [Getter] }
+
+s2.firstName = "Hong";
+console.log(s2.fullName); // Sun Hong
 ```
 
-### 原型链
+### String.prototype.padStart/padEnd
 
-每一个实例对象又有一个 proto 属性，指向的构造函数的原型对象，构造函数的原型对象也是一个对象，也有 proto 属性，这样一层一层往上找就形成了原型链。
-![alt](./img/js124.png)
+> padStart() 方法用另一个字符串填充当前字符串(如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。从当前字符串的左侧开始填充；
+> padEnd() 方法会用一个字符串填充当前字符串（如果需要的话则重复填充），返回填充后达到指定长度的字符串。从当前字符串的末尾（右侧）开始填充。
 
-### 构造函数实例和原型对象三角关系
-
-```js
-1.构造函数的prototype属性指向了构造函数原型对象
-2.实例对象是由构造函数创建的,实例对象的__proto__属性指向了构造函数的原型对象
-3.构造函数的原型对象的constructor属性指向了构造函数,实例对象的原型的constructor属性也指向了构造函数
-```
-
-### 原型链和成员的查找机制
-
-任何对象都有原型对象,也就是 prototype 属性,任何原型对象也是一个对象,该对象就有**proto**属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;
-
-```html
-当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。
-如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。
-如果还没有就查找原型对象的原型（Object的原型对象）。 依此类推一直找到 Object
-为止（null）。
-__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。
-```
-
-### 原型对象中 this 指向
-
-构造函数中的 this 和原型对象的 this,都指向我们 new 出来的实例对象
-
-```js
-function Star(uname, age) {
-  this.uname = uname;
-  this.age = age;
+```javascript
+const student = {
+  name: "zs",
+  age: 18,
+  gender: true,
+};
+for (const [key, value] of Object.entries(student)) {
+  // console.log(key, value);
+  // console.log(key.padEnd(16, '-') + value.toString().padStart(3, '0'));
+  console.log(`${key.padEnd(16, "-")}${value.toString().padStart(3, "0")}`);
 }
-var that;
-Star.prototype.sing = function () {
-  console.log("我会唱歌");
-  that = this;
-};
-var ldh = new Star("刘德华", 18);
-// 1. 在构造函数中,里面this指向的是对象实例 ldh
-console.log(that === ldh); //true
-// 2.原型对象函数里面的this 指向的是 实例对象 ldh
-```
-
-### 通过原型为数组扩展内置方法
-
-```js
-Array.prototype.sum = function () {
-  var sum = 0;
-  for (var i = 0; i < this.length; i++) {
-    sum += this[i];
-  }
-  return sum;
-};
-//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求
-```
-
-## 继承
-
-### call()
-
-- call()可以调用函数
-- call()可以修改 this 的指向,使用 call()的时候 参数一是修改后的 this 指向,参数 2,参数 3..使用逗号隔开连接
-
-```js
-function fn(x, y) {
-  console.log(this);
-  console.log(x + y);
-}
-var o = {
-  name: "andy",
-};
-fn.call(o, 1, 2); //调用了函数此时的this指向了对象o,
-```
-
-### 子构造函数继承父构造函数中的属性
-
-1. 先定义一个父构造函数
-2. 再定义一个子构造函数
-3. 子构造函数继承父构造函数的属性(使用 call 方法)
-
-```js
-// 1. 父构造函数
-function Father(uname, age) {
-  // this 指向父构造函数的对象实例
-  this.uname = uname;
-  this.age = age;
-}
-Father.prototype.money = function () {
-  console.log(100000);
-};
-// 2 .子构造函数
-function Son(uname, age, score) {
-  // this 指向子构造函数的对象实例
-  Father.call(this, uname, age);
-  this.score = score;
-}
-// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化
-Son.prototype = new Father();
-// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数
-Son.prototype.constructor = Son;
-// 这个是子构造函数专门的方法
-Son.prototype.exam = function () {
-  console.log("孩子要考试");
-};
-var son = new Son("刘德华", 18, 100);
-console.log(son);
-```
-
-### 借用原型对象继承方法
-
-1. 先定义一个父构造函数
-2. 再定义一个子构造函数
-3. 子构造函数继承父构造函数的属性(使用 call 方法)
-
-```js
-// 1. 父构造函数
-function Father(uname, age) {
-  // this 指向父构造函数的对象实例
-  this.uname = uname;
-  this.age = age;
-}
-Father.prototype.money = function () {
-  console.log(100000);
-};
-// 2 .子构造函数
-function Son(uname, age, score) {
-  // this 指向子构造函数的对象实例
-  Father.call(this, uname, age);
-  this.score = score;
-}
-// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化
-Son.prototype = new Father();
-// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数
-Son.prototype.constructor = Son;
-// 这个是子构造函数专门的方法
-Son.prototype.exam = function () {
-  console.log("孩子要考试");
-};
-var son = new Son("刘德华", 18, 100);
-console.log(son);
 ```

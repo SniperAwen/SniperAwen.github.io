@@ -11,7 +11,7 @@
 | 知识点       | 已掌握                                                                                                                                    | 待学习                                                         |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Adobe 软件   | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                                                          | 暂无                                                           |
-| 前端技术栈   | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`bootstrap`<br>`Vue.js`<br>`微信小程序` <br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`                                                 |
+| 前端技术栈   | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`Bootstrap`<br>`Vue.js`<br>`微信小程序` <br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`                                                 |
 | 后端技术栈   | 暂无                                                                                                                                      | `Node.js`<br>`Python`<br>`Nginx`<br>`MySql`                    |
 | 游戏引擎     | `Cheat Engine`                                                                                                                            | `Unreal Engine`                                                |
 | 底层数据恢复 | `WinHex`<br>`R-Studio`                                                                                                                    | 暂无                                                           |

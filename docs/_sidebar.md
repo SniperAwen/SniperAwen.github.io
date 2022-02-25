@@ -17,4 +17,4 @@
   - [**WeChat**](./Frame/WeChat/WeChat.md)
   - [**Vue**](./Frame/Vue/Vue.md)
   - [**jQuery**](./Frame/jQuery/jQuery.md)
-  - [**BootStrap**](./Frame/Bootstrap3/BootStrap.md)
+  - [**BootStrap**](./Frame/Bootstrap/BootStrap.md)

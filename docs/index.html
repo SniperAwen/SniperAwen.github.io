@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./assets/css/index.css" />
   <link rel="shortcut icon" href="./assets/img/Logo.png" type="image/x-icon" />
-  <audio class="music" autoplay loop controls src="./assets/✤.mp3"></audio>
+  <audio style="display: none;" class="music" autoplay loop controls src="./assets/✤.mp3"></audio>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!--
                AAA                                                                                                             
@@ -114,11 +114,9 @@ AAAAAAA                   AAAAAAA                www             www            
     }
     document.addEventListener("click", () => {
       document.querySelector(".music").play();
-      document.querySelector(".music").style.display = "block"
     });
     document.addEventListener("touchstart", () => {
       document.querySelector(".music").play();
-      document.querySelector(".music").style.display = "block"
     });
   </script>
   <script src="./assets/js/awen.js"></script>

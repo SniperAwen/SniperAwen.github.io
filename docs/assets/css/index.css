@@ -310,18 +310,7 @@ aside.sidebar ul li.active > a {
 #waifu-tool {
   top: 100px !important;
 }
-/* music */
-.music {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 260px;
-  /* width: 180px; */
-  transform: scale(0.7);
-  /* height: 40px; */
-  display: none;
-  opacity: 0.5;
-}
+
 /* title */
 .tiktok {
   animation: uk-text-shadow-glitch 0.65s cubic-bezier(1, -1.91, 0, 2.79) 0s

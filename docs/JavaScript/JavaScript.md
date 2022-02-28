@@ -1628,7 +1628,7 @@ xhr.upload.onprogress = function (e) {
     - 客户端给服务器发送一个 SYN 段(在 TCP 标头中 SYN 位字段为 1 的 TCP/IP 数据包), 该段中也包含客户端的初始序列号(Sequence number = J)。
     - 服务器返回客户端 SYN +ACK 段(在 TCP 标头中 SYN 和 ACK 位字段都为 1 的 TCP/IP 数据包)， 该段中包含服务器的初始序列号(Sequence number = K)；同时使 Acknowledgment number = J + 1 来表示确认已收到客户端的 SYN 段(Sequence number = J)。
     - 客户端给服务器响应一个 ACK 段(在 TCP 标头中 ACK 位字段为 1 的 TCP/IP 数据包), 该段中使 Acknowledgment number = K + 1 来表示确认已收到服务器的 SYN 段(Sequence number = K)。
-- 3.服务器根据 url 查找资源，相应给浏览器
+- 3.服务器根据 url 查找资源，响应给浏览器
   - 解析 html 标签，生成 dom 树，同时解析 css 样式，生成 css 规则
   - dom 树和 css 规则结合生成渲染树
   - Blink 内核将源码交给 V8 引擎进行解析

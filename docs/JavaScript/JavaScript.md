@@ -1587,7 +1587,61 @@ xhr.upload.onprogress = function (e) {
 ## HTTP 响应状态码
 
 > HTTP 响应状态码（HTTP Status Code），也属于 HTTP 协议的一部分，用来标识响应的状态。
-> ![alt](./images/71.png) > ![alt](./images/72.png) > ![alt](./images/74.png) > ![alt](./images/75.png) > ![alt](./images/76.png)
+> ![alt](./images/72.png)
+
+| 状态码 | 原因                            | 说明                                                                           |
+| ------ | ------------------------------- | ------------------------------------------------------------------------------ |
+| 100    | Continue                        | 已收到请求，客户端应继续                                                       |
+| 101    | Switching Protocol              | 响应客户端 Upgrade 列出协议，服务端正在切换协议                                |
+| 102    | Processing                      | 服务端正在处理请求，无响应可用                                                 |
+| 103    | Early Hints                     | 与 Link 一起使用，客户端应在服务端继续响应前开始预加载资源                     |
+| 200    | OK                              | 请求成功，常见于 GETHEADPOSTTRACE                                              |
+| 201    | Created                         | 请求成功，新资源已创建，常见于 POSTPUT                                         |
+| 202    | Accepted                        | 请求已收到，但未响应                                                           |
+| 203    | Non-Authoritative Information   | 响应经过了代理服务器修改                                                       |
+| 204    | No Content                      | 请求已处理，无返回，客户端不更新视图                                           |
+| 205    | Reset Content                   | 请求已处理，无返回，客户端应更新视图                                           |
+| 206    | Partial Content                 | 请求已处理，返回部分内容，常见于视频点播、分段下载、断点续传                   |
+| 300    | Multiple Choice                 | 提供一系列地址供客户端选择重定向                                               |
+| 301    | Moved Permanently               | 永久重定向，默认可缓存，搜索引擎应更新链接                                     |
+| 302    | Found                           | 临时重定向，默认不缓存，除非显示指定                                           |
+| 303    | See Other                       | 临时重定向，必须 GET 请求                                                      |
+| 304    | Not Modified                    | 未修改，不含响应体                                                             |
+| 307    | Temporary Redirect              | 临时重定向，默认不缓存，除非显示指定，不改变请求方法和请求体                   |
+| 308    | Permanent Redirect              | 永久重定向，默认可缓存，搜索引擎应更新链接，不改变请求方法和请求体             |
+| 400    | Bad Request                     | 请求语义或参数有误，不应重复请求                                               |
+| 401    | Unauthorized                    | 请求需身份验证或验证失败                                                       |
+| 403    | Forbidden                       | 拒绝，不应重复请求                                                             |
+| 404    | Not Found                       | 未找到，无原因                                                                 |
+| 405    | Method Not Allowed              | 不允许的请求方法，并返回 Allow 允许的请求方法列表                              |
+| 406    | Not Acceptable                  | 无法根据请求条件，返回响应体                                                   |
+| 407    | Proxy Authentication Required   | 请求需在代理服务器上身份验证                                                   |
+| 408    | Request Timeout                 | 请求超时                                                                       |
+| 409    | Conflict                        | 请求冲突，响应应包含冲突原因                                                   |
+| 410    | Gone                            | 资源已被永久移除                                                               |
+| 411    | Length Required                 | 请求头需添加 Content-Length                                                    |
+| 412    | Precondition Failed             | 非 GETPOST 请求外，If-Unmodified-Since 或 If-None-Match 规定先决条件无法满足   |
+| 413    | Payload Too Large               | 请求体数据大小超过服务器处理范围                                               |
+| 414    | URI Too Long URL                | 过长，查询字符串过长时，应使用 POST 请求                                       |
+| 415    | Unsupported Media Type          | 请求文件类型服务端不支持                                                       |
+| 416    | Range Not Satisfiable           | 请求头 Range 与资源可用范围不重合                                              |
+| 417    | Expectation Failed              | 服务端无法满足客户端通过 Expect 设置的期望响应                                 |
+| 421    | Misdirected Request             | HTTP2 下链接无法复用时返回                                                     |
+| 425    | Too Early                       | 请求有重放攻击风险                                                             |
+| 426    | Upgrade Required                | 客端应按响应头 Upgrade 的协议列表中的协议重新请求                              |
+| 428    | Precondition Required           | 没有符合 If-Match 的资源                                                       |
+| 429    | Too Many Requests               | 请求频次超过服务端限制                                                         |
+| 431    | Request Header Fields Too Large | 请求头字段过大                                                                 |
+| 451    | Unavailable For Legal Reasons   | 因法律原因该资源不可用                                                         |
+| 500    | Internal Server Error           | 服务端报错，通常是脚本错误                                                     |
+| 501    | Not Implemented                 | 请求方法不被服务器支持                                                         |
+| 502    | Bad Gateway                     | 网关无响应，通常是服务端环境配置错误                                           |
+| 503    | Service Unavailable             | 服务端临时不可用，建议返回 Retry-After，搜索引擎爬虫应一段时间再次访问这个 URL |
+| 504    | Gateway Timeout                 | 网关超时，通常是服务端过载                                                     |
+| 505    | HTTP Version Not Supported      | 请求的 HTTP 协议版本不被支持                                                   |
+| 506    | Variant Also Negotiates         | 内部服务器配置错误                                                             |
+| 510    | Not Extended                    | 不支持 HTTP 扩展                                                               |
+| 511    | Network Authentication Required | 需要身份验证，常见于公用 WIFI                                                  |
 
 # 性能优化
 

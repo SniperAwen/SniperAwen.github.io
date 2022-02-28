@@ -177,7 +177,7 @@ for (let k in obj) {
 
 ![alt](./images/16.png)
 
-#### 内置对象 Meth
+#### 内置对象 Math
 
 > https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math
 
@@ -1612,6 +1612,53 @@ xhr.upload.onprogress = function (e) {
 
 > 懒加载就是将不关键的资源延后加载。
 > 对于图片来说，先设置图片标签的 src 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 src 属性，这样图片就会去下载资源，实现了图片懒加载。
+
+# 浏览器工作原理
+
+> 打开浏览器，输入www.ylawen.com发生了什么？
+> SYN 是同步的缩写，SYN 段是发送到另一台计算机的 TCP 数据包，请求在它们之间建立连接
+> ACK 是“确认”的缩写。 ACK 数据包是任何确认收到一条消息或一系列数据包的 TCP 数据包
+
+- 1.解析域名
+  - 本地 hosts 文件
+  - DNS 服务器解析 IP
+- 2.根据 IP 请求服务器
+  - HTTP 默认 80 端口
+  - TCP 三次握手
+    - 客户端给服务器发送一个 SYN 段(在 TCP 标头中 SYN 位字段为 1 的 TCP/IP 数据包), 该段中也包含客户端的初始序列号(Sequence number = J)。
+    - 服务器返回客户端 SYN +ACK 段(在 TCP 标头中 SYN 和 ACK 位字段都为 1 的 TCP/IP 数据包)， 该段中包含服务器的初始序列号(Sequence number = K)；同时使 Acknowledgment number = J + 1 来表示确认已收到客户端的 SYN 段(Sequence number = J)。
+    - 客户端给服务器响应一个 ACK 段(在 TCP 标头中 ACK 位字段为 1 的 TCP/IP 数据包), 该段中使 Acknowledgment number = K + 1 来表示确认已收到服务器的 SYN 段(Sequence number = K)。
+- 3.服务器根据 url 查找资源，相应给浏览器
+  - 解析 html 标签，生成 dom 树，同时解析 css 样式，生成 css 规则
+  - dom 树和 css 规则结合生成渲染树
+  - Blink 内核将源码交给 V8 引擎进行解析
+    - Parse 模块将 js 转换成 AST（抽象语法树）
+    - Ignition 解释器将 AST 转换成 ByteCode（字节码）
+    - TurboFan 编译器将字节码编译为 CPU 可执行的机器码
+  - JS 执行
+    - 在堆内存创建全局对象 Global Object (GO)
+      - 该对象所有作用域都可以访问
+      - 里面会包含 Date，Array，String 等等。。
+      - 里面有个 window 属性指向自己
+    - 全局代码块 Global Execution Context (GEC) 放入 执行上下文栈 Execution Context Stack (ECS) 执行上下文栈
+      - 代码执行前，在 Parser 赚撑 AST 过程中，会将定义的变量，函数等加入 Global Object (GO) 中，也称为变量作用域提升
+      - 代码执行中，对变量赋值，或者执行其他函数
+      - 遇到函数，更具函数体创建函数执行上下文 Functional Execution Context (FEC) ，并压入 执行上下文栈 Execution Context Stack (ECS) 中
+        - 解析函数成 AST 树结构时，会创建 Activation Object (AO)
+          - Activation Object (AO) 包含形参，argument，函数定义和指向函数对象、定义的变量
+        - 作用域链：由 VO (在函数中就是 AO 对象) 和父级 VO 组成，一层一层查找，最新的 ECMA 标准把 VO 改成了环境变量 VE
+        - this 绑定的值
+  - 根据样式对渲染树进行布局并渲染
+- 4.断开链接
+  - TCP 四次挥手
+    - 浏览器送 Fin+Ack 报文，并设置发送序号
+    - 服务器发送 ACK 保温，并设置发送序号确认序号
+    - 服务器发送 Fin+Ack 保温，并置发送序号报文，确认序号
+    - 浏览器发送 ACK 报文，并置发送序号报文，确认序号
+
+> 为什么建立连接协议是三次握手，而关闭连接却是四次握手呢？
+
+- 这是因为服务端的 LISTEN 状态下的 SOCKET 当收到 SYN 报文的连接请求后，它可以把 ACK 和 SYN(ACK 起应答作用，而 SYN 起同步作用)放在一个报文里来发送。但关闭连接时，当收到对方的 FIN 报文通知时，它仅仅表示对方没有数据发送给你了；但未必你所有的数据都全部发送给对方了，所以你可能未必会马上会关闭 SOCKET,也即你可能还需要发送一些数据给对方之后，再发送 FIN 报文给对方来表示你
 
 # ECMAScript
 

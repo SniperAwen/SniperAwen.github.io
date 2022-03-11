@@ -424,6 +424,13 @@ user.toString(); // 表示该对象的字符串
 ## 深拷贝
 
 ```javascript
+function jsonClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+var clone = jsonClone({ a: 1 });
+```
+
+```javascript
 // 含义：所有层都拷贝的方式
 let obj = {
   uname: "张三丰",
@@ -1644,6 +1651,34 @@ xhr.upload.onprogress = function (e) {
 | 511    | Network Authentication Required | 需要身份验证，常见于公用 WIFI                                                  |
 
 # 性能优化
+
+## 异步加载 JS
+
+> H5 性属性，低版本不兼容
+
+`<script type="text/javascript" async="async" src="http://thirdpart/js.js" ></script>`
+
+```javascript
+(function () {
+  function asyncLoad() {
+    var src = "http://thirdpart/js.js";
+    var urls = src.split(",");
+    var x = document.getElementsByTagName("body");
+    if (x && x[0]) {
+      for (var i = 0; i < urls.length; i++) {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = urls[i];
+        x[0].appendChild(s);
+      }
+    }
+  }
+  window.attachEvent
+    ? window.attachEvent("onload", asyncLoad)
+    : window.addEventListener("load", asyncLoad, false);
+})();
+```
 
 ## 防抖和节流
 

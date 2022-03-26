@@ -2,22 +2,22 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Awenの学习笔记</title>
-  <meta name="description" content="Awen - Study Notes" />
-  <meta name="keywords" content="Awen,awen,YlAwen,ylawen,2889984509,学习笔记,Awen学习笔记,awen学习笔记,Awen笔记,awen笔记" />
-  <meta name="google-site-verification" content="8dG_nLQgL5QGUpQaLU0SxICiWlnnRXYbLi-Uv_00fX4" />
-  <meta name="baidu-site-verification" content="code-p5q6WZ4hTF" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="./assets/css/index.css" />
-  <link rel="shortcut icon" href="./assets/img/Logo.png" type="image/x-icon" />
-  <audio style="display: none;" class="music" autoplay loop controls src="./assets/✤.mp3"></audio>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--
+	<meta charset="UTF-8" />
+	<title>Awenの学习笔记</title>
+	<meta name="description" content="Awen - Study Notes" />
+	<meta name="keywords" content="Awen,awen,YlAwen,ylawen,2889984509,学习笔记,Awen学习笔记,awen学习笔记,Awen笔记,awen笔记" />
+	<meta name="google-site-verification" content="8dG_nLQgL5QGUpQaLU0SxICiWlnnRXYbLi-Uv_00fX4" />
+	<meta name="baidu-site-verification" content="code-p5q6WZ4hTF" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Description" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./assets/css/index.css" />
+	<link rel="shortcut icon" href="./assets/img/Logo.png" type="image/x-icon" />
+	<audio style="display: none;" class="music" autoplay loop controls src="./assets/✤.mp3"></audio>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!--
                AAA                                                                                                             
               A:::A                                                                                                            
              A:::::A                                                                                                           
@@ -39,108 +39,108 @@ AAAAAAA                   AAAAAAA                www             www            
 
 <body>
 
-  <div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
-  <!-- settings -->
-  <script>
-    window.$docsify = {
-      el: "#app",
-      repo: "https://github.com/YlAwen",
-      loadSidebar: true, //开启导航栏
-      subMaxLevel: 5, //目录最大级数
-      auto2top: true, //切换页面自动回到顶部
-      loadNavbar: true, //开启侧边栏
-      coverpage: true, //开启封面
-      maxLevel: 5, //可配置最大支持渲染的标题层级
-      homepage: "README.md", //README.md作为首页
-      onlyCover: true, // 只在访问主页时加载封面
-      count: {
-        countable: true,
-        fontsize: "0.9em",
-        color: "rgb(90,90,90)",
-        language: "chinese",
-      },
-      sidebarDisplayLevel: 1, // set sidebar display level
-      plugins: [
-        function (hook) {
-          var footer = [
-            "<hr/>",
-            "<footer>",
-            "<span> Copyright &copy; 2022  </span>",
-            "<span> 💖 Awen</span>",
-            "</footer>",
-          ].join("");
-          hook.afterEach(function (html) {
-            return html + footer;
-          });
-        },
-      ],
+	<div style="font-weight: 700; font-size: 70px" id="app">⏳Loading...</div>
+	<!-- settings -->
+	<script>
+		window.$docsify = {
+			el: "#app",
+			repo: "https://github.com/YlAwen",
+			loadSidebar: true, //开启导航栏
+			subMaxLevel: 5, //目录最大级数
+			auto2top: true, //切换页面自动回到顶部
+			loadNavbar: true, //开启侧边栏
+			coverpage: true, //开启封面
+			maxLevel: 5, //可配置最大支持渲染的标题层级
+			homepage: "README.md", //README.md作为首页
+			onlyCover: true, // 只在访问主页时加载封面
+			count: {
+				countable: true,
+				fontsize: "0.9em",
+				color: "rgb(90,90,90)",
+				language: "chinese",
+			},
+			sidebarDisplayLevel: 1, // set sidebar display level
+			plugins: [
+				function (hook) {
+					var footer = [
+						"<hr/>",
+						"<footer>",
+						"<span> Copyright &copy; 2022  </span>",
+						"<span> 💖 Awen</span>",
+						"</footer>",
+					].join("");
+					hook.afterEach(function (html) {
+						return html + footer;
+					});
+				},
+			],
 
-      // 完整配置参数
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: "auto", // or 'auto'
-        // 支持本地化
-        placeholder: {
-          "/": "Search",
-          "/zh-cn/": "Search",
-        },
-        // 支持本地化
-        noData: {
-          "/": "No result found",
-          "/zh-cn/": "No result found",
-        },
+			// 完整配置参数
+			search: {
+				maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+				paths: "auto", // or 'auto'
+				// 支持本地化
+				placeholder: {
+					"/": "Search",
+					"/zh-cn/": "Search",
+				},
+				// 支持本地化
+				noData: {
+					"/": "No result found",
+					"/zh-cn/": "No result found",
+				},
 
-        // 搜索标题的最大层级, 1 - 6
-        depth: 4,
-        namespace: "website-1",
+				// 搜索标题的最大层级, 1 - 6
+				depth: 4,
+				namespace: "website-1",
 
-        copyCode: {
-          buttonText: "Copy",
-          errorText: "Error",
-          successText: "OK!",
-        },
+				copyCode: {
+					buttonText: "Copy",
+					errorText: "Error",
+					successText: "OK!",
+				},
 
-        "flexible-alerts": {
-          style: "flat",
-        },
-      },
-    };
+				"flexible-alerts": {
+					style: "flat",
+				},
+			},
+		};
 
-  </script>
-  <!-- music  -->
-  <script>
-    window.onload = () => {
-      document.querySelector(".anchor span strong").className = "tiktok"
-    }
-    document.addEventListener("click", () => {
-      document.querySelector(".music").play();
-    });
-    document.addEventListener("touchstart", () => {
-      document.querySelector(".music").play();
-    });
-  </script>
-  <script src="./assets/js/awen.js"></script>
-  <!-- docsify表情包 -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script> -->
-  <!-- 搜索功能 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 图片缩放 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 复制代码到剪切板 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 字数统计 -->
-  <!-- <script src="https://unpkg.com/docsify-count/dist/countable.js"></script> -->
-  <!-- Markdown 引用样式美化 -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
-  <!-- Docsify v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+	</script>
+	<!-- music  -->
+	<script>
+		window.onload = () => {
+			document.querySelector(".anchor span strong").className = "tiktok"
+		}
+		document.addEventListener("click", () => {
+			document.querySelector(".music").play();
+		});
+		document.addEventListener("touchstart", () => {
+			document.querySelector(".music").play();
+		});
+	</script>
+	<script src="./assets/js/awen.js"></script>
+	<!-- docsify表情包 -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script> -->
+	<!-- 搜索功能 -->
+	<script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+	<!-- 图片缩放 -->
+	<script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+	<!-- 复制代码到剪切板 -->
+	<script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+	<!-- 字数统计 -->
+	<!-- <script src="https://unpkg.com/docsify-count/dist/countable.js"></script> -->
+	<!-- Markdown 引用样式美化 -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
+	<!-- Docsify v4 -->
+	<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 
-  <!-- plugins -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
-  <!-- 复制提醒 -->
-  <script src="./assets/js/sweetalert.min.js"></script>
+	<!-- plugins -->
+	<script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
+	<!-- 复制提醒 -->
+	<!-- <script src="./assets/js/sweetalert.min.js"></script>
   <script>
     document.body.oncopy = function () {
       swal(
@@ -149,13 +149,13 @@ AAAAAAA                   AAAAAAA                www             www            
         "success"
       );
     };
-  </script>
-  <!-- mouse click -->
-  <script src="./assets/js/mouseClick.js"></script>
-  <!-- live2d -->
-  <script src="./assets/js/live2d.js"></script>
-  <!-- 樱花 -->
-  <!-- <script src="./assets/js/yinghua.js"></script> -->
+  </script> -->
+	<!-- mouse click -->
+	<script src="./assets/js/mouseClick.js"></script>
+	<!-- live2d -->
+	<script src="./assets/js/live2d.js"></script>
+	<!-- 樱花 -->
+	<!-- <script src="./assets/js/yinghua.js"></script> -->
 </body>
 
 </html>

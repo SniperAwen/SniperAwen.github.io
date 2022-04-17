@@ -12,7 +12,9 @@ body {
   background: #000;
   font: 900 1.25em/ 2 vt323, monospace;
 }
-
+iframe {
+  display: none;
+}
 @keyframes glow-animation {
   0% {
     filter: hue-rotate(-360deg);

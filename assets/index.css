@@ -2485,7 +2485,7 @@ div,
   animation-direction: reverse;
 }
 .key:after {
-  opacity: 0.4;
+  opacity: 0.5;
   transform: translate(-50%, -50%);
   content: attr(data-name);
 }

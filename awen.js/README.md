@@ -1,4 +1,6 @@
-<h1>目前还在Alpha阶段，谨慎使用！</h1>
+## 文档
+
+https://www.ylawen.com/awen.js
 
 ## 安装
 
@@ -19,18 +21,8 @@ npm install awen@版本号
 ### HTML
 
 ```HTML
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<script src="./awen.min.css"></script>
-		<script src="./awen.js"></script>
-	</head>
-	<body>
-		<script>
-			awen.local.get('awen')
-		</script>
-	</body>
-</html>
+	<link rel="stylesheet" href="./awen.min.css">
+	<script src="./awen.js"></script>
 ```
 
 ### Vue
@@ -38,9 +30,13 @@ npm install awen@版本号
 <h6>main.js</h6>
 
 ```javascript
-import "awen/Awen.min.css";
-import * as awen from "awen";
-Vue.prototype.$awen = awen;
+import "awen/awen.min.css";
+import auni from "awen/uni";
+import autils from "awen/utils";
+import aweb from "awen/web";
+Vue.prototype.$auni = auni;
+Vue.prototype.$autils = autils;
+Vue.prototype.$aweb = aweb;
 ```
 
 <h6>组件内</h6>
@@ -50,7 +46,7 @@ Vue.prototype.$awen = awen;
 <script>
 export default {
   mounted() {
-    this.$awen.local.get("awen");
+    this.$auni.local.get("awen");
   },
 };
 </script>
@@ -62,10 +58,12 @@ export default {
 
 ```jsx
 import React from "react";
-import "awen/Awen.min.css";
-import * as awen from "awen";
+import "awen/awen.min.css";
+import auni from "awen/uni";
+import autils from "awen/utils";
+import aweb from "awen/web";
 
 export default function Awen() {
-  return <div>{awen.local.get("awen")}</div>;
+  return <div>{auni.local.get("awen")}</div>;
 }
 ```

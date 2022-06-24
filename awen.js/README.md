@@ -4,13 +4,13 @@ https://www.ylawen.com/awen.js
 
 ## 安装
 
-### 安装最新版
+### 最新版本
 
 ```
 npm install awen
 ```
 
-### 安装特定版本
+### 特定版本
 
 ```
 npm install awen@版本号

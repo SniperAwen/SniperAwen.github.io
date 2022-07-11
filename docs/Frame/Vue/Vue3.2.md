@@ -1,3 +1,5 @@
+# Vue3
+
 # Vue3.2
 
 - 引入组件自动注册
@@ -70,7 +72,7 @@ import { mounted, beforeUnmount } from 'vue'
 
 ![alt](./images/vue3生命周期.png)
 
-# Router
+## Router
 
 > https://router.vuejs.org/zh/
 

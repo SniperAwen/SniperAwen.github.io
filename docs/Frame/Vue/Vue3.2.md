@@ -24,7 +24,32 @@ import { reactive, ref, toRefs } from 'vue'
 | `defineProps`        | prop(不需要引入,需配置) | `const props=defineProps({name:{type:string,default:""}})`             |
 | `defineEmits`        | emit(不需要引入,需配置) | `const emit = defineEmits(['updateName']); emit('updateName', 'Tom') ` |
 
-> 在.eslintrc.js 文件中【globals】下配置【defineEmits: true】、【defineProps: true】
+```javascript
+// .eslintrc.js 文件
+
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+  ],
+  parserOptions: {
+    ecmaVersion: 2020,
+  },
+  rules: {
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+  },
+  globals: {
+    defineEmits: true,
+    defineProps: true,
+  },
+};
+```
 
 ## 生命周期
 
@@ -103,6 +128,21 @@ export default defineComponent({
 # vue.config.js
 
 > https://cli.vuejs.org/zh/config/#vue-config-js
+
+```javascript
+const path = require("path");
+const resolve = (dir) => path.join(__dirname, dir);
+const { defineConfig } = require("@vue/cli-service");
+module.exports = defineConfig({
+  transpileDependencies: true,
+  // 避免Eslint报错
+  lintOnSave: false,
+  // 设置根路径为@
+  chainWebpack: (config) => {
+    config.resolve.alias.set("@", resolve("src"));
+  },
+});
+```
 
 # ts.config
 

@@ -4,14 +4,13 @@
 
 **访客你好！本人是一名大学应届毕业生，这里是本人的笔记网站！**
 
-| 知识点   | 已掌握                                                                                                                | 待学习                                                         |
-| -------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Adobe    | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                                                                      | 暂无                                                           |
-| 前端     | `HTML CSS`<br>`Less Sass`<br>`JavaScript`<br>`jQuery`<br>`Bootstrap`<br>`Vue`<br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`<br></br>`Webpack`                               |
-| 后端     | 暂无                                                                                                                  | `Node`<br>`Express`<br>`Koa`<br>`Python`<br>`MySql`            |
-| 数据恢复 | `WinHex`<br>`R-Studio`                                                                                                | 暂无                                                           |
-| 408      | 暂无                                                                                                                  | `数据结构`<br>`计算机组成原理` <br>`计算机网络` <br>`操作系统` |
-| 英语     | `新概念一`                                                                                                            | `新概念二` <br> `新概念三` <br> `新概念四`                     |
+| 知识点   | 已掌握                                                                   | 待学习                                              |
+| -------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
+| Adobe    | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                         | 暂无                                                |
+| 前端     | `jQuery`<br>`Bootstrap`<br>`Vue`<br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`                                      |
+| 后端     | 暂无                                                                     | `Node`<br>`Express`<br>`Koa`<br>`Python`<br>`MySql` |
+| 数据恢复 | `WinHex`<br>`R-Studio`                                                   | 暂无                                                |
+| 英语     | `新概念一`                                                               | `新概念二` <br> `新概念三` <br> `新概念四`          |
 
 <br>
 

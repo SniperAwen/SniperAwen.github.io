@@ -11,18 +11,18 @@
 import { reactive, ref, toRefs } from 'vue'
 ```
 
-| api               | tip                     | use                                                                    |
-| ----------------- | ----------------------- | ---------------------------------------------------------------------- |
-| `reactive`        | 定义引用响应式数据      | `const name = reactive('["Jerry"]')`                                   |
-| `ref`             | 定义简单类型响应式数据  | `const name = ref('Jerry')`                                            |
-| `toRefs`          | 结构 `reactive` 数据    | `const {name, sex} = toRefs(state)`                                    |
-| `computed`        | 计算数据类型            | `const a=computed(()=>a.value*2)`                                      |
-| `watch`           | 监视计算属性            | `watch(()=>a,(n,o)=>{ code }),{immediate:true,deep:true})`             |
-| `nextTick`        | nextTick                | `nextTick(()=>{})`                                                     |
-| `defineExpose`    | 暴露自身属性            | `defineExpose({a,b}); const a = *.value.a`                             |
-| `defineComponent` | 设置组件 name           | `defineOptions({name:"Hello"})`                                        |
-| `defineProps`     | prop(不需要引入,需配置) | `const props=defineProps({name:{type:string,default:""}})`             |
-| `defineEmits`     | emit(不需要引入,需配置) | `const emit = defineEmits(['updateName']); emit('updateName', 'Tom') ` |
+| api                  | tip                     | use                                                                    |
+| -------------------- | ----------------------- | ---------------------------------------------------------------------- |
+| `getCurrentInstance` | 获取 vm                 | `const _this = getCurrentInstance()')`                                 |
+| `reactive`           | 定义引用响应式数据      | `const name = reactive('["Jerry"]')`                                   |
+| `ref`                | 定义简单类型响应式数据  | `const name = ref('Jerry')`                                            |
+| `toRefs`             | 结构 `reactive` 数据    | `const {name, sex} = toRefs(state)`                                    |
+| `computed`           | 计算数据类型            | `const a=computed(()=>a.value*2)`                                      |
+| `watch`              | 监视计算属性            | `watch(()=>a,(n,o)=>{ code }),{immediate:true,deep:true})`             |
+| `nextTick`           | nextTick                | `nextTick(()=>{})`                                                     |
+| `defineExpose`       | 暴露自身属性            | `defineExpose({a,b}); const a = *.value.a`                             |
+| `defineProps`        | prop(不需要引入,需配置) | `const props=defineProps({name:{type:string,default:""}})`             |
+| `defineEmits`        | emit(不需要引入,需配置) | `const emit = defineEmits(['updateName']); emit('updateName', 'Tom') ` |
 
 > 在.eslintrc.js 文件中【globals】下配置【defineEmits: true】、【defineProps: true】
 
@@ -48,6 +48,15 @@ import { mounted, beforeUnmount } from 'vue'
 # Router
 
 > https://router.vuejs.org/zh/
+
+```javascript
+import { useRoute, useRouter } from "vue-router";
+```
+
+| api         | tip      | use                            |
+| ----------- | -------- | ------------------------------ |
+| `useRoute`  | 获取参数 | `const _route = useRoute();`   |
+| `useRouter` | 路由跳转 | `const _router = useRouter();` |
 
 # Pinia
 

@@ -77,8 +77,6 @@
 | section | 网页区块   |
 | article | 网页文章   |
 
-![alt](./images/1.png)
-
 ## 标题标签
 
 ```html

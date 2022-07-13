@@ -1,4 +1,4 @@
-.sidebar ul li a {
+/* .sidebar ul li a {
   color: #364149 !important;
 }
 
@@ -9,23 +9,23 @@
 
 #waifu-tool {
   right: 15px !important;
-}
+} */
 
 * {
   cursor: url(../img/Normal.cur), auto;
 }
 
-section.cover.has-mask .mask {
+/* section.cover.has-mask .mask {
   opacity: 0.5 !important;
-}
-p code {
+} */
+/* p code {
   background-color: rgb(255, 255, 255) !important;
-}
+} */
 
-.markdown-section p.tip,
+/* .markdown-section p.tip,
 .markdown-section tr:nth-child(1n) {
   font-size: 16px !important;
-}
+} */
 
 .markdown-section h1 {
   margin: 3rem 0 2rem 0;
@@ -37,7 +37,7 @@ p code {
 
 img,
 pre {
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 /*添加代码块复制按钮样式*/
@@ -52,9 +52,9 @@ pre {
   font-size: 13px !important;
 }
 
-.markdown-section > p {
+/* .markdown-section > p {
   font-size: 16px !important;
-}
+} */
 
 /*代码块头部图标 start*/
 .markdown-section pre:before {
@@ -87,8 +87,8 @@ pre {
 ol,
 ul,
 li {
-  line-height: 27px !important;
-  font-size: 16px !important;
+  line-height: 26px !important;
+  /* font-size: 14px !important; */
 }
 
 @media (min-width: 600px) {
@@ -110,9 +110,9 @@ li {
   }
 }
 
-section.cover h1 {
+/* section.cover h1 {
   margin: 0;
-}
+} */
 
 pre {
   background-color: #212121 !important;
@@ -230,7 +230,7 @@ h4 {
 /*滚动条样式 start*/
 /* 滚动条宽度 */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 /* 滚动条颜色 */
@@ -371,4 +371,7 @@ aside.sidebar ul li.active > a {
 
 .yellow {
   background-color: #ffff99;
+}
+.sidebar ul li.active > a {
+  border-right: 4px solid;
 }

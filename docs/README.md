@@ -2,15 +2,17 @@
 
 ---
 
-**访客你好！本人是一名大学应届毕业生，这里是本人的笔记网站！**
+> 访客你好！本人是一名大学应届毕业生!
+>
+> 最近整理： 2022/07/14
 
-| 知识点   | 已掌握                                                                   | 待学习                                              |
-| -------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
-| Adobe    | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                         | 暂无                                                |
-| 前端     | `jQuery`<br>`Bootstrap`<br>`Vue`<br>`Uni-app`<br>`React`<br>`TypeScript` | `React Native`                                      |
-| 后端     | 暂无                                                                     | `Node`<br>`Express`<br>`Koa`<br>`Python`<br>`MySql` |
-| 数据恢复 | `WinHex`<br>`R-Studio`                                                   | 暂无                                                |
-| 英语     | `新概念一`                                                               | `新概念二` <br> `新概念三` <br> `新概念四`          |
+| 技术栈   | 已掌握                                                          | 待学习                                                |
+| -------- | --------------------------------------------------------------- | ----------------------------------------------------- |
+| Adobe    | `Photoshop`<br>`Premiere Pro`<br>`After Effects`                | -                                                     |
+| 前端     | `jQuery` `Bootstrap`<br>`Vue` `Uni-app`<br>`React` `TypeScript` | `React Native`                                        |
+| 后端     | -                                                               | `Node` `MySql`<br>`Express` `Koa`<br>`Python` `MySql` |
+| 数据恢复 | `WinHex`<br>`R-Studio`                                          | -                                                     |
+| 英语     | `新概念一`                                                      | `新概念二` <br> `新概念三` <br> `新概念四`            |
 
 <br>
 
@@ -18,7 +20,7 @@
 
 ---
 
-1. ‍ 喜欢的运动：跑步，骑自行车，等等……
+1. 喜欢的运动：跑步，骑自行车，等等……
 2. 最喜欢做的事：DIY，唱歌，睡觉，等等……
 3. 喜欢逛的论坛：[Reddit](https://www.reddit.com/)，[巴哈姆特](https://forum.gamer.com.tw/)，等等……
 4. 喜欢逛的视频网站：[Youtube](https://www.youtube.com/)，[哔哩哔哩](https://space.bilibili.com/69895189)，等等……

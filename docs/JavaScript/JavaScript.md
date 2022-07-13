@@ -1,16 +1,16 @@
 # JavaScript
 
-- 作者：布尔登·艾奇（Brendan Eich）,最初命名 LiveScript
+- 作者：布尔登·艾奇（Brendan Eich）,最初命名 `LiveScript`
 
 # 变量
 
 > 本质：变量是程序在内存中申请的一块用来存放数据的空间。
 
-| 情况                         | 说明                   | 结果      |
-| ---------------------------- | ---------------------- | --------- |
-| var age ; console.log (age); | 只声明 不赋值          | undefined |
-| console.log(age)             | 不声明 不赋值 直接使用 | 报错      |
-| age = 10; console.log (age); | 不声明 只赋值          | 10        |
+| 情况                           | 说明                   | 结果        |
+| ------------------------------ | ---------------------- | ----------- |
+| `var age ; console.log(age);`  | 只声明 不赋值          | `undefined` |
+| `console.log(age)`             | 不声明 不赋值 直接使用 | 报错        |
+| `age = 10; console.log (age);` | 不声明 只赋值          | `10`        |
 
 ## 变量命名规范
 
@@ -40,10 +40,7 @@ let temperature = -40; // 负数
 ### String
 
 ```javascript
-let user_name = "小明"; // 使用单引号
-let gender = "男"; // 使用双引号
-let str = "123"; // 看上去是数字，但是用引号包裹了就成了字符串了
-let str1 = ""; // 这种情况叫空字符串
+let str1 = "111"; // 空字符串
 ```
 
 ### Boolean
@@ -74,7 +71,6 @@ document.write(typeof tmp); // 结果为 undefined
 ```javascript
 var arr = ["aaa", "bbb", "ccc", "ddd"];
 arr[0]; // aaa
-arr[1]; // bbb
 arr.length; // 4
 ```
 

@@ -12,7 +12,7 @@ module.exports = {
 };
 ```
 
-## 代码块
+## vue 代码块
 
 ```json
 {
@@ -127,16 +127,18 @@ module.exports = {
     "prefix": "v3s",
     "body": [
       "<template>",
+      "<div class='$1'>",
       "  <div class='container'>$1</div>",
+      "</div>",
       "</template>",
       "",
       "<script lang='ts'>",
       "export default {",
-      "name: '$1',",
+      "name: '$1-page',",
       "};",
       "</script>",
       "<script setup lang='ts'>",
-      "// https://www.ylawen.com/docs/#/./Frame/Vue/Vue3.2",
+      "// https://www.ylawen.com/docs/#/./Vue/Vue?id=components-api",
       "// import { useStore } from 'pinia'",
       "import { useRoute, useRouter } from 'vue-router';",
       "import { ref, reactive } from 'vue'",
@@ -156,20 +158,23 @@ module.exports = {
     "prefix": "v3sc",
     "body": [
       "<template>",
-      "  <div>$1</div>",
+      "  <div class='$1'>$1</div>",
       "</template>",
       "",
+      "<script lang='ts'>",
+      "export default {",
+      "name: '$1-component',",
+      "};",
+      "</script>",
       "<script setup lang='ts'>",
-      "// https://www.ylawen.com/docs/#/./Frame/Vue/Vue3.2",
-      "import { getCurrentInstance } from 'vue'",
-      "",
-      "const _this = getCurrentInstance();",
+      "// https://www.ylawen.com/docs/#/./Vue/Vue?id=components-api",
       "const props=defineProps({})",
       "",
       "</script>",
       "",
-      "<style lang='scss' scoped module>",
-      "",
+      "<style lang='scss' scoped>",
+      ".$1 {",
+      "}",
       "</style>"
     ],
     "description": "vue3Components"

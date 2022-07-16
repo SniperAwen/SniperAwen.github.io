@@ -10,6 +10,126 @@
   - VM： ViewModel 视图模型 (vue.js 源码)
     ![](images/MVVM.png)
 
+# Vue3.2
+
+> 不会真有冤大头去学 Vue3.0 吧
+
+- 引入组件自动注册
+- 可直接使用 `await` , 但是会变成 `async setup`
+- `style` 处使用变量 `v-bind(变量)`
+- `style` 处加上 `module` ，可用 `$style` 拿到
+
+## Components Api
+
+```vue
+import { reactive, ref, toRefs } from 'vue'
+```
+
+| api                  | tip                     | use                                                                    |
+| -------------------- | ----------------------- | ---------------------------------------------------------------------- |
+| `getCurrentInstance` | 获取 vm                 | `const _this = getCurrentInstance()')`                                 |
+| `reactive`           | 定义引用响应式数据      | `const name = reactive('["Jerry"]')`                                   |
+| `ref`                | 定义简单类型响应式数据  | `const name = ref('Jerry')`                                            |
+| `toRefs`             | 结构 `reactive` 数据    | `const {name, sex} = toRefs(state)`                                    |
+| `computed`           | 计算数据类型            | `const a=computed(()=>a.value*2)`                                      |
+| `watch`              | 监视计算属性            | `watch(()=>a,(n,o)=>{ code }),{immediate:true,deep:true})`             |
+| `nextTick`           | nextTick                | `nextTick(()=>{})`                                                     |
+| `defineExpose`       | 暴露自身属性            | `defineExpose({a,b}); const a = *.value.a`                             |
+| `defineProps`        | prop(不需要引入,需配置) | `const props=defineProps({name:{type:string,default:""}})`             |
+| `defineEmits`        | emit(不需要引入,需配置) | `const emit = defineEmits(['updateName']); emit('updateName', 'Tom') ` |
+
+```javascript
+// .eslintrc.js 文件
+
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+  ],
+  parserOptions: {
+    ecmaVersion: 2020,
+  },
+  rules: {
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+  },
+  globals: {
+    defineEmits: true,
+    defineProps: true,
+  },
+};
+```
+
+## 生命周期
+
+```vue
+import { mounted, beforeUnmount } from 'vue'
+```
+
+| api             | tip               |
+| --------------- | ----------------- |
+| `beforeCreate`  | `<script setup/>` |
+| `created`       | `<script setup/>` |
+| `beforeMount`   | `挂载前`          |
+| `mounted`       | `挂载后`          |
+| `beforeUpdate`  | `数据更新前`      |
+| `updated`       | `数据更新后`      |
+| `beforeUnmount` | `卸载前`          |
+| `unmount`       | `卸载后`          |
+
+![alt](./images/vue3生命周期.png)
+
+## 组件
+
+### 自定义组件
+
+- 属性双向绑定
+
+```vue
+// 父组件
+<template>
+	<son v-model:count='count'>
+</template>
+
+<script setup lang="ts">
+	const count = ref(0);
+</script>
+```
+
+```vue
+// 子组件
+<template>
+  <button @click="$emit('update:count', count + 1)">更改count</button>
+</template>
+
+<script setup lang="ts">
+const props = defineProps({
+  count: {
+    type: Number,
+    default: 0,
+  },
+});
+</script>
+```
+
+## Router
+
+> https://router.vuejs.org/zh/
+
+```javascript
+import { useRoute, useRouter } from "vue-router";
+```
+
+| api         | tip      | use                            |
+| ----------- | -------- | ------------------------------ |
+| `useRoute`  | 获取参数 | `const _route = useRoute();`   |
+| `useRouter` | 路由跳转 | `const _router = useRouter();` |
+
 # Vue2
 
 - `template` 必须, 只能有一个根标签
@@ -911,126 +1031,6 @@ Object.defineProperty(data, "name", {
   },
 });
 ```
-
-# Vue3.2
-
-> 不会真有冤大头去学 Vue3.0 吧
-
-- 引入组件自动注册
-- 可直接使用 `await` , 但是会变成 `async setup`
-- `style` 处使用变量 `v-bind(变量)`
-- `style` 处加上 `module` ，可用 `$style` 拿到
-
-## Components Api
-
-```vue
-import { reactive, ref, toRefs } from 'vue'
-```
-
-| api                  | tip                     | use                                                                    |
-| -------------------- | ----------------------- | ---------------------------------------------------------------------- |
-| `getCurrentInstance` | 获取 vm                 | `const _this = getCurrentInstance()')`                                 |
-| `reactive`           | 定义引用响应式数据      | `const name = reactive('["Jerry"]')`                                   |
-| `ref`                | 定义简单类型响应式数据  | `const name = ref('Jerry')`                                            |
-| `toRefs`             | 结构 `reactive` 数据    | `const {name, sex} = toRefs(state)`                                    |
-| `computed`           | 计算数据类型            | `const a=computed(()=>a.value*2)`                                      |
-| `watch`              | 监视计算属性            | `watch(()=>a,(n,o)=>{ code }),{immediate:true,deep:true})`             |
-| `nextTick`           | nextTick                | `nextTick(()=>{})`                                                     |
-| `defineExpose`       | 暴露自身属性            | `defineExpose({a,b}); const a = *.value.a`                             |
-| `defineProps`        | prop(不需要引入,需配置) | `const props=defineProps({name:{type:string,default:""}})`             |
-| `defineEmits`        | emit(不需要引入,需配置) | `const emit = defineEmits(['updateName']); emit('updateName', 'Tom') ` |
-
-```javascript
-// .eslintrc.js 文件
-
-module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-  ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-  },
-  globals: {
-    defineEmits: true,
-    defineProps: true,
-  },
-};
-```
-
-## 生命周期
-
-```vue
-import { mounted, beforeUnmount } from 'vue'
-```
-
-| api             | tip               |
-| --------------- | ----------------- |
-| `beforeCreate`  | `<script setup/>` |
-| `created`       | `<script setup/>` |
-| `beforeMount`   | `挂载前`          |
-| `mounted`       | `挂载后`          |
-| `beforeUpdate`  | `数据更新前`      |
-| `updated`       | `数据更新后`      |
-| `beforeUnmount` | `卸载前`          |
-| `unmount`       | `卸载后`          |
-
-![alt](./images/vue3生命周期.png)
-
-## 组件
-
-### 自定义组件
-
-- 属性双向绑定
-
-```vue
-// 父组件
-<template>
-	<son v-model:count='count'>
-</template>
-
-<script setup lang="ts">
-	const count = ref(0);
-</script>
-```
-
-```vue
-// 子组件
-<template>
-  <button @click="$emit('update:count', count + 1)">更改count</button>
-</template>
-
-<script setup lang="ts">
-const props = defineProps({
-  count: {
-    type: Number,
-    default: 0,
-  },
-});
-</script>
-```
-
-## Router
-
-> https://router.vuejs.org/zh/
-
-```javascript
-import { useRoute, useRouter } from "vue-router";
-```
-
-| api         | tip      | use                            |
-| ----------- | -------- | ------------------------------ |
-| `useRoute`  | 获取参数 | `const _route = useRoute();`   |
-| `useRouter` | 路由跳转 | `const _router = useRouter();` |
 
 # Vue Cli
 

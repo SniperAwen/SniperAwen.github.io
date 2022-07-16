@@ -986,6 +986,39 @@ import { mounted, beforeUnmount } from 'vue'
 
 ![alt](./images/vue3生命周期.png)
 
+## 组件
+
+### 自定义组件
+
+- 属性双向绑定
+
+```vue
+// 父组件
+<template>
+	<son v-model:count='count'>
+</template>
+
+<script setup lang="ts">
+	const count = ref(0);
+</script>
+```
+
+```vue
+// 子组件
+<template>
+  <button @click="$emit('update:count', count + 1)">更改count</button>
+</template>
+
+<script setup lang="ts">
+const props = defineProps({
+  count: {
+    type: Number,
+    default: 0,
+  },
+});
+</script>
+```
+
 ## Router
 
 > https://router.vuejs.org/zh/

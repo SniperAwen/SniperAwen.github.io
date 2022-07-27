@@ -18,6 +18,7 @@
 - 可直接使用 `await` , 但是会变成 `async setup`
 - `style` 处使用变量 `v-bind(变量)`
 - `style` 处加上 `module` ，可用 `$style` 拿到
+- `::v-deep` 改为 `:deep(选择器)`
 
 ## Components Api
 

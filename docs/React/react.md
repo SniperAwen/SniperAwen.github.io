@@ -47,7 +47,7 @@ const jsx = (
 
 ## React CLI
 
-- 命令：`npx create-react-app react-basic`
+- 命令：`npx create-react-app react-basic --template typescript`
   - npx create-react-app 是固定命令，`create-react-app` 是 React 脚手架的名称
   - react-basic 表示项目名称，可以修改
 - 启动项目：`yarn start` or `npm start`

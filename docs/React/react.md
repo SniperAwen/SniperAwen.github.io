@@ -2,7 +2,7 @@
 
 ![React Logo](./images/react_logo.jpeg)
 
-> react 是一个用于构建用户**界面**的 JavaScript 库
+> react 是一个用于构建用户界面的 JavaScript 库
 >
 > react 官网(<https://reactjs.org/>)
 >

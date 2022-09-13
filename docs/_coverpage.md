@@ -8,4 +8,4 @@
 
 <!-- 背景图片 -->
 
-![](assets/img/1.jpg)
+![](https://img1.imgtp.com/2022/08/30/8CWoAV1s.png)

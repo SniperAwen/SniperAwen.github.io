@@ -1,0 +1,7 @@
+* {
+  cursor: url(/awen/img/Normal.cur), auto;
+}
+
+#home-card .card-style .friend-links .friend-link a:hover {
+	background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%) !important;
+}

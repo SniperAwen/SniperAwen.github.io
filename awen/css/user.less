@@ -1,7 +1,6 @@
 * {
   cursor: url("https://ylawenimg.netlify.app/cursor/akua.ico"), auto;
 }
-
 .about-Platform {
   table {
     width: 100%;
@@ -14,7 +13,6 @@
     }
   }
 }
-
 .about-avatar {
   margin-top: 50px;
   img {
@@ -22,20 +20,157 @@
     border-radius: 50%;
   }
 }
-
 .about-kdqs-info {
-  background-color: rgb(20,22,24);
+  background-color: rgb(20, 22, 24);
   border-radius: 8px;
   padding: 1px 0;
   .ta-center {
     text-align: center;
-		color: #fff;
+    color: #fff;
   }
-	.top10{
-		margin-top: 10px;
-		padding-bottom: 6px;
-	}
+  .top10 {
+    margin-top: 10px;
+    padding-bottom: 6px;
+  }
 }
-.article{
-	margin-top: 70px !important;
+.article {
+  margin-top: 50px !important;
+}
+.article .content {
+  margin: 30px 0 !important;
+}
+@media screen and (max-width: 580px) {
+  #awen-album-cover-box {
+    #domestic-box {
+      .city-item {
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  #awen-album-detail-box {
+    .detail-item {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 270px !important;
+      height: 180px !important;
+    }
+  }
+}
+#awen-album-cover-box {
+  #domestic-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .city-item {
+      width: 270px;
+      height: 180px;
+      // margin: 0 auto;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      .city-img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+      }
+      .city-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.8;
+        z-index: 1;
+        background-image: url("https://ylawenimg.netlify.app/icon/pic-x.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .city-name {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 30px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5em;
+        margin-right: -0.5em;
+        text-shadow: 3px 3px 3px #333;
+      }
+    }
+  }
+}
+#album-back-box {
+  display: none;
+  font-size: 20px;
+  margin-bottom: 12px;
+  #album-all-text {
+    color: rgb(146, 202, 250);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  #album-current-text {
+    font-weight: 400;
+  }
+}
+#awen-album-detail-box {
+  display: none;
+  #album-we-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 4px solid rgba(148, 203, 248, 0.3);
+    margin-bottom: 12px;
+  }
+  #album-picture-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .detail-item {
+    width: 204px;
+    height: 136px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: relative;
+    &:hover {
+      transform: scale(1.1);
+    }
+    .detail-img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+    }
+  }
+  .detail-item-tip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding-left: 6px;
+  }
 }

@@ -39,21 +39,35 @@
 .article .content {
   margin: 30px 0 !important;
 }
+#showimg-content {
+  max-height: 100% !important;
+  max-width: 100% !important;
+}
+#waifu{
+	right: 30px !important;
+	left: auto !important;
+	z-index: 99 !important;
+}
 @media screen and (max-width: 580px) {
   #awen-album-cover-box {
     #domestic-box {
       .city-item {
-        margin: 0 auto;
+        // margin: 0 auto;
+        width: 42vw !important;
+        height: 26vw !important;
         margin-bottom: 20px;
+        .city-name {
+          font-size: 24px !important;
+        }
       }
     }
   }
   #awen-album-detail-box {
     .detail-item {
-      margin: 0 auto;
+      // margin: 0 auto;
       margin-bottom: 20px;
-      width: 270px !important;
-      height: 180px !important;
+      width: 42vw !important;
+      height: 26vw !important;
     }
   }
 }
@@ -171,6 +185,6 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    padding-left: 6px;
+    padding-left: 8px;
   }
 }

@@ -43,13 +43,35 @@
   max-height: 100% !important;
   max-width: 100% !important;
 }
-#waifu{
-	right: 30px !important;
-	left: auto !important;
-	z-index: 99 !important;
+#waifu {
+  right: 30px !important;
+  left: auto !important;
+  z-index: 99 !important;
 }
-.aplayer{
-	margin-bottom: 16px !important;
+.aplayer {
+  margin-bottom: 16px !important;
+}
+#music-box {
+  .music-item {
+    margin-bottom: 30px;
+    .music-name {
+      font-size: 24px;
+    }
+    .music-time {
+      padding: 8px 0;
+      color: #999;
+    }
+    .music-music {
+      width: 100%;
+      max-width: 500px;
+    }
+    .music-video {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 8px;
+      border-radius: 8px;
+    }
+  }
 }
 @media screen and (max-width: 580px) {
   #awen-album-cover-box {
@@ -139,12 +161,12 @@
     color: rgb(146, 202, 250);
     font-weight: 700;
     cursor: pointer;
-		font-size: 24px;
+    font-size: 24px;
   }
   #album-current-text {
     font-weight: 400;
-		color: #999;
-		// margin-left: 12px;
+    color: #999;
+    // margin-left: 12px;
   }
 }
 #awen-album-detail-box {

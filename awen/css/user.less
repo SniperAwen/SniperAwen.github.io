@@ -1,6 +1,40 @@
 * {
   cursor: url("https://ylawenimg.netlify.app/cursor/akua.ico"), auto;
 }
+@media screen and (max-width: 580px) {
+  #awen-album-cover-box {
+    #domestic-box {
+      .city-item {
+        // margin: 0 auto;
+        width: 42vw !important;
+        height: 26vw !important;
+        margin-bottom: 20px;
+        .city-name {
+          font-size: 24px !important;
+        }
+      }
+    }
+  }
+  #awen-album-detail-box {
+    .detail-item {
+      // margin: 0 auto;
+      margin-bottom: 20px;
+      width: 42vw !important;
+      height: 26vw !important;
+    }
+  }
+  #zhenban-box {
+    .zhenban-time {
+      font-size: 20px !important;
+      margin: 4px 0 !important;
+    }
+    .zhenban-countdown {
+      text-align: center;
+      margin-top: -6px !important;
+      margin-bottom: 24px !important;
+    }
+  }
+}
 .about-Platform {
   table {
     width: 100%;
@@ -74,29 +108,7 @@
     }
   }
 }
-@media screen and (max-width: 580px) {
-  #awen-album-cover-box {
-    #domestic-box {
-      .city-item {
-        // margin: 0 auto;
-        width: 42vw !important;
-        height: 26vw !important;
-        margin-bottom: 20px;
-        .city-name {
-          font-size: 24px !important;
-        }
-      }
-    }
-  }
-  #awen-album-detail-box {
-    .detail-item {
-      // margin: 0 auto;
-      margin-bottom: 20px;
-      width: 42vw !important;
-      height: 26vw !important;
-    }
-  }
-}
+
 #awen-album-cover-box {
   #domestic-box {
     display: flex;
@@ -231,5 +243,26 @@
     align-items: center;
     font-size: 14px;
     padding-left: 8px;
+  }
+}
+#zhenbanEggHunt {
+  transition: 0.3s;
+  &:hover {
+    color: pink;
+    // font-size: 16px;
+  }
+}
+#zhenban-box {
+  .zhenban-item {
+    .zhenban-time {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 12px !important;
+    }
+    .zhenban-countdown {
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 40px;
+    }
   }
 }

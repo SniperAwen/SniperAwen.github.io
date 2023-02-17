@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Awen.js 文档</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+	<link rel="shortcut icon" href="https://ylawenimg.netlify.app/awen/avatar-round.png" type="image/x-icon" />
+
+</head>
+
+<body>
+	<div id="app">⏳Loading...</div>
+	<script>
+		window.$docsify = {
+			el: "#app",
+			repo: "https://github.com/YlAwen/Awen.js",
+			loadSidebar: true, //开启导航栏
+			subMaxLevel: 5, //目录最大级数
+			auto2top: true, //切换页面自动回到顶部
+			loadNavbar: true, //开启侧边栏
+			coverpage: false, //开启封面
+			maxLevel: 5, //可配置最大支持渲染的标题层级
+			homepage: "README.md", //README.md作为首页
+			onlyCover: false, // 只在访问主页时加载封面
+			name: '',
+			count: {
+				countable: true,
+				fontsize: "0.9em",
+				color: "rgb(90,90,90)",
+				language: "chinese",
+			},
+			sidebarDisplayLevel: 1, // set sidebar display level
+			plugins: [
+				function (hook) {
+					var footer = [
+						"<hr/>",
+						"<footer>",
+						`<span> Copyright &copy; ${new Date().getFullYear()}  </span>`,
+						"<span> 💖 Awen</span>",
+						"</footer>",
+					].join("");
+					hook.afterEach(function (html) {
+						return html + footer;
+					});
+				},
+			],
+			// 完整配置参数
+			search: {
+				maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+				paths: "auto", // or 'auto'
+				// 支持本地化
+				placeholder: {
+					"/": "Search",
+					"/zh-cn/": "Search",
+				},
+				// 支持本地化
+				noData: {
+					"/": "No result found",
+					"/zh-cn/": "No result found",
+				},
+
+				// 搜索标题的最大层级, 1 - 6
+				depth: 4,
+				namespace: "website-1",
+
+				copyCode: {
+					buttonText: "Copy",
+					errorText: "Error",
+					successText: "OK!",
+				},
+
+				"flexible-alerts": {
+					style: "flat",
+				},
+			},
+		}
+	</script>
+	<!-- Docsify v4 -->
+	<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+	<script src="//polyfill.io/v3/polyfill.min.js?features=String.prototype.normalize"></script>
+</body>
+
+</html>

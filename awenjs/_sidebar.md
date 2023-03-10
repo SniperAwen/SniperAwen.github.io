@@ -1,4 +1,4 @@
-<!-- docs/_sidebar.md -->
-
-<!-- - [**指南**](./README.md)
- -->
+- [**指南**](./README.md)
+- [**style**](./style/index.md)
+- [**router**](./router/index.md)
+- [**utils**](./utils/index.md)

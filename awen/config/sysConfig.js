@@ -1,0 +1,1 @@
+var sysConfig={loadImgURL:"https://ylawenimg.netlify.app/img/cxk.gif"};

@@ -23,12 +23,12 @@
       height: 26vw !important;
     }
   }
-  #zhenban-box {
-    .zhenban-time {
+  #shangshang-box {
+    .shangshang-time {
       font-size: 20px !important;
       margin: 4px 0 !important;
     }
-    .zhenban-countdown {
+    .shangshang-countdown {
       text-align: center;
       margin-top: -6px !important;
       margin-bottom: 24px !important;
@@ -245,21 +245,37 @@
     padding-left: 8px;
   }
 }
-#zhenbanEggHunt {
+#shangshangEggHunt {
   transition: 0.3s;
   &:hover {
     color: pink;
     // font-size: 16px;
   }
 }
-#zhenban-box {
-  .zhenban-item {
-    .zhenban-time {
+#shangshang-box {
+  .shangshang-item {
+    .shangshang-imgBox {
+      position: relative;
+			min-height: 100px;
+      .load-img {
+        position: absolute;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      .shangshang-img {
+        position: relative;
+        z-index: 1;
+      }
+    }
+    .shangshang-time {
       text-align: center;
       font-size: 28px;
       margin-top: 12px !important;
     }
-    .zhenban-countdown {
+    .shangshang-countdown {
       text-align: center;
       margin-top: -10px;
       margin-bottom: 40px;

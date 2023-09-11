@@ -1,10 +1,14 @@
 * {
-  cursor: url("https://ylawenimg.netlify.app/cursor/akua.ico"), auto;
+  cursor: url("https://ylawenimg.netlify.app/cursor/akua.ico"), auto !important;
 }
 @media screen and (max-width: 580px) {
   #awen-album-cover-box {
     #domestic-box {
+      .city-list {
+        justify-content: space-between;
+      }
       .city-item {
+        margin-right: 0px !important;
         // margin: 0 auto;
         width: 42vw !important;
         height: 26vw !important;
@@ -29,9 +33,11 @@
       margin: 4px 0 !important;
     }
     .shangshang-countdown {
+      font-size: 14px;
       text-align: center;
       margin-top: -6px !important;
       margin-bottom: 24px !important;
+      color: #722ed166;
     }
   }
 }
@@ -111,14 +117,24 @@
 
 #awen-album-cover-box {
   #domestic-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    .city-list {
+      display: flex;
+      // justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .type-title {
+      font-size: 18px;
+      padding-bottom: 2px;
+      display: inline-block;
+      margin-bottom: 6px;
+      border-bottom: 2px solid #722ed166;
+    }
     .city-item {
+      margin-right: 25px;
       width: 270px;
       height: 180px;
       // margin: 0 auto;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
@@ -127,6 +143,9 @@
       &:hover {
         cursor: pointer;
         transform: scale(1.1);
+      }
+      &:nth-child(3n) {
+        margin-right: 0;
       }
       .city-img {
         width: 100%;
@@ -142,7 +161,7 @@
         bottom: 0;
         opacity: 0.8;
         z-index: 1;
-        background-image: url("https://ylawenimg.netlify.app/icon/pic-x.png");
+        // background-image: url("https://ylawenimg.netlify.app/icon/pic-x.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -160,7 +179,7 @@
         align-items: center;
         justify-content: center;
         letter-spacing: 0.5em;
-        margin-right: -0.5em;
+        margin-right: -0.25em;
         text-shadow: 3px 3px 3px #333;
       }
     }
@@ -171,10 +190,10 @@
   font-size: 16px;
   margin-bottom: 12px;
   #album-all-text {
-    color: rgb(146, 202, 250);
+    color: #722ed1;
     font-weight: 700;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 22px;
   }
   #album-current-text {
     font-weight: 400;
@@ -188,7 +207,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border-bottom: 4px solid rgba(148, 203, 248, 0.3);
+    border-bottom: 2px solid #722ed166;
     margin-bottom: 12px;
   }
   #album-picture-box {
@@ -256,7 +275,7 @@
   .shangshang-item {
     .shangshang-imgBox {
       position: relative;
-			min-height: 100px;
+      min-height: 100px;
       .load-img {
         position: absolute;
         margin: 0 auto;
@@ -276,9 +295,46 @@
       margin-top: 12px !important;
     }
     .shangshang-countdown {
+      font-size: 14px;
       text-align: center;
       margin-top: -10px;
       margin-bottom: 40px;
+      color: #722ed166;
+    }
+  }
+}
+#awen-album-tree {
+  position: fixed;
+  top: 96px;
+  margin-left: -240px;
+  width: 180px;
+  background-color: #722ed111;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  #close-album-tree {
+    font-size: 12px;
+    color: #aaa;
+  }
+  .tree-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tree-list {
+    max-height: 80vh;
+    overflow-y: scroll;
+    .list-item,
+    .list-city-item {
+      transition-duration: 0.2s;
+      padding-left: 6px;
+      border-radius: 4px;
+      &:hover {
+        background-color: #722ed1aa;
+        color: #fff;
+      }
     }
   }
 }
